@@ -1,0 +1,1613 @@
+\documentclass[thmcnt=section, color=blue, 12pt]{my-elegantbook}
+
+% index page
+\usepackage{imakeidx}
+\makeindex[columns = 2, intoc, options= -s index_style.ist]
+
+% Title and author
+\title{Linear Algebra}
+\author{Isaac FEI}
+
+% reference file 
+\addbibresource{Linear Algebra.bib}
+
+\cover{cover}
+
+\begin{document}
+
+% Print title and cover page
+\maketitle
+
+
+%--------
+% Preface
+%--------
+\frontmatter
+
+\section*{Preface}
+
+Linear algebra is a fascinating field of mathematics 
+that offers a powerful set of tools for modeling 
+and analyzing real-world problems. From designing computer graphics 
+to solving systems of equations, linear algebra 
+has numerous applications in science, engineering, and technology. 
+With its combination of abstract theory and practical applications, 
+linear algebra offers a unique opportunity to explore the interplay 
+between mathematics and the real world.
+
+The main structure of this book follows 
+Sheldon Axler's \textit{Linear Algebra Done Right} \cite{axlerLinearAlgebraDone1997}, 
+which emphasizes understanding vector spaces and linear transformations 
+before introducing matrices and determinants. 
+However, I believe that more examples and applications 
+related to matrices can help students better understand the subject, 
+and therefore I aim to supplement 
+Axler's approach with additional content in this area.
+
+This book covers a wide range of topics, 
+starting from basic vector space theory and linear systems 
+to more advanced topics such as eigenvalues, 
+singular values, and applications in data science and machine learning. 
+By providing both theoretical and practical insights, 
+I hope to offer readers a comprehensive 
+and integrated understanding of the subject.
+
+
+% Print table of contents
+\tableofcontents
+\mainmatter
+
+%------------------------------
+% Main document starts from here
+%------------------------------
+
+
+%==============================
+
+\chapter{Finite-Dimensional Vector Spaces}
+
+%------------------------------
+
+\section{Bases}
+
+%------------------------------
+
+\begin{theorem} \label{thm:10}
+    Every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis.
+\end{theorem}
+
+\begin{proof}
+    % TODO
+\end{proof}
+
+%==============================
+
+\chapter{Linear Maps}
+
+%------------------------------
+\section{Null Spaces and ranges}
+
+\begin{theorem} \label{thm:4}
+    Let $T: V \to W$ be a linear map. Then $T$ is injective if and only if $\ker T = \{\mathbf{0}\}$.
+\end{theorem}
+
+\begin{proof}
+    % TODO
+\end{proof}
+
+%------------------------------
+
+\begin{corollary} \label{cor:1}
+    Let $T: V \to W$ be a linear map. Then $T$ is injective if and only if $(T\mathbf{v}_1, \ldots, T\mathbf{v}_n)$ is linearly independent in $W$ as long as $(\mathbf{v}_1, \ldots, \mathbf{v}_n)$ is linearly independent in $V$. Mathematically,
+    \begin{align*}
+        (\mathbf{v}_1, \ldots, \mathbf{v}_n) \; \text{is linearly independent in $V$}
+        \implies 
+        (T\mathbf{v}_1, \ldots, T\mathbf{v}_n) \; \text{is linearly independent in $W$}
+    \end{align*}
+\end{corollary}
+
+\begin{proof}
+    % TODO
+\end{proof}
+
+%------------------------------
+
+\begin{corollary} \label{cor:2}
+    Let $T: V \to W$ be a linear map where $V$ is finite-dimensional. Suppose $B = (\mathbf{v}_1, \ldots, \mathbf{v}_n)$ is a basis for $V$. Then $T$ is injective if and only if $(\mathbf{v}_1, \ldots, \mathbf{v}_n)$ is linearly independent.
+\end{corollary}
+
+\begin{proof}
+    % TODO
+\end{proof}
+
+%------------------------------
+
+
+\section{Projections}
+
+%------------------------------
+
+\begin{definition} \label{def:1}
+    Let $V$ be a vector space. We say a linear operator $P \in \mathcal{L}(V)$ is a \textbf{projection}\index{projection} if it satisfies 
+    \begin{align*}
+        P^2 = P
+    \end{align*}
+\end{definition}
+
+%------------------------------
+
+\begin{proposition}
+    Let $V$ be a finite-dimensional vector space, and $P \in \mathcal{L}(V)$ a projection. Suppose $U = \im P$ and $W = \ker P$. Then we have 
+    \begin{enumerate}
+        \item $V = U \oplus W$, and 
+        \item $P \mathbf{v} = \mathbf{u} \; \forall \mathbf{v} \in V$ provided that $\mathbf{v} = \mathbf{u} + \mathbf{w}$ where $\mathbf{u} \in U$ and $\mathbf{w} \in W$.
+    \end{enumerate}
+    In particular, $P \mathbf{u} = \mathbf{u} \; \forall \mathbf{u} \in U$.
+\end{proposition}
+
+\begin{proof}
+    % TODO
+\end{proof}
+
+%------------------------------
+
+\begin{proposition} \label{pro:4}
+    Let $V$ be a finite-dimensional vector space. Suppose that $V = U \oplus W$. Let a linear operator $P \in \mathcal{L}(V)$ be defined by 
+    \begin{align*}
+        P \mathbf{v} = \mathbf{u}
+        \quad \forall \mathbf{v} \in V
+    \end{align*}
+    where $\mathbf{v} = \mathbf{u} + \mathbf{w}$, $\mathbf{u} \in U$ and $\mathbf{w} \in W$. (Notice that $P$ is well-defined since each $\mathbf{v} \in V$ can be uniquely written as $\mathbf{v} = \mathbf{u} + \mathbf{w}$ where $\mathbf{u} \in U$ and $\mathbf{w} \in W$.) Then $P$ is in fact a projection. Moreover, 
+    \begin{align*}
+        U &= \im P & W &= \ker P
+    \end{align*}
+\end{proposition}
+
+\begin{proof}
+    % TODO
+\end{proof}
+
+%------------------------------
+
+\begin{proposition} \label{pro:5}
+    Suppose $V$ is a finite-dimensional vector space and $V = U \oplus W$. For each $\mathbf{v} \in V$, write $\mathbf{v} = \mathbf{u} + \mathbf{w}$ where $\mathbf{u} \in U$ and $\mathbf{w} \in W$. Let $P_U, P_W \in \mathcal{L}(V)$ be defined by 
+    \begin{align*}
+        P_U \mathbf{v} &= \mathbf{u} & 
+        P_W \mathbf{v} &= \mathbf{w}
+    \end{align*}
+    (We know from Proposition~\ref{pro:4} that $P_U$ and $P_W$ are projections.) We have 
+    \begin{align*}
+        P_U + P_W = I
+    \end{align*}
+\end{proposition}
+
+\begin{proof}
+    The conclusion of this proposition is evident since it is clear from the definition that 
+    \begin{align*}
+        \mathbf{v} = \mathbf{u} + \mathbf{w}
+        = P_U(\mathbf{v}) + P_W(\mathbf{v})
+    \end{align*}
+    for each $\mathbf{v} \in V$ with $\mathbf{v} = \mathbf{u} + \mathbf{w}$ where $\mathbf{u} \in U$ and $\mathbf{w} \in W$.
+\end{proof}
+
+%==============================
+
+\chapter{Polynomials}
+
+%==============================
+
+\section{Polynomial with Real Coefficients}
+
+%------------------------------
+
+\begin{theorem} \label{thm:5}
+    Let $p(x)$ be a nonconstant polynomial with real coefficients. Then it has a unique factorization (except for the order of factors) of the form 
+    \begin{align*}
+        p(x) = c (x - \lambda_1) \cdots (x - \lambda_k) 
+        (x^2 + \alpha_1 x + \beta_1) \cdots (x^2 + \alpha_l x + \beta_l)
+    \end{align*}
+    where $k + m \geq 1$ and $\lambda_j, \alpha_j, \beta_j \in \R$ with $\alpha_j^2 < 4\beta_j$.
+\end{theorem}
+
+\begin{proof}
+    % TODO
+\end{proof}
+
+%==============================
+
+\chapter{Matrix Algebra}
+
+%==============================
+
+\section{LU Decomposition}
+
+%------------------------------
+
+\section{LU Decomposition with Partial Pivoting}
+
+%------------------------------
+
+\par Sometimes, even when $A$ is a nonsingular matrix, it may not admit an LU decomposition. To fix this, we need to first rearrange the rows of $A$ in some way, and then it is guaranteed to have an LU decomposition if it is nonsingular.
+
+\par The rearrangement of rows of $A$ can be done by multiplying a permutation matrix $P$ on the left of $A$. In this case, the decomposition can be written as 
+\begin{align*}
+    P A = L U
+\end{align*}
+
+\begin{algorithm}
+    \caption{LU Decomposition with Partial Pivoting}\label{alg:1}
+    \KwIn{$A \in \FF^{n \times n}$}
+    \KwOut{$L$, $U$, $P$}
+    $U \gets A$\;
+    $L \gets I_n$\; 
+    $P \gets I_n$\;
+    \For{$i = 1, \ldots, n$}{
+        $k \gets \argmax_{k} \abs{U_{k,i}}$ s.t. $k \geq i$\;
+
+        \tcp{$U_{k,i}$ is a pivot entry}
+        \If{$U_{k,i} = 0$}{
+            \Error Singular matrix does not admit an LU decomposition.
+        }
+
+        \If{$i \neq k$}{
+            swap $\row_i U$ and $\row_k U$\;
+            swap $\row_i P$ and $\row_k P$\;
+            swap $\row_i L$ and $\row_k L$\;
+            swap $\col_i L$ and $\col_k L$\;
+        }
+
+        \For{$j = i+1, \ldots, n$}{
+            $L_{j,i} \gets U_{j,i} / U_{i,i}$\;
+            $\row_j U \gets \row_j U - L_{j,i} \times \row_i U$\;
+        }
+    }
+\end{algorithm}
+    
+
+%==============================
+
+\chapter{Eigenvalues and Eigenvectors}
+
+%==============================
+
+\section{Invariant Subspaces}
+
+%------------------------------
+
+\begin{example} \label{eg:1}
+    Consider the linear operator on $\R^2$ whose matrix representation with respect to the standard basis is given by 
+    \begin{align*}
+        [T] = \begin{bmatrix}
+            \cos\theta & -\sin\theta \\ 
+            \sin\theta & \cos\theta
+        \end{bmatrix}
+        \quad \sin\theta \neq 0
+    \end{align*}
+    Geometrically, $T$ rotates any point $(x, y)$ on the $2$-dimensional plane counterclockwise through an angle $\theta$ about the origin. But since we additionally require that $\sin\theta \neq 0$, the point cannot land at $(x, y)$ or $(-x, -y)$ after rotation. That is, it cannot land on the \textit{line} passing through the origin and $(x, y)$, which is precisely $\Span\{(x, y)^\top\}$. Therefore, we see that $T$ has no eigenvalues.
+\end{example}
+
+\begin{exercise}
+    Show by computation that the linear operator $T$ in Example~\ref{eg:1} indeed does not have any eigenvalues.
+\end{exercise}
+
+%------------------------------
+
+\section{Upper Triangular Matrices}
+
+%------------------------------
+
+\begin{theorem} \label{thm:2}
+    Any operator on a finite-dimensional nonzero complex vector space has an eigenvalue.
+\end{theorem}
+
+\begin{proof}
+    % TODO
+\end{proof}
+
+%------------------------------
+
+\begin{proposition} \label{pro:2}
+    Let $V$ be a vector space and $T \in \mathcal{L}(V)$. Suppose $(\mathbf{v}_1, \ldots, \mathbf{v}_n)$ is a basis for $V$, then the following are equivalent:
+    \begin{enumerate}
+        \item $[T]$ is an upper triangular matrix with respect to the basis $(\mathbf{v}_1, \ldots, \mathbf{v}_n)$.
+        \item $T \mathbf{v}_k \in \Span(\mathbf{v}_1, \ldots, \mathbf{v}_k)$ for all $k = 1, \ldots, n$.
+        \item $\Span(\mathbf{v}_1, \ldots, \mathbf{v}_k)$ is invariant under $T$ for all $k = 1, \ldots, n$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    % TODO
+\end{proof}
+
+%------------------------------
+
+\begin{theorem}\label{thm:3}
+    Let $V$ be a complex vector space, and $T \in \mathcal{L}(V)$. Then there exists some basis $B$ for $V$ such that $[T]_B$ is upper triangular.
+\end{theorem}
+
+\begin{remark}
+    In fact, as we shall see in Section~\ref{sec:2}, we can find an \textit{orthonormal} basis $B$ such that $[T]_B$ is upper triangular, which is a stronger version of this theorem.
+\end{remark}
+
+\par To prove this theorem, we first use Theorem~\ref{thm:2} to find an eigenvalue $\lambda$ for $T$. After that, we construct a $T$-invariant subspace $\im(T - \lambda I)$, which has smaller dimension of $V$. Then we may prove this by mathematical induction. 
+
+\begin{proof}
+    We shall prove by mathematical induction. The hypothesis $P(n)$ is stated as
+    \begin{align*}
+        P(n): \text{This theorem holds for $\dim V \leq n$.}
+    \end{align*} 
+
+    \par (Base Case: $\dim V = 1$) If $V$ has dimension $1$, then this theorem holds trivially since $[T]$ consists of one entry, which clearly upper triangular.
+
+    \par (Inductive Step) Assume $P(k)$ ($k \geq 1$) holds, we need to show that $P(k+1)$ also holds. Note that it suffices to prove this theorem holds for $\dim V = k+1$. Firstly, by Theorem~\ref{thm:2}, $T$ has an eigenvalue $\lambda$. Consider the subspace
+    \begin{align*}
+        U = \im(T - \lambda I)
+    \end{align*}
+
+    \par We claim that $U$ is invariant under $T$. Pick any $\mathbf{u} \in U$, we need to show $T \mathbf{u} \in U$. Since $\mathbf{u} \in U$, there exists some $\mathbf{v} \in V$ such that $\mathbf{u} = (T - \lambda I) \mathbf{v}$. It then follows that 
+    \begin{align*}
+        T \mathbf{u} = T(T - \lambda I) \mathbf{v}
+        = (T - \lambda I) T \mathbf{v}
+        = (T - \lambda I) (T \mathbf{v})
+        \in U
+    \end{align*}
+    This shows $U$ is indeed invariant under $T$, which implies that the restricted map $T|_{U}$ is an operator on $U$.
+
+    \par Note that $\dim U < \dim V = k+1$, which implies $\dim U \leq k$. Now, we may apply the induction hypothesis $P(k)$ on $U$. It follows that the operator $[T|_U]_{B^\prime}$ is upper triangular for some basis
+    \begin{align*}
+        B^\prime = (\mathbf{u}_1, \ldots, \mathbf{u}_m)
+    \end{align*}
+    of subspace $U$.
+
+    \par We then extend $B^\prime$ to a basis $B$ for $V$ by adding some vectors $\mathbf{v}_1, \ldots, \mathbf{v}_{k-m+1}$. In this case, 
+    \begin{align*}
+        B = (\mathbf{u}_1, \ldots, \mathbf{u}_m, \mathbf{v}_1, \ldots, \mathbf{v}_{k-m+1})
+    \end{align*}
+    One may conjecture that $[T]_B$ is an upper triangular matrix, which is indeed true, and we shall now prove this by verifying statement 2 in Proposition~\ref{pro:2}. Since $U$ is invariant under $T$, it is clear 
+    \begin{align*}
+        T \mathbf{u}_j \in \Span(\mathbf{u}_1, \ldots, \mathbf{u}_j)
+        \quad
+        \forall j = 1, \ldots, m
+    \end{align*}
+    As for $\mathbf{v}_j$, we have 
+    \begin{align*}
+        T \mathbf{v}_j
+        = (T - \lambda I) \mathbf{v}_j + \lambda \mathbf{v}_j
+    \end{align*}
+    Note that $(T - \lambda I) \mathbf{v}_j \in U$. Thus,
+    \begin{align*}
+        (T - \lambda I) \mathbf{v}_j
+        \in \Span(\mathbf{u}_1, \ldots, \mathbf{u}_j, \mathbf{v}_j)
+        \subset \Span(\mathbf{u}_1, \ldots, \mathbf{u}_j, \mathbf{v}_1, \ldots, \mathbf{v}_j)
+        \quad \forall j = 1, \ldots, k-m+1
+    \end{align*}
+    Therefore, $[T]_B$ is indeed upper triangular. This completes the proof.
+\end{proof}
+
+%------------------------------
+
+\par If somehow we know that the matrix representation of a linear operator $T$ is upper triangular for some basis $B$. Then it becomes extremely easy to check whether it is invertible. In a word, $T$ is invertible if and only if all diagonal entries of matrix $[T]_B$ are nonzero as stated in Proposition~\ref{pro:3}.
+
+%------------------------------
+
+\par To make the proof of Proposition~\ref{pro:3} cleaner, we fist prove the following lemma.
+
+\begin{lemma} \label{lem:1}
+    Let $V$ be a finite-dimensional vector space, and $T \in \mathcal{L}(V)$. Suppose $[T]_B$ is an upper triangular matrix for some basis $B = (\mathbf{v}_1, \ldots, \mathbf{v}_n)$ of $V$. Then $(T \mathbf{v}_1, \ldots, T \mathbf{v}_n)$ is linearly independent if all diagonal entries of $[T]_B$ are nonzero.
+\end{lemma}
+
+\begin{proof}
+    We shall prove by induction on $\dim V = n$. 
+
+    \par (Base Case: $n = 1$) In this case, suppose $B = (\mathbf{v})$, and then we have $[T]_B = [\lambda]$ for some nonzero $\lambda$. It follows that $T \mathbf{v} = \lambda \mathbf{v} \neq 0$. The list $(T \mathbf{v})$ is clearly linearly independent since it consists only one nonzero vector.
+
+    \par (Inductive Step) Assume this lemma holds for $\dim V = k$ ($k \geq 1$). Now, suppose $\dim V = k+1$ and the basis $B = (\mathbf{v}_1, \ldots, \mathbf{v}_{k+1})$. Write
+    \begin{align}
+        [T]_B = \begin{bmatrix}
+            \lambda_1 & a_{1,2} & a_{1,3} & \cdots & a_{1,k+1} \\ 
+            & \lambda_2  & a_{2,3} &  \cdots & a_{2,k+1} \\
+            & & \ddots & \ddots & \vdots\\
+            & & & \lambda_{k} & a_{k,k+1}\\ 
+            0 & & & & \lambda_{k+1}
+            \label{eq:8}
+        \end{bmatrix}
+    \end{align}
+    The given condition implies that $\lambda_j \neq 0 \; \forall j=1, \ldots, k+1$.
+    
+    \par Let 
+    \begin{align*}
+        U = \Span(\mathbf{v}_1, \ldots, \mathbf{v}_k)
+    \end{align*}
+    We know from statement 3 in Proposition~\ref{pro:2} that $U$ is invariant under $T$. Hence, $T|_U$ is an operator on $U$. Let $B^\prime = (\mathbf{v}_1, \ldots, \mathbf{v}_k)$. It is clear that 
+    \begin{align*}
+        [T|_U]_{B^\prime} = \begin{bmatrix}
+            \lambda_1 & a_{1,2} & \cdots & a_{1,k} \\ 
+            & \lambda_2  &  \cdots & a_{2,k} \\
+            & & \ddots & \vdots\\
+            0 & & & \lambda_{k} 
+        \end{bmatrix}
+    \end{align*}
+    It then follows from the induction hypothesis that $(T \mathbf{v}_1, \ldots, T \mathbf{v}_k)$ is linearly independent.
+
+    \par The last column of \eqref{eq:8} gives
+    \begin{align}
+        T \mathbf{v}_{k+1}
+        = a_{1,k+1} \mathbf{v}_1 
+        + \cdots 
+        + a_{k,k+1} \mathbf{v}_k
+        + \lambda_{k+1} \mathbf{v}_{k+1}
+        \label{eq:9}
+    \end{align}
+    Set 
+    \begin{align}
+        c_1 T \mathbf{v}_1 + \cdots + c_k T \mathbf{v}_k + c_{k+1} T \mathbf{v}_{k+1} = \mathbf{0}
+        \label{eq:11}
+    \end{align}
+    Plugin \eqref{eq:9},
+    \begin{align}
+        c_1 T \mathbf{v}_1 + \cdots 
+        + c_k T \mathbf{v}_k 
+        + c_{k+1} (
+            a_{1,k+1} \mathbf{v}_1 
+            + \cdots 
+            + a_{k,k+1} \mathbf{v}_k
+        ) + c_{k+1} \lambda_{k+1} \mathbf{v}_{k+1}
+        = \mathbf{0}
+        \label{eq:10}
+    \end{align}
+    Note that all terms expect for the last one on the left-hand side of \eqref{eq:10} is in $\Span(\mathbf{v}_1, \ldots, \mathbf{v}_k)$. Hence, \eqref{eq:10} yields $c_{k+1} = 0$. Then \eqref{eq:10} itself reduces to 
+    \begin{align*}
+        c_1 T \mathbf{v}_1 + \cdots 
+        + c_k T \mathbf{v}_k 
+        = \mathbf{0}
+    \end{align*}
+    This implies $c_1 = \cdots = c_k = 0$ since we have already shown that $(T \mathbf{v}_1, \ldots, T \mathbf{v}_k)$ is linearly independent. In summary, \eqref{eq:11} finally yields that $c_1 = \cdots = c_{k+1} = 0$, which means $(T \mathbf{v}_1, \ldots, T \mathbf{v}_{k+1})$ is linearly independent. This completes the proof.
+\end{proof}
+
+%------------------------------
+
+\begin{proposition} \label{pro:3}
+    Let $T$ be a linear operator on $V$. Suppose $[T]_B$ is an upper triangular matrix for some basis $B$ of $V$. Then $T$ is invertible if and only if all diagonal entries of $[T]_B$ are nonzero.
+\end{proposition}
+
+\begin{proof}
+    Suppose $\dim V = n$ and $B = (\mathbf{v}_1, \ldots, \mathbf{v}_n)$. Write
+    \begin{align*}
+        [T]_B = \begin{bmatrix}
+            \lambda_1 & a_{1,2} & a_{1,3} & \cdots & a_{1,n} \\ 
+            & \lambda_2  & a_{2,3} &  \cdots & a_{2,n} \\ 
+            & & \lambda_3 &  \cdots & a_{3, n} \\
+            & & &  \ddots & \vdots\\
+            0 & & & & \lambda_n
+        \end{bmatrix}
+    \end{align*}
+    We have 
+    \begin{align}
+        T \mathbf{v}_j = a_{1,j} \mathbf{v}_1 + \cdots + a_{j-1, j} \mathbf{v}_{j-1} + \lambda_j \mathbf{v_j}
+        \label{eq:7}
+    \end{align}
+    Recall Corollary~\ref{cor:2}, and what we need to prove will become that $(T \mathbf{v}_1, \ldots, T \mathbf{v}_n)$ is linearly independent if and only if $\lambda_j \neq 0 \; \forall j=1,\ldots,n$. 
+
+    \par (Sufficiency) This is proved by Lemma~\ref{lem:1}.
+
+    \par (Necessity) For the necessity, we shall prove by \textit{contrapositive}. Assume $\lambda_j = 0$ for some $j$. If $j = 1$, then \eqref{eq:7} yields $T \mathbf{v}_1 = \mathbf{0}$, which implies $(T \mathbf{v}_1, \ldots, T \mathbf{v}_n)$ is linearly dependent. If $j \geq 2$, then it follows from \eqref{eq:7} that 
+    \begin{align*}
+        T \mathbf{v}_j \in \Span(T\mathbf{v}_1, \ldots, T\mathbf{v}_{j-1})
+    \end{align*}
+    This again implies $(T \mathbf{v}_1, \ldots, T \mathbf{v}_n)$ is linearly dependent.
+\end{proof}
+
+%------------------------------
+
+\par Another application of Proposition~\ref{pro:3} is to prove the following theorem, which states that the eigenvalues of $T$ consists precisely of the diagonal entries of $[T]_B$ provided that it is an upper triangular matrix.
+
+\begin{theorem}
+    Let $V$ be a vector space and $T \in \mathcal{L}(V)$. If $[T]_B$ is upper triangular for some basis $B$ of $V$, then the eigenvalues of $T$ consists precisely of diagonal entries of $[T]_B$.
+\end{theorem}
+
+\begin{remark}
+    This theorem in fact says two things. One is that all diagonal entries of $[T]_B$ must be eigenvalues. And the other one is that if $\lambda$ is an eigenvalue of $T$, then it must appear at the diagonal of $[T]_B$.
+\end{remark}
+
+\begin{proof}
+    Write 
+    \begin{align*}
+        [T]_B = \begin{bmatrix}
+            \lambda_1 & & \ast \\ 
+            & \ddots & \\ 
+            0 & & \lambda_n
+        \end{bmatrix}
+    \end{align*}
+
+    \par We first show that each $\lambda_j$ is an eigenvalue of $T$. It is clear that 
+    \begin{align*}
+        [T - \lambda_j I]_B = \begin{bmatrix}
+            \lambda_1 - \lambda_j & & & & \ast \\ 
+            & \ddots & & & \\ 
+            & & \lambda_j - \lambda_j = 0 & &\\ 
+            & &   & \ddots &\\ 
+            0 & & & & \lambda_n - \lambda_j
+        \end{bmatrix}
+    \end{align*}
+    Since $[T - \lambda_j I]_B$ is upper triangular and there exists a zero entry on its diagonal, it then follows from Proposition~\ref{pro:3} that $T - \lambda_j I$ is not invertible, which implies $\lambda_j$ is an eigenvalue of $T$.
+
+    \par Let $\lambda$ be an eigenvalue of $T$, we also need to show that $\lambda$ appears on the diagonal of $[T]_B$. We have 
+    \begin{align*}
+        [T - \lambda I]_B = \begin{bmatrix}
+            \lambda_1 - \lambda & & \ast \\ 
+            & \ddots & \\ 
+            0 & & \lambda_n - \lambda
+        \end{bmatrix}
+    \end{align*}
+    Note that $[T - \lambda I]_B$ is upper triangular and $T - \lambda I$ is not invertible since $\lambda$ is an eigenvalue of $T$. Thus, again by Proposition~\ref{pro:3}, we conclude that there is some zero entry on the diagonal of $[T - \lambda I]_B$. That is, $\lambda_j = \lambda$ for some $j$, which implies $\lambda$ indeed appears on the diagonal of $[T]_B$.
+\end{proof}
+
+\par Let $B_1$ and $B_2$ be two bases of $V$, and $T$ a linear operator. Suppose $[T]_{B_1}$ and $[T]_{B_2}$ are both upper triangular matrices. Now, we know that the \textbf{sets} of diagonal entries of $[T]_{B_1}$ and $[T]_{B_2}$ must the same, which both consist of \textbf{distinct} eigenvalues of $T$. 
+
+\par But is it possible that the occurrence of the same eigenvalue $\lambda$ on the diagonal differ from each other? For example, if $\lambda$ appears $k$ times on the diagonal of $[T]_{B_1}$, then must $\lambda$ appear also $k$ times on the diagonal of $[T]_{B_2}$?
+
+\par The answer is yes. But to prove this we need to introduce the concept of \textbf{characteristic polynomials}, which will be covered in a later chapter.
+
+
+%------------------------------
+
+\section{Diagonal Matrices}
+
+%------------------------------
+
+\par For an operator $T$ on a real vector space, it may not have any eigenvalues, as we have seen in Example~\ref{eg:1}. Hence, it is possible that no $1$-dimensional subspace exists that is invariant under $T$. 
+
+\par However, the following theorem states that a $T$-invariant subspace with dimension $1$ or $2$ is always possible to find.
+
+\begin{theorem} \label{thm:6}
+    Let $V$ be a finite-dimensional nonzero vector space over $\R$, and $T \in \mathcal{L}(V)$. Then there exists a subspace $U \leq V$ such that $U$ is invariant under $T$ and $\dim U = 1$ or $\dim U = 2$.
+\end{theorem}
+
+\begin{proof}
+    Suppose $\dim V = n$. Pick a nonzero vector $\mathbf{v} \neq \mathbf{0}$ in $V$. Consider the following list of vectors 
+    \begin{align*}
+        (\mathbf{v}, T \mathbf{v}, \ldots, T^n \mathbf{v})
+    \end{align*}
+    Notice that it is clearly linearly dependent since it consists of $n+1$ vectors. Then there exist some real numbers $a_j$'s that are not all zeros such that 
+    \begin{align*}
+        a_0 \mathbf{v} + a_1 T \mathbf{v} + \cdots a_n T^n \mathbf{v} = \mathbf{0}
+    \end{align*}
+    Let $a_m$ ($m \leq n$) be the last one among all $a_j$'s that is nonzero. Then the equation above reduces to 
+    \begin{align}
+        a_0 \mathbf{v} + a_1 T \mathbf{v} + \cdots a_m T^m \mathbf{v} = \mathbf{0}
+        \quad a_m \neq 0
+        \label{eq:12}
+    \end{align}
+    
+    \par Define a polynomial 
+    \begin{align*}
+        p(x) = a_0 x + a_1 x + \cdots a_m x^m
+    \end{align*}
+    Recall Theorem~\ref{thm:5}, which says that we can factorization $p(x)$ into 
+    \begin{align*}
+        p(x) = c (x - \lambda_1) \cdots (x - \lambda_k) 
+        (x^2 + \alpha_1 x + \beta_1) \cdots 
+        (x^2 + \alpha_l x + \beta_l)
+    \end{align*}
+    where $c \neq 0$ is some constant and $\alpha_j, \beta_j$ satisfy $\alpha_j^2 < 4\beta_j$. Apply $p$ to $T$, and it then follows from \eqref{eq:12} that 
+    \begin{align}
+        (T - \lambda_1 I) \cdots (T - \lambda_k I) 
+        (T^2 + \alpha_1 T + \beta_1 I) \cdots 
+        (T^2 + \alpha_l T + \beta_l I) \mathbf{v}
+        = \mathbf{0}
+        \label{eq:13}
+    \end{align}
+    Recall $\mathbf{v} \neq 0$. Then \eqref{eq:13} implies that the linear map composition on the left-hand side is not injective, which further implies there exists at least one linear map in this composition that is not injective. This leads to two cases.
+
+    \par (Case 1) If $T - \lambda_j I$ is not injective for some $j$, then $\lambda_j$ is clearly an eigenvalue of $T$. Let $\mathbf{u}$ be its corresponding eigenvector, and let $U = \Span(\mathbf{u})$. It is clear that $U$ has dimension $1$ and is invariant under $T$.
+
+    \par (Case 2) Suppose $T^2 + \alpha_j T + \beta_j I$ is not injective for some $j$. There exists $\mathbf{u} \neq \mathbf{0}$ such that
+    \begin{align}
+        (T^2 + \alpha_j T + \beta_j I) \mathbf{u} = \mathbf{0}
+        \label{eq:14}
+    \end{align}
+    Notice that $\Span(\mathbf{u}, T \mathbf{u})$ clearly has dimension $1$ or $2$. (In fact, it has dimension $2$. But we do not need to know this for sure in the proof of this theorem. See the note after the proof.) Now, we show that $\Span(\mathbf{u}, T \mathbf{u})$ is invariant under $T$. Any vector in $\Span(\mathbf{u}, T \mathbf{u})$ can be written as 
+    \begin{align*}
+        c_1 \mathbf{u} + c_2 T \mathbf{u}
+    \end{align*}
+    for some real numbers $c_1$ and $c_2$. We have 
+    \begin{align*}
+        T (c_1 \mathbf{u} + c_2 T \mathbf{u})
+        = c_1 T \mathbf{u} + c_2 T^2 \mathbf{u}
+        = -c_2 \beta_j \mathbf{u} + (c_1 - c_2 \alpha_j) T \mathbf{u}
+        \in \Span(\mathbf{u}, T \mathbf{u})
+    \end{align*}
+    where the second last equality follows form \eqref{eq:14}. This implies $\Span(\mathbf{u}, T \mathbf{u})$ is indeed invariant under $T$.
+\end{proof}
+
+\begin{note}
+    As we have commented in the proof, $\Span(\mathbf{u}, T \mathbf{u})$ actually has dimension $2$, which is equivalent to say $\mathbf{u}$ and $T \mathbf{u}$ are linearly independent. To see this, we assume they are linearly dependent and hence, there exists some real number $a$ such that
+    \begin{align*}
+        T \mathbf{u} = a \mathbf{u}
+    \end{align*}
+    Substitute $a \mathbf{u}$ for $T \mathbf{u}$ in the equation \eqref{eq:14} for several times, and we will obtain 
+    \begin{align*}
+        (a^2 + a\alpha_j + \beta_j) \mathbf{u} = \mathbf{0}
+    \end{align*}
+    Recall $\mathbf{u} \neq \mathbf{0}$, which implies
+    \begin{align*}
+        a^2 + a\alpha_j + \beta_j = 0
+    \end{align*}
+    But this equation has no real solutions since $\alpha_j^2 < \beta_j$. Therefore, there does not exist a real $a$ such that $T \mathbf{u} = a \mathbf{u}$. Hence, $\dim \Span(\mathbf{u}, T \mathbf{u}) = 2$.
+\end{note}
+
+%------------------------------
+
+\begin{theorem}
+    Let $V$ be an odd-dimensional real vector space. Then any linear operator $T \in \mathcal{L}(V)$ has an eigenvalue.
+\end{theorem}
+
+\begin{proof}
+    Suppose $\dim V = 2n - 1$ ($n \in \N^\ast$). We shall prove by induction on $n$. Let the induction hypothesis $P(n)$ be that 
+    \begin{align*}
+        P(n): \text{This theorem holds for $\dim V = 2n-1$.}
+    \end{align*}
+
+    \par (Base Case) Let $n = 1$, then $\dim V = 1$. It is clear that $T$ has an eigenvalue in this case. Hence, $P(1)$ holds.
+
+    \par (Inductive Step) Assume $P(k)$ holds, we shall prove $P(k+1)$. It follows from Theorem~\ref{thm:6} that there exists a subspace $U \leq V$ such that $U$ is invariant under $T$ and $\dim U = 1$ or $\dim U = 2$. If $\dim U = 1$, then it is clear that $T$ has an eigenvalue whose eigenspace \textit{contains} $U$. 
+    
+    \par We now consider the scenario where $\dim U = 2$. First, we notice that there exists a subspace $W$ such that 
+    \begin{align*}
+        V = U \oplus W
+    \end{align*}
+    Notice that $\dim W = 2k-1$ since $\dim V = 2k+1$ and $\dim U = 2$. It is tempting to apply the induction hypothesis to $W$. But unfortunately, there is no guarantee that $W$ is invariant under $T$!.
+    
+    \par Hence, instead of finding an eigenvalue of $T$ directly, we are going to first composite $T$ with a projection so that $W$ is invariant under the composition map, and then obtain an eigenvalue for that composition map. For each $\mathbf{v} \in V$ with $\mathbf{v} = \mathbf{u} + \mathbf{w}$ ($\mathbf{u} \in U$, $\mathbf{w} \in W$), define linear operators
+    \begin{align*}
+        P_U \mathbf{v} &= \mathbf{u} &
+        P_W \mathbf{v} &= \mathbf{w}
+    \end{align*}
+    We know from Proposition~\ref{pro:4} that both $P_U$ and $P_W$ are projections. For the time being, we will only make use of $P_W$. (We will need $P_U$ later.) Notice that $W$ is clearly invariant under the composition $P_W T$. Then applying the induction hypothesis $P(k)$, we may conclude that there exists an eigenvalue $\lambda$ for $P_W T$. Let $\mathbf{w}$ be one of its corresponding eigenvectors.
+
+    \par We will now prove $\lambda$ is also an eigenvalue of $T$ by showing that the linear operator $T - \lambda I$ is not injective. To do so, we will show that $T - \lambda I$ maps some subspace into a subspace with smaller dimension. Consider the subspace
+    \begin{align*}
+        U \oplus \Span(\mathbf{w})
+    \end{align*}
+    (Recall $\mathbf{w}$ is an eigenvector of $P_W T$ corresponding to $\lambda$.) The reason why we can write $\oplus$ here is that $\mathbf{w} \in W$ ($\mathbf{w} \neq \mathbf{0}$) and hence $\mathbf{w} \notin U$. We claim that $T - \lambda I$ maps $U \oplus \Span(\mathbf{w})$ into $U$. To see this, we pick an arbitrary vector in $U \oplus \Span(\mathbf{w})$, which can be written as $\mathbf{u} + a \mathbf{w}$ ($\mathbf{u} \in U$, $a \in \R$), we have 
+    \begin{align}
+        (T - \lambda I) (\mathbf{u} + a \mathbf{w})
+        = (T - \lambda I) \mathbf{u} 
+        + a T \mathbf{w}
+        - a \lambda \mathbf{w}
+        \label{eq:15}
+    \end{align}
+    Notice that 
+    \begin{align}
+        \lambda \mathbf{w} = P_W T \mathbf{w}
+        \label{eq:16}
+    \end{align}
+    (Recall that we have defined $P_U$ previously, and we will use it here.) And it follows from Proposition~\ref{pro:5} that 
+    \begin{align}
+        T \mathbf{w} = (P_U + P_W) T \mathbf{w}
+        \label{eq:17}
+    \end{align}
+    Plug \eqref{eq:16} and \eqref{eq:17} into \eqref{eq:15}, we obtain 
+    \begin{align}
+        (T - \lambda I) (\mathbf{u} + a \mathbf{w})
+        &= (T - \lambda I) \mathbf{u}
+        + a (P_U + P_W) T \mathbf{w}
+        - a P_W T \mathbf{w} \nonumber \\ 
+        &= (T - \lambda I) \mathbf{u}
+        + a P_U T \mathbf{w}
+        \label{eq:18}
+    \end{align}
+    Recall $U$ is invariant under $T$. Hence, $(T - \lambda I) \mathbf{u} \in U$. Moreover, since $P_U$ projects every vector into $U$, it is clear $a P_U T \mathbf{w} \in U$. Therefore, \eqref{eq:18} implies that 
+    \begin{align*}
+        (T - \lambda I) (\mathbf{u} + a \mathbf{w}) \in U
+    \end{align*}
+    This shows that $T - \lambda I$ maps $U + \Span(\mathbf{w})$ into $U$. Since $U + \Span(\mathbf{w})$ clearly has larger dimension than that of $U$ (actually, it is $1$ dimension larger), $T - \lambda I$ is not injective. Therefore, $\lambda$ is indeed an eigenvalue of $T$. This completes the proof.
+\end{proof}
+
+%==============================
+
+\chapter{Inner Product Spaces}
+
+%==============================
+
+\section{Inner Products}
+
+%------------------------------
+
+\begin{definition}
+    An inner product $\langle \cdot, \cdot \rangle$ on a vector space $V$ over $\FF$ is a mapping 
+    \begin{align*}
+        \langle \cdot, \cdot \rangle: V \times V \to \FF
+    \end{align*}
+    with the following properties:
+    \begin{enumerate}
+        \item (Positive-Definiteness) $\left\langle \mathbf{v}, \mathbf{v} \right\rangle \geq 0 \quad \forall \mathbf{v} \in V$ and $\left\langle \mathbf{v}, \mathbf{v} \right\rangle = 0 \iff \mathbf{v} = \mathbf{0}$.
+        \item (Conjugate Symmetry) $\left\langle \mathbf{v}, \mathbf{w} \right\rangle = \overline{\left\langle \mathbf{w}, \mathbf{v} \right\rangle} \quad \forall \mathbf{v}, \mathbf{w} \in V$.
+        \item (Linearity in the Second Slot) $\left\langle \mathbf{v}, a \mathbf{w} + b \mathbf{u} \right\rangle = a \left\langle \mathbf{v}, \mathbf{w} \right\rangle + b \left\langle \mathbf{v}, \mathbf{u} \right\rangle$ for all $a, b \in \FF $ and for all $\mathbf{v}, \mathbf{w}, \mathbf{u} \in V$.
+    \end{enumerate}
+    We say $V$ is an \textbf{inner product space} \index{inner product space} if there is an inner product defined on it.
+\end{definition}
+
+\begin{note}
+    In most mathematical contexts, a slightly different definition is adopted where the inner product is assumed linear in the first slot, which in fact follows the original definition of inner products. However, as mentioned before, the reason why we require the inner product to be linear in the second slot is to match the notation of Hermitian transpose $\mathbf{x}^H \mathbf{y}$.
+\end{note}
+
+\begin{remark}
+    Note that we do not assume $V$ is finite-dimensional in this definition. But in most cases, we shall confine ourselves only to finite-dimensional inner product spaces. 
+\end{remark}
+
+%------------------------------
+
+\section{Norms}
+
+%------------------------------
+
+\begin{definition}
+    Let $V$ be an inner product space. The norm of a vector $\mathbf{v} \in V$ is defined as 
+    \begin{align*}
+        \norm{\mathbf{v}} = \sqrt{\left\langle \mathbf{v}, \mathbf{v} \right\rangle}
+    \end{align*}
+\end{definition}
+
+%------------------------------
+
+\par In the following, we list some fundamental properties of the norms, which can be proved using the properties of inner products.
+
+\begin{proposition}
+    For vectors $\mathbf{v}, \mathbf{w}$ in an inner product space, we have 
+    \begin{enumerate}
+        \item (Positive-Definiteness) $\norm{\mathbf{v}} \geq 0$ and $\norm{\mathbf{v}} = 0$ if and only if $\mathbf{v} = \mathbf{0}$.
+        \item (Homogeneity) $\norm{a \mathbf{v}} = \abs{a} \norm{\mathbf{v}}$ where $a \in \FF$.
+        \item (Triangle Inequality) $\norm{\mathbf{v} + \mathbf{w}} \leq \norm{\mathbf{v}} + \norm{\mathbf{w}}$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Here we only prove the first and the second property, which are immediate results of the properties of inner products. To prove the third property, i.e., the triangle inequality (see Theorem~\ref{thm:7}), we need to use the Cauchy-Schwarz Inequality, which will be shown later. 
+
+    \par It is clear from the definition of norms that $\norm{\mathbf{v}} \geq 0$. Moreover,
+    \begin{align*}
+        \norm{\mathbf{v}} = 0
+        \iff \left\langle \mathbf{v}, \mathbf{v} \right\rangle = 0
+        \iff \mathbf{v} = \mathbf{0}
+    \end{align*}
+
+    \par We now prove the second property. We have 
+    \begin{align*}
+        \norm{a \mathbf{v}}^2
+        &= \left\langle a \mathbf{v}, a \mathbf{v} \right\rangle \\ 
+        &= \bar{a} a \left\langle \mathbf{v}, \mathbf{v} \right\rangle \\ 
+        &= \abs{a}^2 \norm{\mathbf{v}}^2
+    \end{align*}
+    Hence, $\norm{a \mathbf{v}} = \abs{a} \norm{\mathbf{v}}$.
+\end{proof}
+
+%------------------------------
+
+\begin{definition}
+    Two vectors $ \mathbf{u} $ and $\mathbf{v}$ in an inner product space are said to be \textbf{orthogonal} \index{orthogonal} to each other if 
+    \begin{align*}
+        \left\langle \mathbf{u}, \mathbf{v} \right\rangle = 0
+    \end{align*}
+\end{definition}
+
+%------------------------------
+
+\begin{theorem}[Pythagoean Theorem] \label{thm:9}
+    Let $\mathbf{u}$ and $\mathbf{v}$ be two orthogonal vectors in an inner product space $V$. Then we have the inequality:
+    \begin{align}
+        \norm{\mathbf{u} + \mathbf{v}}^2
+        = \norm{\mathbf{u}}^2 + \norm{\mathbf{v}}^2
+        \label{eq:20}
+    \end{align}
+\end{theorem}
+
+\begin{proof}
+    We have 
+    \begin{align}
+        \norm{\mathbf{u} + \mathbf{v}}^2
+        &= \left\langle \mathbf{u} + \mathbf{v}, \mathbf{u} + \mathbf{v} \right\rangle \nonumber \\ 
+        &= \left\langle \mathbf{u}, \mathbf{u} \right\rangle
+        + \left\langle \mathbf{u}, \mathbf{v} \right\rangle
+        + \left\langle \mathbf{v}, \mathbf{u} \right\rangle
+        + \left\langle \mathbf{v}, \mathbf{v} \right\rangle \nonumber \\ 
+        &= \norm{\mathbf{u}}^2
+        + 2 \RE \left\langle \mathbf{u}, \mathbf{v} \right\rangle
+        + \norm{\mathbf{v}}^2
+        \label{eq:19}
+    \end{align}
+    Because $\mathbf{u}$ and $\mathbf{v}$ are orthogonal, we have $\left\langle \mathbf{u}, \mathbf{v} \right\rangle = 0$. Then \eqref{eq:19} reduces to \eqref{eq:20}.
+\end{proof}
+
+\begin{note}
+    We are very familiar with the equality
+    \begin{align*}
+        (a + b)^2 = a^2 + 2ab + b^2
+    \end{align*}
+    which resembles \eqref{eq:19} except that the middle term on the right-hand side of \eqref{eq:19} is taken the real part.
+
+    \par Since we also consider the complex vector space, we cannot change the order of two vectors in an inner product at will, that is, $\left\langle \mathbf{u}, \mathbf{v} \right\rangle \neq \left\langle \mathbf{v}, \mathbf{u} \right\rangle$ in general.
+\end{note}
+
+%------------------------------
+
+\par Next, we shall present the Cauchy-Schwarz Inequality, which is a very important inequality in mathematics. This inequality has many forms across different fields of mathematics, some of which may appear as long scary expressions. In linear algebra, the Cauchy-Schwarz inequality can be simply written as 
+\begin{align*}
+    \abs{\left\langle \mathbf{u}, \mathbf{v} \right\rangle}
+    \leq \norm{\mathbf{u}} \norm{\mathbf{v}}
+\end{align*}
+
+\par The general idea of its proof is by considering the projection of one vector onto the other one. Suppose $\mathbf{\mathbf{u}} \neq \mathbf{0}$, we define a linear map 
+\begin{align}
+    \proj_{\mathbf{u}} \mathbf{v}
+    = \frac{\left\langle \mathbf{u}, \mathbf{v} \right\rangle}{\norm{\mathbf{u}}^2} \mathbf{u}
+    \label{eq:22}
+\end{align}
+It is an exercise (Exercise~\ref{ex:1}) to verify that $\proj_\mathbf{u} \mathbf{v}$ is indeed a linear map. As the notation suggests, $\proj_\mathbf{u} \mathbf{v}$ is the projected vector of $\mathbf{v}$ onto $\mathbf{u}$. See Figure~\ref{fig:1}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.1]{figures/projection.png}
+    \caption{Projection of one vector onto another.}
+    \label{fig:1}
+\end{figure}
+
+\par Though it is intuitive to see the map $\proj_\mathbf{u}$ is a \textit{projection}, we cannot claim so for the time being. Recall we have a formal definition for projections (Definition~\ref{def:1}). That is, a projection $P$ is a linear map satisfying $P^2 = P$. We now show that $\proj_\mathbf{u}$ indeed satisfies this requirement. We have 
+\begin{align*}
+    \proj_\mathbf{u}^2 \mathbf{v}
+    &= \proj_\mathbf{u} \left(
+        \frac{\left\langle \mathbf{u}, \mathbf{v} \right\rangle}{\norm{\mathbf{u}}^2} \mathbf{u}
+    \right) \\ 
+    &= \frac{1}{\norm{\mathbf{u}}^2}
+        \left\langle
+            \mathbf{u},
+            \frac{\left\langle \mathbf{u}, \mathbf{v} \right\rangle}{\norm{\mathbf{u}}^2} \mathbf{u}
+        \right\rangle \mathbf{u} \\ 
+    &= \frac{
+            \left\langle \mathbf{u}, \mathbf{v} \right\rangle
+        }{\norm{\mathbf{u}}^4}
+        \left\langle 
+            \mathbf{u}, \mathbf{u}    
+        \right\rangle \mathbf{u} \\ 
+    &= \frac{\left\langle \mathbf{u}, \mathbf{v} \right\rangle}{\norm{\mathbf{u}}^2} \mathbf{u} \\ 
+    &= \proj_\mathbf{u} \mathbf{v}
+\end{align*}
+Therefore, indeed $\proj_\mathbf{u}^2 = \proj_\mathbf{u}$, i.e., $\proj_\mathbf{u}$ is a projection.
+
+\par Note that $\mathbf{v}$ can be written as 
+\begin{align*}
+    \mathbf{v} = \proj_{\mathbf{u}} \mathbf{v} + (\mathbf{v} - \proj_{\mathbf{u}} \mathbf{v})
+\end{align*}
+We have 
+\begin{align*}
+    \left\langle 
+        \proj_{\mathbf{u}} \mathbf{v},
+        \mathbf{v} - \proj_{\mathbf{u}} \mathbf{v}
+    \right\rangle
+    &= \left\langle
+        \proj_{\mathbf{u}} \mathbf{v},
+        \mathbf{v}
+    \right\rangle
+    - \left\langle
+        \proj_{\mathbf{u}} \mathbf{v},
+        \proj_{\mathbf{u}} \mathbf{v}
+    \right\rangle \\ 
+    &= \overline{\frac{\left\langle \mathbf{u}, \mathbf{v} \right\rangle}{\norm{\mathbf{u}}^2}} \left\langle \mathbf{u}, \mathbf{v} \right\rangle
+    -  \overline{\frac{\left\langle \mathbf{u}, \mathbf{v} \right\rangle}{\norm{\mathbf{u}}^2}} \frac{\left\langle \mathbf{u}, \mathbf{v} \right\rangle}{\norm{\mathbf{u}}^2} \left\langle \mathbf{u}, \mathbf{u} \right\rangle \\ 
+    &= \frac{\abs{\left\langle \mathbf{u}, \mathbf{v} \right\rangle}^2}{\norm{\mathbf{u}}^2} - \frac{\abs{\left\langle \mathbf{u}, \mathbf{v} \right\rangle}^2}{\norm{\mathbf{u}}^2} \\ 
+    &= 0
+\end{align*}
+That is, 
+\begin{align}
+    \proj_{\mathbf{u}} \mathbf{v} \bot (\mathbf{v} - \proj_{\mathbf{u}} \mathbf{v}) 
+    \label{eq:23}
+\end{align}
+This implies that $\mathbf{v}$ can be decomposed as a sum of two orthogonal vectors, one of which is its projection onto $\mathbf{u}$. As illustrated in Figure~\ref{fig:1}, $\proj_{\mathbf{u}} \mathbf{v} \bot \mathbf{w}$ where $\mathbf{w} = \mathbf{v} - \proj_{\mathbf{u}} \mathbf{v}$.
+
+\par From Figure~\ref{fig:1}, we observe that the length of the projected vector is less than or equal to that of the original one, i.e., $\norm{\proj_{\mathbf{u}} \mathbf{v}} \leq \norm{\mathbf{v}}$. This is precisely the idea of the proof of Cauchy-Schwarz inequality.
+
+\begin{exercise} \label{ex:1}
+    Show that $\proj_\mathbf{u} \mathbf{v}$ defined in \eqref{eq:22} is a linear map. What if we replace its definition with $(\left\langle \mathbf{v}, \mathbf{u} \right\rangle / \norm{\mathbf{u}}^2) \mathbf{u}$? Is it still a linear map?
+\end{exercise}
+
+%------------------------------
+
+\begin{theorem}[Cauchy-Schwarz Inequality\index{Cauchy-Schwarz inequality}] \label{thm:10}
+    Let $\mathbf{u}$ and $\mathbf{v}$ be two vectors in an inner product space. Then 
+    \begin{align}
+        \abs{\left\langle \mathbf{u}, \mathbf{v} \right\rangle}
+        \leq \norm{\mathbf{u}} \norm{\mathbf{v}}
+        \label{eq:21}
+    \end{align}
+    The equality in \eqref{eq:21} holds if and only if $\mathbf{u}$ and $\mathbf{v}$ are linearly dependent.
+\end{theorem}
+
+\begin{proof}
+    If $\mathbf{u} = \mathbf{0}$, then the conclusion is trivial since the equality of \eqref{eq:21} holds and $\mathbf{u}$ and $\mathbf{v}$ are linearly dependent.
+
+    \par In the following, we assume $\mathbf{u} \neq \mathbf{0}$. Note that $\mathbf{v}$ can be written as 
+    \begin{align*}
+        \mathbf{v} = \proj_{\mathbf{u}} \mathbf{v} + (\mathbf{v} - \proj_{\mathbf{u}} \mathbf{v})
+    \end{align*}
+    We have shown in \eqref{eq:23} that $\mathbf{v} \bot (\mathbf{v} - \proj_{\mathbf{u}} \mathbf{v})$. Then the Pythagorean Theorem (Theorem~\ref{thm:9}) implies 
+    \begin{align}
+        \norm{\mathbf{v}}^2
+        = \norm{\proj_{\mathbf{u}} \mathbf{v}}^2 + \norm{\mathbf{v} - \proj_{\mathbf{u}} \mathbf{v}}^2
+        \geq \norm{\proj_{\mathbf{u}} \mathbf{v}}^2
+        = \frac{\abs{\left\langle \mathbf{u}, \mathbf{v} \right\rangle}^2}{\norm{\mathbf{u}}^2}
+        \label{eq:24}
+    \end{align}
+    Rearranging the terms in \eqref{eq:24} and then taking the square root gives 
+    \begin{align}
+        \abs{\left\langle \mathbf{u}, \mathbf{v} \right\rangle} \leq \norm{\mathbf{u}} \norm{\mathbf{v}}
+        \label{eq:25}
+    \end{align}
+
+    \par Note that the equality in \eqref{eq:25} holds if and only if the equality in \eqref{eq:24} holds. And that happens if and only if 
+    \begin{align*}
+        \mathbf{v} - \proj_{\mathbf{u}} \mathbf{v} = \mathbf{0}
+    \end{align*}
+    which is equivalent to that $\mathbf{u}$ and $\mathbf{v}$ are linearly dependent. This completes the proof. 
+\end{proof}
+
+%------------------------------
+
+\par The famous triangle inequality can be proved using the Cauchy-Schwarz inequality.
+
+\begin{theorem}[Triangle Inequality] \label{thm:7}
+    For $\mathbf{u}, \mathbf{v}$ in an inner product space, we have the following inequality:
+    \begin{align}
+        \norm{\mathbf{u} + \mathbf{v}} \leq \norm{\mathbf{u}} + \norm{\mathbf{v}}
+        \label{eq:26}
+    \end{align}
+    The equality in \eqref{eq:26} holds if and only if one vector is a \textbf{nonnegative} multiple of the other.
+\end{theorem}
+
+\begin{proof}
+    If $\mathbf{u} = \mathbf{0}$, then \eqref{eq:26} clearly holds since both sides of are equal to $\norm{\mathbf{v}}$. And in this case, we can say $\mathbf{u}$ is a nonnegative multiple of $\mathbf{v}$ by writing $\mathbf{u} = 0 \mathbf{v}$.
+
+    \par We now assume $\mathbf{u} \neq 0$ in the rest of the proof. We have 
+    \begin{align}
+        \norm{\mathbf{u} + \mathbf{v}}^2 
+        &= \norm{\mathbf{u}}^2 + 2 \RE \left\langle \mathbf{u}, \mathbf{v} \right\rangle + \norm{\mathbf{v}}^2 \nonumber \\ 
+        &\leq \norm{\mathbf{u}}^2 + 2 \abs{\left\langle \mathbf{u}, \mathbf{v} \right\rangle} + \norm{\mathbf{v}}^2
+        \label{eq:27}
+    \end{align}
+    Applying the Cauchy-Schwarz inequality (Theorem~\ref{thm:10}) to the right-hand side of \eqref{eq:27} gives
+    \begin{align}
+        \norm{\mathbf{u}}^2 + 2 \abs{\left\langle \mathbf{u}, \mathbf{v} \right\rangle} + \norm{\mathbf{v}}^2
+        &\leq \norm{\mathbf{u}}^2 + 2 \abs{\mathbf{u}, \mathbf{v}} + \norm{\mathbf{v}}^2 \nonumber \\
+        &= (\norm{\mathbf{u}} + \norm{\mathbf{v}})^2
+        \label{eq:28}
+    \end{align}
+    Inequality \eqref{eq:26} then follows by combining \eqref{eq:27} and \eqref{eq:28}.
+
+    \par Now, we discuss when the equality holds in \eqref{eq:26}. It is clear from the context that the equality in \eqref{eq:26} holds if and only if the equalities hold simultaneously in \eqref{eq:27} and \eqref{eq:28}. We know that the equality in \eqref{eq:27} holds if and only if $\left\langle \mathbf{u}, \mathbf{v} \right\rangle \geq 0$ (this implicitly requires that the inner product is a real number). On the other hand, as stated in Theorem~\ref{thm:10}, the equality in \eqref{eq:28} holds if and only if $\mathbf{u}$ and $\mathbf{v}$ are linearly dependent. Since $\mathbf{u} \neq \mathbf{0}$, this is equivalent to that $\mathbf{v} = a \mathbf{u}$ for some $a \in \FF$. In summary, the equality in \eqref{eq:26} holds if and only if 
+    \begin{align*}
+        \begin{cases}
+            \left\langle \mathbf{u}, \mathbf{v} \right\rangle \geq 0 \\ 
+            \exists a \in \FF, \; \mathbf{v} = a \mathbf{u}
+        \end{cases}
+    \end{align*}
+    This is equivalent to saying that $\mathbf{v}$ is a nonnegative multiple of $\mathbf{u}$.
+\end{proof}
+
+%------------------------------
+
+\section{Orthonormal Bases}
+
+%------------------------------
+
+\par A list of vectors $(\mathbf{e}_1, \ldots, \mathbf{e}_m)$ is called \textbf{orthonormal} \index{orthonormal} if 
+\begin{align*}
+    \left\langle
+        \mathbf{e}_i, \mathbf{e}_j
+    \right\rangle = \begin{cases}
+        1 &i=j\\ 
+        0 &i \neq j
+    \end{cases}
+\end{align*}
+That is, each pair of vectors in the list is orthogonal and every vector itself is a unit vector.
+
+%------------------------------
+
+\begin{exercise}
+    Suppose $V = \R^3$. What is the norm of the vector $ 3 \mathbf{e}_1 + 4 \mathbf{e}_2 + 12 \mathbf{e}_3 $ where $(\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3)$ is the standard basis of $\R^3$?
+
+\end{exercise}
+
+\begin{solution}
+    By definition, squaring the norm in question gives
+    \begin{alignat*}{2}
+        \left\langle
+            3 \mathbf{e}_1 + 4 \mathbf{e}_2 + 12 \mathbf{e}_3,
+            3 \mathbf{e}_1 + 4 \mathbf{e}_2 + 12 \mathbf{e}_3
+        \right\rangle
+        &=& \; & 3^2 \left\langle \mathbf{e}_1, \mathbf{e}_1 \right\rangle
+        + 3 \times 4 \left\langle \mathbf{e}_1, \mathbf{e}_2 \right\rangle
+        + 3 \times 12 \left\langle \mathbf{e}_1, \mathbf{e}_3 \right\rangle \\ 
+        &&& +4 \times 3 \left\langle \mathbf{e}_2, \mathbf{e}_1 \right\rangle
+        + 4^2 \left\langle \mathbf{e}_2, \mathbf{e}_2 \right\rangle
+        + 4 \times 12 \left\langle \mathbf{e}_2, \mathbf{e}_3 \right\rangle \\
+        &&& +12 \times 3 \left\langle \mathbf{e}_3, \mathbf{e}_1 \right\rangle
+        + 12 \times 4 \left\langle \mathbf{e}_3, \mathbf{e}_2 \right\rangle
+        + 12^2 \left\langle \mathbf{e}_3, \mathbf{e}_3 \right\rangle \\
+        &=&& 3^2 + 4^2 + 12^2 \\
+        &=&& 13^2
+    \end{alignat*}
+    Hence, the norm is $13$.
+
+    \par Geometrically, one can also argue by the Pythagorean theorem that $3 \mathbf{e}_1 + 4 \mathbf{e}_2 = (3, 4, 0)^\top$ is a vector in a $2$-dimensional plane with norm $5$. Since $12 \mathbf{e}_3 = (0, 0, 12)^\top$ is orthogonal to $(3, 4, 0)^\top$, we can then apply the Pythagorean theorem again to obtain the final result.
+\end{solution}
+
+\par The second solution to the preceding exercise reveals a deeper meaning of this question and inspires us to generalize the Pythagorean theorem as shown in the next proposition.
+
+\begin{proposition} \label{pro:6}
+    If $(\mathbf{e}_1, \ldots, \mathbf{e}_m)$ is a list of orthonormal vectors in an inner product space, then 
+    \begin{align*}
+        \norm{a_1 \mathbf{e}_1 + \cdots + a_m \mathbf{e}_m}^2
+        = \abs{a_1}^2 + \cdots + \abs{a_m}^2
+    \end{align*}
+    where $a_1, \ldots, a_m \in \FF$.
+\end{proposition}
+
+\begin{proof}
+    We shall prove by induction on $m$.
+
+    \par (Base Case: $m = 1$) In this case, by the properties of norms we have
+    \begin{align*}
+        \norm{a_1 \mathbf{e}_1} = \abs{a_1} \norm{\mathbf{e}_1} = \abs{a_1}
+    \end{align*}
+
+    \par (Inductive Step) Assume this proposition holds for $m = k$ orthonormal vectors, we need to show it also holds for $m = k+1$. Note that 
+    \begin{align*}
+        \left\langle
+            a_{k+1} \mathbf{e}_{k+1},
+            a_1 \mathbf{e}_1 + \cdots + a_k \mathbf{e}_k
+        \right\rangle
+        = \sum_{j=1}^k \bar{a}_{k+1} a_j \left\langle
+            \mathbf{e}_{k+1},
+            \mathbf{e}_{j}
+        \right\rangle
+        = 0
+    \end{align*}
+    which means that $a_1 \mathbf{e}_1 + \cdots + a_k \mathbf{e}_k$ and $a_{k+1} \mathbf{e}_{k+1}$ are orthogonal to each other. Then by Pythagorean theorem (Theorem~\ref{thm:9}), we have 
+    \begin{align*}
+        \norm{a_1 \mathbf{e}_1 + \cdots + a_k \mathbf{e}_k + a_{k+1} \mathbf{e}_{k+1}}^2 
+        &= \norm{a_1 \mathbf{e}_1 + \cdots + a_k \mathbf{e}_k}^2 + \norm{a_{k+1} \mathbf{e}_{k+1}}^2 \\
+        &= \norm{a_1 \mathbf{e}_1 + \cdots + a_k \mathbf{e}_k}^2 + \abs{a_{k+1}}^2
+    \end{align*}
+    where the last equality follows from the properties of norms. We then apply the induction hypothesis to the vectors $(\mathbf{e}_1, \ldots, \mathbf{e}_k)$. It follows that 
+    \begin{align*}
+        \norm{a_1 \mathbf{e}_1 + \cdots + a_k \mathbf{e}_k + a_{k+1} \mathbf{e}_{k+1}}^2 
+        &= \norm{a_1 \mathbf{e}_1 + \cdots + a_k \mathbf{e}_k}^2 + \abs{a_{k+1}}^2 \\ 
+        &= \abs{a_1}^2 + \cdots + \abs{a_k}^2 + \abs{a_{k+1}}^2
+    \end{align*}
+    This completes the proof.
+\end{proof}
+
+%------------------------------
+
+The following corollary is a simple application of Proposition~\ref{pro:6}, which says a list of nonzero orthogonal vectors must be linearly independent. 
+
+\begin{corollary} \label{cor:3}
+    Every list of orthogonal nonzero vectors $(\mathbf{v}_1, \ldots, \mathbf{v}_m)$ in an inner product space is linearly independent.
+\end{corollary}
+
+\begin{proof}
+    The equation 
+    \begin{align*}
+        a_1 \mathbf{v}_1 + \cdots a_m \mathbf{v}_m = \mathbf{0}
+    \end{align*}
+    yields
+    \begin{align*}
+        \norm{a_1 \mathbf{v}_1 + \cdots a_m \mathbf{v}_m}^2 = 0
+    \end{align*}
+    We can then compute the square of the norm using Proposition~\ref{pro:6}: 
+    \begin{align*}
+        \abs{a_1}^2 \norm{\mathbf{v}_1}^2 + \cdots + \abs{a_m}^2 \norm{\mathbf{v}_m}^2 = 0
+    \end{align*}
+    This implies
+    \begin{align*}
+        a_1 = \cdots = a_m = 0
+    \end{align*}
+    Hence, $(\mathbf{v}_1, \ldots, \mathbf{v}_m)$ is linearly independent.
+\end{proof}
+
+%------------------------------
+
+In general, it is usually hard to find the components of a vector, $\mathbf{v}$, with respect to some basis. However, the given basis, $(\mathbf{e}_1, \ldots, \mathbf{e}_n)$, is orthonormal, then the component of $\mathbf{v}$ with respect to $\mathbf{e}_j$ is simply the inner product, $\left\langle \mathbf{e}_j, \mathbf{v} \right\rangle$.
+
+\begin{theorem}
+    Suppose $(\mathbf{v}_1, \ldots, \mathbf{v}_n)$ is an orthonormal basis of $V$. Then for every $\mathbf{v} \in V$, we have
+    \begin{align}
+        \mathbf{v}
+        = \left\langle \mathbf{e}_1, \mathbf{v} \right\rangle \mathbf{e}_1 
+            + \cdots 
+            + \left\langle \mathbf{e}_n, \mathbf{v} \right\rangle \mathbf{e}_n
+        \label{eq:29}
+    \end{align}
+    and 
+    \begin{align}
+        \norm{\mathbf{v}}^2
+        = \abs{\left\langle \mathbf{e}_1, \mathbf{v} \right\rangle}^2
+            + \cdots 
+            + \abs{\left\langle \mathbf{e}_n, \mathbf{v} \right\rangle}^2
+        \label{eq:30}
+    \end{align}
+\end{theorem}
+
+\begin{proof}
+    Suppose $\mathbf{v} = \sum_{j=1}^n a_j \mathbf{e}_j$. Taking the inner product with $\mathbf{e}_i$ gives 
+    \begin{align*}
+        \left\langle \mathbf{e}_i, \mathbf{v} \right\rangle
+        = \sum_{j=1}^n a_j \left\langle \mathbf{e}_i, \mathbf{e}_j \right\rangle
+        = a_i
+    \end{align*}
+    This proves \eqref{eq:29}. And \eqref{eq:30} follows directly from Proposition~\ref{pro:6}
+\end{proof}
+
+%------------------------------
+
+\section{Gram-Schmidt Process} \label{sec:1}
+
+We appreciate all the benefits and good properties orthonormal bases can bring us. But how can we construct such an orthonormal basis? Suppose we have a list of linearly independent vectors, then we can apply the \textbf{Gram-Schmidt process}\index{Gram-Schmidt process}, which will be introduced in the next theorem, to construct an orthonormal list of vectors out it with the same span.
+
+\begin{theorem}[Gram-Schmidt] \label{thm:1}
+    Let $V$ be a finite-dimensional inner product space over $\FF$. Suppose $(\mathbf{v}_1, \ldots, \mathbf{v}_m)$ is a list of linearly independent vectors in $V$, then there exists a list of \textbf{orthonormal} vectors $(\mathbf{e}_1, \ldots, \mathbf{e}_m)$ in $V$ such that 
+    \begin{align}
+        \Span(\mathbf{e}_1, \ldots, \mathbf{e}_j)
+        = \Span(\mathbf{v}_1, \ldots, \mathbf{v}_j)
+        \quad \forall 1 \leq j \leq m
+        \label{eq:3}
+    \end{align}
+\end{theorem}
+
+\begin{proof}
+    We shall prove by induction on $m$. 
+
+    \par(Base Case) If $m = 1$, then the theorem holds trivially by letting $\mathbf{e}_1 = \frac{1}{\norm{\mathbf{v}_1}} \mathbf{v}_1$.
+
+    \par(Inductive Step) Assume that this theorem holds for $m = k$, we shall show that it also holds for $m = k+1$. Let $(\mathbf{v}_1, \ldots, \mathbf{v}_{k+1})$ be a list of $k+1$ linearly independent vectors in $V$. Applying the induction hypothesis to the first $k$ vectors, it follows that there exists as a list of orthonormal vectors $(\mathbf{e}_1, \ldots, \mathbf{e}_k)$ such that 
+    \begin{align}
+        \Span(\mathbf{e}_1, \ldots, \mathbf{e}_j)
+        = \Span(\mathbf{v}_1, \ldots, \mathbf{v}_j)
+        \quad \forall 1 \leq j \leq k
+        \label{eq:4}
+    \end{align}
+
+    \par We now construct the vector $\mathbf{e}_{k+1}$. Define 
+    \begin{align}
+        \mathbf{u} = \mathbf{v}_{k+1} - \sum_{j=1}^k \left\langle \mathbf{e}_j, \mathbf{v}_{k+1} \right\rangle \mathbf{e}_j
+        \label{eq:1}
+    \end{align}
+    Note that $\mathbf{u} \neq \mathbf{0}$. Assume $\mathbf{u} = \mathbf{0}$, then \eqref{eq:1} would imply that
+    \begin{align*}
+        \mathbf{v}_{k+1} \in \Span(\mathbf{e}_1, \ldots, \mathbf{e}_k)
+        = \Span(\mathbf{v}_1, \ldots, \mathbf{v}_k)
+    \end{align*}
+    which contradicts that $(\mathbf{v}_1, \ldots, \mathbf{v}_{k+1})$ are linearly independent. Now, it is safe to define 
+    \begin{align}
+        \mathbf{e}_{k+1} = \frac{1}{\norm{\mathbf{u}}} \mathbf{u}
+        \label{eq:2}
+    \end{align}
+
+    \par It is clear $\norm{\mathbf{e}_{k+1}} = 1$. We then need to verify that $\mathbf{e}_{k+1}$ is orthogonal to each $\mathbf{e}_j$ ($1 \leq j \leq k$). It follows from \eqref{eq:1} and \eqref{eq:2} that 
+    \begin{align*}
+        \left\langle \mathbf{e}_j, \mathbf{e}_{k+1} \right\rangle
+        = \frac{1}{\norm{\mathbf{u}}} \left(
+            \left\langle \mathbf{e}_j, \mathbf{v}_{k+1} \right\rangle
+            - \left\langle  \mathbf{e}_j, \mathbf{v}_{k+1} \right\rangle \cdot 1
+        \right)
+        = 0
+        \quad \forall 1 \leq j \leq k
+    \end{align*}
+    Therefore, $(\mathbf{e}_1, \ldots, \mathbf{e}_{k+1})$ is indeed a list of orthonormal vectors.
+
+    \par We also need to show \eqref{eq:3} is satisfied for $m = k+1$. Note that \eqref{eq:1} and \eqref{eq:2} imply that $\mathbf{v}_{k+1} \in \Span(\mathbf{e}_1, \ldots, \mathbf{e}_{k+1})$. On the other hand, $\mathbf{e}_{k+1}$ can be written as a linear combination of $\mathbf{e}_1, \ldots, \mathbf{e}_k$ and $\mathbf{v}_{k+1}$. Recall \eqref{eq:4}, and we will note that $\mathbf{e}_{k+1}$ can also be written as a linear combination of $(\mathbf{v}_1, \ldots, \mathbf{v}_{k+1})$. Therefore, 
+    \begin{align*}
+        \mathbf{v}_{k+1} &\in \Span(\mathbf{e}_1, \ldots, \mathbf{e}_{k+1}) & 
+        \mathbf{e}_{k+1} &\in \Span(\mathbf{v}_1, \ldots, \mathbf{v}_{k+1})
+    \end{align*}
+    Combined with \eqref{eq:4}, we obtain that 
+    \begin{align*}
+        \Span(\mathbf{e}_1, \ldots, \mathbf{e}_j)
+        = \Span(\mathbf{v}_1, \ldots, \mathbf{v}_j)
+        \quad \forall 1 \leq j \leq k+1
+    \end{align*}
+    This completes the proof.
+\end{proof}
+
+%------------------------------
+
+As proposed in the proof of Theorem~\ref{thm:1}, given a list of linearly independent vectors,
+\begin{align*}
+    \mathbf{v}_1, \ldots, \mathbf{v}_m
+\end{align*}
+a list of orthonormal vectors can be found as follows.
+
+\begin{align}
+    \begin{array}{clccl}
+        \mathbf{u}_1 &= \mathbf{v}_1
+        &\quad
+        &\mathbf{e}_1 &= \frac{1}{\norm{\mathbf{u}_1}} \mathbf{u}_1 \\ 
+        \mathbf{u}_2 &= \mathbf{v}_2 - \proj_{\mathbf{e}_1} \mathbf{v}_2
+        = \mathbf{v}_2 - \left\langle \mathbf{e}_1, \mathbf{v}_2 \right\rangle \mathbf{e}_1
+        &\quad
+        &\mathbf{e}_2 &= \frac{1}{\norm{\mathbf{u}_2}} \mathbf{u}_2 \\ 
+        \vdots&&&\vdots\\
+        \mathbf{u}_m &= \mathbf{v}_m - \sum_{j=1}^{m-1} \proj_{\mathbf{e}_j} \mathbf{v}_m
+        = \mathbf{v}_m - \sum_{j=1}^{m-1} \left\langle \mathbf{e}_j, \mathbf{v}_m \right\rangle \mathbf{e}_j
+        &\quad
+        &\mathbf{e}_m &= \frac{1}{\norm{\mathbf{u}_m}} \mathbf{u}_m
+    \end{array}
+    \label{eq:5}
+\end{align}
+
+If $(\mathbf{v}_1, \ldots, \mathbf{v}_n)$ forms a basis for $V$, then the list of vectors $(\mathbf{e}_1, \ldots, \mathbf{e}_n)$ given by \eqref{eq:5} is an orthonormal basis for $V$.
+
+%------------------------------
+
+Given any basis of a finite-dimensional inner product space, we can always apply the Gram-Schmidt procedure to convert this basis to an orthonormal one.
+
+\begin{corollary}
+    Any finite-dimensional inner product space has an orthonormal basis.
+\end{corollary}
+
+\begin{proof}
+    Let $V$ be an $n$-dimensional inner product space, and $(\mathbf{v}_1, \ldots, \mathbf{v}_n)$ its basis. Theorem~\ref{thm:1} says there exists a list of orthonormal vectors $(\mathbf{e}_1, \ldots, \mathbf{e}_n)$ such that 
+    \begin{align*}
+        \Span (\mathbf{e}_1, \ldots, \mathbf{e}_n)
+        = \Span (\mathbf{v}_1, \ldots, \mathbf{v}_n)
+        = V
+    \end{align*}
+    And we know from Corollary~\ref{cor:3} that $(\mathbf{e}_1, \ldots, \mathbf{e}_n)$ is linearly independent. (Or we can conclude it is linearly independent just based on the fact that it spans $V$ with precisely $n$ vectors.) Hence, it indeed forms a basis.
+\end{proof}
+
+%------------------------------
+
+Recall Theorem~\ref{thm:10}. We know that we can extend a list of linearly independent vectors to a basis. Now, if we have a list of orthonormal vectors at hand, can we extend it to an \textit{orthonormal} basis? Fortunately, we can do so by performing the Gram-Schmidt process.
+
+\begin{corollary} \label{cor:1}
+    Every orthonormal list of vectors $(\mathbf{e}_1, \ldots, \mathbf{e}_m)$ in a finite-dimensional inner product space can be extended to an orthonormal basis.
+\end{corollary}
+
+\begin{proof}
+    If $\dim V = m$, then we are already done. Suppose the dimension of $V$ is larger than $m$, say $m + n$. By Theorem~\ref{thm:10}, there exists $\mathbf{v}_1, \ldots, \mathbf{v}_n \in V$ such that 
+    \begin{align*}
+        (\mathbf{e}_1, \ldots, \mathbf{e}_n, \mathbf{v}_1, \ldots, \mathbf{v}_n)
+    \end{align*}
+    forms a basis of $V$. Then by applying the Gram-Schmidt procedure (Theorem~\ref{thm:1}) to this basis, we obtain an orthogonal list of vectors
+    \begin{align*}
+        (\mathbf{e}_1^\prime, \ldots, \mathbf{e}_n^\prime, \mathbf{f}_1, \ldots, \mathbf{f}_n)
+    \end{align*}
+    Since this list of vectors is linearly independent by Corollary~\ref{cor:3}, and it contains $m+n = \dim V$ vectors, it must be a basis for $V$.
+
+    What is left to show is that the first $n$ vectors $(\mathbf{e}_1^\prime, \ldots, \mathbf{e}_n^\prime)$ remain unchanged. Referring to \eqref{eq:5}, we have
+    \begin{align*}
+        \mathbf{e}_1^\prime = \mathbf{e}_1
+    \end{align*}
+    Having 
+    \begin{align*}
+        \mathbf{e}_i^\prime = \mathbf{e}_i
+        \quad \forall i=1, \ldots,j-1
+    \end{align*}
+    where $j \geq 2$, we can compute using \eqref{eq:5} that 
+    \begin{align*}
+        \mathbf{e}_j^\prime 
+        = \mathbf{e}_j - \sum_{i=1}^{j-1} \left\langle 
+            \mathbf{e}_i^\prime,
+            \mathbf{e}_j
+        \right\rangle \mathbf{e}_i^\prime
+        = \mathbf{e}_j - \sum_{i=1}^{j-1}
+            \left\langle 
+                \mathbf{e}_i,
+                \mathbf{e}_j
+            \right\rangle \mathbf{e}_i
+        = \mathbf{e}_j
+    \end{align*}
+    Therefore, we have 
+    \begin{align*}
+        \mathbf{e}_j^\prime = \mathbf{e}_j
+        \quad \forall j = 1, \ldots, m
+    \end{align*}
+    This completes the proof.
+\end{proof}
+
+%------------------------------
+
+\section{QR Decomposition}
+
+We have studied how to conduct the Gram-Schmidt process to construct an orthonormal basis out of any given basis. In terms of matrices, there is a very important matrix decomposition called the \textbf{QR decomposition}\index{QR decomposition} that corresponds to the Gram-Schmidt process. 
+
+Suppose there is a matrix $A \in \FF^{m \times n}$ ($m \geq n$) with full rank, in this case, rank $n$. Its column vectors are interpreted as linearly independent vectors in $\FF^m$. Note that if $m = n$, then the column vectors form a basis. By conducting the Gram-Schmidt process, or in terms of matrices, we have 
+\begin{align*}
+    A = QR
+\end{align*}
+where $Q$ is an $m \times n$ matrix whose column vectors are orthonormal and $R$ is an upper-triangular matrix with \textit{positive} diagonal entries. By convention, we use letters Q and R to denote these two matrices, hence the name QR decomposition. We have special names for matrices like $Q$ provided they are square matrices. We call a \textit{real} \textit{square} matrix an \textbf{orthogonal matrix}\index{orthogonal matrix} if it consists of orthonormal columns. The name is changed to \textbf{unitary matrix}\index{unitary matrix} if the square matrix is \textit{complex}.
+
+It is clear that $A$ consists of the original list of linearly independent vectors, and $Q$ consists of the desired orthonormal vectors. But what is $R$ made of? We shall soon answer this question. Briefly speaking, it consists of the inner products (see \eqref{eq:5}) we compute during the Gram-Schmidt process.
+
+In fact, we often have two ways to implement the QR decomposition in practice. One is called the \textbf{classical Gram-Schmidt Process}\index{classical Gram-Schmidt Proces}, and the other is called the \textbf{modified Gram-Schmidt process}\index{modified Gram-Schmidt process}.
+
+%------------------------------
+
+\subsection{Classical Gram-Schmidt Process}
+
+The classical Gram-Schmidt process is described in Algorithm~\ref{alg:2}, which is nothing but an algorithmic representation of \eqref{eq:5}.
+
+\begin{algorithm}
+    \caption{Classical Gram-Schmidt QR Decomposition}
+    \label{alg:2}
+    \KwIn{$A \in \FF^{m \times n}$ ($m \geq n$) with $\rank A = n$}
+    \KwOut{$Q \in \FF^{m \times n}$, $R \in \FF^{n \times n}$}
+    initialize $Q \in \FF^{m \times n}$ \;
+    \tcp{initialize $R$ as zeros}
+    $R \gets \mathbf{0}_{n \times n}$ \;
+    \For{$j = 1, \ldots, n$}{
+        \tcp{$\mathbf{p}$ maintains the sum of projections}
+        $\mathbf{p} \gets \mathbf{0}_{m}$ \;
+        \For{$i = 1, \ldots, j-1$}{
+            $R[i,j] \gets \left\langle Q[:, i], A[:, j] \right\rangle$ \;
+            $\mathbf{p} \gets \mathbf{p} + R[i,j] Q[:, i]$ \; 
+        }
+        $\mathbf{u} \gets A[:, j] - \mathbf{p}$ \;
+        $R[j, j] \gets \norm{\mathbf{u}}$ \; 
+        $Q[:, j] \gets \frac{1}{R[j, j]} \mathbf{u}$ \;
+    }
+\end{algorithm}
+
+To associate with the notations we are familiar with, write
+\begin{align*}
+    A = \begin{bmatrix}
+        \mathbf{v}_1 & \cdots & \mathbf{v}_n
+    \end{bmatrix}
+    \quad \text{and} \quad 
+    Q = \begin{bmatrix}
+        \mathbf{e}_1 & \cdots & \mathbf{e}_n
+    \end{bmatrix}
+\end{align*}
+By comparing with \eqref{eq:5}, we note that line 2, 6 and 10 in Algorithm~\ref{alg:2} define the entries of $R = (r_{ij})$ in the following way:
+\begin{align*}
+    r_{ij} = \begin{cases}
+        \left\langle \mathbf{e}_i, \mathbf{v}_j \right\rangle
+        &i < j \\ 
+        \norm{\mathbf{u}_j}
+        &i=j \\ 
+        0
+        &i > j
+    \end{cases}
+\end{align*}
+This answers our previous question about what $R$ looks like. 
+
+You might worry that Algorithm~\ref{alg:2} may fail when executing line 11 if $R[j,j] = 0$. But please be rest assured that this cannot happen since we have already shown in the proof of Theorem~\ref{thm:1} that $\mathbf{u} \neq 0$, i.e., $R[j,j] \neq 0$. So, is our work done here? Is there anything we have yet to prove? Though Algorithm~\ref{alg:2} will not generate any errors, it will always produce matrices $Q$ and $R$, and $Q$ consists of orthonormal columns, we have not however justified that the product of $Q$ and $R$ is $A$, i.e., $A = QR$. We now prove this in the following.
+
+In each iteration $j$, line 11 in Algorithm~\ref{alg:2} gives
+\begin{align}
+    \mathbf{u}
+    = R[j,j] Q[:, j]
+    = r_{jj} \mathbf{e}_j
+    \label{eq:31}
+\end{align}
+Replacing $\mathbf{u}$ using line 4 through line 9 yields
+\begin{align}
+    \mathbf{u} 
+    = A[:, j] - \sum_{i=1}^{j-1} R[i,j] Q[:, i]
+    = \mathbf{v}_j - \sum_{i=1}^{j-1} r_{ij} \mathbf{e}_i
+    \label{eq:32}
+\end{align}
+We then equate the right-hand sides of \eqref{eq:31} and \eqref{eq:32}:
+\begin{align*}
+    \mathbf{v}_j = \sum_{i=1}^j r_{ij} \mathbf{e}_i
+\end{align*}
+In terms of matrices, this is equivalent to 
+\begin{align*}
+    A[:,j] = Q R[:, j]
+\end{align*}
+since $r_{ij} = 0$ for $i > j$. Because the above equation holds for every $j$, by stacking $A[:,j]$ together, we finally obtain $A = QR$ as desired.
+
+We summarize the QR decomposition into the following theorem.
+
+\begin{theorem}[QR Decomposition]
+    Let $A \in \FF^{m \times n}$ ($m \geq n$) be a matrix with full rank, i.e., rank $n$. Then $A$ can be decomposed as a product of a matrix $Q$ consisting of orthonormal columns and an upper triangular matrix $R$ with \textbf{positive} entries along the diagonal. That is, 
+    \begin{align*}
+        A = Q R
+    \end{align*}
+\end{theorem}
+
+%------------------------------
+
+Now, let us work on an example using the QR decomposition.
+
+\begin{exercise}
+    Apply the QR decomposition to the matrix
+    \begin{align*}
+        A = \begin{bmatrix}
+            0 & 4 & 5 \\ 
+            1 & 2 & 3 \\ 
+            0 & 0 & 6
+        \end{bmatrix}
+    \end{align*}
+\end{exercise}
+
+\begin{solution}
+    Suppose $A = \begin{bmatrix}
+        \mathbf{v}_1 & \mathbf{v}_2 & \mathbf{v}_3
+    \end{bmatrix}$
+
+    (Step 1) $\mathbf{u}_1 = \mathbf{v}_1 = (0,1,0)^\top$. $r_{1,1} = \norm{\mathbf{u}_1} = 1$. $\mathbf{e}_1 = \mathbf{u}_1 / 1 = (0,1,0)^\top$.
+
+    (Step 2) $r_{1,2}$ is computed by
+    \begin{align*}
+        r_{1,2} 
+        = \left\langle \mathbf{e}_1, \mathbf{v}_2 \right\rangle 
+        = (0,1,0) (4,2,0)^\top 
+        = 2
+    \end{align*}
+    Subtracting the projections, we have
+    \begin{align*}
+        \mathbf{u}_2 = \mathbf{v}_2 - r_{1,2} \mathbf{e}_1
+        = (4,2,0)^\top - 2 \times (0,1,0)^\top
+        = (4,0,0)^\top
+    \end{align*}
+    Then, $r_{2,2} = \norm{\mathbf{u}_2} = 4$, and $\mathbf{e}_2 = \mathbf{u}_2 / 4 = (1,0,0)^\top$.
+
+    (Step 3) $r_{1,3}$ and $r_{2,3}$ are computed by
+    \begin{align*}
+        r_{1,3} 
+        &= \left\langle \mathbf{e}_1, \mathbf{v}_3 \right\rangle 
+        = (0,1,0) (5,3,6)^\top 
+        = 3 \\ 
+        r_{2,3} 
+        &= \left\langle \mathbf{e}_2, \mathbf{v}_3 \right\rangle 
+        = (1,0,0) (5,3,6)^\top 
+        = 5
+    \end{align*}
+    Subtracting the projections, we have
+    \begin{align*}
+        \mathbf{u}_3 = \mathbf{v}_3 - (r_{1,3} \mathbf{e}_1 + r_{2,3} \mathbf{e}_2)
+        = (5,3,6)^\top - (3 \times (0,1,0)^\top + 5 \times (1,0,0)^\top)
+        = (0,0,6)^\top
+    \end{align*}
+    Then, $r_{3,3} = \norm{\mathbf{u}_3} = 6$, and $\mathbf{e}_3 = \mathbf{u}_3 / 6 = (0,0,1)^\top$.
+
+    In summary, matrices $Q$ and $R$ are given by 
+    \begin{align*}
+        Q = \begin{bmatrix}
+            0 & 1 & 0 \\ 
+            1 & 0 & 0 \\ 
+            0 & 0 & 1 \\ 
+        \end{bmatrix}
+        \quad \text{and} \quad
+        R = \begin{bmatrix}
+            1 & 2 & 3 \\ 
+            0 & 4 & 5 \\ 
+            0 & 0 & 6 \\ 
+        \end{bmatrix}
+    \end{align*}
+\end{solution}
+
+%------------------------------
+
+\subsection{Modified Gram-Schmidt Process}
+
+%------------------------------
+
+\section{Upper Triangular Matrices With Respect to Orthonormal Bases} \label{sec:2}
+
+Previously, we introduced the upper triangular matrix representation of an operator $T$ in a general vector space. If a vector space is now upgraded to an inner product space by defining an inner product, and we know that $[T]$ is upper triangular with respect to some basis, then we can always find an \textit{orthonormal} basis with respect to which $[T]$ is upper triangular.
+
+\begin{theorem} \label{thm:11}
+    Suppose $V$ is a finite-dimensional inner product space, and $T \in \mathcal{L}(V)$ is an operator on $V$. If there exists some basis $B$ for $V$ with respect to which $[T]_B$ is upper triangular, then there must also exist an orthonormal basis $B^\prime$ such that $[T]_{B^\prime}$ is upper triangular.
+\end{theorem}
+
+\begin{proof}
+    Write
+    \begin{align*}
+        B = (\mathbf{v}_1, \ldots, \mathbf{v}_n)
+    \end{align*}
+    Since $[T]_B$ is upper triangular, by the equivalent condition in Proposition~\ref{pro:2}, we have 
+    \begin{align*}
+        \Span (\mathbf{v}_1, \ldots, \mathbf{v}_k)
+    \end{align*}
+    is invariant under $T$ for all $k = 1, \ldots, n$. And using the Gram-Schmidt process (Theorem~\ref{thm:1}), we can construct an orthonormal basis 
+    \begin{align*}
+        B^\prime = (\mathbf{e}_1, \ldots, \mathbf{e}_n)
+    \end{align*}
+    with 
+    \begin{align*}
+        \Span (\mathbf{e}_1, \ldots, \mathbf{e}_k)
+        = \Span (\mathbf{v}_1, \ldots, \mathbf{v}_k)
+        \quad \forall k = 1, \ldots, n
+    \end{align*}
+    Therefore, $\Span (\mathbf{e}_1, \ldots, \mathbf{e}_k)$ is also invariant under $T$ for each $k$. Hence, $[T]_{B^\prime}$ is upper triangular by Proposition~\ref{pro:2}.
+\end{proof}
+
+%------------------------------
+
+Recall that we have shown in Theorem~\ref{thm:3} that every operator 
+on a complex vector space can be represented as an upper triangular matrix
+with respect to some basis. 
+By applying Theorem~\ref{thm:11}, 
+we can specify that basis to be orthonormal.
+
+\begin{corollary}
+    Let $V$ be a complex finite-dimensional inner product space, 
+	and $T \in \mathcal{L}(V)$ an operator. 
+	Then $[T]$ is upper triangular with respect to 
+	some orthonormal basis of $V$.
+\end{corollary}
+
+\begin{proof}
+    It follows directly from Theorem~\ref{thm:3} and Theorem~\ref{thm:11}.
+\end{proof}
+
+%------------------------------
+
+\section{Orthogonal Projections}
+
+%------------------------------
+
+\begin{definition} \label{def:2}
+	Let $U$ be a vector subspace of an inner product space $V$,
+	the \textbf{orthogonal complement}\index{orthogonal complement}
+	of $U$, denoted by, $U^\perp$ is defined as the 
+	vector subspace of $V$ consists of 
+	all vectors in $V$ that are orthogonal to every vector in $U$.
+	Formally,
+	\begin{align*}
+		U^\perp := \set{\mathbf{v} \in V}{\langle \mathbf{u}, \mathbf{v} \rangle \; \forall \mathbf{u} \in U}
+	\end{align*}
+\end{definition}
+
+In the definition above, we claim that $U^\perp$
+is a vector subspace.
+Now, we prove this briefly in the following.
+Suppose $\mathbf{v}_1, \mathbf{v}_2 \in U^\perp$,
+then for every $\mathbf{u} \in U$,
+we have $\langle \mathbf{u}, \mathbf{v}_1 \rangle = \langle \mathbf{u}, \mathbf{v}_1 \rangle = 0$.
+It follows that $\langle \mathbf{u}, \mathbf{v}_1 - \mathbf{v}_2 \rangle = 0$.
+Hence, $\mathbf{v}_1 = \mathbf{v}_2 \in U^\perp$.
+Now, suppose $\mathbf{v} \in U^\perp$.
+We have $\langle \mathbf{u}, \mathbf{v} \rangle = 0 \; \forall \mathbf{u} \in U$. 
+For any scalar $a \in \FF$, it follows 
+that $\langle \mathbf{u}, a \mathbf{v} \rangle = a \langle \mathbf{u},  \mathbf{v} \rangle = 0$.
+And hence, $a \mathbf{v} \in U^\perp$.
+Therefore, we see that $U^\perp$ is indeed a vector subspace of $V$.
+
+We also have the following simple observations:
+\begin{enumerate}
+	\item $V^\perp = \{\mathbf{0}\}$
+	\item $\{\mathbf{0}\}^\perp = V$
+	\item $U_1, U_2 \leq V, \; U_1 \leq U_2 \implies U_1^\perp \geq U_2^\perp$
+\end{enumerate}
+
+In what follows, we shall again confine ourselves
+to finite-dimensional vector spaces to investigate
+several important results.
+
+\begin{theorem} \label{thm:12}
+	Let $V$ be a finite-dimensional inner product space,
+	and $U$ a subspace of $V$.
+	Then 
+	\begin{align*}
+		V = U \oplus U^\perp
+	\end{align*}
+\end{theorem}
+
+\begin{proof}
+	% TODO
+\end{proof}
+
+
+
+%==============================
+
+% references
+\printbibliography[heading=bibintoc, title=References]
+
+%==============================
+% Print index page
+\printindex
+
+%==============================
+\end{document}
