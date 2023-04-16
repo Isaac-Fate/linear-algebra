@@ -1,0 +1,4 @@
+# Inner Product Spaces
+
+````{tableofcontents}
+````

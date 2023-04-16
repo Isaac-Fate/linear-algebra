@@ -1,0 +1,719 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>6.2. Norms &#8212; Linear Algebra</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/admonition.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"C": "\\mathbb{C}", "FF": "\\mathbb{F}", "N": "\\mathbb{N}", "Ns": "\\mathbb{N^\\ast}", "Q": "\\mathbb{Q}", "R": "\\mathbb{R}", "Span": ["\\mathop{\\mathrm{span}}"], "Z": "\\mathbb{Z}", "abs": ["\\left\\lvert #1 \\right\\rvert", 1], "argmax": ["\\mathop{\\mathrm{arg \\, max}}"], "argmin": ["\\mathop{\\mathrm{arg \\, min}}"], "bmat": ["\\left[\\begin{array}"], "brk": ["\\left( #1 \\right)", 1], "col": ["\\mathop{\\mathrm{col}}"], "d": ["\\mathrm{d}"], "emat": ["\\end{array}\\right]"], "floor": ["\\lfloor#1\\rfloor", 1], "im": ["\\mathop{\\mathrm{im}}"], "ind": ["\\mathbb{1}"], "ker": ["\\mathop{\\mathrm{ker}}"], "lowint": ["\\underline{\\int}"], "norm": ["\\left\\lVert #1 \\right\\rVert", 1], "odv": ["\\frac{\\mathrm{d} #1s}{\\mathrm{d} #2}", 2], "odvs": ["\\frac{\\mathrm{d}}{\\mathrm{d} #2} #1", 2], "row": ["\\mathop{\\mathrm{row}}"], "set": ["\\left\\{ #1 \\middle| #2 \\right\\}", 2], "upint": ["\\overline{\\int}"], "v": ["\\mathbf{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.3. Orthonormal Bases" href="Orthonormal%20Bases.html" />
+    <link rel="prev" title="6.1. Inner Products" href="Inner%20Products.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Linear Algebra</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Preface
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Main Contents
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Finite-Dimensional%20Vector%20Spaces/index.html">
+   1. Finite-Dimensional Vector Spaces
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Finite-Dimensional%20Vector%20Spaces/Bases.html">
+     1.1. Bases
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Linear%20Maps/index.html">
+   2. Linear Maps
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Linear%20Maps/Null%20Spaces%20and%20ranges.html">
+     2.1. Null Spaces and ranges
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Linear%20Maps/Projections.html">
+     2.2. Projections
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Polynomials/index.html">
+   3. Polynomials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Polynomials/Polynomial%20with%20Real%20Coefficients.html">
+     3.1. Polynomial with Real Coefficients
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Matrix%20Algebra/index.html">
+   4. Matrix Algebra
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Matrix%20Algebra/LU%20Decomposition.html">
+     4.1. LU Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Matrix%20Algebra/LU%20Decomposition%20with%20Partial%20Pivoting.html">
+     4.2. LU Decomposition with Partial Pivoting
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Eigenvalues%20and%20Eigenvectors/index.html">
+   5. Eigenvalues and Eigenvectors
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Eigenvalues%20and%20Eigenvectors/Invariant%20Subspaces.html">
+     5.1. Invariant Subspaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Eigenvalues%20and%20Eigenvectors/Upper%20Triangular%20Matrices.html">
+     5.2. Upper Triangular Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Eigenvalues%20and%20Eigenvectors/Diagonal%20Matrices.html">
+     5.3. Diagonal Matrices
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   6. Inner Product Spaces
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Inner%20Products.html">
+     6.1. Inner Products
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     6.2. Norms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthonormal%20Bases.html">
+     6.3. Orthonormal Bases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Gram-Schmidt%20Process.html">
+     6.4. Gram-Schmidt Process
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="QR%20Decomposition.html">
+     6.5. QR Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Upper%20Triangular%20Matrices%20With%20Respect%20to%20Orthonormal%20Bases.html">
+     6.6. Upper Triangular Matrices With Respect to Orthonormal Bases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonal%20Projections.html">
+     6.7. Orthogonal Projections
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Isaac-Fate/linear-algebra"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Isaac-Fate/linear-algebra/issues/new?title=Issue%20on%20page%20%2FInner Product Spaces/Norms.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Inner Product Spaces/Norms.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Norms</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="norms">
+<h1><span class="section-number">6.2. </span>Norms<a class="headerlink" href="#norms" title="Permalink to this headline">#</a></h1>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 6.2 </span></p>
+<section class="definition-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(V\)</span> be an inner product space. The norm of a vector <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span> is defined as</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\norm{\mathbf{v}} = \sqrt{\left\langle\mathbf{v}, \mathbf{v} \right \rangle}\end{align*}\]</div>
+</section>
+</div><p>In the following, we list some fundamental properties of the norms, which can be proved using the properties of inner products.</p>
+<div class="proof proposition admonition" id="proposition-1">
+<p class="admonition-title"><span class="caption-number">Proposition 6.1 </span></p>
+<section class="proposition-content" id="proof-content">
+<p>For vectors <span class="math notranslate nohighlight">\(\mathbf{v}, \mathbf{w}\)</span> in an inner product space, we have</p>
+<ul class="simple">
+<li><p>➀ (Positive-Definiteness) <span class="math notranslate nohighlight">\(\norm{\mathbf{v}} \geq 0\)</span> and <span class="math notranslate nohighlight">\(\norm{\mathbf{v}} = 0\)</span> if and only if <span class="math notranslate nohighlight">\(\mathbf{v} = \mathbf{0}\)</span>.</p></li>
+<li><p>➁ (Homogeneity) <span class="math notranslate nohighlight">\(\norm{a \mathbf{v}} = \abs{a} \norm{\mathbf{v}}\)</span> where <span class="math notranslate nohighlight">\(a \in \FF\)</span>.</p></li>
+<li><p>➂ (Triangle Inequality) <span class="math notranslate nohighlight">\(\norm{\mathbf{v} + \mathbf{w}} \leq \norm{\mathbf{v}} + \norm{\mathbf{w}}\)</span>.</p></li>
+</ul>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Here we only prove the first and the second property, which are immediate results of the properties of inner products. To prove the third property, i.e., the triangle inequality (see <a class="reference internal" href="#thm:7">Theorem 6.3</a>), we need to use the Cauchy-Schwarz Inequality, which will be shown later.</p>
+<p>It is clear from the definition of norms that <span class="math notranslate nohighlight">\(\norm{\mathbf{v}} \geq 0\)</span>. Moreover,</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\norm{\mathbf{v}} = 0
+\iff\left\langle\mathbf{v}, \mathbf{v}\right\rangle = 0
+\iff\mathbf{v} = \mathbf{0}\end{align*}\]</div>
+<p>We now prove the second property. We have</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}\norm{a \mathbf{v}}^2
+&amp;= \left\langlea \mathbf{v}, a \mathbf{v}\right\rangle\\&amp;= \bar{a} a \left\langle\mathbf{v}, \mathbf{v}\right\rangle\\&amp;= \abs{a}^2 \norm{\mathbf{v}}^2
+\end{align*}\end{split}\]</div>
+<p>Hence, <span class="math notranslate nohighlight">\(\norm{a \mathbf{v}} = \abs{a} \norm{\mathbf{v}}\)</span>.</p>
+</div>
+<div class="proof definition admonition" id="definition-2">
+<p class="admonition-title"><span class="caption-number">Definition 6.3 </span></p>
+<section class="definition-content" id="proof-content">
+<p id="index-0">Two vectors <span class="math notranslate nohighlight">\( \mathbf{u} \)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> in an inner product space are said to be <strong>orthogonal</strong> to each other if</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\left\langle\mathbf{u}, \mathbf{v}\right\rangle = 0
+\end{align*}\]</div>
+</section>
+</div><div class="proof theorem admonition" id="thm:9">
+<p class="admonition-title"><span class="caption-number">Theorem 6.1 </span> (Pythagoean Theorem)</p>
+<section class="theorem-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> be two orthogonal vectors in an inner product space <span class="math notranslate nohighlight">\(V\)</span>. Then we have the inequality:</p>
+<div class="math notranslate nohighlight" id="equation-eq-20">
+<span class="eqno">(6.1)<a class="headerlink" href="#equation-eq-20" title="Permalink to this equation">#</a></span>\[\begin{align}\norm{\mathbf{u} + \mathbf{v}}^2
+= \norm{\mathbf{u}}^2 + \norm{\mathbf{v}}^2
+\end{align}\]</div>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. We have</p>
+<div class="math notranslate nohighlight" id="equation-eq-19">
+<span class="eqno">(6.2)<a class="headerlink" href="#equation-eq-19" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{align}\norm{\mathbf{u} + \mathbf{v}}^2
+&amp;= \left\langle\mathbf{u} + \mathbf{v}, \mathbf{u} + \mathbf{v}\right\rangle\nonumber\\&amp;= \left\langle\mathbf{u}, \mathbf{u}\right\rangle
++ \left\langle\mathbf{u}, \mathbf{v}\right\rangle
++ \left\langle\mathbf{v}, \mathbf{u}\right\rangle
++ \left\langle\mathbf{v}, \mathbf{v}\right\rangle\nonumber\\&amp;= \norm{\mathbf{u}}^2
++ 2 \RE\left\langle\mathbf{u}, \mathbf{v}\right\rangle
++ \norm{\mathbf{v}}^2
+\end{align}\end{split}\]</div>
+<p>Because <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> are orthogonal, we have <span class="math notranslate nohighlight">\(\left\langle\mathbf{u}, \mathbf{v} \right \rangle = 0\)</span>. Then <a class="reference internal" href="#equation-eq-19">(6.2)</a> reduces to <a class="reference internal" href="#equation-eq-20">(6.1)</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We are very familiar with the equality</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}(a + b)^2 = a^2 + 2ab + b^2
+\end{align*}\]</div>
+<p>which resembles <a class="reference internal" href="#equation-eq-19">(6.2)</a> except that the middle term on the right-hand side of <a class="reference internal" href="#equation-eq-19">(6.2)</a> is taken the real part.</p>
+<p>Since we also consider the complex vector space, we cannot change the order of two vectors in an inner product at will, that is, <span class="math notranslate nohighlight">\(\left\langle\mathbf{u}, \mathbf{v} \right \rangle \neq \left\langle\mathbf{v}, \mathbf{u} \right \rangle\)</span> in general.</p>
+</div>
+<p>Next, we shall present the Cauchy-Schwarz Inequality, which is a very important inequality in mathematics. This inequality has many forms across different fields of mathematics, some of which may appear as long scary expressions. In linear algebra, the Cauchy-Schwarz inequality can be simply written as</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\abs{\left\langle\mathbf{u}, \mathbf{v} \right \rangle}\leq\norm{\mathbf{u}}\norm{\mathbf{v}}\end{align*}\]</div>
+<p>The general idea of its proof is by considering the projection of one vector onto the other one. Suppose <span class="math notranslate nohighlight">\(\mathbf{\mathbf{u}} \neq \mathbf{0}\)</span>, we define a linear map</p>
+<div class="math notranslate nohighlight" id="equation-eq-22">
+<span class="eqno">(6.3)<a class="headerlink" href="#equation-eq-22" title="Permalink to this equation">#</a></span>\[\begin{align}\proj_{\mathbf{u}}\mathbf{v}
+= \frac{\left\langle\mathbf{u}, \mathbf{v} \right \rangle}{\norm{\mathbf{u}}^2}\mathbf{u}\end{align}\]</div>
+<p>It is an exercise (<a class="reference internal" href="#ex-1"><span class="std std-ref">Exercise 6.1</span></a>) to verify that <span class="math notranslate nohighlight">\(\proj_\mathbf{u} \mathbf{v}\)</span> is indeed a linear map. As the notation suggests, <span class="math notranslate nohighlight">\(\proj_\mathbf{u} \mathbf{v}\)</span> is the projected vector of <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> onto <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>. See <a class="reference internal" href="#fig-1"><span class="std std-numref">Fig. 6.1</span></a></p>
+<figure class="align-default" id="fig-1">
+<img alt="../_images/projection.png" src="../_images/projection.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 6.1 </span><span class="caption-text">Projection of one vector onto another.</span><a class="headerlink" href="#fig-1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Though it is intuitive to see the map <span class="math notranslate nohighlight">\(\proj_\mathbf{u}\)</span> is a <em>projection</em>, we cannot claim so for the time being. Recall we have a formal definition for projections (<a class="reference internal" href="../Linear%20Maps/Projections.html#def:1">Definition 2.1</a>). That is, a projection <span class="math notranslate nohighlight">\(P\)</span> is a linear map satisfying <span class="math notranslate nohighlight">\(P^2 = P\)</span>. We now show that <span class="math notranslate nohighlight">\(\proj_\mathbf{u}\)</span> indeed satisfies this requirement. We have</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}\proj_\mathbf{u}^2 \mathbf{v}&amp;= \proj_\mathbf{u}\left(\frac{\left\langle\mathbf{u}, \mathbf{v} \right \rangle}{\norm{\mathbf{u}}^2}\mathbf{u}\right)\\&amp;= \frac{1}{\norm{\mathbf{u}}^2}\left\langle\mathbf{u},
+\frac{\left\langle\mathbf{u}, \mathbf{v} \right \rangle}{\norm{\mathbf{u}}^2}\mathbf{u}\right\rangle\mathbf{u}\\&amp;= \frac{
+\left\langle\mathbf{u}, \mathbf{v} \right \rangle
+}{\norm{\mathbf{u}}^4}\left\langle\mathbf{u}, \mathbf{u}\right\rangle\mathbf{u}\\&amp;= \frac{\left\langle\mathbf{u}, \mathbf{v} \right \rangle}{\norm{\mathbf{u}}^2}\mathbf{u}\\&amp;= \proj_\mathbf{u}\mathbf{v}\end{align*}\end{split}\]</div>
+<p>Therefore, indeed <span class="math notranslate nohighlight">\(\proj_\mathbf{u}^2 = \proj_\mathbf{u}\)</span>, i.e., <span class="math notranslate nohighlight">\(\proj_\mathbf{u}\)</span> is a projection.</p>
+<p>Note that <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> can be written as</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\mathbf{v} = \proj_{\mathbf{u}}\mathbf{v} + (\mathbf{v} - \proj_{\mathbf{u}}\mathbf{v})
+\end{align*}\]</div>
+<p>We have</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}\left\langle\proj_{\mathbf{u}}\mathbf{v},
+\mathbf{v} - \proj_{\mathbf{u}}\mathbf{v}\right\rangle&amp;= \left\langle\proj_{\mathbf{u}}\mathbf{v},
+\mathbf{v}\right\rangle
+- \left\langle\proj_{\mathbf{u}}\mathbf{v},
+\proj_{\mathbf{u}}\mathbf{v}\right\rangle\\&amp;= \overline{\frac{\left\langle\mathbf{u}, \mathbf{v} \right \rangle}{\norm{\mathbf{u}}^2}}\left\langle\mathbf{u}, \mathbf{v}\right\rangle
+-  \overline{\frac{\left\langle\mathbf{u}, \mathbf{v} \right \rangle}{\norm{\mathbf{u}}^2}}\frac{\left\langle\mathbf{u}, \mathbf{v} \right \rangle}{\norm{\mathbf{u}}^2}\left\langle\mathbf{u}, \mathbf{u}\right\rangle\\&amp;= \frac{\abs{\left\langle\mathbf{u}, \mathbf{v} \right \rangle}^2}{\norm{\mathbf{u}}^2} - \frac{\abs{\left\langle\mathbf{u}, \mathbf{v} \right \rangle}^2}{\norm{\mathbf{u}}^2}\\&amp;= 0
+\end{align*}\end{split}\]</div>
+<p>That is,</p>
+<div class="math notranslate nohighlight" id="equation-eq-23">
+<span class="eqno">(6.4)<a class="headerlink" href="#equation-eq-23" title="Permalink to this equation">#</a></span>\[\begin{align}\proj_{\mathbf{u}}\mathbf{v}\bot(\mathbf{v} - \proj_{\mathbf{u}}\mathbf{v})
+\end{align}\]</div>
+<p>This implies that <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> can be decomposed as a sum of two orthogonal vectors, one of which is its projection onto <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>. As illustrated in <a class="reference internal" href="#fig-1"><span class="std std-numref">Fig. 6.1</span></a>, <span class="math notranslate nohighlight">\(\proj_{\mathbf{u}} \mathbf{v} \bot \mathbf{w}\)</span> where <span class="math notranslate nohighlight">\(\mathbf{w} = \mathbf{v} - \proj_{\mathbf{u}} \mathbf{v}\)</span>.</p>
+<p>From <a class="reference internal" href="#fig-1"><span class="std std-numref">Fig. 6.1</span></a>, we observe that the length of the projected vector is less than or equal to that of the original one, i.e., <span class="math notranslate nohighlight">\(\norm{\proj_{\mathbf{u}} \mathbf{v}} \leq \norm{\mathbf{v}}\)</span>. This is precisely the idea of the proof of Cauchy-Schwarz inequality.</p>
+<div class="admonition-exercise-6-1 admonition" id="ex-1">
+<p class="admonition-title">Exercise 6.1</p>
+<p>Show that <span class="math notranslate nohighlight">\(\proj_\mathbf{u} \mathbf{v}\)</span> defined in <a class="reference internal" href="#equation-eq-22">(6.3)</a> is a linear map. What if we replace its definition with <span class="math notranslate nohighlight">\((\left\langle\mathbf{v}, \mathbf{u} \right \rangle / \norm{\mathbf{u}}^2) \mathbf{u}\)</span>? Is it still a linear map?</p>
+</div>
+<div class="proof theorem admonition" id="thm:10">
+<p class="admonition-title"><span class="caption-number">Theorem 6.2 </span> (Cauchy-Schwarz Inequality\index{Cauchy-Schwarz inequality})</p>
+<section class="theorem-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> be two vectors in an inner product space. Then</p>
+<div class="math notranslate nohighlight" id="equation-eq-21">
+<span class="eqno">(6.5)<a class="headerlink" href="#equation-eq-21" title="Permalink to this equation">#</a></span>\[\begin{align}\abs{\left\langle\mathbf{u}, \mathbf{v} \right \rangle}\leq\norm{\mathbf{u}}\norm{\mathbf{v}}\end{align}\]</div>
+<p>The equality in <a class="reference internal" href="#equation-eq-21">(6.5)</a> holds if and only if <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> are linearly dependent.</p>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. If <span class="math notranslate nohighlight">\(\mathbf{u} = \mathbf{0}\)</span>, then the conclusion is trivial since the equality of <a class="reference internal" href="#equation-eq-21">(6.5)</a> holds and <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> are linearly dependent.</p>
+<p>In the following, we assume <span class="math notranslate nohighlight">\(\mathbf{u} \neq \mathbf{0}\)</span>. Note that <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> can be written as</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\mathbf{v} = \proj_{\mathbf{u}}\mathbf{v} + (\mathbf{v} - \proj_{\mathbf{u}}\mathbf{v})
+\end{align*}\]</div>
+<p>We have shown in <a class="reference internal" href="#equation-eq-23">(6.4)</a> that <span class="math notranslate nohighlight">\(\mathbf{v} \bot (\mathbf{v} - \proj_{\mathbf{u}} \mathbf{v})\)</span>. Then the Pythagorean Theorem (<a class="reference internal" href="#thm:9">Theorem 6.1</a>) implies</p>
+<div class="math notranslate nohighlight" id="equation-eq-24">
+<span class="eqno">(6.6)<a class="headerlink" href="#equation-eq-24" title="Permalink to this equation">#</a></span>\[\begin{align}\norm{\mathbf{v}}^2
+= \norm{\proj_{\mathbf{u}} \mathbf{v}}^2 + \norm{\mathbf{v} - \proj_{\mathbf{u}} \mathbf{v}}^2
+\geq\norm{\proj_{\mathbf{u}} \mathbf{v}}^2
+= \frac{\abs{\left\langle\mathbf{u}, \mathbf{v} \right \rangle}^2}{\norm{\mathbf{u}}^2}\end{align}\]</div>
+<p>Rearranging the terms in <a class="reference internal" href="#equation-eq-24">(6.6)</a> and then taking the square root gives</p>
+<div class="math notranslate nohighlight" id="equation-eq-25">
+<span class="eqno">(6.7)<a class="headerlink" href="#equation-eq-25" title="Permalink to this equation">#</a></span>\[\begin{align}\abs{\left\langle\mathbf{u}, \mathbf{v} \right \rangle}\leq\norm{\mathbf{u}}\norm{\mathbf{v}}\end{align}\]</div>
+<p>Note that the equality in <a class="reference internal" href="#equation-eq-25">(6.7)</a> holds if and only if the equality in <a class="reference internal" href="#equation-eq-24">(6.6)</a> holds. And that happens if and only if</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\mathbf{v} - \proj_{\mathbf{u}}\mathbf{v} = \mathbf{0}\end{align*}\]</div>
+<p>which is equivalent to that <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> are linearly dependent. This completes the proof.</p>
+</div>
+<p>The famous triangle inequality can be proved using the Cauchy-Schwarz inequality.</p>
+<div class="proof theorem admonition" id="thm:7">
+<p class="admonition-title"><span class="caption-number">Theorem 6.3 </span> (Triangle Inequality)</p>
+<section class="theorem-content" id="proof-content">
+<p>For <span class="math notranslate nohighlight">\(\mathbf{u}, \mathbf{v}\)</span> in an inner product space, we have the following inequality:</p>
+<div class="math notranslate nohighlight" id="equation-eq-26">
+<span class="eqno">(6.8)<a class="headerlink" href="#equation-eq-26" title="Permalink to this equation">#</a></span>\[\begin{align}\norm{\mathbf{u} + \mathbf{v}}\leq\norm{\mathbf{u}} + \norm{\mathbf{v}}\end{align}\]</div>
+<p>The equality in <a class="reference internal" href="#equation-eq-26">(6.8)</a> holds if and only if one vector is a <strong>nonnegative</strong> multiple of the other.</p>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. If <span class="math notranslate nohighlight">\(\mathbf{u} = \mathbf{0}\)</span>, then <a class="reference internal" href="#equation-eq-26">(6.8)</a> clearly holds since both sides of are equal to <span class="math notranslate nohighlight">\(\norm{\mathbf{v}}\)</span>. And in this case, we can say <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is a nonnegative multiple of <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> by writing <span class="math notranslate nohighlight">\(\mathbf{u} = 0 \mathbf{v}\)</span>.</p>
+<p>We now assume <span class="math notranslate nohighlight">\(\mathbf{u} \neq 0\)</span> in the rest of the proof. We have</p>
+<div class="math notranslate nohighlight" id="equation-eq-27">
+<span class="eqno">(6.9)<a class="headerlink" href="#equation-eq-27" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{align}\norm{\mathbf{u} + \mathbf{v}}^2
+&amp;= \norm{\mathbf{u}}^2 + 2 \RE\left\langle\mathbf{u}, \mathbf{v}\right\rangle + \norm{\mathbf{v}}^2 \nonumber\\&amp;\leq\norm{\mathbf{u}}^2 + 2 \abs{\left\langle\mathbf{u}, \mathbf{v} \right \rangle} + \norm{\mathbf{v}}^2
+\end{align}\end{split}\]</div>
+<p>Applying the Cauchy-Schwarz inequality (<a class="reference internal" href="#thm:10">Theorem 6.2</a>) to the right-hand side of <a class="reference internal" href="#equation-eq-27">(6.9)</a> gives</p>
+<div class="math notranslate nohighlight" id="equation-eq-28">
+<span class="eqno">(6.10)<a class="headerlink" href="#equation-eq-28" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{align}\norm{\mathbf{u}}^2 + 2 \abs{\left\langle\mathbf{u}, \mathbf{v} \right \rangle} + \norm{\mathbf{v}}^2
+&amp;\leq\norm{\mathbf{u}}^2 + 2 \abs{\mathbf{u}, \mathbf{v}} + \norm{\mathbf{v}}^2 \nonumber\\&amp;= (\norm{\mathbf{u}} + \norm{\mathbf{v}})^2
+\end{align}\end{split}\]</div>
+<p>Inequality <a class="reference internal" href="#equation-eq-26">(6.8)</a> then follows by combining <a class="reference internal" href="#equation-eq-27">(6.9)</a> and <a class="reference internal" href="#equation-eq-28">(6.10)</a>.</p>
+<p>Now, we discuss when the equality holds in <a class="reference internal" href="#equation-eq-26">(6.8)</a>. It is clear from the context that the equality in <a class="reference internal" href="#equation-eq-26">(6.8)</a> holds if and only if the equalities hold simultaneously in <a class="reference internal" href="#equation-eq-27">(6.9)</a> and <a class="reference internal" href="#equation-eq-28">(6.10)</a>. We know that the equality in <a class="reference internal" href="#equation-eq-27">(6.9)</a> holds if and only if <span class="math notranslate nohighlight">\(\left\langle\mathbf{u}, \mathbf{v} \right \rangle \geq 0\)</span>(this implicitly requires that the inner product is a real number). On the other hand, as stated in <a class="reference internal" href="#thm:10">Theorem 6.2</a>, the equality in <a class="reference internal" href="#equation-eq-28">(6.10)</a> holds if and only if <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> are linearly dependent. Since <span class="math notranslate nohighlight">\(\mathbf{u} \neq \mathbf{0}\)</span>, this is equivalent to that <span class="math notranslate nohighlight">\(\mathbf{v} = a \mathbf{u}\)</span> for some <span class="math notranslate nohighlight">\(a \in \FF\)</span>. In summary, the equality in <a class="reference internal" href="#equation-eq-26">(6.8)</a> holds if and only if</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}\begin{cases}
+\left\langle\mathbf{u}, \mathbf{v} \right \rangle \geq 0 \\
+\exists a \in \FF, \; \mathbf{v} = a \mathbf{u}
+\end{cases}\end{align*}\end{split}\]</div>
+<p>This is equivalent to saying that <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> is a nonnegative multiple of <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>.</p>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Isaac-Fate/linear-algebra",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Inner Product Spaces"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Inner%20Products.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">6.1. </span>Inner Products</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Orthonormal%20Bases.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6.3. </span>Orthonormal Bases</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Isaac FEI<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
