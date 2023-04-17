@@ -53,7 +53,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"C": "\\mathbb{C}", "FF": "\\mathbb{F}", "N": "\\mathbb{N}", "Ns": "\\mathbb{N^\\ast}", "Q": "\\mathbb{Q}", "R": "\\mathbb{R}", "Span": ["\\mathop{\\mathrm{span}}"], "Z": "\\mathbb{Z}", "abs": ["\\left\\lvert #1 \\right\\rvert", 1], "argmax": ["\\mathop{\\mathrm{arg \\, max}}"], "argmin": ["\\mathop{\\mathrm{arg \\, min}}"], "bmat": ["\\left[\\begin{array}"], "brk": ["\\left( #1 \\right)", 1], "col": ["\\mathop{\\mathrm{col}}"], "d": ["\\mathrm{d}"], "emat": ["\\end{array}\\right]"], "floor": ["\\lfloor#1\\rfloor", 1], "im": ["\\mathop{\\mathrm{im}}"], "ind": ["\\mathbb{1}"], "ker": ["\\mathop{\\mathrm{ker}}"], "lowint": ["\\underline{\\int}"], "norm": ["\\left\\lVert #1 \\right\\rVert", 1], "odv": ["\\frac{\\mathrm{d} #1s}{\\mathrm{d} #2}", 2], "odvs": ["\\frac{\\mathrm{d}}{\\mathrm{d} #2} #1", 2], "row": ["\\mathop{\\mathrm{row}}"], "set": ["\\left\\{ #1 \\middle| #2 \\right\\}", 2], "upint": ["\\overline{\\int}"], "v": ["\\mathbf{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"C": "\\mathbb{C}", "FF": "\\mathbb{F}", "N": "\\mathbb{N}", "Ns": "\\mathbb{N^\\ast}", "Q": "\\mathbb{Q}", "R": "\\mathbb{R}", "RE": ["\\mathrm{Re}"], "Span": ["\\mathop{\\mathrm{span}}"], "Z": "\\mathbb{Z}", "abs": ["\\left\\lvert #1 \\right\\rvert", 1], "argmax": ["\\mathop{\\mathrm{arg \\, max}}"], "argmin": ["\\mathop{\\mathrm{arg \\, min}}"], "bmat": ["\\left[\\begin{array}"], "brk": ["\\left( #1 \\right)", 1], "col": ["\\mathop{\\mathrm{col}}"], "d": ["\\mathrm{d}"], "emat": ["\\end{array}\\right]"], "floor": ["\\lfloor#1\\rfloor", 1], "im": ["\\mathop{\\mathrm{im}}"], "ind": ["\\mathbb{1}"], "ker": ["\\mathop{\\mathrm{ker}}"], "lowint": ["\\underline{\\int}"], "norm": ["\\left\\lVert #1 \\right\\rVert", 1], "odv": ["\\frac{\\mathrm{d} #1s}{\\mathrm{d} #2}", 2], "odvs": ["\\frac{\\mathrm{d}}{\\mathrm{d} #2} #1", 2], "proj": ["\\mathop{\\mathrm{proj}}"], "row": ["\\mathop{\\mathrm{row}}"], "set": ["\\left\\{ #1 \\middle| #2 \\right\\}", 2], "upint": ["\\overline{\\int}"], "v": ["\\mathbf{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -493,7 +493,7 @@ title="Print to PDF"
 a_0 \mathbf{v} + a_1 T \mathbf{v} + \cdots a_n T^n \mathbf{v} = \mathbf{0}\end{align*}\]</div>
 <p>Let <span class="math notranslate nohighlight">\(a_m\)</span>(<span class="math notranslate nohighlight">\(m \leq n\)</span>) be the last one among all <span class="math notranslate nohighlight">\(a_j\)</span>’s that is nonzero. Then the equation above reduces to</p>
 <div class="math notranslate nohighlight" id="equation-eq-12">
-<span class="eqno">(5.5)<a class="headerlink" href="#equation-eq-12" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(5.6)<a class="headerlink" href="#equation-eq-12" title="Permalink to this equation">#</a></span>\[\begin{align}
 a_0 \mathbf{v} + a_1 T \mathbf{v} + \cdots a_m T^m \mathbf{v} = \mathbf{0}\quad a_m \neq 0
 \end{align}\]</div>
 <p>Define a polynomial</p>
@@ -507,16 +507,16 @@ p(x) = a_0 x + a_1 x + \cdots a_m x^m
 p(x) = c (x - \lambda_1) \cdots(x - \lambda_k)
 (x^2 + \alpha_1 x + \beta_1) \cdots(x^2 + \alpha_l x + \beta_l)
 \end{align*}\]</div>
-<p>where <span class="math notranslate nohighlight">\(c \neq 0\)</span> is some constant and <span class="math notranslate nohighlight">\(\alpha_j, \beta_j\)</span> satisfy <span class="math notranslate nohighlight">\(\alpha_j^2 &lt; 4\beta_j\)</span>. Apply <span class="math notranslate nohighlight">\(p\)</span> to <span class="math notranslate nohighlight">\(T\)</span>, and it then follows from <a class="reference internal" href="#equation-eq-12">(5.5)</a> that</p>
+<p>where <span class="math notranslate nohighlight">\(c \neq 0\)</span> is some constant and <span class="math notranslate nohighlight">\(\alpha_j, \beta_j\)</span> satisfy <span class="math notranslate nohighlight">\(\alpha_j^2 &lt; 4\beta_j\)</span>. Apply <span class="math notranslate nohighlight">\(p\)</span> to <span class="math notranslate nohighlight">\(T\)</span>, and it then follows from <a class="reference internal" href="#equation-eq-12">(5.6)</a> that</p>
 <div class="math notranslate nohighlight" id="equation-eq-13">
-<span class="eqno">(5.6)<a class="headerlink" href="#equation-eq-13" title="Permalink to this equation">#</a></span>\[\begin{align}(T - \lambda_1 I) \cdots(T - \lambda_k I)
+<span class="eqno">(5.7)<a class="headerlink" href="#equation-eq-13" title="Permalink to this equation">#</a></span>\[\begin{align}(T - \lambda_1 I) \cdots(T - \lambda_k I)
 (T^2 + \alpha_1 T + \beta_1 I) \cdots(T^2 + \alpha_l T + \beta_l I) \mathbf{v}
 = \mathbf{0}\end{align}\]</div>
-<p>Recall <span class="math notranslate nohighlight">\(\mathbf{v} \neq 0\)</span>. Then <a class="reference internal" href="#equation-eq-13">(5.6)</a> implies that the linear map composition on the left-hand side is not injective, which further implies there exists at least one linear map in this composition that is not injective. This leads to two cases.</p>
+<p>Recall <span class="math notranslate nohighlight">\(\mathbf{v} \neq 0\)</span>. Then <a class="reference internal" href="#equation-eq-13">(5.7)</a> implies that the linear map composition on the left-hand side is not injective, which further implies there exists at least one linear map in this composition that is not injective. This leads to two cases.</p>
 <p>(Case 1) If <span class="math notranslate nohighlight">\(T - \lambda_j I\)</span> is not injective for some <span class="math notranslate nohighlight">\(j\)</span>, then <span class="math notranslate nohighlight">\(\lambda_j\)</span> is clearly an eigenvalue of <span class="math notranslate nohighlight">\(T\)</span>. Let <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> be its corresponding eigenvector, and let <span class="math notranslate nohighlight">\(U = \Span(\mathbf{u})\)</span>. It is clear that <span class="math notranslate nohighlight">\(U\)</span> has dimension <span class="math notranslate nohighlight">\(1\)</span> and is invariant under <span class="math notranslate nohighlight">\(T\)</span>.</p>
 <p>(Case 2) Suppose <span class="math notranslate nohighlight">\(T^2 + \alpha_j T + \beta_j I\)</span> is not injective for some <span class="math notranslate nohighlight">\(j\)</span>. There exists <span class="math notranslate nohighlight">\(\mathbf{u} \neq \mathbf{0}\)</span> such that</p>
 <div class="math notranslate nohighlight" id="equation-eq-14">
-<span class="eqno">(5.7)<a class="headerlink" href="#equation-eq-14" title="Permalink to this equation">#</a></span>\[\begin{align}(T^2 + \alpha_j T + \beta_j I) \mathbf{u} = \mathbf{0}\end{align}\]</div>
+<span class="eqno">(5.8)<a class="headerlink" href="#equation-eq-14" title="Permalink to this equation">#</a></span>\[\begin{align}(T^2 + \alpha_j T + \beta_j I) \mathbf{u} = \mathbf{0}\end{align}\]</div>
 <p>Notice that <span class="math notranslate nohighlight">\(\Span(\mathbf{u}, T \mathbf{u})\)</span> clearly has dimension <span class="math notranslate nohighlight">\(1\)</span> or <span class="math notranslate nohighlight">\(2\)</span>. (In fact, it has dimension <span class="math notranslate nohighlight">\(2\)</span>. But we do not need to know this for sure in the proof of this theorem. See the note after the proof.) Now, we show that <span class="math notranslate nohighlight">\(\Span(\mathbf{u}, T \mathbf{u})\)</span> is invariant under <span class="math notranslate nohighlight">\(T\)</span>. Any vector in <span class="math notranslate nohighlight">\(\Span(\mathbf{u}, T \mathbf{u})\)</span> can be written as</p>
 <div class="math notranslate nohighlight">
 \[\begin{align*}
@@ -528,7 +528,7 @@ T (c_1 \mathbf{u} + c_2 T \mathbf{u})
 = c_1 T \mathbf{u} + c_2 T^2 \mathbf{u}
 = -c_2 \beta_j \mathbf{u} + (c_1 - c_2 \alpha_j) T \mathbf{u}\in\Span(\mathbf{u}, T \mathbf{u})
 \end{align*}\]</div>
-<p>where the second last equality follows form <a class="reference internal" href="#equation-eq-14">(5.7)</a>. This implies <span class="math notranslate nohighlight">\(\Span(\mathbf{u}, T \mathbf{u})\)</span> is indeed invariant under <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<p>where the second last equality follows form <a class="reference internal" href="#equation-eq-14">(5.8)</a>. This implies <span class="math notranslate nohighlight">\(\Span(\mathbf{u}, T \mathbf{u})\)</span> is indeed invariant under <span class="math notranslate nohighlight">\(T\)</span>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -536,7 +536,7 @@ T (c_1 \mathbf{u} + c_2 T \mathbf{u})
 <div class="math notranslate nohighlight">
 \[\begin{align*}
 T \mathbf{u} = a \mathbf{u}\end{align*}\]</div>
-<p>Substitute <span class="math notranslate nohighlight">\(a \mathbf{u}\)</span> for <span class="math notranslate nohighlight">\(T \mathbf{u}\)</span> in the equation <a class="reference internal" href="#equation-eq-14">(5.7)</a> for several times, and we will obtain</p>
+<p>Substitute <span class="math notranslate nohighlight">\(a \mathbf{u}\)</span> for <span class="math notranslate nohighlight">\(T \mathbf{u}\)</span> in the equation <a class="reference internal" href="#equation-eq-14">(5.8)</a> for several times, and we will obtain</p>
 <div class="math notranslate nohighlight">
 \[\begin{align*}(a^2 + a\alpha_j + \beta_j) \mathbf{u} = \mathbf{0}\end{align*}\]</div>
 <p>Recall <span class="math notranslate nohighlight">\(\mathbf{u} \neq \mathbf{0}\)</span>, which implies</p>
@@ -577,25 +577,25 @@ U \oplus\Span(\mathbf{w})
 \end{align*}\]</div>
 <p>(Recall <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> is an eigenvector of <span class="math notranslate nohighlight">\(P_W T\)</span> corresponding to <span class="math notranslate nohighlight">\(\lambda\)</span>.) The reason why we can write <span class="math notranslate nohighlight">\(\oplus\)</span> here is that <span class="math notranslate nohighlight">\(\mathbf{w} \in W\)</span>(<span class="math notranslate nohighlight">\(\mathbf{w} \neq \mathbf{0}\)</span>) and hence <span class="math notranslate nohighlight">\(\mathbf{w} \notin U\)</span>. We claim that <span class="math notranslate nohighlight">\(T - \lambda I\)</span> maps <span class="math notranslate nohighlight">\(U \oplus \Span(\mathbf{w})\)</span> into <span class="math notranslate nohighlight">\(U\)</span>. To see this, we pick an arbitrary vector in <span class="math notranslate nohighlight">\(U \oplus \Span(\mathbf{w})\)</span>, which can be written as <span class="math notranslate nohighlight">\(\mathbf{u} + a \mathbf{w}\)</span>(<span class="math notranslate nohighlight">\(\mathbf{u} \in U\)</span>, <span class="math notranslate nohighlight">\(a \in \R\)</span>), we have</p>
 <div class="math notranslate nohighlight" id="equation-eq-15">
-<span class="eqno">(5.8)<a class="headerlink" href="#equation-eq-15" title="Permalink to this equation">#</a></span>\[\begin{align}(T - \lambda I) (\mathbf{u} + a \mathbf{w})
+<span class="eqno">(5.9)<a class="headerlink" href="#equation-eq-15" title="Permalink to this equation">#</a></span>\[\begin{align}(T - \lambda I) (\mathbf{u} + a \mathbf{w})
 = (T - \lambda I) \mathbf{u}
 + a T \mathbf{w}
 - a \lambda\mathbf{w}\end{align}\]</div>
 <p>Notice that</p>
 <div class="math notranslate nohighlight" id="equation-eq-16">
-<span class="eqno">(5.9)<a class="headerlink" href="#equation-eq-16" title="Permalink to this equation">#</a></span>\[\begin{align}\lambda\mathbf{w} = P_W T \mathbf{w}\end{align}\]</div>
+<span class="eqno">(5.10)<a class="headerlink" href="#equation-eq-16" title="Permalink to this equation">#</a></span>\[\begin{align}\lambda\mathbf{w} = P_W T \mathbf{w}\end{align}\]</div>
 <p>(Recall that we have defined <span class="math notranslate nohighlight">\(P_U\)</span> previously, and we will use it here.) And it follows from <a class="reference internal" href="../Linear%20Maps/Projections.html#pro:5">Proposition 2.3</a> that</p>
 <div class="math notranslate nohighlight" id="equation-eq-17">
-<span class="eqno">(5.10)<a class="headerlink" href="#equation-eq-17" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(5.11)<a class="headerlink" href="#equation-eq-17" title="Permalink to this equation">#</a></span>\[\begin{align}
 T \mathbf{w} = (P_U + P_W) T \mathbf{w}\end{align}\]</div>
-<p>Plug <a class="reference internal" href="#equation-eq-16">(5.9)</a> and <a class="reference internal" href="#equation-eq-17">(5.10)</a> into <a class="reference internal" href="#equation-eq-15">(5.8)</a>, we obtain</p>
+<p>Plug <a class="reference internal" href="#equation-eq-16">(5.10)</a> and <a class="reference internal" href="#equation-eq-17">(5.11)</a> into <a class="reference internal" href="#equation-eq-15">(5.9)</a>, we obtain</p>
 <div class="math notranslate nohighlight" id="equation-eq-18">
-<span class="eqno">(5.11)<a class="headerlink" href="#equation-eq-18" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{align}(T - \lambda I) (\mathbf{u} + a \mathbf{w})
+<span class="eqno">(5.12)<a class="headerlink" href="#equation-eq-18" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{align}(T - \lambda I) (\mathbf{u} + a \mathbf{w})
 &amp;= (T - \lambda I) \mathbf{u}
 + a (P_U + P_W) T \mathbf{w}
 - a P_W T \mathbf{w}\nonumber\\&amp;= (T - \lambda I) \mathbf{u}
 + a P_U T \mathbf{w}\end{align}\end{split}\]</div>
-<p>Recall <span class="math notranslate nohighlight">\(U\)</span> is invariant under <span class="math notranslate nohighlight">\(T\)</span>. Hence, <span class="math notranslate nohighlight">\((T - \lambda I) \mathbf{u} \in U\)</span>. Moreover, since <span class="math notranslate nohighlight">\(P_U\)</span> projects every vector into <span class="math notranslate nohighlight">\(U\)</span>, it is clear <span class="math notranslate nohighlight">\(a P_U T \mathbf{w} \in U\)</span>. Therefore, <a class="reference internal" href="#equation-eq-18">(5.11)</a> implies that</p>
+<p>Recall <span class="math notranslate nohighlight">\(U\)</span> is invariant under <span class="math notranslate nohighlight">\(T\)</span>. Hence, <span class="math notranslate nohighlight">\((T - \lambda I) \mathbf{u} \in U\)</span>. Moreover, since <span class="math notranslate nohighlight">\(P_U\)</span> projects every vector into <span class="math notranslate nohighlight">\(U\)</span>, it is clear <span class="math notranslate nohighlight">\(a P_U T \mathbf{w} \in U\)</span>. Therefore, <a class="reference internal" href="#equation-eq-18">(5.12)</a> implies that</p>
 <div class="math notranslate nohighlight">
 \[\begin{align*}(T - \lambda I) (\mathbf{u} + a \mathbf{w}) \in U
 \end{align*}\]</div>

@@ -53,7 +53,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"C": "\\mathbb{C}", "FF": "\\mathbb{F}", "N": "\\mathbb{N}", "Ns": "\\mathbb{N^\\ast}", "Q": "\\mathbb{Q}", "R": "\\mathbb{R}", "Span": ["\\mathop{\\mathrm{span}}"], "Z": "\\mathbb{Z}", "abs": ["\\left\\lvert #1 \\right\\rvert", 1], "argmax": ["\\mathop{\\mathrm{arg \\, max}}"], "argmin": ["\\mathop{\\mathrm{arg \\, min}}"], "bmat": ["\\left[\\begin{array}"], "brk": ["\\left( #1 \\right)", 1], "col": ["\\mathop{\\mathrm{col}}"], "d": ["\\mathrm{d}"], "emat": ["\\end{array}\\right]"], "floor": ["\\lfloor#1\\rfloor", 1], "im": ["\\mathop{\\mathrm{im}}"], "ind": ["\\mathbb{1}"], "ker": ["\\mathop{\\mathrm{ker}}"], "lowint": ["\\underline{\\int}"], "norm": ["\\left\\lVert #1 \\right\\rVert", 1], "odv": ["\\frac{\\mathrm{d} #1s}{\\mathrm{d} #2}", 2], "odvs": ["\\frac{\\mathrm{d}}{\\mathrm{d} #2} #1", 2], "row": ["\\mathop{\\mathrm{row}}"], "set": ["\\left\\{ #1 \\middle| #2 \\right\\}", 2], "upint": ["\\overline{\\int}"], "v": ["\\mathbf{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"C": "\\mathbb{C}", "FF": "\\mathbb{F}", "N": "\\mathbb{N}", "Ns": "\\mathbb{N^\\ast}", "Q": "\\mathbb{Q}", "R": "\\mathbb{R}", "RE": ["\\mathrm{Re}"], "Span": ["\\mathop{\\mathrm{span}}"], "Z": "\\mathbb{Z}", "abs": ["\\left\\lvert #1 \\right\\rvert", 1], "argmax": ["\\mathop{\\mathrm{arg \\, max}}"], "argmin": ["\\mathop{\\mathrm{arg \\, min}}"], "bmat": ["\\left[\\begin{array}"], "brk": ["\\left( #1 \\right)", 1], "col": ["\\mathop{\\mathrm{col}}"], "d": ["\\mathrm{d}"], "emat": ["\\end{array}\\right]"], "floor": ["\\lfloor#1\\rfloor", 1], "im": ["\\mathop{\\mathrm{im}}"], "ind": ["\\mathbb{1}"], "ker": ["\\mathop{\\mathrm{ker}}"], "lowint": ["\\underline{\\int}"], "norm": ["\\left\\lVert #1 \\right\\rVert", 1], "odv": ["\\frac{\\mathrm{d} #1s}{\\mathrm{d} #2}", 2], "odvs": ["\\frac{\\mathrm{d}}{\\mathrm{d} #2} #1", 2], "proj": ["\\mathop{\\mathrm{proj}}"], "row": ["\\mathop{\\mathrm{row}}"], "set": ["\\left\\{ #1 \\middle| #2 \\right\\}", 2], "upint": ["\\overline{\\int}"], "v": ["\\mathbf{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -524,7 +524,96 @@ V = U \oplus U^\perp\end{align*}\]</div>
 </div><div class="proof admonition" id="proof">
 <p>Proof. Suppose <span class="math notranslate nohighlight">\(U\)</span> is not <span class="math notranslate nohighlight">\(\{\mathbf{0}\}\)</span> or <span class="math notranslate nohighlight">\(V\)</span>.
 Otherwise the conclusion is trivial.
-Let</p>
+By <a class="reference internal" href="../Linear%20Maps/Null%20Spaces%20and%20ranges.html#cor:2">Corollary 2.2</a>,
+there is an orthonormal basis <span class="math notranslate nohighlight">\(\mathcal{B}_1=(\mathbf{e}_1, \ldots, \mathbf{e}_m)\)</span>
+for <span class="math notranslate nohighlight">\(U\)</span>.
+We can then extend this basis to an orthonormal basis for
+the entire vector space <span class="math notranslate nohighlight">\(V\)</span> by <a class="reference internal" href="../Linear%20Maps/Null%20Spaces%20and%20ranges.html#cor:1">Corollary 2.1</a>.
+Suppose the extended list of vectors is</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\mathcal{B} = (\mathbf{e}_1, \ldots, \mathbf{e}_m, \mathbf{f}_1, \ldots, \mathbf{f}_n)
+\end{align*}\]</div>
+<p>Let <span class="math notranslate nohighlight">\(\mathcal{B}_2\)</span> denote the newly added vectors,
+i.e., <span class="math notranslate nohighlight">\(\mathcal{B}_2 = (\mathbf{f}_1, \ldots, \mathbf{f}_n)\)</span>.
+We want to show that <span class="math notranslate nohighlight">\(\mathcal{B}_2\)</span> is exactly
+the basis for <span class="math notranslate nohighlight">\(U^\perp\)</span>.</p>
+<p>First, we show that <span class="math notranslate nohighlight">\(U^\perp\)</span> is contained in
+the span of <span class="math notranslate nohighlight">\(\mathcal{B}_2\)</span>.
+Let <span class="math notranslate nohighlight">\(\mathbf{w} \in U^\perp\)</span>.
+By definition we have</p>
+<div class="math notranslate nohighlight" id="equation-eq-32">
+<span class="eqno">(6.20)<a class="headerlink" href="#equation-eq-32" title="Permalink to this equation">#</a></span>\[\begin{align}\langle\mathbf{e}_j, \mathbf{w}\rangle = 0
+\quad\forall j=1, \ldots, m
+\end{align}\]</div>
+<p>But <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> can be written as a linear combination
+of vectors in <span class="math notranslate nohighlight">\(\mathcal{B}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\mathbf{w} = a_1 \mathbf{e}_1 + \cdots
++ a_m \mathbf{e}_m + b_1 \mathbf{f}_1 + \cdots + b_n \mathbf{f}_n
+\end{align*}\]</div>
+<p>Expanding <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> in <a class="reference internal" href="QR%20Decomposition.html#equation-eq-32">(6.19)</a>, we find</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+0 = \sum_{k=1}^m a_k \langle\mathbf{e}_j, a_k \mathbf{e}_k \rangle
++ \sum_{k=1}^n b_k \langle\mathbf{e}_j, \mathbf{f}_k \rangle
+= a_j \langle\mathbf{e}_j, \mathbf{e}_j \rangle
+= a_j
+\quad\forall j=1, \ldots, m
+\end{align*}\]</div>
+<p>This shows that <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> actually can represented
+by a linear combination of vectors in <span class="math notranslate nohighlight">\(\mathcal{B}_2\)</span>.
+Hence, <span class="math notranslate nohighlight">\(U^\perp \subseteq \Span \mathcal{B}_2\)</span>.</p>
+<p>On the other hand, for any vector <span class="math notranslate nohighlight">\(\mathbf{w} \in \Span \mathcal{B}_2\)</span>,
+clearly we have <span class="math notranslate nohighlight">\(\langle \mathbf{e}_j, \mathbf{w} \rangle = 0\)</span>
+for each <span class="math notranslate nohighlight">\(j\)</span>.
+Therefore, the span of <span class="math notranslate nohighlight">\(\mathcal{B}_2\)</span> is also contained in <span class="math notranslate nohighlight">\(U^\perp\)</span>.</p>
+<p>In summary, we have shown</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+U^\perp = \Span\mathcal{B}_2
+\end{align*}\]</div>
+<p>Note that <span class="math notranslate nohighlight">\(\mathcal{B}_2\)</span> is orthonormal,
+which implies <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> is linearly independent.
+Therefore, <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> is indeed a basis for <span class="math notranslate nohighlight">\(U^\perp\)</span>.</p>
+<p>Then, it is clear that <span class="math notranslate nohighlight">\(V = U + U^\perp\)</span>
+since for any vector <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span>,
+it can be written as</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\mathbf{v} = \underbrace{a_1 \mathbf{e}_1 + \cdots + a_m \mathbf{e}_m}_{\in U}
++ \underbrace{b_1 \mathbf{f}_1 + \cdots + b_n \mathbf{f}_n}_{\in U^\perp}\end{align*}\]</div>
+<p>Finally, we finish the proof by showing</p>
+<div class="math notranslate nohighlight" id="equation-eq-33">
+<span class="eqno">(6.21)<a class="headerlink" href="#equation-eq-33" title="Permalink to this equation">#</a></span>\[\begin{align}\mathbf{0} = \mathbf{u} + \mathbf{w}, \;\mathbf{u}\in U, \;\mathbf{w}\in U^\perp\implies\mathbf{u} = \mathbf{0}, \;\mathbf{w} = \mathbf{0}\end{align}\]</div>
+<p>We have</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+0 = \langle\mathbf{0}, \mathbf{w}\rangle
+= \langle\mathbf{u}, \mathbf{w}\rangle
++ \langle\mathbf{w}, \mathbf{w}\rangle
+= 0 + \langle\mathbf{w}, \mathbf{w}\rangle\end{align*}\]</div>
+<p>It follows that <span class="math notranslate nohighlight">\(\mathbf{w} = \mathbf{0}\)</span>.
+Plugging <span class="math notranslate nohighlight">\(\mathbf{w} = \mathbf{0}\)</span>
+into <span class="math notranslate nohighlight">\(\mathbf{0} = \mathbf{u}+ \mathbf{w}\)</span>,
+we find <span class="math notranslate nohighlight">\(\mathbf{u} = \mathbf{0}\)</span>.
+Therefore, <a class="reference internal" href="#equation-eq-33">(6.21)</a> holds and hence <span class="math notranslate nohighlight">\(V = U \oplus U^\perp\)</span>.</p>
+</div>
+<p>Actually, we have a simpler proof of the theorem above.
+(See <a class="reference internal" href="#ex-2"><span class="std std-ref">Exercise 6.4</span></a>, which is the
+proof given in <span id="id1">[<a class="reference internal" href="../references.html#id2" title="Sheldon Jay Axler. Linear Algebra Done Right. Undergraduate Texts in Mathematics. Springer, New York, 2nd ed edition, 1997. ISBN 978-0-387-98259-5 978-0-387-98258-8.">Axler, 1997</a>]</span>.)
+But the reason why I presented a constructive and completed proof
+here is that
+I would like to address that
+the basis of <span class="math notranslate nohighlight">\(U^\perp\)</span> can be found by the Gram-Schmidt Process.</p>
+<div class="admonition-exercise-6-4 admonition" id="ex-2">
+<p class="admonition-title">Exercise 6.4</p>
+<p>Come up with a simpler proof of <a class="reference internal" href="#thm:12">Theorem 6.8</a>
+by considering</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\mathbf{v} = \underbrace{
+a_1 \mathbf{e}_1 + a_m \mathbf{e}_m
+}_{\mathbf{u}} + \underbrace{\mathbf{v} - a_1 \mathbf{e}_1 - \cdots - a_m \mathbf{e}_m}_{\mathbf{w}}\end{align*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span> and <span class="math notranslate nohighlight">\((\mathbf{e}_1, \ldots, \mathbf{e}_m)\)</span>
+is an orthonormal basis for <span class="math notranslate nohighlight">\(U\)</span>.</p>
 </div>
 </section>
 

@@ -146,13 +146,13 @@ We shall prove by induction on $\dim V = n$.
 (Inductive Step) Assume this lemma holds for $\dim V = k$($k \geq 1$). Now, suppose $\dim V = k+1$ and the basis $B = (\mathbf{v}_1, \ldots, \mathbf{v}_{k+1})$. Write
 
 ```{math}
+:label: eq:8
 \begin{align}[T]_B = \begin{bmatrix}
 \lambda_1 & a_{1,2} & a_{1,3} & \cdots & a_{1,k+1} \\
 & \lambda_2  & a_{2,3} &  \cdots & a_{2,k+1} \\
 & & \ddots & \ddots & \vdots\\
 & & & \lambda_{k} & a_{k,k+1}\\
 0 & & & & \lambda_{k+1}
-\label{eq:8}
 \end{bmatrix}\end{align}
 ```
 
