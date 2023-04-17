@@ -62,6 +62,8 @@ V = U \oplus U^\perp\end{align*}
 
 ````{prf:proof}
 
-TODO
+Suppose $U$ is not $\{\mathbf{0}\}$ or $V$.
+Otherwise the conclusion is trivial.
+Let
 
 ````

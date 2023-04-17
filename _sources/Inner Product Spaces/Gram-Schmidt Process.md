@@ -127,6 +127,7 @@ Given any basis of a finite-dimensional inner product space, we can always apply
 
 
 ````{prf:corollary}
+:label: cor:2
 
 Any finite-dimensional inner product space has an orthonormal basis.
 
