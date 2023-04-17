@@ -409,8 +409,8 @@ and integrated understanding of the subject.
             & & \ddots & \ddots & \vdots\\
             & & & \lambda_{k} & a_{k,k+1}\\ 
             0 & & & & \lambda_{k+1}
-            \label{eq:8}
         \end{bmatrix}
+        \label{eq:8}
     \end{align}
     The given condition implies that $\lambda_j \neq 0 \; \forall j=1, \ldots, k+1$.
     
@@ -1249,7 +1249,7 @@ If $(\mathbf{v}_1, \ldots, \mathbf{v}_n)$ forms a basis for $V$, then the list o
 
 Given any basis of a finite-dimensional inner product space, we can always apply the Gram-Schmidt procedure to convert this basis to an orthonormal one.
 
-\begin{corollary}
+\begin{corollary} \label{cor:2}
     Any finite-dimensional inner product space has an orthonormal basis.
 \end{corollary}
 
@@ -1327,7 +1327,7 @@ where $Q$ is an $m \times n$ matrix whose column vectors are orthonormal and $R$
 
 It is clear that $A$ consists of the original list of linearly independent vectors, and $Q$ consists of the desired orthonormal vectors. But what is $R$ made of? We shall soon answer this question. Briefly speaking, it consists of the inner products (see \eqref{eq:5}) we compute during the Gram-Schmidt process.
 
-In fact, we often have two ways to implement the QR decomposition in practice. One is called the \textbf{classical Gram-Schmidt Process}\index{classical Gram-Schmidt Proces}, and the other is called the \textbf{modified Gram-Schmidt process}\index{modified Gram-Schmidt process}.
+In fact, we often have two ways to implement the QR decomposition in practice. One is called the \textbf{classical Gram-Schmidt Process}\index{classical Gram-Schmidt Process}, and the other is called the \textbf{modified Gram-Schmidt process}\index{modified Gram-Schmidt process}.
 
 %------------------------------
 
@@ -1347,7 +1347,9 @@ The classical Gram-Schmidt process is described in Algorithm~\ref{alg:2}, which 
         \tcp{$\mathbf{p}$ maintains the sum of projections}
         $\mathbf{p} \gets \mathbf{0}_{m}$ \;
         \For{$i = 1, \ldots, j-1$}{
-            $R[i,j] \gets \left\langle Q[:, i], A[:, j] \right\rangle$ \;
+            $R[i,j] \gets \langle
+				Q[:, i], A[:, j]
+			\rangle$ \;
             $\mathbf{p} \gets \mathbf{p} + R[i,j] Q[:, i]$ \; 
         }
         $\mathbf{u} \gets A[:, j] - \mathbf{p}$ \;
@@ -1530,7 +1532,7 @@ with respect to some basis.
 By applying Theorem~\ref{thm:11}, 
 we can specify that basis to be orthonormal.
 
-\begin{corollary}
+\begin{corollary} \label{cor:3}
     Let $V$ be a complex finite-dimensional inner product space, 
 	and $T \in \mathcal{L}(V)$ an operator. 
 	Then $[T]$ is upper triangular with respect to 
@@ -1595,8 +1597,115 @@ several important results.
 \end{theorem}
 
 \begin{proof}
-	% TODO
+	Suppose $U$ is not $\{\mathbf{0}\}$ or $V$.
+	Otherwise the conclusion is trivial.
+	By Corollary~\ref{cor:2},
+	there is an orthonormal basis $\mathcal{B}_1=(\mathbf{e}_1, \ldots, \mathbf{e}_m)$
+	for $U$.
+	We can then extend this basis to an orthonormal basis for 
+	the entire vector space $V$ by Corollary~\ref{cor:1}.
+	Suppose the extended list of vectors is 
+	\begin{align*}
+		\mathcal{B} = (\mathbf{e}_1, \ldots, \mathbf{e}_m, \mathbf{f}_1, \ldots, \mathbf{f}_n)
+	\end{align*}
+	Let $\mathcal{B}_2$ denote the newly added vectors, 
+	i.e., $\mathcal{B}_2 = (\mathbf{f}_1, \ldots, \mathbf{f}_n)$.
+	We want to show that $\mathcal{B}_2$ is exactly 
+	the basis for $U^\perp$.
+
+	First, we show that $U^\perp$ is contained in 
+	the span of $\mathcal{B}_2$.
+	Let $\mathbf{w} \in U^\perp$.
+	By definition we have
+	\begin{align}
+		\langle \mathbf{e}_j, \mathbf{w} \rangle = 0
+		\quad 
+		\forall j=1, \ldots, m
+		\label{eq:32}
+	\end{align}
+	But $\mathbf{w}$ can be written as a linear combination
+	of vectors in $\mathcal{B}$
+	\begin{align*}
+		\mathbf{w} = a_1 \mathbf{e}_1 + \cdots 
+		+ a_m \mathbf{e}_m + b_1 \mathbf{f}_1 + \cdots + b_n \mathbf{f}_n
+	\end{align*}
+	Expanding $\mathbf{w}$ in \eqref{eq:32}, we find 
+	\begin{align*}
+		0 = \sum_{k=1}^m a_k \langle \mathbf{e}_j, a_k \mathbf{e}_k \rangle
+			+ \sum_{k=1}^n b_k \langle \mathbf{e}_j, \mathbf{f}_k \rangle
+			= a_j \langle \mathbf{e}_j, \mathbf{e}_j \rangle 
+			= a_j
+			\quad 
+			\forall j=1, \ldots, m
+	\end{align*}
+	This shows that $\mathbf{w}$ actually can represented
+	by a linear combination of vectors in $\mathcal{B}_2$.
+	Hence, $U^\perp \subseteq \Span \mathcal{B}_2$.
+
+	On the other hand, for any vector $\mathbf{w} \in \Span \mathcal{B}_2$,
+	clearly we have $\langle \mathbf{e}_j, \mathbf{w} \rangle = 0$
+	for each $j$.
+	Therefore, the span of $\mathcal{B}_2$ is also contained in $U^\perp$.
+
+	In summary, we have shown
+	\begin{align*}
+		U^\perp = \Span \mathcal{B}_2
+	\end{align*}
+	Note that $\mathcal{B}_2$ is orthonormal, 
+	which implies $\mathcal{B}$ is linearly independent.
+	Therefore, $\mathcal{B}$ is indeed a basis for $U^\perp$.
+
+	Then, it is clear that $V = U + U^\perp$
+	since for any vector $\mathbf{v} \in V$,
+	it can be written as
+	\begin{align*}
+		\mathbf{v} = \underbrace{a_1 \mathbf{e}_1 + \cdots + a_m \mathbf{e}_m}_{\in U} 
+		+ \underbrace{b_1 \mathbf{f}_1 + \cdots + b_n \mathbf{f}_n}_{\in U^\perp}
+	\end{align*}
+
+	Finally, we finish the proof by showing
+	\begin{align}
+		\mathbf{0} = \mathbf{u} + \mathbf{w}, \;
+		\mathbf{u} \in U, \;
+		\mathbf{w} \in U^\perp
+		\implies
+		\mathbf{u} = \mathbf{0}, \;
+		\mathbf{w} = \mathbf{0}
+		\label{eq:33}
+	\end{align}
+	We have
+	\begin{align*}
+		0 = \langle \mathbf{0}, \mathbf{w} \rangle
+		= \langle \mathbf{u}, \mathbf{w} \rangle
+		+ \langle \mathbf{w}, \mathbf{w} \rangle
+		= 0 + \langle \mathbf{w}, \mathbf{w} \rangle
+	\end{align*}
+	It follows that $\mathbf{w} = \mathbf{0}$.
+	Plugging $\mathbf{w} = \mathbf{0}$
+	into $\mathbf{0} = \mathbf{u}+ \mathbf{w}$,
+	we find $\mathbf{u} = \mathbf{0}$.
+	Therefore, \eqref{eq:33} holds and hence $V = U \oplus U^\perp$.
 \end{proof}
+
+Actually, we have a simpler proof of the theorem above. 
+(See Exercise~\ref{ex:2}, which is the 
+proof given in \cite{axlerLinearAlgebraDone1997}.)
+But the reason why I presented a constructive and completed proof
+here is that 
+I would like to address that 
+the basis of $U^\perp$ can be found by the Gram-Schmidt Process.
+
+\begin{exercise} \label{ex:2}
+	Come up with a simpler proof of Theorem~\ref{thm:12}
+	by considering
+	\begin{align*}
+		\mathbf{v} = \underbrace{
+			a_1 \mathbf{e}_1 + a_m \mathbf{e}_m
+		}_{\mathbf{u}} + \underbrace{\mathbf{v} - a_1 \mathbf{e}_1 - \cdots - a_m \mathbf{e}_m}_{\mathbf{w}}
+	\end{align*}
+	where $\mathbf{v} \in V$ and $(\mathbf{e}_1, \ldots, \mathbf{e}_m)$
+	is an orthonormal basis for $U$.
+\end{exercise}
 
 
 
