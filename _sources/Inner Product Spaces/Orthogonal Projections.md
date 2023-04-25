@@ -49,8 +49,8 @@ several important results.
 ````{prf:theorem}
 :label: thm:12
 
-Let $V$ be a finite-dimensional inner product space,
-and $U$ a subspace of $V$.
+Let $V$ be a inner product space,
+and $U$ a finite-dimensional subspace of $V$.
 Then
 
 ```{math}
@@ -60,26 +60,112 @@ V = U \oplus U^\perp\end{align*}
 
 ````
 
+:::{note}
+
+Note that $V$ may have infinite dimension.
+But its subspace $U$ is assumed finite-dimensional.
+
+:::
+
 ````{prf:proof}
 
 Suppose $U$ is not $\{\mathbf{0}\}$ or $V$.
 Otherwise the conclusion is trivial.
 By {prf:ref}`cor:2`,
-there is an orthonormal basis $\mathcal{B}_1=(\mathbf{e}_1, \ldots, \mathbf{e}_m)$
+there is an orthonormal basis $(\mathbf{e}_1, \ldots, \mathbf{e}_m)$
 for $U$.
-We can then extend this basis to an orthonormal basis for
-the entire vector space $V$ by {prf:ref}`cor:1`.
-Suppose the extended list of vectors is
+For any $\mathbf{v} \in V$, we can write
+
+```{math}
+:label: eq:34
+\begin{align}\mathbf{v} = \underbrace{
+\langle \mathbf{e}_1, \mathbf{v} \rangle \mathbf{e}_1
++ \langle \mathbf{e}_m, \mathbf{v} \rangle \mathbf{e}_m
+}_{\mathbf{u}} + \underbrace{\mathbf{v}
+- \langle \mathbf{e}_1, \mathbf{v} \rangle \mathbf{e}_1
+- \cdots
+- \langle \mathbf{e}_m, \mathbf{v} \rangle \mathbf{e}_m}_{\mathbf{w}}\end{align}
+```
+
+:::{note}
+
+The interpretation of {eq}`eq:34` is that
+we first choose a vector $\mathbf{u} \in U$ by
+
+```{math}
+\begin{align*}\mathbf{u} = \langle\mathbf{e}_1, \mathbf{v}\rangle\mathbf{e}_1
++ \langle\mathbf{e}_m, \mathbf{v}\rangle\mathbf{e}_m
+\end{align*}
+```
+
+And then let $\mathbf{w} = \mathbf{v} - \mathbf{u}$.
+The construction of $\mathbf{u}$ is very clever
+since in this way, $\mathbf{w}$ is orthogonal to $\mathbf{u}$
+as we will see later.
+
+:::
+
+Note that $\mathbf{w} \in U^\perp$
+since
+
+```{math}
+\begin{align*}\langle\mathbf{e}_j, \mathbf{w}\rangle
+= \langle\mathbf{e}_j, \mathbf{v}\rangle
+- \sum_{k=1}^m \langle\mathbf{e}_j, \mathbf{v}\rangle\langle\mathbf{e}_j, \mathbf{e}_k \rangle
+= 0
+\quad\forall j = 1, \ldots, m
+\end{align*}
+```
+
+Hence, {eq}`eq:34` implies that $V = U + U^\perp$.
+
+We also need to show $V = U \oplus U^\perp$,
+which can be proved by additionally showing
+that $U \cap U^\perp = \{\mathbf{0}\}$.
+Indeed, suppose $\mathbf{v} \in U \cap U^\perp$,
+then
+
+```{math}
+\begin{align*}\langle\mathbf{v}, \mathbf{v}\rangle = 0
+\end{align*}
+```
+
+where $\mathbf{v}$ in the first slot
+can be regarded as a vector coming from $U$,
+and the second $\mathbf{v}$
+is treated as a vector in $U^\perp$.
+This completes the proof.
+
+````
+
+If $V$ is finite-dimensional,
+we can then extend the orthogonal basis
+of $U$, $\mathcal{B}_1=(\mathbf{e}_1, \ldots, \mathbf{e}_m)$,
+to a basis for $V$,
 
 ```{math}
 \begin{align*}\mathcal{B} = (\mathbf{e}_1, \ldots, \mathbf{e}_m, \mathbf{f}_1, \ldots, \mathbf{f}_n)
 \end{align*}
 ```
 
-Let $\mathcal{B}_2$ denote the newly added vectors,
-i.e., $\mathcal{B}_2 = (\mathbf{f}_1, \ldots, \mathbf{f}_n)$.
-We want to show that $\mathcal{B}_2$ is exactly
-the basis for $U^\perp$.
+through the Gram-Schmidt process ({prf:ref}`cor:1`).
+It is natural to guess that $\mathcal{B}_2=(\mathbf{f}_1, \ldots, \mathbf{f}_m)$
+forms a basis for the orthogonal complement $U^\perp$.
+The proof is left as an exercise ({ref}`Exercise 6.4<ex:2>`).
+
+
+````{admonition} Exercise 6.4
+:name: ex:2
+
+Suppose $V$ is finite-dimensional
+in the assumption of  {prf:ref}`thm:12`.
+Show that $\mathcal{B}_2$
+forms a basis for $U^\perp$.
+
+````
+
+````{admonition} Solution
+:class: tip, dropdown
 
 First, we show that $U^\perp$ is contained in
 the span of $\mathcal{B}_2$.
@@ -131,65 +217,7 @@ U^\perp = \Span\mathcal{B}_2
 ```
 
 Note that $\mathcal{B}_2$ is orthonormal,
-which implies $\mathcal{B}$ is linearly independent.
-Therefore, $\mathcal{B}$ is indeed a basis for $U^\perp$.
-
-Then, it is clear that $V = U + U^\perp$
-since for any vector $\mathbf{v} \in V$,
-it can be written as
-
-```{math}
-\begin{align*}\mathbf{v} = \underbrace{a_1 \mathbf{e}_1 + \cdots + a_m \mathbf{e}_m}_{\in U}
-+ \underbrace{b_1 \mathbf{f}_1 + \cdots + b_n \mathbf{f}_n}_{\in U^\perp}\end{align*}
-```
-
-Finally, we finish the proof by showing
-
-```{math}
-:label: eq:33
-\begin{align}\mathbf{0} = \mathbf{u} + \mathbf{w}, \;\mathbf{u}\in U, \;\mathbf{w}\in U^\perp\implies\mathbf{u} = \mathbf{0}, \;\mathbf{w} = \mathbf{0}\end{align}
-```
-
-We have
-
-```{math}
-\begin{align*}
-0 = \langle\mathbf{0}, \mathbf{w}\rangle
-= \langle\mathbf{u}, \mathbf{w}\rangle
-+ \langle\mathbf{w}, \mathbf{w}\rangle
-= 0 + \langle\mathbf{w}, \mathbf{w}\rangle\end{align*}
-```
-
-It follows that $\mathbf{w} = \mathbf{0}$.
-Plugging $\mathbf{w} = \mathbf{0}$
-into $\mathbf{0} = \mathbf{u}+ \mathbf{w}$,
-we find $\mathbf{u} = \mathbf{0}$.
-Therefore, {eq}`eq:33` holds and hence $V = U \oplus U^\perp$.
-
-````
-
-Actually, we have a simpler proof of the theorem above.
-(See {ref}`Exercise 6.4<ex:2>`, which is the
-proof given in {cite}`axlerLinearAlgebraDone1997`.)
-But the reason why I presented a constructive and completed proof
-here is that
-I would like to address that
-the basis of $U^\perp$ can be found by the Gram-Schmidt Process.
-
-
-````{admonition} Exercise 6.4
-:name: ex:2
-
-Come up with a simpler proof of {prf:ref}`thm:12`
-by considering
-
-```{math}
-\begin{align*}\mathbf{v} = \underbrace{
-a_1 \mathbf{e}_1 + a_m \mathbf{e}_m
-}_{\mathbf{u}} + \underbrace{\mathbf{v} - a_1 \mathbf{e}_1 - \cdots - a_m \mathbf{e}_m}_{\mathbf{w}}\end{align*}
-```
-
-where $\mathbf{v} \in V$ and $(\mathbf{e}_1, \ldots, \mathbf{e}_m)$
-is an orthonormal basis for $U$.
+which implies $\mathcal{B}_2$ is linearly independent.
+Therefore, $\mathcal{B}_2$ is indeed a basis for $U^\perp$.
 
 ````

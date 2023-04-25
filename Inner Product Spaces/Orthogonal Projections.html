@@ -514,35 +514,96 @@ several important results.</p>
 <div class="proof theorem admonition" id="thm:12">
 <p class="admonition-title"><span class="caption-number">Theorem 6.8 </span></p>
 <section class="theorem-content" id="proof-content">
-<p>Let <span class="math notranslate nohighlight">\(V\)</span> be a finite-dimensional inner product space,
-and <span class="math notranslate nohighlight">\(U\)</span> a subspace of <span class="math notranslate nohighlight">\(V\)</span>.
+<p>Let <span class="math notranslate nohighlight">\(V\)</span> be a inner product space,
+and <span class="math notranslate nohighlight">\(U\)</span> a finite-dimensional subspace of <span class="math notranslate nohighlight">\(V\)</span>.
 Then</p>
 <div class="math notranslate nohighlight">
 \[\begin{align*}
 V = U \oplus U^\perp\end{align*}\]</div>
 </section>
-</div><div class="proof admonition" id="proof">
+</div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that <span class="math notranslate nohighlight">\(V\)</span> may have infinite dimension.
+But its subspace <span class="math notranslate nohighlight">\(U\)</span> is assumed finite-dimensional.</p>
+</div>
+<div class="proof admonition" id="proof">
 <p>Proof. Suppose <span class="math notranslate nohighlight">\(U\)</span> is not <span class="math notranslate nohighlight">\(\{\mathbf{0}\}\)</span> or <span class="math notranslate nohighlight">\(V\)</span>.
 Otherwise the conclusion is trivial.
 By <a class="reference internal" href="../Linear%20Maps/Null%20Spaces%20and%20ranges.html#cor:2">Corollary 2.2</a>,
-there is an orthonormal basis <span class="math notranslate nohighlight">\(\mathcal{B}_1=(\mathbf{e}_1, \ldots, \mathbf{e}_m)\)</span>
+there is an orthonormal basis <span class="math notranslate nohighlight">\((\mathbf{e}_1, \ldots, \mathbf{e}_m)\)</span>
 for <span class="math notranslate nohighlight">\(U\)</span>.
-We can then extend this basis to an orthonormal basis for
-the entire vector space <span class="math notranslate nohighlight">\(V\)</span> by <a class="reference internal" href="../Linear%20Maps/Null%20Spaces%20and%20ranges.html#cor:1">Corollary 2.1</a>.
-Suppose the extended list of vectors is</p>
+For any <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span>, we can write</p>
+<div class="math notranslate nohighlight" id="equation-eq-34">
+<span class="eqno">(6.20)<a class="headerlink" href="#equation-eq-34" title="Permalink to this equation">#</a></span>\[\begin{align}\mathbf{v} = \underbrace{
+\langle \mathbf{e}_1, \mathbf{v} \rangle \mathbf{e}_1
++ \langle \mathbf{e}_m, \mathbf{v} \rangle \mathbf{e}_m
+}_{\mathbf{u}} + \underbrace{\mathbf{v}
+- \langle \mathbf{e}_1, \mathbf{v} \rangle \mathbf{e}_1
+- \cdots
+- \langle \mathbf{e}_m, \mathbf{v} \rangle \mathbf{e}_m}_{\mathbf{w}}\end{align}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The interpretation of <a class="reference internal" href="#equation-eq-34">(6.20)</a> is that
+we first choose a vector <span class="math notranslate nohighlight">\(\mathbf{u} \in U\)</span> by</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\mathbf{u} = \langle\mathbf{e}_1, \mathbf{v}\rangle\mathbf{e}_1
++ \langle\mathbf{e}_m, \mathbf{v}\rangle\mathbf{e}_m
+\end{align*}\]</div>
+<p>And then let <span class="math notranslate nohighlight">\(\mathbf{w} = \mathbf{v} - \mathbf{u}\)</span>.
+The construction of <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is very clever
+since in this way, <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> is orthogonal to <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>
+as we will see later.</p>
+</div>
+<p>Note that <span class="math notranslate nohighlight">\(\mathbf{w} \in U^\perp\)</span>
+since</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\langle\mathbf{e}_j, \mathbf{w}\rangle
+= \langle\mathbf{e}_j, \mathbf{v}\rangle
+- \sum_{k=1}^m \langle\mathbf{e}_j, \mathbf{v}\rangle\langle\mathbf{e}_j, \mathbf{e}_k \rangle
+= 0
+\quad\forall j = 1, \ldots, m
+\end{align*}\]</div>
+<p>Hence, <a class="reference internal" href="#equation-eq-34">(6.20)</a> implies that <span class="math notranslate nohighlight">\(V = U + U^\perp\)</span>.</p>
+<p>We also need to show <span class="math notranslate nohighlight">\(V = U \oplus U^\perp\)</span>,
+which can be proved by additionally showing
+that <span class="math notranslate nohighlight">\(U \cap U^\perp = \{\mathbf{0}\}\)</span>.
+Indeed, suppose <span class="math notranslate nohighlight">\(\mathbf{v} \in U \cap U^\perp\)</span>,
+then</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\langle\mathbf{v}, \mathbf{v}\rangle = 0
+\end{align*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> in the first slot
+can be regarded as a vector coming from <span class="math notranslate nohighlight">\(U\)</span>,
+and the second <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>
+is treated as a vector in <span class="math notranslate nohighlight">\(U^\perp\)</span>.
+This completes the proof.</p>
+</div>
+<p>If <span class="math notranslate nohighlight">\(V\)</span> is finite-dimensional,
+we can then extend the orthogonal basis
+of <span class="math notranslate nohighlight">\(U\)</span>, <span class="math notranslate nohighlight">\(\mathcal{B}_1=(\mathbf{e}_1, \ldots, \mathbf{e}_m)\)</span>,
+to a basis for <span class="math notranslate nohighlight">\(V\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\begin{align*}\mathcal{B} = (\mathbf{e}_1, \ldots, \mathbf{e}_m, \mathbf{f}_1, \ldots, \mathbf{f}_n)
 \end{align*}\]</div>
-<p>Let <span class="math notranslate nohighlight">\(\mathcal{B}_2\)</span> denote the newly added vectors,
-i.e., <span class="math notranslate nohighlight">\(\mathcal{B}_2 = (\mathbf{f}_1, \ldots, \mathbf{f}_n)\)</span>.
-We want to show that <span class="math notranslate nohighlight">\(\mathcal{B}_2\)</span> is exactly
-the basis for <span class="math notranslate nohighlight">\(U^\perp\)</span>.</p>
+<p>through the Gram-Schmidt process (<a class="reference internal" href="../Linear%20Maps/Null%20Spaces%20and%20ranges.html#cor:1">Corollary 2.1</a>).
+It is natural to guess that <span class="math notranslate nohighlight">\(\mathcal{B}_2=(\mathbf{f}_1, \ldots, \mathbf{f}_m)\)</span>
+forms a basis for the orthogonal complement <span class="math notranslate nohighlight">\(U^\perp\)</span>.
+The proof is left as an exercise (<a class="reference internal" href="#ex-2"><span class="std std-ref">Exercise 6.4</span></a>).</p>
+<div class="admonition-exercise-6-4 admonition" id="ex-2">
+<p class="admonition-title">Exercise 6.4</p>
+<p>Suppose <span class="math notranslate nohighlight">\(V\)</span> is finite-dimensional
+in the assumption of  <a class="reference internal" href="#thm:12">Theorem 6.8</a>.
+Show that <span class="math notranslate nohighlight">\(\mathcal{B}_2\)</span>
+forms a basis for <span class="math notranslate nohighlight">\(U^\perp\)</span>.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
 <p>First, we show that <span class="math notranslate nohighlight">\(U^\perp\)</span> is contained in
 the span of <span class="math notranslate nohighlight">\(\mathcal{B}_2\)</span>.
 Let <span class="math notranslate nohighlight">\(\mathbf{w} \in U^\perp\)</span>.
 By definition we have</p>
 <div class="math notranslate nohighlight" id="equation-eq-32">
-<span class="eqno">(6.20)<a class="headerlink" href="#equation-eq-32" title="Permalink to this equation">#</a></span>\[\begin{align}\langle\mathbf{e}_j, \mathbf{w}\rangle = 0
+<span class="eqno">(6.21)<a class="headerlink" href="#equation-eq-32" title="Permalink to this equation">#</a></span>\[\begin{align}\langle\mathbf{e}_j, \mathbf{w}\rangle = 0
 \quad\forall j=1, \ldots, m
 \end{align}\]</div>
 <p>But <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> can be written as a linear combination
@@ -573,47 +634,8 @@ Therefore, the span of <span class="math notranslate nohighlight">\(\mathcal{B}_
 U^\perp = \Span\mathcal{B}_2
 \end{align*}\]</div>
 <p>Note that <span class="math notranslate nohighlight">\(\mathcal{B}_2\)</span> is orthonormal,
-which implies <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> is linearly independent.
-Therefore, <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> is indeed a basis for <span class="math notranslate nohighlight">\(U^\perp\)</span>.</p>
-<p>Then, it is clear that <span class="math notranslate nohighlight">\(V = U + U^\perp\)</span>
-since for any vector <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span>,
-it can be written as</p>
-<div class="math notranslate nohighlight">
-\[\begin{align*}\mathbf{v} = \underbrace{a_1 \mathbf{e}_1 + \cdots + a_m \mathbf{e}_m}_{\in U}
-+ \underbrace{b_1 \mathbf{f}_1 + \cdots + b_n \mathbf{f}_n}_{\in U^\perp}\end{align*}\]</div>
-<p>Finally, we finish the proof by showing</p>
-<div class="math notranslate nohighlight" id="equation-eq-33">
-<span class="eqno">(6.21)<a class="headerlink" href="#equation-eq-33" title="Permalink to this equation">#</a></span>\[\begin{align}\mathbf{0} = \mathbf{u} + \mathbf{w}, \;\mathbf{u}\in U, \;\mathbf{w}\in U^\perp\implies\mathbf{u} = \mathbf{0}, \;\mathbf{w} = \mathbf{0}\end{align}\]</div>
-<p>We have</p>
-<div class="math notranslate nohighlight">
-\[\begin{align*}
-0 = \langle\mathbf{0}, \mathbf{w}\rangle
-= \langle\mathbf{u}, \mathbf{w}\rangle
-+ \langle\mathbf{w}, \mathbf{w}\rangle
-= 0 + \langle\mathbf{w}, \mathbf{w}\rangle\end{align*}\]</div>
-<p>It follows that <span class="math notranslate nohighlight">\(\mathbf{w} = \mathbf{0}\)</span>.
-Plugging <span class="math notranslate nohighlight">\(\mathbf{w} = \mathbf{0}\)</span>
-into <span class="math notranslate nohighlight">\(\mathbf{0} = \mathbf{u}+ \mathbf{w}\)</span>,
-we find <span class="math notranslate nohighlight">\(\mathbf{u} = \mathbf{0}\)</span>.
-Therefore, <a class="reference internal" href="#equation-eq-33">(6.21)</a> holds and hence <span class="math notranslate nohighlight">\(V = U \oplus U^\perp\)</span>.</p>
-</div>
-<p>Actually, we have a simpler proof of the theorem above.
-(See <a class="reference internal" href="#ex-2"><span class="std std-ref">Exercise 6.4</span></a>, which is the
-proof given in <span id="id1">[<a class="reference internal" href="../references.html#id2" title="Sheldon Jay Axler. Linear Algebra Done Right. Undergraduate Texts in Mathematics. Springer, New York, 2nd ed edition, 1997. ISBN 978-0-387-98259-5 978-0-387-98258-8.">Axler, 1997</a>]</span>.)
-But the reason why I presented a constructive and completed proof
-here is that
-I would like to address that
-the basis of <span class="math notranslate nohighlight">\(U^\perp\)</span> can be found by the Gram-Schmidt Process.</p>
-<div class="admonition-exercise-6-4 admonition" id="ex-2">
-<p class="admonition-title">Exercise 6.4</p>
-<p>Come up with a simpler proof of <a class="reference internal" href="#thm:12">Theorem 6.8</a>
-by considering</p>
-<div class="math notranslate nohighlight">
-\[\begin{align*}\mathbf{v} = \underbrace{
-a_1 \mathbf{e}_1 + a_m \mathbf{e}_m
-}_{\mathbf{u}} + \underbrace{\mathbf{v} - a_1 \mathbf{e}_1 - \cdots - a_m \mathbf{e}_m}_{\mathbf{w}}\end{align*}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span> and <span class="math notranslate nohighlight">\((\mathbf{e}_1, \ldots, \mathbf{e}_m)\)</span>
-is an orthonormal basis for <span class="math notranslate nohighlight">\(U\)</span>.</p>
+which implies <span class="math notranslate nohighlight">\(\mathcal{B}_2\)</span> is linearly independent.
+Therefore, <span class="math notranslate nohighlight">\(\mathcal{B}_2\)</span> is indeed a basis for <span class="math notranslate nohighlight">\(U^\perp\)</span>.</p>
 </div>
 </section>
 
