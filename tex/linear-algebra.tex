@@ -1588,31 +1588,98 @@ to finite-dimensional vector spaces to investigate
 several important results.
 
 \begin{theorem} \label{thm:12}
-	Let $V$ be a finite-dimensional inner product space,
-	and $U$ a subspace of $V$.
+	Let $V$ be a inner product space,
+	and $U$ a finite-dimensional subspace of $V$.
 	Then 
 	\begin{align*}
 		V = U \oplus U^\perp
 	\end{align*}
 \end{theorem}
 
+\begin{note}
+	Note that $V$ may have infinite dimension.
+	But its subspace $U$ is assumed finite-dimensional.
+\end{note}
+
+
+
+
 \begin{proof}
 	Suppose $U$ is not $\{\mathbf{0}\}$ or $V$.
 	Otherwise the conclusion is trivial.
 	By Corollary~\ref{cor:2},
-	there is an orthonormal basis $\mathcal{B}_1=(\mathbf{e}_1, \ldots, \mathbf{e}_m)$
+	there is an orthonormal basis $(\mathbf{e}_1, \ldots, \mathbf{e}_m)$
 	for $U$.
-	We can then extend this basis to an orthonormal basis for 
-	the entire vector space $V$ by Corollary~\ref{cor:1}.
-	Suppose the extended list of vectors is 
+	For any $\mathbf{v} \in V$, we can write 
+	\begin{align}
+		\mathbf{v} = \underbrace{
+			\langle \mathbf{e}_1, \mathbf{v} \rangle \mathbf{e}_1 
+			+ \langle \mathbf{e}_m, \mathbf{v} \rangle \mathbf{e}_m
+		}_{\mathbf{u}} + \underbrace{\mathbf{v} 
+		- \langle \mathbf{e}_1, \mathbf{v} \rangle \mathbf{e}_1 
+		- \cdots 
+		- \langle \mathbf{e}_m, \mathbf{v} \rangle \mathbf{e}_m}_{\mathbf{w}}
+		\label{eq:34}
+	\end{align}
+	\begin{note}
+		The interpretation of \eqref{eq:34} is that 
+		we first choose a vector $\mathbf{u} \in U$ by
+		\begin{align*}
+			\mathbf{u} = \langle \mathbf{e}_1, \mathbf{v} \rangle \mathbf{e}_1 
+			+ \langle \mathbf{e}_m, \mathbf{v} \rangle \mathbf{e}_m
+		\end{align*}
+		And then let $\mathbf{w} = \mathbf{v} - \mathbf{u}$.
+		The construction of $\mathbf{u}$ is very clever
+		since in this way, $\mathbf{w}$ is orthogonal to $\mathbf{u}$
+		as we will see later.
+	\end{note}
+	\noindent Note that $\mathbf{w} \in U^\perp$
+	since 
 	\begin{align*}
-		\mathcal{B} = (\mathbf{e}_1, \ldots, \mathbf{e}_m, \mathbf{f}_1, \ldots, \mathbf{f}_n)
+		\langle \mathbf{e}_j, \mathbf{w} \rangle
+		= \langle \mathbf{e}_j, \mathbf{v} \rangle
+		- \sum_{k=1}^m \langle \mathbf{e}_j, \mathbf{v} \rangle \langle \mathbf{e}_j, \mathbf{e}_k \rangle
+		= 0
+		\quad 
+		\forall j = 1, \ldots, m
 	\end{align*}
-	Let $\mathcal{B}_2$ denote the newly added vectors, 
-	i.e., $\mathcal{B}_2 = (\mathbf{f}_1, \ldots, \mathbf{f}_n)$.
-	We want to show that $\mathcal{B}_2$ is exactly 
-	the basis for $U^\perp$.
+	Hence, \eqref{eq:34} implies that $V = U + U^\perp$.
 
+	We also need to show $V = U \oplus U^\perp$,
+	which can be proved by additionally showing 
+	that $U \cap U^\perp = \{\mathbf{0}\}$.
+	Indeed, suppose $\mathbf{v} \in U \cap U^\perp$, 
+	then 
+	\begin{align*}
+		\langle \mathbf{v}, \mathbf{v} \rangle = 0
+	\end{align*}
+	where $\mathbf{v}$ in the first slot
+	can be regarded as a vector coming from $U$,
+	and the second $\mathbf{v}$
+	is treated as a vector in $U^\perp$.
+	This completes the proof.
+\end{proof}
+
+If $V$ is finite-dimensional, 
+we can then extend the orthogonal basis 
+of $U$, $\mathcal{B}_1=(\mathbf{e}_1, \ldots, \mathbf{e}_m)$,
+to a basis for $V$,
+\begin{align*}
+		\mathcal{B} = (\mathbf{e}_1, \ldots, \mathbf{e}_m, \mathbf{f}_1, \ldots, \mathbf{f}_n)
+\end{align*}
+through the Gram-Schmidt process (Corollary~\ref{cor:1}).
+It is natural to guess that $\mathcal{B}_2=(\mathbf{f}_1, \ldots, \mathbf{f}_m)$
+forms a basis for the orthogonal complement $U^\perp$.
+The proof is left as an exercise (Exercise~\ref{ex:2}).
+
+\begin{exercise} \label{ex:2}
+	Suppose $V$ is finite-dimensional 
+	in the assumption of  Theorem~\ref{thm:12}.
+	Show that $\mathcal{B}_2$
+	forms a basis for $U^\perp$.
+\end{exercise}
+
+\begin{solution}
 	First, we show that $U^\perp$ is contained in 
 	the span of $\mathcal{B}_2$.
 	Let $\mathbf{w} \in U^\perp$.
@@ -1652,60 +1719,125 @@ several important results.
 		U^\perp = \Span \mathcal{B}_2
 	\end{align*}
 	Note that $\mathcal{B}_2$ is orthonormal, 
-	which implies $\mathcal{B}$ is linearly independent.
-	Therefore, $\mathcal{B}$ is indeed a basis for $U^\perp$.
+	which implies $\mathcal{B}_2$ is linearly independent.
+	Therefore, $\mathcal{B}_2$ is indeed a basis for $U^\perp$.
+\end{solution}
 
-	Then, it is clear that $V = U + U^\perp$
-	since for any vector $\mathbf{v} \in V$,
-	it can be written as
+%------------------------------
+
+\begin{corollary} \label{cor:7}
+	Let $V$ be an inner product space,
+	and $U$ a finite-dimensional vector subspace.
+	Then
 	\begin{align*}
-		\mathbf{v} = \underbrace{a_1 \mathbf{e}_1 + \cdots + a_m \mathbf{e}_m}_{\in U} 
-		+ \underbrace{b_1 \mathbf{f}_1 + \cdots + b_n \mathbf{f}_n}_{\in U^\perp}
+		U = (U^\perp)^\perp
 	\end{align*}
+\end{corollary}
 
-	Finally, we finish the proof by showing
-	\begin{align}
-		\mathbf{0} = \mathbf{u} + \mathbf{w}, \;
-		\mathbf{u} \in U, \;
-		\mathbf{w} \in U^\perp
-		\implies
-		\mathbf{u} = \mathbf{0}, \;
-		\mathbf{w} = \mathbf{0}
-		\label{eq:33}
-	\end{align}
-	We have
+\begin{proof}
+	We first show that $U \subseteq (U^\perp)^\perp$.
+	Let $\mathbf{u} \in U$
+	For any $\mathbf{w} \in U^\perp$,
+	by definition, we have 
 	\begin{align*}
-		0 = \langle \mathbf{0}, \mathbf{w} \rangle
-		= \langle \mathbf{u}, \mathbf{w} \rangle
-		+ \langle \mathbf{w}, \mathbf{w} \rangle
+		\langle \mathbf{u}, \mathbf{w} \rangle = 0
+	\end{align*}
+	Equivalently,
+	\begin{align*}
+		\langle \mathbf{w}, \mathbf{u} \rangle = 0
+		\quad
+		\forall \mathbf{w} \in U^\perp
+	\end{align*}
+	Therefore, $\mathbf{u} \in (U^\perp)^\perp$ 
+	and hence $U \subseteq (U^\perp)^\perp$.
+	\begin{note}
+		In the proof of $U \subseteq (U^\perp)^\perp$,
+		we did not use the assumption that $U$ is finite-dimensional
+		nor Theorem~\ref{thm:12}.
+		But we will need this theorem 
+		in proving $U \supseteq (U^\perp)^\perp$.
+		Actually, it suffices to apply 
+		the partial result of Theorem~\ref{thm:12}
+		that $V = U + U^\perp$.
+	\end{note}
+
+	We also need to show the other direction of inclusion.
+	That is, for $\mathbf{v} \in (U^\perp)^\perp$,
+	we need to show $\mathbf{v} \in U$.
+	By Theorem~\ref{thm:12}, $\mathbf{v}$ can be written as 
+	\begin{align*}
+		\mathbf{v} = \mathbf{u} + \mathbf{w}
+	\end{align*}
+	for some $\mathbf{u} \in U$ and $\mathbf{w} \in U^\perp$.
+	Taking the inner product with $\mathbf{w}$ yields
+	\begin{align*}
+		0
+		= \langle \mathbf{w}, \mathbf{v} \rangle
+		= \langle \mathbf{w}, \mathbf{u} \rangle
+		+ \langle \mathbf{w}, \mathbf{w} \rangle 
 		= 0 + \langle \mathbf{w}, \mathbf{w} \rangle
 	\end{align*}
-	It follows that $\mathbf{w} = \mathbf{0}$.
-	Plugging $\mathbf{w} = \mathbf{0}$
-	into $\mathbf{0} = \mathbf{u}+ \mathbf{w}$,
-	we find $\mathbf{u} = \mathbf{0}$.
-	Therefore, \eqref{eq:33} holds and hence $V = U \oplus U^\perp$.
+	It then follows that $\mathbf{w} = \mathbf{0}$
+	and hence $\mathbf{v} = \mathbf{u} \in U$, as desired.
 \end{proof}
 
-Actually, we have a simpler proof of the theorem above. 
-(See Exercise~\ref{ex:2}, which is the 
-proof given in \cite{axlerLinearAlgebraDone1997}.)
-But the reason why I presented a constructive and completed proof
-here is that 
-I would like to address that 
-the basis of $U^\perp$ can be found by the Gram-Schmidt Process.
+%------------------------------
 
-\begin{exercise} \label{ex:2}
-	Come up with a simpler proof of Theorem~\ref{thm:12}
-	by considering
-	\begin{align*}
-		\mathbf{v} = \underbrace{
-			a_1 \mathbf{e}_1 + a_m \mathbf{e}_m
-		}_{\mathbf{u}} + \underbrace{\mathbf{v} - a_1 \mathbf{e}_1 - \cdots - a_m \mathbf{e}_m}_{\mathbf{w}}
-	\end{align*}
-	where $\mathbf{v} \in V$ and $(\mathbf{e}_1, \ldots, \mathbf{e}_m)$
-	is an orthonormal basis for $U$.
+Recall we have already defined what is a projection 
+in Definition~\ref{def:1}. 
+A linear operator $P$ is a projection if
+\begin{align*}
+	P^2 = P
+\end{align*}
+This definition is very general but it is also rather abstract.
+Now, having the concepts of inner product space and orthogonal complement,
+we can define a projection on an inner-product space with more intuitive
+physical meanings.
+
+Let $V$ be an inner product space, and $U$ 
+a \textit{finite-decomposition} subspace.
+By Theorem~\ref{thm:12}, we know that every $\mathbf{v} \in V$ 
+can be uniquely written as
+\begin{align*}
+	\mathbf{v} = \mathbf{u} + \mathbf{w}
+\end{align*}
+where $\mathbf{u} \in U$ and $\mathbf{w} \in U^\perp$.
+Then the projection $P_U$ 
+that maps any vector in $V$ to the subspace $U$
+can be simply defined by
+\begin{align*}
+	P_U \mathbf{v} = \mathbf{u}
+\end{align*}
+Firstly, observe that it is well-defined since the 
+representation $\mathbf{v} = \mathbf{u} + \mathbf{w}$ is unique.
+And it is indeed a projection since 
+\begin{align*}
+	P^2_U \mathbf{v} = P_U (P_U \mathbf{v}) = P_U \mathbf{u} = \mathbf{u}
+	= P_U \mathbf{v}
+\end{align*}
+The following are several more properties, 
+the proof of which is left as an exercise (Exercise~\ref{ex:3}).
+\begin{enumerate}
+	\item $\im P_U = U$
+	\item $\ker P_U = U^\perp$
+	\item $\mathbf{v} - P_U \mathbf{v} \in U^\perp \; \forall \mathbf{v} \in V$
+	\item $\norm{P_U \mathbf{v}} \leq \norm{\mathbf{v}} \; \forall \mathbf{v} \in V$
+\end{enumerate}
+
+\begin{exercise} \label{ex:3}
+	Prove the above properties.
 \end{exercise}
+
+\begin{solution}
+	%TODO
+\end{solution}
+
+Moreover, suppose that $(\mathbf{e}_1, \ldots, \mathbf{e}_m)$ is an orthonormal
+basis for $U$, then by \eqref{eq:34}, $P_U \mathbf{v}$ can be written as 
+\begin{align*}
+	P_U \mathbf{v} = \langle \mathbf{e}_1, \mathbf{v} \rangle \mathbf{e}_1
+	+ \cdots \langle \mathbf{e}_m, \mathbf{v} \rangle \mathbf{e}_m
+\end{align*}
 
 
 
