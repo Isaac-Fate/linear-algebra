@@ -221,3 +221,152 @@ which implies $\mathcal{B}_2$ is linearly independent.
 Therefore, $\mathcal{B}_2$ is indeed a basis for $U^\perp$.
 
 ````
+
+````{prf:corollary}
+:label: cor:7
+
+Let $V$ be an inner product space,
+and $U$ a finite-dimensional vector subspace.
+Then
+
+```{math}
+\begin{align*}
+U = (U^\perp)^\perp\end{align*}
+```
+
+````
+
+````{prf:proof}
+
+We first show that $U \subseteq (U^\perp)^\perp$.
+Let $\mathbf{u} \in U$
+For any $\mathbf{w} \in U^\perp$,
+by definition, we have
+
+```{math}
+\begin{align*}\langle\mathbf{u}, \mathbf{w}\rangle = 0
+\end{align*}
+```
+
+Equivalently,
+
+```{math}
+\begin{align*}\langle\mathbf{w}, \mathbf{u}\rangle = 0
+\quad\forall\mathbf{w}\in U^\perp\end{align*}
+```
+
+Therefore, $\mathbf{u} \in (U^\perp)^\perp$
+and hence $U \subseteq (U^\perp)^\perp$.
+
+:::{note}
+
+In the proof of $U \subseteq (U^\perp)^\perp$,
+we did not use the assumption that $U$ is finite-dimensional
+nor {prf:ref}`thm:12`.
+But we will need this theorem
+in proving $U \supseteq (U^\perp)^\perp$.
+Actually, it suffices to apply
+the partial result of {prf:ref}`thm:12`
+that $V = U + U^\perp$.
+
+:::
+
+We also need to show the other direction of inclusion.
+That is, for $\mathbf{v} \in (U^\perp)^\perp$,
+we need to show $\mathbf{v} \in U$.
+By {prf:ref}`thm:12`, $\mathbf{v}$ can be written as
+
+```{math}
+\begin{align*}\mathbf{v} = \mathbf{u} + \mathbf{w}\end{align*}
+```
+
+for some $\mathbf{u} \in U$ and $\mathbf{w} \in U^\perp$.
+Taking the inner product with $\mathbf{w}$ yields
+
+```{math}
+\begin{align*}
+0
+= \langle\mathbf{w}, \mathbf{v}\rangle
+= \langle\mathbf{w}, \mathbf{u}\rangle
++ \langle\mathbf{w}, \mathbf{w}\rangle
+= 0 + \langle\mathbf{w}, \mathbf{w}\rangle\end{align*}
+```
+
+It then follows that $\mathbf{w} = \mathbf{0}$
+and hence $\mathbf{v} = \mathbf{u} \in U$, as desired.
+
+````
+
+Recall we have already defined what is a projection
+in {prf:ref}`def:1`.
+A linear operator $P$ is a projection if
+
+```{math}
+\begin{align*}
+P^2 = P
+\end{align*}
+```
+
+This definition is very general but it is also rather abstract.
+Now, having the concepts of inner product space and orthogonal complement,
+we can define a projection on an inner-product space with more intuitive
+physical meanings.
+
+Let $V$ be an inner product space, and $U$
+a *finite-decomposition* subspace.
+By {prf:ref}`thm:12`, we know that every $\mathbf{v} \in V$
+can be uniquely written as
+
+```{math}
+\begin{align*}\mathbf{v} = \mathbf{u} + \mathbf{w}\end{align*}
+```
+
+where $\mathbf{u} \in U$ and $\mathbf{w} \in U^\perp$.
+Then the projection $P_U$
+that maps any vector in $V$ to the subspace $U$
+can be simply defined by
+
+```{math}
+\begin{align*}
+P_U \mathbf{v} = \mathbf{u}\end{align*}
+```
+
+Firstly, observe that it is well-defined since the
+representation $\mathbf{v} = \mathbf{u} + \mathbf{w}$ is unique.
+And it is indeed a projection since
+
+```{math}
+\begin{align*}
+P^2_U \mathbf{v} = P_U (P_U \mathbf{v}) = P_U \mathbf{u} = \mathbf{u}
+= P_U \mathbf{v}\end{align*}
+```
+
+The following are several more properties,
+the proof of which is left as an exercise ({ref}`Exercise 6.5<ex:3>`).
+- ➀ $\im P_U = U$
+- ➁ $\ker P_U = U^\perp$
+- ➂ $\mathbf{v} - P_U \mathbf{v} \in U^\perp \; \forall \mathbf{v} \in V$
+- ➃ $\norm{P_U \mathbf{v}} \leq \norm{\mathbf{v}} \; \forall \mathbf{v} \in V$
+
+
+````{admonition} Exercise 6.5
+:name: ex:3
+
+Prove the above properties.
+
+````
+
+````{admonition} Solution
+:class: tip, dropdown
+
+````
+
+Moreover, suppose that $(\mathbf{e}_1, \ldots, \mathbf{e}_m)$ is an orthonormal
+basis for $U$, then by {eq}`eq:34`, $P_U \mathbf{v}$ can be written as
+
+```{math}
+\begin{align*}
+P_U \mathbf{v} = \langle\mathbf{e}_1, \mathbf{v}\rangle\mathbf{e}_1
++ \cdots\langle\mathbf{e}_m, \mathbf{v}\rangle\mathbf{e}_m
+\end{align*}
+```
