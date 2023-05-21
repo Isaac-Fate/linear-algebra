@@ -58,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="References" href="../references.html" />
+    <link rel="next" title="6.8. Linear Functionals and Adjoints" href="Linear%20Functionals%20and%20Adjoints.html" />
     <link rel="prev" title="6.6. Upper Triangular Matrices With Respect to Orthonormal Bases" href="Upper%20Triangular%20Matrices%20With%20Respect%20to%20Orthonormal%20Bases.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -273,6 +273,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      6.7. Orthogonal Projections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear%20Functionals%20and%20Adjoints.html">
+     6.8. Linear Functionals and Adjoints
     </a>
    </li>
   </ul>
@@ -785,8 +790,70 @@ we have</p>
 \end{align*}\]</div>
 <p>Taking the square root on both sides yields <a class="reference internal" href="#equation-eq-35">(6.23)</a>.</p>
 </div>
+<p>The following examples show that
+how <a class="reference internal" href="#thm:13">Theorem 6.9</a> can be applied to
+approximate a continuous function
+using a polynomial.</p>
 <div class="proof example admonition" id="eg:2">
 <p class="admonition-title"><span class="caption-number">Example 6.1 </span></p>
+<section class="example-content" id="proof-content">
+<p>Consider the vector space of all continuous real-valued
+functions defined on <span class="math notranslate nohighlight">\([-\pi, \pi]\)</span>, <span class="math notranslate nohighlight">\(C[-\pi, \pi]\)</span>.
+Let the inner product of any pair of
+functions <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(g\)</span> in <span class="math notranslate nohighlight">\(C[-\pi, \pi]\)</span>
+be defined by</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\langle f, g \rangle
+= \int_{-\pi}^{\pi} f(x) g(x) \;\mathrm{d}x
+\end{align*}\]</div>
+<p>Suppose we want to approximate a target function <span class="math notranslate nohighlight">\(f(x)\)</span>
+using a polynomial with degree no larger than <span class="math notranslate nohighlight">\(5\)</span>.
+In other words, we want to find a polynomial <span class="math notranslate nohighlight">\(p(x)\)</span>
+in the subspace <span class="math notranslate nohighlight">\(P_5(\R)\)</span> such that the norm</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\norm{f(x) - p(x)}\end{align*}\]</div>
+<p>is minimized.</p>
+<p>Then by <a class="reference internal" href="#thm:13">Theorem 6.9</a> and <a class="reference internal" href="#equation-eq-34">(6.22)</a>,
+the optimal polynomial should be</p>
+<div class="math notranslate nohighlight" id="equation-eq-36">
+<span class="eqno">(6.24)<a class="headerlink" href="#equation-eq-36" title="Permalink to this equation">#</a></span>\[\begin{align}
+p(x) = \langle p_1, f \rangle p_1(x)
++ \cdots + \langle p_6, f \rangle p_6(x)
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\((p_1, \ldots, p_6)\)</span> is an orthonormal basis for <span class="math notranslate nohighlight">\(P_5(\R)\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that <a class="reference internal" href="#thm:13">Theorem 6.9</a> is applicable here
+because the subspace <span class="math notranslate nohighlight">\(P_5(\R)\)</span> indeed
+has finite dimension, namely <span class="math notranslate nohighlight">\(6\)</span>.</p>
+</div>
+<p>To find such an orthonormal basis,
+we can apply the Gram-Schmidt process to
+the basis <span class="math notranslate nohighlight">\((1, x, x^2, x^3, x^4, x^5)\)</span>.</p>
+<p>Suppose the target function we want to approximate is <span class="math notranslate nohighlight">\(\sin x\)</span>,
+then the polynomial calculated using <a class="reference internal" href="#equation-eq-36">(6.24)</a> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+p(x) = 0.98786214 x - 0.15527141 x^3 + 0.00564312 x^5
+\end{align*}\]</div>
+<p>If the reader is familiar with calculus of mathematical analysis,
+then one might suggest approximating <span class="math notranslate nohighlight">\(\sin x\)</span> using
+its Taylor expanding at <span class="math notranslate nohighlight">\(x=0\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\hat{p}(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!}\end{align*}\]</div>
+<p><a class="reference internal" href="#fig-2"><span class="std std-numref">Fig. 6.2</span></a> plots the graphs of the target function <span class="math notranslate nohighlight">\(\sin x\)</span>
+along with the two polynomial approximations, <span class="math notranslate nohighlight">\(p(x)\)</span> and <span class="math notranslate nohighlight">\(\hat{p}(x)\)</span>.
+As we can see, the orthogonal projection is a better approximation
+for it nearly overlaps with the target function.</p>
+<figure class="align-default" id="fig-2">
+<img alt="../_images/la-01.png" src="../_images/la-01.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 6.2 </span><span class="caption-text">Comparison of approximations using orthogonal projection and Taylor expansion.</span><a class="headerlink" href="#fig-2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</div><div class="proof example admonition" id="eg:3">
+<p class="admonition-title"><span class="caption-number">Example 6.2 </span></p>
 <section class="example-content" id="proof-content">
 </section>
 </div></section>
@@ -825,10 +892,10 @@ we have</p>
             <p class="prev-next-title"><span class="section-number">6.6. </span>Upper Triangular Matrices With Respect to Orthonormal Bases</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../references.html" title="next page">
+    <a class='right-next' id="next-link" href="Linear%20Functionals%20and%20Adjoints.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">References</p>
+        <p class="prev-next-title"><span class="section-number">6.8. </span>Linear Functionals and Adjoints</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

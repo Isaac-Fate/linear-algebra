@@ -439,7 +439,96 @@ Taking the square root on both sides yields {eq}`eq:35`.
 
 ````
 
+The following examples show that
+how {prf:ref}`thm:13` can be applied to
+approximate a continuous function
+using a polynomial.
+
+
 ````{prf:example}
 :label: eg:2
+
+Consider the vector space of all continuous real-valued
+functions defined on $[-\pi, \pi]$, $C[-\pi, \pi]$.
+Let the inner product of any pair of
+functions $f$ and $g$ in $C[-\pi, \pi]$
+be defined by
+
+```{math}
+\begin{align*}\langle f, g \rangle
+= \int_{-\pi}^{\pi} f(x) g(x) \;\mathrm{d}x
+\end{align*}
+```
+
+Suppose we want to approximate a target function $f(x)$
+using a polynomial with degree no larger than $5$.
+In other words, we want to find a polynomial $p(x)$
+in the subspace $P_5(\R)$ such that the norm
+
+```{math}
+\begin{align*}\norm{f(x) - p(x)}\end{align*}
+```
+
+is minimized.
+
+Then by {prf:ref}`thm:13` and {eq}`eq:34`,
+the optimal polynomial should be
+
+```{math}
+:label: eq:36
+\begin{align}
+p(x) = \langle p_1, f \rangle p_1(x)
++ \cdots + \langle p_6, f \rangle p_6(x)
+\end{align}
+```
+
+where $(p_1, \ldots, p_6)$ is an orthonormal basis for $P_5(\R)$.
+
+:::{note}
+
+Note that {prf:ref}`thm:13` is applicable here
+because the subspace $P_5(\R)$ indeed
+has finite dimension, namely $6$.
+
+:::
+
+To find such an orthonormal basis,
+we can apply the Gram-Schmidt process to
+the basis $(1, x, x^2, x^3, x^4, x^5)$.
+
+Suppose the target function we want to approximate is $\sin x$,
+then the polynomial calculated using {eq}`eq:36` is
+
+```{math}
+\begin{align*}
+p(x) = 0.98786214 x - 0.15527141 x^3 + 0.00564312 x^5
+\end{align*}
+```
+
+If the reader is familiar with calculus of mathematical analysis,
+then one might suggest approximating $\sin x$ using
+its Taylor expanding at $x=0$,
+
+```{math}
+\begin{align*}\hat{p}(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!}\end{align*}
+```
+{numref}`fig:2` plots the graphs of the target function $\sin x$
+along with the two polynomial approximations, $p(x)$ and $\hat{p}(x)$.
+As we can see, the orthogonal projection is a better approximation
+for it nearly overlaps with the target function.
+
+
+```{figure} /figures/la-01.png
+---
+name: fig:2
+---
+Comparison of approximations using orthogonal projection and Taylor expansion.
+
+```
+
+````
+
+````{prf:example}
+:label: eg:3
 
 ````
