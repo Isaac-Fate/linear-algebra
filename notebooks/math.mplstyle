@@ -1,0 +1,25 @@
+### FIGURE
+figure.facecolor: white
+figure.dpi: 300
+figure.titlesize: 14
+
+### PATCHES
+patch.facecolor: 0072B2
+
+### LEGEND
+legend.fontsize: 8
+
+### FONTS
+font.family: serif
+font.weight: bold
+font.size: 12
+
+### TEXT
+text.usetex: True
+
+
+### AXES
+axes.grid: True
+
+### GRID
+grid.alpha: 0.3
