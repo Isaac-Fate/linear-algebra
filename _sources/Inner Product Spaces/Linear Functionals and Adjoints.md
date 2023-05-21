@@ -67,7 +67,7 @@ We have
 :label: eq:37
 \begin{align}\langle\mathbf{u}, \mathbf{v}\rangle&= \langle\sum_{i=1}^n \overline{\varphi(\mathbf{e}_i)}\mathbf{e}_i,
 \sum_{j=1}^n a_j \mathbf{e}_j \rangle\nonumber\\&= \sum_{i=1}^n \sum_{j=1}^n \varphi(\mathbf{e}_i) a_j
-\langle\mathbf{e}_i, \mathbf{e}_j \rangle\nonumber\\&= \sum_{i=1}^n \varphi(\mathbf{e}_i) a_j
+\langle\mathbf{e}_i, \mathbf{e}_j \rangle\nonumber\\&= \sum_{i=1}^n \varphi(\mathbf{e}_i) a_i
 \end{align}
 ```
 
