@@ -365,8 +365,81 @@ Moreover, suppose that $(\mathbf{e}_1, \ldots, \mathbf{e}_m)$ is an orthonormal
 basis for $U$, then by {eq}`eq:34`, $P_U \mathbf{v}$ can be written as
 
 ```{math}
-\begin{align*}
+:label: eq:34
+\begin{align}
 P_U \mathbf{v} = \langle\mathbf{e}_1, \mathbf{v}\rangle\mathbf{e}_1
 + \cdots\langle\mathbf{e}_m, \mathbf{v}\rangle\mathbf{e}_m
+\end{align}
+```
+
+By comparing the above equation {eq}`eq:34` with the
+definition of projection on to a single vector, {eq}`eq:22`,
+we immediately find the relation
+
+```{math}
+\begin{align*}
+P_U \mathbf{v} = \proj_{\mathbf{e}_1}\mathbf{v}
++ \cdots + \proj_{\mathbf{e}_m}\mathbf{v}\end{align*}
+```
+
+Let $V$ be an inner product space, and $U$ a finite-dimensional subspace,
+the problem of minimizing the distance between a
+given vector $\mathbf{v} \in V$ and each $\mathbf{u} \in U$
+occurs frequently in applications.
+The solution is shown in the next theorem.
+
+
+````{prf:theorem}
+:label: thm:13
+
+Let $V$ be an inner product space,
+and $U$ a finite-dimensional subspace.
+Then for each $\mathbf{v} \in V$, we have
+
+```{math}
+\begin{align*}
+P_U \mathbf{v}
+= \argmin_{\mathbf{u} \in U}\norm{\mathbf{v} - \mathbf{u}}\end{align*}
+```
+
+````
+
+````{prf:proof}
+
+Let $\mathbf{v}$ be fixed.
+Because we have already know $P_U \mathbf{v} \in U$,
+what is left to prove is the following inequality
+
+```{math}
+:label: eq:35
+\begin{align}\norm{\mathbf{v} - P_U \mathbf{v}}\leq\norm{\mathbf{v} - \mathbf{u}}\quad\forall\mathbf{u}\in U
+\end{align}
+```
+
+Note that
+
+```{math}
+\begin{align*}\mathbf{v} - \mathbf{u}
+= \underbrace{\mathbf{v} - P_U \mathbf{v}}_{\in U^\perp}
++ \underbrace{P_U \mathbf{v} - \mathbf{u}}_{\in U}\end{align*}
+```
+
+By the Pythagorean Theorem ({prf:ref}`thm:9`),
+we have
+
+```{math}
+\begin{align*}\norm{\mathbf{v} - \mathbf{u}}^2
+= \norm{\mathbf{v} - P_U \mathbf{v}}^2
++ \norm{\mathbf{v} - \mathbf{u}}^2
+\geq\norm{\mathbf{v} - P_U \mathbf{v}}^2
 \end{align*}
 ```
+
+Taking the square root on both sides yields {eq}`eq:35`.
+
+````
+
+````{prf:example}
+:label: eg:2
+
+````

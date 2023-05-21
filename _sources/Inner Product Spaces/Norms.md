@@ -37,7 +37,7 @@ We now prove the second property. We have
 
 ```{math}
 \begin{align*}\norm{a \mathbf{v}}^2
-&= \left\langlea \mathbf{v}, a \mathbf{v}\right\rangle\\&= \bar{a} a \left\langle\mathbf{v}, \mathbf{v}\right\rangle\\&= \abs{a}^2 \norm{\mathbf{v}}^2
+&= \langle a \mathbf{v}, a \mathbf{v}\rangle\\&= \bar{a} a \langle\mathbf{v}, \mathbf{v}\rangle\\&= \abs{a}^2 \norm{\mathbf{v}}^2
 \end{align*}
 ```
 

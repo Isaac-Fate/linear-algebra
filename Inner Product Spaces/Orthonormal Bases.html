@@ -522,11 +522,12 @@ title="Print to PDF"
 \[\begin{align*}\norm{a_1 \mathbf{e}_1} = \abs{a_1}\norm{\mathbf{e}_1} = \abs{a_1}\end{align*}\]</div>
 <p>(Inductive Step) Assume this proposition holds for <span class="math notranslate nohighlight">\(m = k\)</span> orthonormal vectors, we need to show it also holds for <span class="math notranslate nohighlight">\(m = k+1\)</span>. Note that</p>
 <div class="math notranslate nohighlight">
-\[\begin{align*}\left\langlea_{k+1}\mathbf{e}_{k+1},
+\[\begin{align*}\langle
+a_{k+1}\mathbf{e}_{k+1},
 a_1 \mathbf{e}_1 + \cdots + a_k \mathbf{e}_k
-\right\rangle
-= \sum_{j=1}^k \bar{a}_{k+1} a_j \left\langle\mathbf{e}_{k+1},
-\mathbf{e}_{j}\right\rangle
+\rangle
+= \sum_{j=1}^k \bar{a}_{k+1} a_j \langle\mathbf{e}_{k+1},
+\mathbf{e}_{j}\rangle
 = 0
 \end{align*}\]</div>
 <p>which means that <span class="math notranslate nohighlight">\(a_1 \mathbf{e}_1 + \cdots + a_k \mathbf{e}_k\)</span> and <span class="math notranslate nohighlight">\(a_{k+1} \mathbf{e}_{k+1}\)</span> are orthogonal to each other. Then by Pythagorean theorem (<a class="reference internal" href="Norms.html#thm:9">Theorem 6.1</a>), we have</p>

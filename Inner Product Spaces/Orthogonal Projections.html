@@ -534,7 +534,7 @@ there is an orthonormal basis <span class="math notranslate nohighlight">\((\mat
 for <span class="math notranslate nohighlight">\(U\)</span>.
 For any <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span>, we can write</p>
 <div class="math notranslate nohighlight" id="equation-eq-34">
-<span class="eqno">(6.20)<a class="headerlink" href="#equation-eq-34" title="Permalink to this equation">#</a></span>\[\begin{align}\mathbf{v} = \underbrace{
+<span class="eqno">(6.22)<a class="headerlink" href="#equation-eq-34" title="Permalink to this equation">#</a></span>\[\begin{align}\mathbf{v} = \underbrace{
 \langle \mathbf{e}_1, \mathbf{v} \rangle \mathbf{e}_1
 + \langle \mathbf{e}_m, \mathbf{v} \rangle \mathbf{e}_m
 }_{\mathbf{u}} + \underbrace{\mathbf{v}
@@ -543,7 +543,7 @@ For any <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span>, 
 - \langle \mathbf{e}_m, \mathbf{v} \rangle \mathbf{e}_m}_{\mathbf{w}}\end{align}\]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The interpretation of <a class="reference internal" href="#equation-eq-34">(6.20)</a> is that
+<p>The interpretation of <a class="reference internal" href="#equation-eq-34">(6.22)</a> is that
 we first choose a vector <span class="math notranslate nohighlight">\(\mathbf{u} \in U\)</span> by</p>
 <div class="math notranslate nohighlight">
 \[\begin{align*}\mathbf{u} = \langle\mathbf{e}_1, \mathbf{v}\rangle\mathbf{e}_1
@@ -563,7 +563,7 @@ since</p>
 = 0
 \quad\forall j = 1, \ldots, m
 \end{align*}\]</div>
-<p>Hence, <a class="reference internal" href="#equation-eq-34">(6.20)</a> implies that <span class="math notranslate nohighlight">\(V = U + U^\perp\)</span>.</p>
+<p>Hence, <a class="reference internal" href="#equation-eq-34">(6.22)</a> implies that <span class="math notranslate nohighlight">\(V = U + U^\perp\)</span>.</p>
 <p>We also need to show <span class="math notranslate nohighlight">\(V = U \oplus U^\perp\)</span>,
 which can be proved by additionally showing
 that <span class="math notranslate nohighlight">\(U \cap U^\perp = \{\mathbf{0}\}\)</span>.
@@ -734,13 +734,62 @@ the proof of which is left as an exercise (<a class="reference internal" href="#
 <p>Prove the above properties.</p>
 </div>
 <p>Moreover, suppose that <span class="math notranslate nohighlight">\((\mathbf{e}_1, \ldots, \mathbf{e}_m)\)</span> is an orthonormal
-basis for <span class="math notranslate nohighlight">\(U\)</span>, then by <a class="reference internal" href="#equation-eq-34">(6.20)</a>, <span class="math notranslate nohighlight">\(P_U \mathbf{v}\)</span> can be written as</p>
-<div class="math notranslate nohighlight">
-\[\begin{align*}
+basis for <span class="math notranslate nohighlight">\(U\)</span>, then by <a class="reference internal" href="#equation-eq-34">(6.22)</a>, <span class="math notranslate nohighlight">\(P_U \mathbf{v}\)</span> can be written as</p>
+<div class="math notranslate nohighlight" id="equation-eq-34">
+<span class="eqno">(6.22)<a class="headerlink" href="#equation-eq-34" title="Permalink to this equation">#</a></span>\[\begin{align}
 P_U \mathbf{v} = \langle\mathbf{e}_1, \mathbf{v}\rangle\mathbf{e}_1
 + \cdots\langle\mathbf{e}_m, \mathbf{v}\rangle\mathbf{e}_m
-\end{align*}\]</div>
+\end{align}\]</div>
+<p>By comparing the above equation <a class="reference internal" href="#equation-eq-34">(6.22)</a> with the
+definition of projection on to a single vector, <a class="reference internal" href="Norms.html#equation-eq-22">(6.3)</a>,
+we immediately find the relation</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+P_U \mathbf{v} = \proj_{\mathbf{e}_1}\mathbf{v}
++ \cdots + \proj_{\mathbf{e}_m}\mathbf{v}\end{align*}\]</div>
+<p>Let <span class="math notranslate nohighlight">\(V\)</span> be an inner product space, and <span class="math notranslate nohighlight">\(U\)</span> a finite-dimensional subspace,
+the problem of minimizing the distance between a
+given vector <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span> and each <span class="math notranslate nohighlight">\(\mathbf{u} \in U\)</span>
+occurs frequently in applications.
+The solution is shown in the next theorem.</p>
+<div class="proof theorem admonition" id="thm:13">
+<p class="admonition-title"><span class="caption-number">Theorem 6.9 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(V\)</span> be an inner product space,
+and <span class="math notranslate nohighlight">\(U\)</span> a finite-dimensional subspace.
+Then for each <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span>, we have</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+P_U \mathbf{v}
+= \argmin_{\mathbf{u} \in U}\norm{\mathbf{v} - \mathbf{u}}\end{align*}\]</div>
 </section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Let <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> be fixed.
+Because we have already know <span class="math notranslate nohighlight">\(P_U \mathbf{v} \in U\)</span>,
+what is left to prove is the following inequality</p>
+<div class="math notranslate nohighlight" id="equation-eq-35">
+<span class="eqno">(6.23)<a class="headerlink" href="#equation-eq-35" title="Permalink to this equation">#</a></span>\[\begin{align}\norm{\mathbf{v} - P_U \mathbf{v}}\leq\norm{\mathbf{v} - \mathbf{u}}\quad\forall\mathbf{u}\in U
+\end{align}\]</div>
+<p>Note that</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\mathbf{v} - \mathbf{u}
+= \underbrace{\mathbf{v} - P_U \mathbf{v}}_{\in U^\perp}
++ \underbrace{P_U \mathbf{v} - \mathbf{u}}_{\in U}\end{align*}\]</div>
+<p>By the Pythagorean Theorem (<a class="reference internal" href="Norms.html#thm:9">Theorem 6.1</a>),
+we have</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\norm{\mathbf{v} - \mathbf{u}}^2
+= \norm{\mathbf{v} - P_U \mathbf{v}}^2
++ \norm{\mathbf{v} - \mathbf{u}}^2
+\geq\norm{\mathbf{v} - P_U \mathbf{v}}^2
+\end{align*}\]</div>
+<p>Taking the square root on both sides yields <a class="reference internal" href="#equation-eq-35">(6.23)</a>.</p>
+</div>
+<div class="proof example admonition" id="eg:2">
+<p class="admonition-title"><span class="caption-number">Example 6.1 </span></p>
+<section class="example-content" id="proof-content">
+</section>
+</div></section>
 
     <script type="text/x-thebe-config">
     {

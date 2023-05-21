@@ -76,11 +76,12 @@ We shall prove by induction on $m$.
 (Inductive Step) Assume this proposition holds for $m = k$ orthonormal vectors, we need to show it also holds for $m = k+1$. Note that
 
 ```{math}
-\begin{align*}\left\langlea_{k+1}\mathbf{e}_{k+1},
+\begin{align*}\langle
+a_{k+1}\mathbf{e}_{k+1},
 a_1 \mathbf{e}_1 + \cdots + a_k \mathbf{e}_k
-\right\rangle
-= \sum_{j=1}^k \bar{a}_{k+1} a_j \left\langle\mathbf{e}_{k+1},
-\mathbf{e}_{j}\right\rangle
+\rangle
+= \sum_{j=1}^k \bar{a}_{k+1} a_j \langle\mathbf{e}_{k+1},
+\mathbf{e}_{j}\rangle
 = 0
 \end{align*}
 ```
