@@ -224,7 +224,7 @@ Comparing {eq}`eq:40` and {eq}`eq:41`, we find that
 ```{math}
 \begin{align*}\langle\mathbf{v}, T^\ast(a \mathbf{w}_1 + b \mathbf{w}_2) \rangle
 = a \langle\mathbf{v}, T^\ast\mathbf{w}_1 \rangle
-+ b \langle\mathbf{v}, T^\ast\mathbf{w}_1 \rangle
++ b \langle\mathbf{v}, T^\ast\mathbf{w}_2 \rangle
 = \langle\mathbf{v}, a T^\ast\mathbf{w}_1 + b T^\ast\mathbf{w}_2 \rangle\quad\forall\mathbf{v}\in V
 \end{align*}
 ```
