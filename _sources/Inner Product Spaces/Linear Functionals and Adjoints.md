@@ -40,6 +40,12 @@ such that
 
 ````
 
+:::{note}
+
+Note that the inner product space is assumed to have finite dimension.
+
+:::
+
 ````{prf:proof}
 
 We first show the existence of such $\mathbf{u}$.
@@ -110,5 +116,157 @@ Then
 In particular, letting $\mathbf{v} = \mathbf{u} - \mathbf{w}$
 yields $\mathbf{u} - \mathbf{w} = \mathbf{0}$,
 which shows that such $\mathbf{u}$ is unique.
+
+````
+
+````{prf:definition}
+:label: def:4
+
+Let $V$ and $W$ both be finite-dimensional inner product spaces
+over field $\FF$,
+and
+
+```{index} adjoint of linear map
+```
+
+```{math}
+\begin{align*}
+T: V \to W
+\end{align*}
+```
+
+a linear map. Then the **adjoint**
+of $T$, denoted by $T^\ast$,
+is the linear map
+
+```{math}
+\begin{align*}
+T^\ast: W \to V
+\end{align*}
+```
+
+such that
+
+```{math}
+:label: eq:39
+\begin{align}\langle T \mathbf{v}, \mathbf{w}\rangle
+= \langle\mathbf{v}, T^\ast\mathbf{w}\rangle\quad\forall\mathbf{v}\in V \;\forall\mathbf{w}\in W
+\end{align}
+```
+
+is satisfied.
+
+````
+
+To show that the adjoint $T^\ast$ is indeed well-defined, we need to show
+- ➀ for each $\mathbf{w} \in W$,
+there exists a unique vector $T^\ast \mathbf{w} \in V$(depending on $\mathbf{w}$)
+such that {eq}`eq:39` is satisfied, and
+- ➁ $T^\ast$ is indeed a linear map.
+
+
+The first statement immediately follows from {prf:ref}`thm:14`.
+To see this, we first let $\mathbf{w} \in W$ be fixed,
+and then define a linear functional $\varphi$ on $V$ by
+
+```{math}
+\begin{align*}\varphi(\mathbf{v}) = \langle T \mathbf{v}, \mathbf{w}\rangle\end{align*}
+```
+
+Note that $\bar{\varphi}(\mathbf{v}) = \overline{\varphi(\mathbf{v})}$
+is also a linear function on $V$.
+Then by applying {prf:ref}`thm:14`,
+there exits a unique vector $\mathbf{u} \in V$ such that
+
+```{math}
+\begin{align*}\bar{\varphi}(\mathbf{v}) = \langle\mathbf{u}, \mathbf{v}\rangle\quad\forall\mathbf{v}\in V
+\end{align*}
+```
+
+Taking the conjugate, equivalently, we have
+
+```{math}
+\begin{align*}\varphi(\mathbf{v})
+= \langle T \mathbf{v}, \mathbf{w}\rangle
+= \langle\mathbf{v}, \mathbf{u}\rangle\quad\forall\mathbf{v}\in V
+\end{align*}
+```
+
+Since $\mathbf{u}$(uniquely) depends on $\mathbf{w}$,
+we can write $\mathbf{u}$ as a function of $\mathbf{w}$, $T^\ast \mathbf{w}$.
+Hence, {eq}`eq:39` holds.
+
+We also need to show that $T^\ast$ is indeed a linear map.
+For any $\mathbf{w}_1, \mathbf{w}_2 \in W$ and $a, b \in \FF$, we have
+
+```{math}
+:label: eq:40
+\begin{align}
+a \langle T \mathbf{v}, \mathbf{w}_1 \rangle
++ b \langle T \mathbf{v}, \mathbf{w}_2 \rangle
+= \langle T \mathbf{v}, a \mathbf{w}_1 + b \mathbf{w}_2 \rangle
+= \langle\mathbf{v}, T^\ast(a \mathbf{w}_1 + b \mathbf{w}_2) \rangle\quad\forall\mathbf{v}\in V
+\end{align}
+```
+
+Meanwhile, we also have
+
+```{math}
+:label: eq:41
+\begin{align}\langle T \mathbf{v}, \mathbf{w}_1 \rangle
+= \langle\mathbf{v}, T^\ast\mathbf{w}_1 \rangle\quad\text{and}\quad\langle T \mathbf{v}, \mathbf{w}_2 \rangle
+= \langle\mathbf{v}, T^\ast\mathbf{w}_2 \rangle\quad\forall\mathbf{v}\in V
+\end{align}
+```
+
+Comparing {eq}`eq:40` and {eq}`eq:41`, we find that
+
+```{math}
+\begin{align*}\langle\mathbf{v}, T^\ast(a \mathbf{w}_1 + b \mathbf{w}_2) \rangle
+= a \langle\mathbf{v}, T^\ast\mathbf{w}_1 \rangle
++ b \langle\mathbf{v}, T^\ast\mathbf{w}_1 \rangle
+= \langle\mathbf{v}, a T^\ast\mathbf{w}_1 + b T^\ast\mathbf{w}_2 \rangle\quad\forall\mathbf{v}\in V
+\end{align*}
+```
+
+Therefore,
+
+```{math}
+\begin{align*}
+T^\ast(a \mathbf{w}_1 + b \mathbf{w}_2)
+= a T^\ast\mathbf{w}_1 + b T^\ast\mathbf{w}_2
+\end{align*}
+```
+
+which implies $T^\ast$ is indeed linear.
+
+
+````{prf:example}
+:label: eg:4
+
+The real matrix $A \in \R^{m \times n}$
+can be regarded as a linear map from $\R^n$ to $\R^m$.
+We have
+
+```{math}
+\begin{align*}\langle A \mathbf{x}, \mathbf{y}\rangle
+= \mathbf{x}^\top A^\top\mathbf{y}
+= \langle\mathbf{x}, A^\top\mathbf{y}\rangle\end{align*}
+```
+
+Therefore, the adjoint of $A$ is its transpose $A^\top$,
+i.e., $A^\ast = A^\top$.
+
+If $A \in \C^{m \times n}$ is a complex matrix, then
+
+```{math}
+\begin{align*}\langle A \mathbf{x}, \mathbf{y}\rangle
+= \mathbf{x}^H A^H \mathbf{y}
+= \langle\mathbf{x}, A^H \mathbf{y}\rangle\end{align*}
+```
+
+In this case, the adjoint of $A$ is
+its Hermitian transpose $A^H$, or conjugate transpose ${\bar{A}}^\top$.
+That is, $A^\ast = A^H = {\bar{A}}^\top$.
 
 ````

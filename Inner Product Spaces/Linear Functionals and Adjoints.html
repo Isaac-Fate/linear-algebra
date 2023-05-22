@@ -509,7 +509,11 @@ such that</p>
 = \langle\mathbf{u}, \mathbf{v}\rangle\quad\forall\mathbf{v}\in V
 \end{align*}\]</div>
 </section>
-</div><div class="proof admonition" id="proof">
+</div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that the inner product space is assumed to have finite dimension.</p>
+</div>
+<div class="proof admonition" id="proof">
 <p>Proof. We first show the existence of such <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>.
 Suppose that <span class="math notranslate nohighlight">\((\mathbf{e}_1, \ldots, \mathbf{e}_n)\)</span>
 is an orthogonal basis of <span class="math notranslate nohighlight">\(V\)</span>.
@@ -555,7 +559,109 @@ Suppose</p>
 yields <span class="math notranslate nohighlight">\(\mathbf{u} - \mathbf{w} = \mathbf{0}\)</span>,
 which shows that such <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is unique.</p>
 </div>
+<div class="proof definition admonition" id="def:4">
+<p class="admonition-title"><span class="caption-number">Definition 6.6 </span></p>
+<section class="definition-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(W\)</span> both be finite-dimensional inner product spaces
+over field <span class="math notranslate nohighlight">\(\FF\)</span>,
+and</p>
+<div class="math notranslate nohighlight" id="index-0">
+\[\begin{align*}
+T: V \to W
+\end{align*}\]</div>
+<p>a linear map. Then the <strong>adjoint</strong>
+of <span class="math notranslate nohighlight">\(T\)</span>, denoted by <span class="math notranslate nohighlight">\(T^\ast\)</span>,
+is the linear map</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+T^\ast: W \to V
+\end{align*}\]</div>
+<p>such that</p>
+<div class="math notranslate nohighlight" id="equation-eq-39">
+<span class="eqno">(6.28)<a class="headerlink" href="#equation-eq-39" title="Permalink to this equation">#</a></span>\[\begin{align}\langle T \mathbf{v}, \mathbf{w}\rangle
+= \langle\mathbf{v}, T^\ast\mathbf{w}\rangle\quad\forall\mathbf{v}\in V \;\forall\mathbf{w}\in W
+\end{align}\]</div>
+<p>is satisfied.</p>
 </section>
+</div><p>To show that the adjoint <span class="math notranslate nohighlight">\(T^\ast\)</span> is indeed well-defined, we need to show</p>
+<ul class="simple">
+<li><p>➀ for each <span class="math notranslate nohighlight">\(\mathbf{w} \in W\)</span>,
+there exists a unique vector <span class="math notranslate nohighlight">\(T^\ast \mathbf{w} \in V\)</span>(depending on <span class="math notranslate nohighlight">\(\mathbf{w}\)</span>)
+such that <a class="reference internal" href="#equation-eq-39">(6.28)</a> is satisfied, and</p></li>
+<li><p>➁ <span class="math notranslate nohighlight">\(T^\ast\)</span> is indeed a linear map.</p></li>
+</ul>
+<p>The first statement immediately follows from <a class="reference internal" href="#thm:14">Theorem 6.10</a>.
+To see this, we first let <span class="math notranslate nohighlight">\(\mathbf{w} \in W\)</span> be fixed,
+and then define a linear functional <span class="math notranslate nohighlight">\(\varphi\)</span> on <span class="math notranslate nohighlight">\(V\)</span> by</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\varphi(\mathbf{v}) = \langle T \mathbf{v}, \mathbf{w}\rangle\end{align*}\]</div>
+<p>Note that <span class="math notranslate nohighlight">\(\bar{\varphi}(\mathbf{v}) = \overline{\varphi(\mathbf{v})}\)</span>
+is also a linear function on <span class="math notranslate nohighlight">\(V\)</span>.
+Then by applying <a class="reference internal" href="#thm:14">Theorem 6.10</a>,
+there exits a unique vector <span class="math notranslate nohighlight">\(\mathbf{u} \in V\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\bar{\varphi}(\mathbf{v}) = \langle\mathbf{u}, \mathbf{v}\rangle\quad\forall\mathbf{v}\in V
+\end{align*}\]</div>
+<p>Taking the conjugate, equivalently, we have</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\varphi(\mathbf{v})
+= \langle T \mathbf{v}, \mathbf{w}\rangle
+= \langle\mathbf{v}, \mathbf{u}\rangle\quad\forall\mathbf{v}\in V
+\end{align*}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>(uniquely) depends on <span class="math notranslate nohighlight">\(\mathbf{w}\)</span>,
+we can write <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> as a function of <span class="math notranslate nohighlight">\(\mathbf{w}\)</span>, <span class="math notranslate nohighlight">\(T^\ast \mathbf{w}\)</span>.
+Hence, <a class="reference internal" href="#equation-eq-39">(6.28)</a> holds.</p>
+<p>We also need to show that <span class="math notranslate nohighlight">\(T^\ast\)</span> is indeed a linear map.
+For any <span class="math notranslate nohighlight">\(\mathbf{w}_1, \mathbf{w}_2 \in W\)</span> and <span class="math notranslate nohighlight">\(a, b \in \FF\)</span>, we have</p>
+<div class="math notranslate nohighlight" id="equation-eq-40">
+<span class="eqno">(6.29)<a class="headerlink" href="#equation-eq-40" title="Permalink to this equation">#</a></span>\[\begin{align}
+a \langle T \mathbf{v}, \mathbf{w}_1 \rangle
++ b \langle T \mathbf{v}, \mathbf{w}_2 \rangle
+= \langle T \mathbf{v}, a \mathbf{w}_1 + b \mathbf{w}_2 \rangle
+= \langle\mathbf{v}, T^\ast(a \mathbf{w}_1 + b \mathbf{w}_2) \rangle\quad\forall\mathbf{v}\in V
+\end{align}\]</div>
+<p>Meanwhile, we also have</p>
+<div class="math notranslate nohighlight" id="equation-eq-41">
+<span class="eqno">(6.30)<a class="headerlink" href="#equation-eq-41" title="Permalink to this equation">#</a></span>\[\begin{align}\langle T \mathbf{v}, \mathbf{w}_1 \rangle
+= \langle\mathbf{v}, T^\ast\mathbf{w}_1 \rangle\quad\text{and}\quad\langle T \mathbf{v}, \mathbf{w}_2 \rangle
+= \langle\mathbf{v}, T^\ast\mathbf{w}_2 \rangle\quad\forall\mathbf{v}\in V
+\end{align}\]</div>
+<p>Comparing <a class="reference internal" href="#equation-eq-40">(6.29)</a> and <a class="reference internal" href="#equation-eq-41">(6.30)</a>, we find that</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\langle\mathbf{v}, T^\ast(a \mathbf{w}_1 + b \mathbf{w}_2) \rangle
+= a \langle\mathbf{v}, T^\ast\mathbf{w}_1 \rangle
++ b \langle\mathbf{v}, T^\ast\mathbf{w}_1 \rangle
+= \langle\mathbf{v}, a T^\ast\mathbf{w}_1 + b T^\ast\mathbf{w}_2 \rangle\quad\forall\mathbf{v}\in V
+\end{align*}\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+T^\ast(a \mathbf{w}_1 + b \mathbf{w}_2)
+= a T^\ast\mathbf{w}_1 + b T^\ast\mathbf{w}_2
+\end{align*}\]</div>
+<p>which implies <span class="math notranslate nohighlight">\(T^\ast\)</span> is indeed linear.</p>
+<div class="proof example admonition" id="eg:4">
+<p class="admonition-title"><span class="caption-number">Example 6.3 </span></p>
+<section class="example-content" id="proof-content">
+<p>The real matrix <span class="math notranslate nohighlight">\(A \in \R^{m \times n}\)</span>
+can be regarded as a linear map from <span class="math notranslate nohighlight">\(\R^n\)</span> to <span class="math notranslate nohighlight">\(\R^m\)</span>.
+We have</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\langle A \mathbf{x}, \mathbf{y}\rangle
+= \mathbf{x}^\top A^\top\mathbf{y}
+= \langle\mathbf{x}, A^\top\mathbf{y}\rangle\end{align*}\]</div>
+<p>Therefore, the adjoint of <span class="math notranslate nohighlight">\(A\)</span> is its transpose <span class="math notranslate nohighlight">\(A^\top\)</span>,
+i.e., <span class="math notranslate nohighlight">\(A^\ast = A^\top\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(A \in \C^{m \times n}\)</span> is a complex matrix, then</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\langle A \mathbf{x}, \mathbf{y}\rangle
+= \mathbf{x}^H A^H \mathbf{y}
+= \langle\mathbf{x}, A^H \mathbf{y}\rangle\end{align*}\]</div>
+<p>In this case, the adjoint of <span class="math notranslate nohighlight">\(A\)</span> is
+its Hermitian transpose <span class="math notranslate nohighlight">\(A^H\)</span>, or conjugate transpose <span class="math notranslate nohighlight">\({\bar{A}}^\top\)</span>.
+That is, <span class="math notranslate nohighlight">\(A^\ast = A^H = {\bar{A}}^\top\)</span>.</p>
+</section>
+</div></section>
 
     <script type="text/x-thebe-config">
     {
