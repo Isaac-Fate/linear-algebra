@@ -192,7 +192,7 @@ Taking the conjugate, equivalently, we have
 \end{align*}
 ```
 
-Since $\mathbf{u}$(uniquely) depends on $\mathbf{w}$,
+Since $\mathbf{u}$(uniquely) depends on $\mathbf{w}$(and of course, also on $T$),
 we can write $\mathbf{u}$ as a function of $\mathbf{w}$, $T^\ast \mathbf{w}$.
 Hence, {eq}`eq:39` holds.
 
@@ -268,5 +268,135 @@ If $A \in \C^{m \times n}$ is a complex matrix, then
 In this case, the adjoint of $A$ is
 its Hermitian transpose $A^H$, or conjugate transpose ${\bar{A}}^\top$.
 That is, $A^\ast = A^H = {\bar{A}}^\top$.
+
+````
+
+Next, we will show some properties
+of the function $T \mapsto T^\ast$.
+
+:::{note}
+
+In proving these properties, we will frequently use
+the following simple observations:
+
+```{math}
+:label: eq:42
+\begin{align}\langle T_1 \mathbf{v}, \mathbf{w}\rangle
+= \langle T_2 \mathbf{v}, \mathbf{w}\rangle\quad\forall\mathbf{v}\in V \;\forall\mathbf{w}\in W
+\implies
+T_1 = T_2
+\end{align}
+```
+
+To show {eq}`eq:42`, we note that
+
+```{math}
+\begin{align*}\langle(T_1 - T_2) \mathbf{v}, \mathbf{w}\rangle
+= 0
+\quad\forall\mathbf{v}\in V \;\forall\mathbf{w}\in W
+\end{align*}
+```
+
+Taking $\mathbf{w} = (T_1 - T_2)\mathbf{v}$ yields
+
+```{math}
+\begin{align*}(T_1 - T_2)\mathbf{v} = \mathbf{0}\quad\forall\mathbf{v}\in V
+\end{align*}
+```
+
+It then follows that $T_1 = T_2$.
+
+:::
+
+````{prf:proposition}
+:label: pro:6
+
+Let $V$ and $W$ be finite-dimensional inner product spaces,
+and $T : V \to W$ a linear map.
+We have
+- ➀ $(S + T)^\ast = S^\ast + T^\ast$
+where $S: V \to W$ is another linear map.
+- ➁ $(a T)^\ast = \bar{a} T^\ast$
+- ➂ $(T^\ast)^\ast = T$
+- ➃ $I^\ast = I$
+where $I$ is the identity map on $V$.
+- ➄ $(S T)^\ast = T^\ast S^\ast$
+where $U$ is another finite-dimensional
+inner product space,
+and $S: W \to U$ is a linear map.
+
+
+````
+
+````{prf:proof}
+
+We only prove 1 and 5 since the proofs of the rest are similar.
+
+
+(Proof of 1) We have
+
+```{math}
+\begin{align*}\langle(S + T) \mathbf{v}, \mathbf{w}\rangle
+= \langle\mathbf{v}, (S + T)^\ast\mathbf{w}\rangle\quad\forall\mathbf{v}\in V \;\forall\mathbf{w}\in W
+\end{align*}
+```
+
+On the other hand,
+
+```{math}
+\begin{align*}\langle(S + T) \mathbf{v}, \mathbf{w}\rangle&= \langle S \mathbf{v}, \mathbf{w}\rangle
++\langle T \mathbf{v}, \mathbf{w}\rangle\\&= \langle\mathbf{v}, S^\ast\mathbf{w}\rangle
++\langle\mathbf{v}, T^\ast\mathbf{w}\rangle\\&= \langle\mathbf{v}, (S^\ast + T^\ast) \mathbf{w}\rangle\quad\forall\mathbf{v}\in V \;\forall\mathbf{w}\in W
+\end{align*}
+```
+
+Equating the right-hand sides of above two equations yields
+
+```{math}
+\begin{align*}\langle\mathbf{v}, (S + T)^\ast\mathbf{w}\rangle
+= \langle\mathbf{v}, (S^\ast + T^\ast) \mathbf{w}\rangle\quad\forall\mathbf{v}\in V \;\forall\mathbf{w}\in W
+\end{align*}
+```
+
+Therefore, $(S + T)^\ast = S^\ast + T^\ast$.
+
+(Proof of 5) By treating $S T$ as one linear map, we have
+
+```{math}
+:label: eq:44
+\begin{align}\langle S T \mathbf{v}, \mathbf{w}\rangle
+= \langle\mathbf{v}, (ST)^\ast\mathbf{w}\rangle\quad\forall\mathbf{v}\in V \;\forall\mathbf{w}\in W
+\end{align}
+```
+
+If we regard $ST \mathbf{v}$ as a vector $T\mathbf{v}$ applied to $S$,
+then
+
+```{math}
+\begin{align*}\langle S T \mathbf{v}, \mathbf{w}\rangle
+= \langle T \mathbf{v}, S^\ast\mathbf{w}\rangle\quad\forall\mathbf{v}\in V \;\forall\mathbf{w}\in W
+\end{align*}
+```
+
+We can then move $T$ to the second slot of the inner product,
+and replace it with $T^\ast$:
+
+```{math}
+\begin{align*}\langle T \mathbf{v}, S^\ast\mathbf{w}\rangle
+= \langle\mathbf{v}, T^\ast S^\ast\mathbf{w}\rangle\quad\forall\mathbf{v}\in V \;\forall\mathbf{w}\in W
+\end{align*}
+```
+
+Hence,
+
+```{math}
+:label: eq:43
+\begin{align}\langle S T \mathbf{v}, \mathbf{w}\rangle
+= \langle\mathbf{v}, T^\ast S^\ast\mathbf{w}\rangle\quad\forall\mathbf{v}\in V \;\forall\mathbf{w}\in W
+\end{align}
+```
+
+Equating the right-hand sides of {eq}`eq:44` and {eq}`eq:43`,
+we obtain $(ST)^\ast = T^\ast S^\ast$.
 
 ````
