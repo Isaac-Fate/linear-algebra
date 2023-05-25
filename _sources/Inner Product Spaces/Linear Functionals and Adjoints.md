@@ -328,6 +328,16 @@ and $S: W \to U$ is a linear map.
 
 ````
 
+:::{note}
+
+We have seen in {prf:ref}`eg:4` that
+the adjoint of a complex matrix is
+its Hermitian transpose.
+If we replaces the linear maps with matrices,
+then all these properties should look very familiar.
+
+:::
+
 ````{prf:proof}
 
 We only prove 1 and 5 since the proofs of the rest are similar.
@@ -398,5 +408,59 @@ Hence,
 
 Equating the right-hand sides of {eq}`eq:44` and {eq}`eq:43`,
 we obtain $(ST)^\ast = T^\ast S^\ast$.
+
+````
+
+The following statements describe
+the relations between the image and kernel of a linear map
+and that of its adjoint.
+
+
+````{prf:proposition}
+:label: pro:7
+
+Let $T \in \mathcal(V, W)$ be a linear map
+between two finite-dimensional inner product spaces $V$ and $W$.
+Then we have
+- ➀ $\ker T^\ast = (\im T)^\perp$
+- ➁ $\im T^\ast = (\ker T)^\perp$
+- ➂ $\ker T = (\im T^\ast)^\perp$
+- ➃ $\im T = (\ker T^\ast)^\perp$
+
+
+````
+
+````{prf:proof}
+
+Firstly, note that 3 and 4 follow directly from 1 and 2, respectively,
+by replacing $T$ with $T^\ast$.
+And 2 can be proved by taking the orthogonal complement
+on both sides of 1 (due to {prf:ref}`cor:7`).
+Hence, we only need to prove 1.
+
+We have
+
+```{math}
+\begin{align*}& \mathbf{w}\in\ker T^\ast\\\iff& T^\ast\mathbf{w} = \mathbf{0}\\\iff& \langle\mathbf{v}, T^\ast\mathbf{w}\rangle = 0
+\quad\forall\mathbf{v}\in V \\\iff& \langle T \mathbf{v}, \mathbf{w}\rangle = 0
+\quad\forall\mathbf{v}\in V \\\iff& \mathbf{w}\in(\im T)^\perp\end{align*}
+```
+
+Therefore, $\ker T^\ast = (\im T)^\perp$.
+
+````
+
+Let $\mathcal{B}_1$ and $\mathcal{B}_2$ be the bases
+of two finite-dimensional inner product spaces $V$ and $W$,
+respectively, and $T: V \to W$ a linear map.
+Inspired by {prf:ref}`eg:4`, one may conjecture that
+the matrix representation of $T^\ast$ is the Hermitian transpose
+of that of $T$.
+However, this is not true in general.
+See the following example.
+
+
+````{prf:example}
+:label: eg:5
 
 ````
