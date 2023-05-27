@@ -419,7 +419,7 @@ and that of its adjoint.
 ````{prf:proposition}
 :label: pro:7
 
-Let $T \in \mathcal(V, W)$ be a linear map
+Let $T \in \mathcal{L}(V, W)$ be a linear map
 between two finite-dimensional inner product spaces $V$ and $W$.
 Then we have
 - ➀ $\ker T^\ast = (\im T)^\perp$
