@@ -2229,6 +2229,14 @@ of the function $T \mapsto T^\ast$.
 	\end{enumerate}
 \end{proposition}
 
+\begin{note}
+	We have seen in Example~\ref{eg:4} that
+	the adjoint of a complex matrix is
+	its Hermitian transpose.
+	If we replaces the linear maps with matrices,
+	then all these properties should look very familiar. 
+\end{note}
+
 \begin{proof}
 	We only prove 1 and 5 since the proofs of the rest are similar.
 
@@ -2289,7 +2297,268 @@ of the function $T \mapsto T^\ast$.
 	we obtain $(ST)^\ast = T^\ast S^\ast$.
 \end{proof}
 
+%------------------------------
+
+The following statements describe
+the relations between the image and kernel of a linear map
+and that of its adjoint.
+
+\begin{proposition} \label{pro:7}
+	Let $T \in \mathcal{L}(V, W)$ be a linear map 
+	between two finite-dimensional inner product spaces $V$ and $W$.
+	Then we have
+	\begin{enumerate}
+		\item $\ker T^\ast = (\im T)^\perp$
+		\item $\im T^\ast = (\ker T)^\perp$
+		\item $\ker T = (\im T^\ast)^\perp$
+		\item $\im T = (\ker T^\ast)^\perp$
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	Firstly, note that 3 and 4 follow directly from 1 and 2, respectively, 
+	by replacing $T$ with $T^\ast$.
+	And 2 can be proved by taking the orthogonal complement 
+	on both sides of 1 (due to Corollary~\ref{cor:7}).
+	Hence, we only need to prove 1.
+
+	We have 
+	\begin{align*}
+		& \mathbf{w} \in \ker T^\ast \\
+		\iff& T^\ast \mathbf{w} = \mathbf{0} \\
+		\iff& \langle \mathbf{v}, T^\ast \mathbf{w} \rangle = 0
+		\quad \forall \mathbf{v} \in V \\
+		\iff& \langle T \mathbf{v}, \mathbf{w} \rangle = 0
+		\quad \forall \mathbf{v} \in V \\
+		\iff& \mathbf{w} \in (\im T)^\perp
+	\end{align*}
+	Therefore, $\ker T^\ast = (\im T)^\perp$.
+\end{proof}
+
+%------------------------------
+
+Let $\mathcal{B}_1$ and $\mathcal{B}_2$ be the bases 
+of two finite-dimensional inner product spaces $V$ and $W$,
+respectively, and $T: V \to W$ a linear map.
+Inspired by Example~\ref{eg:4}, one may conjecture that
+the matrix representation of $T^\ast$ is the Hermitian transpose
+of that of $T$.
+However, this is not true in general.
+See the following example.
+
+\begin{example} \label{eg:5}
+\end{example}
+
 %==============================
+
+\chapter{Operators on Inner Product Spaces}
+
+%==============================
+
+\section{Self-Adjoint and Normal Operators}
+
+%------------------------------
+
+\begin{proposition} \label{pro:8}
+	Let $V$ be a complex inner product space.
+	If $T \in \mathcal{L}(V)$ is an operator such that 
+	\begin{align}
+		\langle T \mathbf{v}, \mathbf{v} \rangle = 0
+		\quad \forall \mathbf{v} \in V
+		\label{eq:46}
+	\end{align}
+	then $T = 0$, i.e., $T$ is the zero map.
+\end{proposition}
+
+\begin{note}
+	Note that $V$ can have infinite dimension.
+	The proof of this proposition is rather constructive.
+\end{note}
+
+\begin{proof}
+	To prove $T$ is the zero map, we want to show 
+	\begin{align}
+		\langle T \mathbf{u}, \mathbf{w} \rangle = 0
+		\quad \forall \mathbf{u}, \mathbf{w} \in V
+		\label{eq:45}
+	\end{align}
+	One can verify that the following
+	identity holds through brute force calculation 
+	of the right-hand side:
+	\begin{multline*}
+		\langle T \mathbf{u}, \mathbf{w} \rangle
+		= \frac{1}{4} \brk{
+			\langle T (\mathbf{u} + \mathbf{w}), 
+			\mathbf{u} + \mathbf{w} \rangle
+			-\langle T (\mathbf{u} - \mathbf{w}), 
+			\mathbf{u} - \mathbf{w} \rangle
+		} \\
+		+ \frac{i}{4} \brk{
+			\langle T (\mathbf{u} + i\mathbf{w}), 
+			\mathbf{u} + i\mathbf{w} \rangle
+			-\langle T (\mathbf{u} - i\mathbf{w}), 
+			\mathbf{u} - i \mathbf{w} \rangle
+		}
+	\end{multline*}
+	Therefore, we see that \eqref{eq:45} indeed holds.
+\end{proof}
+
+It should be emphasized that Proposition~\ref{pro:8} does not hold
+in general if $V$ is over a \textit{real} field.
+The following is a typical example.
+
+\begin{example} \label{eg:6}
+	Let $V$ be a $2$-dimensional real inner product space.
+	Suppose $\mathcal{B} = (\mathbf{e}_1, \mathbf{e}_2)$
+	is an orthonormal basis.
+	Let operator $T$ be defined by 
+	\begin{align*}
+		T \mathbf{e}_1 = \mathbf{e}_2
+		\quad \text{and} \quad 
+		T \mathbf{e}_2 = -\mathbf{e}_1
+	\end{align*}
+	For an arbitrary 
+	vector $\mathbf{v} = a\mathbf{e}_1 + b\mathbf{e}_2$,
+	we have 
+	\begin{align*}
+		\langle T \mathbf{v}, \mathbf{v} \rangle
+		&= \langle T (a\mathbf{e}_1 + b\mathbf{e}_2), 
+		a\mathbf{e}_1 + b \mathbf{e}_2 \rangle \\
+		&= a^2 \langle T \mathbf{e}_1, \mathbf{e}_1 \rangle
+		+ ab \langle T \mathbf{e}_1, \mathbf{e}_2 \rangle
+		+ ba \langle T \mathbf{e}_2, \mathbf{e}_1 \rangle
+		+ b^2 \langle T \mathbf{e}_2, \mathbf{e}_2 \rangle \\
+		&= a^2 \cdot 0 + ab \cdot 1 + ba \cdot (-1) + b^2 \cdot 0 \\
+		&= 0
+	\end{align*}
+	Note that \eqref{eq:46} is satisfied. 
+	But $T$ is clearly not the zero map.
+
+	More specifically, if we take $V = \R^2$ 
+	and let $\mathcal{B}$ be the standard basis,
+	then the matrix representation of this $T$
+	is 
+	\begin{align*}
+		[T] = \begin{bmatrix}
+			0 & -1\\
+			1 & 0
+		\end{bmatrix}
+	\end{align*}
+	Geometrically, it rotates a vector in $\R^2$ $90$ degrees anticlockwise. 
+\end{example}
+
+%------------------------------
+
+\begin{corollary} \label{cor:8}
+	Let $V$ be a finite-dimensional complex inner product space.
+	Then operator $T$ is self-adjoint if and only if 
+	\begin{align}
+		\langle T \mathbf{v}, \mathbf{v} \rangle = 0
+		\quad \forall \mathbf{v} \in V
+		\label{eq:47}
+	\end{align}
+\end{corollary}
+
+\begin{note}
+	Of course, this corollary does
+	not hold for real inner product space either.
+	Using the same example (Example~\ref{eg:6}),
+	we see that \eqref{eq:47} is satisfied 
+	and yet $T$ is not self-adjoint
+	since the standard basis $\mathcal{B}$ is orthonormal 
+	and $[T]_\mathcal{B} \neq [T]^\top_\mathcal{B}$.
+\end{note}
+
+\begin{proof}
+	For any vector $\mathbf{v} \in V$, we have 
+	\begin{align}
+		\langle T \mathbf{v}, \mathbf{v} \rangle
+		- \overline{\langle T \mathbf{v}, \mathbf{v} \rangle}
+		&= \langle T \mathbf{v}, \mathbf{v} \rangle
+		- \langle \mathbf{v}, T \mathbf{v} \rangle \nonumber \\ 
+		&= \langle T^\ast \mathbf{v}, \mathbf{v} \rangle \nonumber \\
+		&= \langle (T - T^\ast) \mathbf{v}, \mathbf{v} \rangle
+		\label{eq:48}
+	\end{align}
+
+	If \eqref{eq:47} holds, then \eqref{eq:48} yields that 
+	\begin{align*}
+		\langle (T - T^\ast) \mathbf{v}, \mathbf{v} \rangle
+		\quad \forall \mathbf{v} \in V
+	\end{align*}
+	It then follows from Proposition~\ref{pro:8} 
+	that $T - T^\ast$ is the zero map, 
+	equivalently, $T$ is self-adjoint.
+
+	Conversely, if $T$ is self-adjoint, then \eqref{eq:48} 
+	implies \eqref{eq:47}.
+\end{proof}
+
+%------------------------------
+
+We have already seen satisfying \eqref{eq:46} does not imply
+that $T = 0$ in finite-dimensional real inner product space.
+However, if we further require that $T$ is self-adjoint, 
+then $T$ must be the zero map, as stated in the next proposition.
+
+\begin{proposition} \label{pro:9}
+	Let $V$ be a finite-dimensional inner product space.
+	If $T$ is a self-adjoint operator on $V$ satisfying 
+	\begin{align*}
+		\langle T \mathbf{v}, \mathbf{v} \rangle = 0
+		\quad \forall \mathbf{v} \in V
+	\end{align*}
+	then $T = 0$.
+\end{proposition}
+
+\begin{note}
+	Note that we have already proved this proposition 
+	in Proposition~\ref{pro:8}
+	if $V$ is over a complex field,
+	without even assuming $V$ is finite-dimensional 
+	and $T$ is self-adjoint.
+	Therefore, this proposition especially contributes to 
+	the case where $V$ is over a real field.
+\end{note}
+
+\begin{proof}
+	As we have already noted, we only need to prove this proposition
+	concerning the case where $V$ is over a real field.
+
+	We want to show 
+	\begin{align}
+		\langle T \mathbf{u}, \mathbf{w} \rangle = 0
+		\quad \forall \mathbf{u}, \mathbf{w} \in V
+		\label{eq:50}
+	\end{align}
+	Consider the inner product $\langle T(\mathbf{u} + \mathbf{w}), \mathbf{u} + \mathbf{w} \rangle$.
+	We have 
+	\begin{multline}
+		0 = \langle T(\mathbf{u} + \mathbf{w}), \mathbf{u} + \mathbf{w} \rangle
+		= \langle T\mathbf{u}, \mathbf{u} \rangle
+		+ \langle T\mathbf{u}, \mathbf{w} \rangle
+		+ \langle T\mathbf{w}, \mathbf{u} \rangle
+		+ \langle T\mathbf{w}, \mathbf{w} \rangle \\
+		= \langle T\mathbf{u}, \mathbf{w} \rangle
+		+ \langle T\mathbf{w}, \mathbf{u} \rangle
+		\label{eq:49}
+	\end{multline}
+	Since $T$ is self-adjoint, we have 
+	\begin{align*}
+		\langle T \mathbf{w}, \mathbf{u} \rangle
+		= \langle \mathbf{w}, T^\ast \mathbf{u} \rangle
+		= \langle \mathbf{w}, T \mathbf{u} \rangle
+		= \langle T \mathbf{u}, \mathbf{w} \rangle
+	\end{align*}
+	where the last equality follows because 
+	we are now considering the real field. 
+	Therefore, the right-hand side of \eqref{eq:49}
+	reduces to $2 \langle T\mathbf{u}, \mathbf{w} \rangle$
+	and hence \eqref{eq:50} follows.
+\end{proof}
+
+%------------------------------
+
 
 % references
 \printbibliography[heading=bibintoc, title=References]
