@@ -587,7 +587,17 @@ Then operator <span class="math notranslate nohighlight">\(T\)</span> is self-ad
 \quad\forall\mathbf{v}\in V
 \end{align}\]</div>
 </section>
-</div><div class="proof admonition" id="proof">
+</div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Of course, this corollary does
+not hold for real inner product space either.
+Using the same example (<a class="reference internal" href="#eg:6">Example 7.1</a>),
+we see that <a class="reference internal" href="#equation-eq-47">(7.3)</a> is satisfied
+and yet <span class="math notranslate nohighlight">\(T\)</span> is not self-adjoint
+since the standard basis <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> is orthonormal
+and <span class="math notranslate nohighlight">\([T]_\mathcal{B} \neq[T]^\top_\mathcal{B}\)</span>.</p>
+</div>
+<div class="proof admonition" id="proof">
 <p>Proof. For any vector <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span>, we have</p>
 <div class="math notranslate nohighlight" id="equation-eq-48">
 <span class="eqno">(7.4)<a class="headerlink" href="#equation-eq-48" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{align}\langle T \mathbf{v}, \mathbf{v}\rangle
@@ -602,6 +612,62 @@ that <span class="math notranslate nohighlight">\(T - T^\ast\)</span> is the zer
 equivalently, <span class="math notranslate nohighlight">\(T\)</span> is self-adjoint.</p>
 <p>Conversely, if <span class="math notranslate nohighlight">\(T\)</span> is self-adjoint, then <a class="reference internal" href="#equation-eq-48">(7.4)</a>
 implies <a class="reference internal" href="#equation-eq-47">(7.3)</a>.</p>
+</div>
+<p>We have already seen satisfying <a class="reference internal" href="#equation-eq-46">(7.1)</a> does not imply
+that <span class="math notranslate nohighlight">\(T = 0\)</span> in finite-dimensional real inner product space.
+However, if we further require that <span class="math notranslate nohighlight">\(T\)</span> is self-adjoint,
+then <span class="math notranslate nohighlight">\(T\)</span> must be the zero map, as stated in the next proposition.</p>
+<div class="proof proposition admonition" id="pro:9">
+<p class="admonition-title"><span class="caption-number">Proposition 7.2 </span></p>
+<section class="proposition-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(V\)</span> be a finite-dimensional inner product space.
+If <span class="math notranslate nohighlight">\(T\)</span> is a self-adjoint operator on <span class="math notranslate nohighlight">\(V\)</span> satisfying</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\langle T \mathbf{v}, \mathbf{v}\rangle = 0
+\quad\forall\mathbf{v}\in V
+\end{align*}\]</div>
+<p>then <span class="math notranslate nohighlight">\(T = 0\)</span>.</p>
+</section>
+</div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that we have already proved this proposition
+in <a class="reference internal" href="#pro:8">Proposition 7.1</a>
+if <span class="math notranslate nohighlight">\(V\)</span> is over a complex field,
+without even assuming <span class="math notranslate nohighlight">\(V\)</span> is finite-dimensional
+and <span class="math notranslate nohighlight">\(T\)</span> is self-adjoint.
+Therefore, this proposition especially contributes to
+the case where <span class="math notranslate nohighlight">\(V\)</span> is over a real field.</p>
+</div>
+<div class="proof admonition" id="proof">
+<p>Proof. As we have already noted, we only need to prove this proposition
+concerning the case where <span class="math notranslate nohighlight">\(V\)</span> is over a real field.</p>
+<p>We want to show</p>
+<div class="math notranslate nohighlight" id="equation-eq-50">
+<span class="eqno">(7.5)<a class="headerlink" href="#equation-eq-50" title="Permalink to this equation">#</a></span>\[\begin{align}\langle T \mathbf{u}, \mathbf{w}\rangle = 0
+\quad\forall\mathbf{u}, \mathbf{w}\in V
+\end{align}\]</div>
+<p>Consider the inner product <span class="math notranslate nohighlight">\(\langle T(\mathbf{u} + \mathbf{w}), \mathbf{u} + \mathbf{w} \rangle\)</span>.
+We have</p>
+<div class="math notranslate nohighlight" id="equation-eq-49">
+<span class="eqno">(7.6)<a class="headerlink" href="#equation-eq-49" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{multline}
+0 = \langle T(\mathbf{u} + \mathbf{w}), \mathbf{u} + \mathbf{w}\rangle
+= \langle T\mathbf{u}, \mathbf{u}\rangle
++ \langle T\mathbf{u}, \mathbf{w}\rangle
++ \langle T\mathbf{w}, \mathbf{u}\rangle
++ \langle T\mathbf{w}, \mathbf{w}\rangle\\
+= \langle T\mathbf{u}, \mathbf{w}\rangle
++ \langle T\mathbf{w}, \mathbf{u}\rangle\end{multline}\end{split}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(T\)</span> is self-adjoint, we have</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\langle T \mathbf{w}, \mathbf{u}\rangle
+= \langle\mathbf{w}, T^\ast\mathbf{u}\rangle
+= \langle\mathbf{w}, T \mathbf{u}\rangle
+= \langle T \mathbf{u}, \mathbf{w}\rangle\end{align*}\]</div>
+<p>where the last equality follows because
+we are now considering the real field.
+Therefore, the right-hand side of <a class="reference internal" href="#equation-eq-49">(7.6)</a>
+reduces to <span class="math notranslate nohighlight">\(2 \langle T\mathbf{u}, \mathbf{w} \rangle\)</span>
+and hence <a class="reference internal" href="#equation-eq-50">(7.5)</a> follows.</p>
 </div>
 </section>
 

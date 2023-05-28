@@ -127,6 +127,18 @@ Then operator $T$ is self-adjoint if and only if
 
 ````
 
+:::{note}
+
+Of course, this corollary does
+not hold for real inner product space either.
+Using the same example ({prf:ref}`eg:6`),
+we see that {eq}`eq:47` is satisfied
+and yet $T$ is not self-adjoint
+since the standard basis $\mathcal{B}$ is orthonormal
+and $[T]_\mathcal{B} \neq[T]^\top_\mathcal{B}$.
+
+:::
+
 ````{prf:proof}
 
 For any vector $\mathbf{v} \in V$, we have
@@ -151,5 +163,85 @@ equivalently, $T$ is self-adjoint.
 
 Conversely, if $T$ is self-adjoint, then {eq}`eq:48`
 implies {eq}`eq:47`.
+
+````
+
+We have already seen satisfying {eq}`eq:46` does not imply
+that $T = 0$ in finite-dimensional real inner product space.
+However, if we further require that $T$ is self-adjoint,
+then $T$ must be the zero map, as stated in the next proposition.
+
+
+````{prf:proposition}
+:label: pro:9
+
+Let $V$ be a finite-dimensional inner product space.
+If $T$ is a self-adjoint operator on $V$ satisfying
+
+```{math}
+\begin{align*}\langle T \mathbf{v}, \mathbf{v}\rangle = 0
+\quad\forall\mathbf{v}\in V
+\end{align*}
+```
+
+then $T = 0$.
+
+````
+
+:::{note}
+
+Note that we have already proved this proposition
+in {prf:ref}`pro:8`
+if $V$ is over a complex field,
+without even assuming $V$ is finite-dimensional
+and $T$ is self-adjoint.
+Therefore, this proposition especially contributes to
+the case where $V$ is over a real field.
+
+:::
+
+````{prf:proof}
+
+As we have already noted, we only need to prove this proposition
+concerning the case where $V$ is over a real field.
+
+We want to show
+
+```{math}
+:label: eq:50
+\begin{align}\langle T \mathbf{u}, \mathbf{w}\rangle = 0
+\quad\forall\mathbf{u}, \mathbf{w}\in V
+\end{align}
+```
+
+Consider the inner product $\langle T(\mathbf{u} + \mathbf{w}), \mathbf{u} + \mathbf{w} \rangle$.
+We have
+
+```{math}
+:label: eq:49
+\begin{multline}
+0 = \langle T(\mathbf{u} + \mathbf{w}), \mathbf{u} + \mathbf{w}\rangle
+= \langle T\mathbf{u}, \mathbf{u}\rangle
++ \langle T\mathbf{u}, \mathbf{w}\rangle
++ \langle T\mathbf{w}, \mathbf{u}\rangle
++ \langle T\mathbf{w}, \mathbf{w}\rangle\\
+= \langle T\mathbf{u}, \mathbf{w}\rangle
++ \langle T\mathbf{w}, \mathbf{u}\rangle\end{multline}
+```
+
+Since $T$ is self-adjoint, we have
+
+```{math}
+\begin{align*}\langle T \mathbf{w}, \mathbf{u}\rangle
+= \langle\mathbf{w}, T^\ast\mathbf{u}\rangle
+= \langle\mathbf{w}, T \mathbf{u}\rangle
+= \langle T \mathbf{u}, \mathbf{w}\rangle\end{align*}
+```
+
+where the last equality follows because
+we are now considering the real field.
+Therefore, the right-hand side of {eq}`eq:49`
+reduces to $2 \langle T\mathbf{u}, \mathbf{w} \rangle$
+and hence {eq}`eq:50` follows.
 
 ````
