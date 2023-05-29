@@ -669,6 +669,79 @@ Therefore, the right-hand side of <a class="reference internal" href="#equation-
 reduces to <span class="math notranslate nohighlight">\(2 \langle T\mathbf{u}, \mathbf{w} \rangle\)</span>
 and hence <a class="reference internal" href="#equation-eq-50">(7.5)</a> follows.</p>
 </div>
+<div class="proof definition admonition" id="def:5">
+<p class="admonition-title"><span class="caption-number">Definition 7.1 </span></p>
+<section class="definition-content" id="proof-content">
+<p id="index-0">Let <span class="math notranslate nohighlight">\(V\)</span> be a finite-dimensional inner product space.
+Operator <span class="math notranslate nohighlight">\(T \in \mathcal{L}(V)\)</span> is said to be <strong>normal</strong> if
+it commutes with its adjoint.
+Formally,</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+T T^\ast = T^\ast T
+\end{align*}\]</div>
+</section>
+</div><p>Clearly, a self-adjoint operator is of course normal.
+However, the converse is not true.
+See the following exercise (<a class="reference internal" href="#ex-4"><span class="std std-ref">Exercise 7.1</span></a>) for an example
+of a normal operator not being self-adjoint.</p>
+<div class="admonition-exercise-7-1 admonition" id="ex-4">
+<p class="admonition-title">Exercise 7.1</p>
+<p>We have seen that the operator <span class="math notranslate nohighlight">\(T\)</span> defined
+in <a class="reference internal" href="#eg:6">Example 7.1</a> is not self-adjoint.
+Show that it is however a normal operator.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Through a few steps of computation, we find that the adjoint <span class="math notranslate nohighlight">\(T^\ast\)</span>
+is given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+T^\ast\mathbf{e}_1 = -\mathbf{e}_2
+\quad\text{and}\quad
+T^\ast\mathbf{e}_2 = \mathbf{e}_1
+\end{align*}\]</div>
+<p>It then follows that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}\begin{cases}
+T T^\ast \mathbf{e}_1 = -T \mathbf{e}_2 = \mathbf{e}_1 \\
+T T^\ast \mathbf{e}_2 = T \mathbf{e}_1 = \mathbf{e}_2
+\end{cases}\quad\text{and}\quad\begin{cases}
+T^\ast T \mathbf{e}_1 = T^\ast \mathbf{e}_2 = \mathbf{e}_1 \\
+T^\ast T \mathbf{e}_2 = -T^\ast \mathbf{e}_1 = \mathbf{e}_2
+\end{cases}\end{align*}\end{split}\]</div>
+<p>Therefore, in this case, <span class="math notranslate nohighlight">\(T T^\ast = T^\ast T\)</span>(and in fact equating the identity),
+and hence <span class="math notranslate nohighlight">\(T\)</span> is a normal operator.</p>
+</div>
+<p>The following proposition provides a simple characterization
+of all normal operators.</p>
+<div class="proof proposition admonition" id="pro:10">
+<p class="admonition-title"><span class="caption-number">Proposition 7.3 </span></p>
+<section class="proposition-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(V\)</span> be a finite-dimensional inner product space.
+Operator <span class="math notranslate nohighlight">\(T \in \mathcal{L}(V)\)</span> is normal
+if and only if</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\norm{T \mathbf{v}} = \norm{T^\ast \mathbf{v}}\quad\forall\mathbf{v}\in V
+\end{align*}\]</div>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. For any <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span>, we have</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}\norm{T \mathbf{v}}^2 - \norm{T^\ast \mathbf{v}}^2
+&amp;= \langle T \mathbf{v}, T \mathbf{v}\rangle
+- \langle T^\ast\mathbf{v}, T^\ast\mathbf{v}\rangle\\&amp;= \langle\mathbf{v}, T^\ast T \mathbf{v}\rangle
+- \langle\mathbf{v}, T T^\ast\mathbf{v}\rangle\\&amp;= \langle\mathbf{v}, (T^\ast T - T T^\ast) \mathbf{v}\rangle\end{align*}\end{split}\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}\norm{T \mathbf{v}} = \norm{T^\ast \mathbf{v}}\quad\forall\mathbf{v}\in V
+&amp;\iff\langle\mathbf{v}, (T^\ast T - T T^\ast) \mathbf{v}\rangle = 0
+\quad\forall\mathbf{v}\in V \\&amp;\iff T^\ast T - T T^\ast = 0
+\end{align*}\end{split}\]</div>
+<p>where the last step follows from <a class="reference internal" href="#pro:9">Proposition 7.2</a>
+and the fact that <span class="math notranslate nohighlight">\(T^\ast T - T T^\ast\)</span> is self-adjoint.
+This completes the proof.</p>
+</div>
 </section>
 
     <script type="text/x-thebe-config">

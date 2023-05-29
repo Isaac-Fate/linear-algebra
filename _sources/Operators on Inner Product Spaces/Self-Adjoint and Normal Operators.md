@@ -245,3 +245,112 @@ reduces to $2 \langle T\mathbf{u}, \mathbf{w} \rangle$
 and hence {eq}`eq:50` follows.
 
 ````
+
+````{prf:definition}
+:label: def:5
+
+```{index} normal operator
+```
+
+Let $V$ be a finite-dimensional inner product space.
+Operator $T \in \mathcal{L}(V)$ is said to be **normal** if
+it commutes with its adjoint.
+Formally,
+
+```{math}
+\begin{align*}
+T T^\ast = T^\ast T
+\end{align*}
+```
+
+````
+
+Clearly, a self-adjoint operator is of course normal.
+However, the converse is not true.
+See the following exercise ({ref}`Exercise 7.1<ex:4>`) for an example
+of a normal operator not being self-adjoint.
+
+
+````{admonition} Exercise 7.1
+:name: ex:4
+
+We have seen that the operator $T$ defined
+in {prf:ref}`eg:6` is not self-adjoint.
+Show that it is however a normal operator.
+
+````
+
+````{admonition} Solution
+:class: tip, dropdown
+
+Through a few steps of computation, we find that the adjoint $T^\ast$
+is given by
+
+```{math}
+\begin{align*}
+T^\ast\mathbf{e}_1 = -\mathbf{e}_2
+\quad\text{and}\quad
+T^\ast\mathbf{e}_2 = \mathbf{e}_1
+\end{align*}
+```
+
+It then follows that
+
+```{math}
+\begin{align*}\begin{cases}
+T T^\ast \mathbf{e}_1 = -T \mathbf{e}_2 = \mathbf{e}_1 \\
+T T^\ast \mathbf{e}_2 = T \mathbf{e}_1 = \mathbf{e}_2
+\end{cases}\quad\text{and}\quad\begin{cases}
+T^\ast T \mathbf{e}_1 = T^\ast \mathbf{e}_2 = \mathbf{e}_1 \\
+T^\ast T \mathbf{e}_2 = -T^\ast \mathbf{e}_1 = \mathbf{e}_2
+\end{cases}\end{align*}
+```
+
+Therefore, in this case, $T T^\ast = T^\ast T$(and in fact equating the identity),
+and hence $T$ is a normal operator.
+
+````
+
+The following proposition provides a simple characterization
+of all normal operators.
+
+
+````{prf:proposition}
+:label: pro:10
+
+Let $V$ be a finite-dimensional inner product space.
+Operator $T \in \mathcal{L}(V)$ is normal
+if and only if
+
+```{math}
+\begin{align*}\norm{T \mathbf{v}} = \norm{T^\ast \mathbf{v}}\quad\forall\mathbf{v}\in V
+\end{align*}
+```
+
+````
+
+````{prf:proof}
+
+For any $\mathbf{v} \in V$, we have
+
+```{math}
+\begin{align*}\norm{T \mathbf{v}}^2 - \norm{T^\ast \mathbf{v}}^2
+&= \langle T \mathbf{v}, T \mathbf{v}\rangle
+- \langle T^\ast\mathbf{v}, T^\ast\mathbf{v}\rangle\\&= \langle\mathbf{v}, T^\ast T \mathbf{v}\rangle
+- \langle\mathbf{v}, T T^\ast\mathbf{v}\rangle\\&= \langle\mathbf{v}, (T^\ast T - T T^\ast) \mathbf{v}\rangle\end{align*}
+```
+
+Therefore,
+
+```{math}
+\begin{align*}\norm{T \mathbf{v}} = \norm{T^\ast \mathbf{v}}\quad\forall\mathbf{v}\in V
+&\iff\langle\mathbf{v}, (T^\ast T - T T^\ast) \mathbf{v}\rangle = 0
+\quad\forall\mathbf{v}\in V \\&\iff T^\ast T - T T^\ast = 0
+\end{align*}
+```
+
+where the last step follows from {prf:ref}`pro:9`
+and the fact that $T^\ast T - T T^\ast$ is self-adjoint.
+This completes the proof.
+
+````
