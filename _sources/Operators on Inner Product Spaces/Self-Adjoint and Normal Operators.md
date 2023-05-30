@@ -354,3 +354,52 @@ and the fact that $T^\ast T - T T^\ast$ is self-adjoint.
 This completes the proof.
 
 ````
+
+We have seen in {prf:ref}`pro:11` that
+the set of all eigenvalues of $T$
+are exactly the set of the conjugates of the eigenvalue of $T^\ast$.
+But the eigenvectors may be different.
+However, if we impose that $T$ is normal,
+then, as we will see in the following corollary,
+the eigenvectors of $T$ and $T^\ast$ are the same.
+
+
+````{prf:corollary}
+:label: cor:9
+
+Suppose $T$ is a normal operator on a
+finite-dimensional inner product space, $V$
+If $\mathbf{v}$ is an eigenvector of $T$ with eigenvalue $\lambda$,
+then $\mathbf{v}$ is also an eigenvalue of $T^\ast$
+with eigenvalue $\bar{\lambda}$.
+
+````
+
+````{prf:proof}
+
+Consider the linear map $T - \lambda I$.
+Through straightforward computation,
+one may verify by definition
+that $T - \lambda I$ is also a normal operator
+since $T$ is normal.
+Because $\mathbf{v}$ is an eigenvector of $T$ with eigenvalue $\lambda$,
+we have
+
+```{math}
+\begin{align*}(T - \lambda I)\mathbf{v} = \mathbf{0}\end{align*}
+```
+
+It then follows from {prf:ref}`pro:10`
+that
+
+```{math}
+\begin{align*}\norm{(T - \lambda I)^\ast \mathbf{v}}
+= \norm{(T - \lambda I)\mathbf{v}}
+= 0
+\end{align*}
+```
+
+Therefore, $(T - \lambda I)^\ast \mathbf{v} = (T^\ast - \bar{\lambda} I) \mathbf{v}$ is a zero vector.
+This completes the proof.
+
+````

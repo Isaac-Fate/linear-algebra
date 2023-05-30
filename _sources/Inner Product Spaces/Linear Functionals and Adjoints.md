@@ -411,6 +411,23 @@ we obtain $(ST)^\ast = T^\ast S^\ast$.
 
 ````
 
+````{prf:proposition}
+:label: pro:11
+
+Let $T$ be a linear operator on a
+finite-dimensional inner product space, $V$.
+Then $\lambda \in \FF$ is an eigenvalue of $T$
+if and only if $\bar{\lambda}$
+is an eigenvalue of $T^\ast$.
+
+````
+
+````{prf:proof}
+
+TODO
+
+````
+
 The following statements describe
 the relations between the image and kernel of a linear map
 and that of its adjoint.
@@ -462,5 +479,7 @@ See the following example.
 
 ````{prf:example}
 :label: eg:5
+
+TODO
 
 ````

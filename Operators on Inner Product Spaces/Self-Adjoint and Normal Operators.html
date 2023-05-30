@@ -742,6 +742,42 @@ if and only if</p>
 and the fact that <span class="math notranslate nohighlight">\(T^\ast T - T T^\ast\)</span> is self-adjoint.
 This completes the proof.</p>
 </div>
+<p>We have seen in <a class="reference internal" href="../Inner%20Product%20Spaces/Linear%20Functionals%20and%20Adjoints.html#pro:11">Proposition 6.4</a> that
+the set of all eigenvalues of <span class="math notranslate nohighlight">\(T\)</span>
+are exactly the set of the conjugates of the eigenvalue of <span class="math notranslate nohighlight">\(T^\ast\)</span>.
+But the eigenvectors may be different.
+However, if we impose that <span class="math notranslate nohighlight">\(T\)</span> is normal,
+then, as we will see in the following corollary,
+the eigenvectors of <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(T^\ast\)</span> are the same.</p>
+<div class="proof corollary admonition" id="cor:9">
+<p class="admonition-title"><span class="caption-number">Corollary 7.2 </span></p>
+<section class="corollary-content" id="proof-content">
+<p>Suppose <span class="math notranslate nohighlight">\(T\)</span> is a normal operator on a
+finite-dimensional inner product space, <span class="math notranslate nohighlight">\(V\)</span>
+If <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> is an eigenvector of <span class="math notranslate nohighlight">\(T\)</span> with eigenvalue <span class="math notranslate nohighlight">\(\lambda\)</span>,
+then <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> is also an eigenvalue of <span class="math notranslate nohighlight">\(T^\ast\)</span>
+with eigenvalue <span class="math notranslate nohighlight">\(\bar{\lambda}\)</span>.</p>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Consider the linear map <span class="math notranslate nohighlight">\(T - \lambda I\)</span>.
+Through straightforward computation,
+one may verify by definition
+that <span class="math notranslate nohighlight">\(T - \lambda I\)</span> is also a normal operator
+since <span class="math notranslate nohighlight">\(T\)</span> is normal.
+Because <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> is an eigenvector of <span class="math notranslate nohighlight">\(T\)</span> with eigenvalue <span class="math notranslate nohighlight">\(\lambda\)</span>,
+we have</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}(T - \lambda I)\mathbf{v} = \mathbf{0}\end{align*}\]</div>
+<p>It then follows from <a class="reference internal" href="#pro:10">Proposition 7.3</a>
+that</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\norm{(T - \lambda I)^\ast \mathbf{v}}
+= \norm{(T - \lambda I)\mathbf{v}}
+= 0
+\end{align*}\]</div>
+<p>Therefore, <span class="math notranslate nohighlight">\((T - \lambda I)^\ast \mathbf{v} = (T^\ast - \bar{\lambda} I) \mathbf{v}\)</span> is a zero vector.
+This completes the proof.</p>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
