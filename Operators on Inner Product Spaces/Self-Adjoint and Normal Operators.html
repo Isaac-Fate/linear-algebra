@@ -58,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="References" href="../references.html" />
+    <link rel="next" title="7.2. The Spectral Theorem" href="The%20Spectral%20Theorem.html" />
     <link rel="prev" title="7. Operators on Inner Product Spaces" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -295,6 +295,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      7.1. Self-Adjoint and Normal Operators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="The%20Spectral%20Theorem.html">
+     7.2. The Spectral Theorem
     </a>
    </li>
   </ul>
@@ -778,6 +783,42 @@ that</p>
 <p>Therefore, <span class="math notranslate nohighlight">\((T - \lambda I)^\ast \mathbf{v} = (T^\ast - \bar{\lambda} I) \mathbf{v}\)</span> is a zero vector.
 This completes the proof.</p>
 </div>
+<div class="proof corollary admonition" id="cor:10">
+<p class="admonition-title"><span class="caption-number">Corollary 7.3 </span></p>
+<section class="corollary-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(V\)</span> be a finite-dimensional inner product space.
+If <span class="math notranslate nohighlight">\(T \in \mathcal{L}(V)\)</span> is a normal operator,
+then eigenvectors of <span class="math notranslate nohighlight">\(T\)</span> corresponding to distinct
+eigenvalues are orthogonal.
+Formally, suppose <span class="math notranslate nohighlight">\(\mathbf{v}_1\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}_2\)</span>
+are eigenvectors of <span class="math notranslate nohighlight">\(T\)</span> corresponding to
+eigenvalues <span class="math notranslate nohighlight">\(\lambda_1\)</span> and <span class="math notranslate nohighlight">\(\lambda_2\)</span>, respectively,
+and <span class="math notranslate nohighlight">\(\lambda_1 \neq \lambda_2\)</span>.
+Then <span class="math notranslate nohighlight">\(\langle \mathbf{v}_1, \mathbf{v}_2 \rangle = 0\)</span>.</p>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Consider the inner product <span class="math notranslate nohighlight">\(\langle \mathbf{v}_1, T \mathbf{v}_2 \rangle\)</span>.
+We have</p>
+<div class="math notranslate nohighlight" id="equation-eq-51">
+<span class="eqno">(7.7)<a class="headerlink" href="#equation-eq-51" title="Permalink to this equation">#</a></span>\[\begin{align}\langle\mathbf{v}_1, T \mathbf{v}_2 \rangle
+= \langle\mathbf{v}_1, \lambda_2 \mathbf{v}_2 \rangle
+= \lambda_2 \langle\mathbf{v}_1,  \mathbf{v}_2 \rangle\end{align}\]</div>
+<p>On the other hand, we also have</p>
+<div class="math notranslate nohighlight" id="equation-eq-52">
+<span class="eqno">(7.8)<a class="headerlink" href="#equation-eq-52" title="Permalink to this equation">#</a></span>\[\begin{align}\langle\mathbf{v}_1, T \mathbf{v}_2 \rangle
+= \langle T^\ast\mathbf{v}_1, \mathbf{v}_2 \rangle
+= \langle\bar{\lambda}_1 \mathbf{v}_1, \mathbf{v}_2 \rangle
+= \lambda_1 \langle\mathbf{v}_1, \mathbf{v}_2 \rangle\end{align}\]</div>
+<p>where the second last equality follows from <a class="reference internal" href="#cor:9">Corollary 7.2</a>.
+Taking the difference on the sides of <a class="reference internal" href="#equation-eq-51">(7.7)</a> and <a class="reference internal" href="#equation-eq-52">(7.8)</a>
+yields</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}(\lambda_1 - \lambda_2) \langle\mathbf{v}_1, \mathbf{v}_2 \rangle
+= 0
+\end{align*}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(\lambda_1 \neq \lambda_2\)</span>, it then follows
+that <span class="math notranslate nohighlight">\(\langle \mathbf{v}_1, \mathbf{v}_2 \rangle = 0\)</span>.</p>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -814,10 +855,10 @@ This completes the proof.</p>
             <p class="prev-next-title"><span class="section-number">7. </span>Operators on Inner Product Spaces</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../references.html" title="next page">
+    <a class='right-next' id="next-link" href="The%20Spectral%20Theorem.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">References</p>
+        <p class="prev-next-title"><span class="section-number">7.2. </span>The Spectral Theorem</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -403,3 +403,55 @@ Therefore, $(T - \lambda I)^\ast \mathbf{v} = (T^\ast - \bar{\lambda} I) \mathbf
 This completes the proof.
 
 ````
+
+````{prf:corollary}
+:label: cor:10
+
+Let $V$ be a finite-dimensional inner product space.
+If $T \in \mathcal{L}(V)$ is a normal operator,
+then eigenvectors of $T$ corresponding to distinct
+eigenvalues are orthogonal.
+Formally, suppose $\mathbf{v}_1$ and $\mathbf{v}_2$
+are eigenvectors of $T$ corresponding to
+eigenvalues $\lambda_1$ and $\lambda_2$, respectively,
+and $\lambda_1 \neq \lambda_2$.
+Then $\langle \mathbf{v}_1, \mathbf{v}_2 \rangle = 0$.
+
+````
+
+````{prf:proof}
+
+Consider the inner product $\langle \mathbf{v}_1, T \mathbf{v}_2 \rangle$.
+We have
+
+```{math}
+:label: eq:51
+\begin{align}\langle\mathbf{v}_1, T \mathbf{v}_2 \rangle
+= \langle\mathbf{v}_1, \lambda_2 \mathbf{v}_2 \rangle
+= \lambda_2 \langle\mathbf{v}_1,  \mathbf{v}_2 \rangle\end{align}
+```
+
+On the other hand, we also have
+
+```{math}
+:label: eq:52
+\begin{align}\langle\mathbf{v}_1, T \mathbf{v}_2 \rangle
+= \langle T^\ast\mathbf{v}_1, \mathbf{v}_2 \rangle
+= \langle\bar{\lambda}_1 \mathbf{v}_1, \mathbf{v}_2 \rangle
+= \lambda_1 \langle\mathbf{v}_1, \mathbf{v}_2 \rangle\end{align}
+```
+
+where the second last equality follows from {prf:ref}`cor:9`.
+Taking the difference on the sides of {eq}`eq:51` and {eq}`eq:52`
+yields
+
+```{math}
+\begin{align*}(\lambda_1 - \lambda_2) \langle\mathbf{v}_1, \mathbf{v}_2 \rangle
+= 0
+\end{align*}
+```
+
+Since $\lambda_1 \neq \lambda_2$, it then follows
+that $\langle \mathbf{v}_1, \mathbf{v}_2 \rangle = 0$.
+
+````
