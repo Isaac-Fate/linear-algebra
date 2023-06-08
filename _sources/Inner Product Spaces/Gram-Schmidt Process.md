@@ -127,7 +127,7 @@ Given any basis of a finite-dimensional inner product space, we can always apply
 
 
 ````{prf:corollary}
-:label: cor:2
+:label: cor:5
 
 Any finite-dimensional inner product space has an orthonormal basis.
 
@@ -152,7 +152,7 @@ Recall {prf:ref}`thm:10`. We know that we can extend a list of linearly independ
 
 
 ````{prf:corollary}
-:label: cor:1
+:label: cor:4
 
 Every orthonormal list of vectors $(\mathbf{e}_1, \ldots, \mathbf{e}_m)$ in a finite-dimensional inner product space can be extended to an orthonormal basis.
 

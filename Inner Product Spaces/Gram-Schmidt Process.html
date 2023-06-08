@@ -578,7 +578,7 @@ title="Print to PDF"
 \end{array}\end{align}\end{split}\]</div>
 <p>If <span class="math notranslate nohighlight">\((\mathbf{v}_1, \ldots, \mathbf{v}_n)\)</span> forms a basis for <span class="math notranslate nohighlight">\(V\)</span>, then the list of vectors <span class="math notranslate nohighlight">\((\mathbf{e}_1, \ldots, \mathbf{e}_n)\)</span> given by <a class="reference internal" href="#equation-eq-5">(6.17)</a> is an orthonormal basis for <span class="math notranslate nohighlight">\(V\)</span>.</p>
 <p>Given any basis of a finite-dimensional inner product space, we can always apply the Gram-Schmidt procedure to convert this basis to an orthonormal one.</p>
-<div class="proof corollary admonition" id="cor:2">
+<div class="proof corollary admonition" id="cor:5">
 <p class="admonition-title"><span class="caption-number">Corollary 6.2 </span></p>
 <section class="corollary-content" id="proof-content">
 <p>Any finite-dimensional inner product space has an orthonormal basis.</p>
@@ -590,10 +590,10 @@ title="Print to PDF"
 = \Span(\mathbf{v}_1, \ldots, \mathbf{v}_n)
 = V
 \end{align*}\]</div>
-<p>And we know from <a class="reference internal" href="Upper%20Triangular%20Matrices%20With%20Respect%20to%20Orthonormal%20Bases.html#cor:3">Corollary 6.4</a> that <span class="math notranslate nohighlight">\((\mathbf{e}_1, \ldots, \mathbf{e}_n)\)</span> is linearly independent. (Or we can conclude it is linearly independent just based on the fact that it spans <span class="math notranslate nohighlight">\(V\)</span> with precisely <span class="math notranslate nohighlight">\(n\)</span> vectors.) Hence, it indeed forms a basis.</p>
+<p>And we know from <a class="reference internal" href="Orthonormal%20Bases.html#cor:3">Corollary 6.1</a> that <span class="math notranslate nohighlight">\((\mathbf{e}_1, \ldots, \mathbf{e}_n)\)</span> is linearly independent. (Or we can conclude it is linearly independent just based on the fact that it spans <span class="math notranslate nohighlight">\(V\)</span> with precisely <span class="math notranslate nohighlight">\(n\)</span> vectors.) Hence, it indeed forms a basis.</p>
 </div>
 <p>Recall <a class="reference internal" href="Norms.html#thm:10">Theorem 6.2</a>. We know that we can extend a list of linearly independent vectors to a basis. Now, if we have a list of orthonormal vectors at hand, can we extend it to an <em>orthonormal</em> basis? Fortunately, we can do so by performing the Gram-Schmidt process.</p>
-<div class="proof corollary admonition" id="cor:1">
+<div class="proof corollary admonition" id="cor:4">
 <p class="admonition-title"><span class="caption-number">Corollary 6.3 </span></p>
 <section class="corollary-content" id="proof-content">
 <p>Every orthonormal list of vectors <span class="math notranslate nohighlight">\((\mathbf{e}_1, \ldots, \mathbf{e}_m)\)</span> in a finite-dimensional inner product space can be extended to an orthonormal basis.</p>
@@ -607,7 +607,7 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\begin{align*}(\mathbf{e}_1^\prime, \ldots, \mathbf{e}_n^\prime, \mathbf{f}_1, \ldots, \mathbf{f}_n)
 \end{align*}\]</div>
-<p>Since this list of vectors is linearly independent by <a class="reference internal" href="Upper%20Triangular%20Matrices%20With%20Respect%20to%20Orthonormal%20Bases.html#cor:3">Corollary 6.4</a>, and it contains <span class="math notranslate nohighlight">\(m+n = \dim V\)</span> vectors, it must be a basis for <span class="math notranslate nohighlight">\(V\)</span>.</p>
+<p>Since this list of vectors is linearly independent by <a class="reference internal" href="Orthonormal%20Bases.html#cor:3">Corollary 6.1</a>, and it contains <span class="math notranslate nohighlight">\(m+n = \dim V\)</span> vectors, it must be a basis for <span class="math notranslate nohighlight">\(V\)</span>.</p>
 <p>What is left to show is that the first <span class="math notranslate nohighlight">\(n\)</span> vectors <span class="math notranslate nohighlight">\((\mathbf{e}_1^\prime, \ldots, \mathbf{e}_n^\prime)\)</span> remain unchanged. Referring to <a class="reference internal" href="#equation-eq-5">(6.17)</a>, we have</p>
 <div class="math notranslate nohighlight">
 \[\begin{align*}\mathbf{e}_1^\prime = \mathbf{e}_1

@@ -56,7 +56,7 @@ we can specify that basis to be orthonormal.
 
 
 ````{prf:corollary}
-:label: cor:3
+:label: cor:6
 
 Let $V$ be a complex finite-dimensional inner product space,
 and $T \in \mathcal{L}(V)$ an operator.

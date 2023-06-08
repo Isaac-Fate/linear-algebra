@@ -81,7 +81,7 @@ and is meanwhile an eigenvector of $T$.
 **Inductive step:** Suppose the sufficiency of
 this theorem holds for any vector space with dimension $k$.
 We need to show that it also holds for $V$ with dimension $k+1$.
-By {prf:ref}`cor:3`,
+By {prf:ref}`cor:6`,
 we know there exits an orthonormal
 basis $\mathcal{B} = (\mathbf{e}_1, \ldots, \mathbf{e}_{k+1})$
 such that $[T]_{\mathcal{B}}$ is upper triangular.
@@ -105,7 +105,7 @@ Write
 \end{bmatrix}\end{align*}
 ```
 
-By applying the Gram-Schmidt process ({prf:ref}`cor:1`),
+By applying the Gram-Schmidt process ({prf:ref}`cor:4`),
 we may extend $\mathcal{B}^\prime$ to an orthonormal
 basis, $\mathcal{B}^{\prime\prime}$ with
 one vector $\mathbf{f}_{k+1}$ added,

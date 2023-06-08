@@ -71,7 +71,7 @@ But its subspace $U$ is assumed finite-dimensional.
 
 Suppose $U$ is not $\{\mathbf{0}\}$ or $V$.
 Otherwise the conclusion is trivial.
-By {prf:ref}`cor:2`,
+By {prf:ref}`cor:5`,
 there is an orthonormal basis $(\mathbf{e}_1, \ldots, \mathbf{e}_m)$
 for $U$.
 For any $\mathbf{v} \in V$, we can write
@@ -148,7 +148,7 @@ to a basis for $V$,
 \end{align*}
 ```
 
-through the Gram-Schmidt process ({prf:ref}`cor:1`).
+through the Gram-Schmidt process ({prf:ref}`cor:4`).
 It is natural to guess that $\mathcal{B}_2=(\mathbf{f}_1, \ldots, \mathbf{f}_m)$
 forms a basis for the orthogonal complement $U^\perp$.
 The proof is left as an exercise ({ref}`Exercise 6.4<ex:2>`).
