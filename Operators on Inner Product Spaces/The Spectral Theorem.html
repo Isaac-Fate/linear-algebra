@@ -517,6 +517,113 @@ on inner product spaces.</p>
 <p>Given that the conclusion of the spectral theorem is dependent on <span class="math notranslate nohighlight">\(\FF\)</span>,
 we will divide the spectral theorem into two parts,
 known as the complex spectral theorem and the real spectral theorem.</p>
+<div class="proof theorem admonition" id="thm:15">
+<p class="admonition-title"><span class="caption-number">Theorem 7.1 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(V\)</span> be a finite-dimensional complex inner product space,
+and <span class="math notranslate nohighlight">\(T \in \mathcal{L}(V)\)</span> a linear operator.
+Then there exists an orthonormal basis of <span class="math notranslate nohighlight">\(V\)</span> consisting
+of eigenvectors of <span class="math notranslate nohighlight">\(T\)</span>
+if and only if <span class="math notranslate nohighlight">\(T\)</span>
+is a normal operator.</p>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. We first show the necessity.
+Suppose there exists an orthonormal
+basis <span class="math notranslate nohighlight">\(\mathcal{B} = (\mathbf{e}_1, \ldots, \mathbf{e}_n)\)</span>
+of <span class="math notranslate nohighlight">\(V\)</span> consisting of eigenvectors of <span class="math notranslate nohighlight">\(T\)</span>, with respect to
+eigenvalues <span class="math notranslate nohighlight">\(\lambda_1, \ldots, \lambda_n\)</span>.
+Then the matrix representation of <span class="math notranslate nohighlight">\(T\)</span> w.r.t. <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}[T]_{\mathcal{B}} =
+\begin{bmatrix}
+\lambda_1 &amp; &amp; 0 \\
+&amp; \ddots &amp; \\
+0 &amp; &amp; \lambda_n
+\end{bmatrix}\end{align*}\end{split}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> is orthonormal, by <a class="reference internal" href="../Inner%20Product%20Spaces/Linear%20Functionals%20and%20Adjoints.html#thm:16">Theorem 6.11</a>,
+we have</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}[T^\ast]_{\mathcal{B}} =
+[T]^{H}_{\mathcal{B}}\begin{bmatrix}
+\bar{\lambda}_1 &amp; &amp; 0 \\
+&amp; \ddots &amp; \\
+0 &amp; &amp; \bar{\lambda}_n
+\end{bmatrix}\end{align*}\end{split}\]</div>
+<p>It is then clear that</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\norm{T \mathbf{v}} = \norm{T^\ast \mathbf{v}}\quad\forall\mathbf{v}\in V
+\end{align*}\]</div>
+<p>Therefore, <span class="math notranslate nohighlight">\(T\)</span> is a normal operator by <a class="reference internal" href="Self-Adjoint%20and%20Normal%20Operators.html#pro:10">Proposition 7.3</a>.</p>
+<p>The proof of sufficiency is relatively more involved.
+In the following, we suppose that <span class="math notranslate nohighlight">\(T\)</span> is a normal operator.
+We shall prove by induction on <span class="math notranslate nohighlight">\(\dim V\)</span>.</p>
+<p><strong>Base case:</strong> Suppose <span class="math notranslate nohighlight">\(\dim V = 1\)</span>.
+Then any nonzero vector can be treated as a basis of <span class="math notranslate nohighlight">\(V\)</span>,
+and is meanwhile an eigenvector of <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<p><strong>Inductive step:</strong> Suppose the sufficiency of
+this theorem holds for any vector space with dimension <span class="math notranslate nohighlight">\(k\)</span>.
+We need to show that it also holds for <span class="math notranslate nohighlight">\(V\)</span> with dimension <span class="math notranslate nohighlight">\(k+1\)</span>.
+By <a class="reference internal" href="../Inner%20Product%20Spaces/Upper%20Triangular%20Matrices%20With%20Respect%20to%20Orthonormal%20Bases.html#cor:3">Corollary 6.4</a>,
+we know there exits an orthonormal
+basis <span class="math notranslate nohighlight">\(\mathcal{B} = (\mathbf{e}_1, \ldots, \mathbf{e}_{k+1})\)</span>
+such that <span class="math notranslate nohighlight">\([T]_{\mathcal{B}}\)</span> is upper triangular.
+Let subspace <span class="math notranslate nohighlight">\(U\)</span> be the span of the first <span class="math notranslate nohighlight">\(k\)</span> basis vectors,
+i.e., <span class="math notranslate nohighlight">\(U = \Span (\mathbf{e}_1, \ldots, \mathbf{e}_k)\)</span>.
+Note that <span class="math notranslate nohighlight">\(U\)</span> is invariant under <span class="math notranslate nohighlight">\(T\)</span>,
+and hence <span class="math notranslate nohighlight">\(\restr{T}{U}\)</span> is an operator on <span class="math notranslate nohighlight">\(U\)</span>.
+Moreover, <span class="math notranslate nohighlight">\(\restr{T}{U}\)</span> is clearly a normal operator.
+Therefore, by the induction hypothesis,
+there exists an orthonormal
+basis <span class="math notranslate nohighlight">\(\mathcal{B}^\prime = (\mathbf{f}_1, \ldots, \mathbf{f}_k)\)</span>
+of <span class="math notranslate nohighlight">\(U\)</span> such that <span class="math notranslate nohighlight">\([\restr{T}{U}]_{\mathcal{B}^\prime}\)</span> is diagonal.
+Write</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}[\restr{T}{U}]_{\mathcal{B}^\prime} =
+\begin{bmatrix}
+\mu_1 &amp; &amp; 0 \\
+&amp; \ddots &amp; \\
+0 &amp; &amp; \mu_k
+\end{bmatrix}\end{align*}\end{split}\]</div>
+<p>By applying the Gram-Schmidt process (<a class="reference internal" href="../Linear%20Maps/Null%20Spaces%20and%20ranges.html#cor:1">Corollary 2.1</a>),
+we may extend <span class="math notranslate nohighlight">\(\mathcal{B}^\prime\)</span> to an orthonormal
+basis, <span class="math notranslate nohighlight">\(\mathcal{B}^{\prime\prime}\)</span> with
+one vector <span class="math notranslate nohighlight">\(\mathbf{f}_{k+1}\)</span> added,
+of the whole vector space <span class="math notranslate nohighlight">\(V\)</span>.
+Then the matrix representations of <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(T^\ast\)</span>
+w.r.t. <span class="math notranslate nohighlight">\(\mathcal{B}^{\prime\prime}\)</span> are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}[T]_{\mathcal{B}^{\prime\prime}} =
+\begin{bmatrix}
+\mu_1 &amp; &amp; 0 &amp; a_1\\
+&amp; \ddots &amp; &amp; \vdots \\
+0 &amp; &amp; \mu_k &amp; a_k \\
+0  &amp; \cdots &amp; 0 &amp; \mu_{k+1}
+\end{bmatrix}\quad\text{and}\quad[T^\ast]_{\mathcal{B}^{\prime\prime}} =
+\begin{bmatrix}
+\bar{\mu}_1 &amp; &amp; 0 &amp; 0\\
+&amp; \ddots &amp; &amp; \vdots \\
+0 &amp; &amp; \bar{\mu}_k &amp; 0 \\
+\bar{a}_1  &amp; \cdots &amp; \bar{a}_k &amp; \bar{\mu}_{k+1}
+\end{bmatrix}\end{align*}\end{split}\]</div>
+<p>since <span class="math notranslate nohighlight">\(\mathcal{B}^{\prime\prime}\)</span> is orthonormal.
+Because <span class="math notranslate nohighlight">\(T\)</span> is a normal operator, we must have</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\norm{T \mathbf{f}_{k+1}} = \norm{T^\ast \mathbf{f}_{k+1}}\end{align*}\]</div>
+<p>But</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}\norm{T \mathbf{f}_{k+1}}^2 &amp;= \abs{a_1}^2 + \cdots + \abs{a_k}^2
++ \abs{\mu_{k+1}}^2 \\\norm{T^\ast \mathbf{f}_{k+1}}^2 &amp;= \abs{\bar{\mu}_k}^2
+= \abs{\mu_{k+1}}^2
+\end{align*}\end{split}\]</div>
+<p>It then follows that</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+a_1 = \cdots = a_k = 0
+\end{align*}\]</div>
+<p>Hence, <span class="math notranslate nohighlight">\([T]_{\mathcal{B}^{\prime\prime}}\)</span> is actually a diagonal matrix.
+This completes the proof.</p>
+</div>
 </section>
 
     <script type="text/x-thebe-config">

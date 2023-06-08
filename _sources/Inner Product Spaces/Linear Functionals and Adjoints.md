@@ -483,3 +483,27 @@ See the following example.
 TODO
 
 ````
+
+````{prf:theorem}
+:label: thm:16
+
+Suppose $T \in \mathcal{L}(V, W)$.
+If $\mathcal{B}_1 = (\mathbf{e}_1, \ldots, \mathbf{e}_n)$
+is an orthonormal basis of $V$
+and $\mathcal{B}_2 = (\mathbf{f}_1, \ldots, \mathbf{f}_m)$
+is an orthonormal basis of $W$,
+then the matrix representation of the adjoint $T^\ast$
+is the conjugate/Hermitian transpose of that of $T$, that is,
+
+```{math}
+\begin{align*}[T^\ast]_{\mathcal{B}_2 \mathcal{B}_1} =
+[T]^{H}_{\mathcal{B}_2 \mathcal{B}_1}\end{align*}
+```
+
+````
+
+````{prf:proof}
+
+TODO
+
+````
