@@ -157,3 +157,111 @@ Hence, $[T]_{\mathcal{B}^{\prime\prime}}$ is actually a diagonal matrix.
 This completes the proof.
 
 ````
+
+To prove the real spectral theorem,
+we need the following two lemmas.
+
+
+````{prf:lemma}
+:label: lem:2
+
+Let $V$ be a finite-dimensional real inner product space.
+If $T \in \mathcal{L}(V)$ is a self-adjoint linear operator,
+and $\alpha, \beta \in \R$ are two real numbers satisfying
+
+```{math}
+:label: eq:53
+\begin{align}\alpha^2 - 4 \beta  < 0
+\end{align}
+```
+
+then the operator
+
+```{math}
+:label: eq:55
+\begin{align}
+T^2 + \alpha T + \beta I
+\end{align}
+```
+
+is invertible.
+
+````
+
+The idea of the proof of this lemma
+arises from an analogous problem of showing the real number
+
+```{math}
+\begin{align*}
+x^2 + \alpha x + \beta\end{align*}
+```
+
+is invertible,
+where $\alpha$ and $\beta$ satisfy {eq}`eq:53`.
+In fact, we are going to show that this real number is greater than zero,
+which is a stronger condition.
+Indeed, we have
+
+```{math}
+:label: eq:54
+\begin{align}
+x^2 + \alpha x + \beta
+= \brk{x + \frac{\alpha}{2}}^2 + \brk{\beta - \frac{\alpha^2}{4}}
+> 0
+\end{align}
+```
+
+````{prf:proof}
+
+To show operator {eq}`eq:55` is invertible,
+it suffices to that it is injective.
+Equivalently, we need to show the kernel of
+the operator {eq}`eq:55` is $\{\mathbf{0}\}$.
+Setting
+
+```{math}
+:label: eq:56
+\begin{align}(T^2 + \alpha T + \beta I) \mathbf{v} = \mathbf{0}\end{align}
+```
+
+we want to show $\mathbf{v} = \mathbf{0}$.
+Clearly, by {eq}`eq:56`, we have
+
+```{math}
+:label: eq:57
+\begin{align}\langle(T^2 + \alpha T + \beta I) \mathbf{v}, \mathbf{v}\rangle = 0
+\end{align}
+```
+
+Similar to {eq}`eq:54`, we have
+
+```{math}
+\begin{align*}
+T^2 + \alpha T + \beta I
+= \brk{T + \frac{\alpha}{2} I}^2 + \brk{\beta - \frac{\alpha^2}{4}} I
+\end{align*}
+```
+
+Plugging into {eq}`eq:57`, we find
+
+```{math}
+\begin{align*}&\langle\brk{T + \frac{\alpha}{2} I}^2 \mathbf{v}, \mathbf{v}\rangle
++ \brk{\beta - \frac{\alpha^2}{4}}\langle\mathbf{v}, \mathbf{v}\rangle
+= 0 \\\implies& \langle\brk{T + \frac{\alpha}{2} I}\mathbf{v}, \brk{T + \frac{\alpha}{2} I}^\ast\mathbf{v}\rangle
++ \brk{\beta - \frac{\alpha^2}{4}}\langle\mathbf{v}, \mathbf{v}\rangle
+= 0 \\\implies& \langle\brk{T + \frac{\alpha}{2} I}\mathbf{v},
+\brk{T^\ast + \overline{\brk{\frac{\alpha}{2}}} I^\ast}\mathbf{v}\rangle
++ \brk{\beta - \frac{\alpha^2}{4}}\langle\mathbf{v}, \mathbf{v}\rangle
+= 0 \\\implies& \langle\brk{T + \frac{\alpha}{2} I}\mathbf{v}, \brk{T + \frac{\alpha}{2} I}\mathbf{v}\rangle
++ \brk{\beta - \frac{\alpha^2}{4}}\langle\mathbf{v}, \mathbf{v}\rangle
+= 0
+\end{align*}
+```
+
+where the last implication follows from the condition
+that $T$ is self-adjoint.
+Note that $\beta - \alpha^2 / 4 > 0$.
+Therefore, we must have $\mathbf{v} = \mathbf{0}$.
+This shows $T^2 + \alpha T + \beta I$ is indeed invertible.
+
+````

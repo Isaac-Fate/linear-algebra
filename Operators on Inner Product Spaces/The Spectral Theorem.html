@@ -624,6 +624,78 @@ a_1 = \cdots = a_k = 0
 <p>Hence, <span class="math notranslate nohighlight">\([T]_{\mathcal{B}^{\prime\prime}}\)</span> is actually a diagonal matrix.
 This completes the proof.</p>
 </div>
+<p>To prove the real spectral theorem,
+we need the following two lemmas.</p>
+<div class="proof lemma admonition" id="lem:2">
+<p class="admonition-title"><span class="caption-number">Lemma 7.1 </span></p>
+<section class="lemma-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(V\)</span> be a finite-dimensional real inner product space.
+If <span class="math notranslate nohighlight">\(T \in \mathcal{L}(V)\)</span> is a self-adjoint linear operator,
+and <span class="math notranslate nohighlight">\(\alpha, \beta \in \R\)</span> are two real numbers satisfying</p>
+<div class="math notranslate nohighlight" id="equation-eq-53">
+<span class="eqno">(7.9)<a class="headerlink" href="#equation-eq-53" title="Permalink to this equation">#</a></span>\[\begin{align}\alpha^2 - 4 \beta  &lt; 0
+\end{align}\]</div>
+<p>then the operator</p>
+<div class="math notranslate nohighlight" id="equation-eq-55">
+<span class="eqno">(7.10)<a class="headerlink" href="#equation-eq-55" title="Permalink to this equation">#</a></span>\[\begin{align}
+T^2 + \alpha T + \beta I
+\end{align}\]</div>
+<p>is invertible.</p>
+</section>
+</div><p>The idea of the proof of this lemma
+arises from an analogous problem of showing the real number</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+x^2 + \alpha x + \beta\end{align*}\]</div>
+<p>is invertible,
+where <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> satisfy <a class="reference internal" href="#equation-eq-53">(7.9)</a>.
+In fact, we are going to show that this real number is greater than zero,
+which is a stronger condition.
+Indeed, we have</p>
+<div class="math notranslate nohighlight" id="equation-eq-54">
+<span class="eqno">(7.11)<a class="headerlink" href="#equation-eq-54" title="Permalink to this equation">#</a></span>\[\begin{align}
+x^2 + \alpha x + \beta
+= \brk{x + \frac{\alpha}{2}}^2 + \brk{\beta - \frac{\alpha^2}{4}}
+&gt; 0
+\end{align}\]</div>
+<div class="proof admonition" id="proof">
+<p>Proof. To show operator <a class="reference internal" href="#equation-eq-55">(7.10)</a> is invertible,
+it suffices to that it is injective.
+Equivalently, we need to show the kernel of
+the operator <a class="reference internal" href="#equation-eq-55">(7.10)</a> is <span class="math notranslate nohighlight">\(\{\mathbf{0}\}\)</span>.
+Setting</p>
+<div class="math notranslate nohighlight" id="equation-eq-56">
+<span class="eqno">(7.12)<a class="headerlink" href="#equation-eq-56" title="Permalink to this equation">#</a></span>\[\begin{align}(T^2 + \alpha T + \beta I) \mathbf{v} = \mathbf{0}\end{align}\]</div>
+<p>we want to show <span class="math notranslate nohighlight">\(\mathbf{v} = \mathbf{0}\)</span>.
+Clearly, by <a class="reference internal" href="#equation-eq-56">(7.12)</a>, we have</p>
+<div class="math notranslate nohighlight" id="equation-eq-57">
+<span class="eqno">(7.13)<a class="headerlink" href="#equation-eq-57" title="Permalink to this equation">#</a></span>\[\begin{align}\langle(T^2 + \alpha T + \beta I) \mathbf{v}, \mathbf{v}\rangle = 0
+\end{align}\]</div>
+<p>Similar to <a class="reference internal" href="#equation-eq-54">(7.11)</a>, we have</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+T^2 + \alpha T + \beta I
+= \brk{T + \frac{\alpha}{2} I}^2 + \brk{\beta - \frac{\alpha^2}{4}} I
+\end{align*}\]</div>
+<p>Plugging into <a class="reference internal" href="#equation-eq-57">(7.13)</a>, we find</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}&amp;\langle\brk{T + \frac{\alpha}{2} I}^2 \mathbf{v}, \mathbf{v}\rangle
++ \brk{\beta - \frac{\alpha^2}{4}}\langle\mathbf{v}, \mathbf{v}\rangle
+= 0 \\\implies&amp; \langle\brk{T + \frac{\alpha}{2} I}\mathbf{v}, \brk{T + \frac{\alpha}{2} I}^\ast\mathbf{v}\rangle
++ \brk{\beta - \frac{\alpha^2}{4}}\langle\mathbf{v}, \mathbf{v}\rangle
+= 0 \\\implies&amp; \langle\brk{T + \frac{\alpha}{2} I}\mathbf{v},
+\brk{T^\ast + \overline{\brk{\frac{\alpha}{2}}} I^\ast}\mathbf{v}\rangle
++ \brk{\beta - \frac{\alpha^2}{4}}\langle\mathbf{v}, \mathbf{v}\rangle
+= 0 \\\implies&amp; \langle\brk{T + \frac{\alpha}{2} I}\mathbf{v}, \brk{T + \frac{\alpha}{2} I}\mathbf{v}\rangle
++ \brk{\beta - \frac{\alpha^2}{4}}\langle\mathbf{v}, \mathbf{v}\rangle
+= 0
+\end{align*}\end{split}\]</div>
+<p>where the last implication follows from the condition
+that <span class="math notranslate nohighlight">\(T\)</span> is self-adjoint.
+Note that <span class="math notranslate nohighlight">\(\beta - \alpha^2 / 4 &gt; 0\)</span>.
+Therefore, we must have <span class="math notranslate nohighlight">\(\mathbf{v} = \mathbf{0}\)</span>.
+This shows <span class="math notranslate nohighlight">\(T^2 + \alpha T + \beta I\)</span> is indeed invertible.</p>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
