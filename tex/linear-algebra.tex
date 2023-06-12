@@ -1249,7 +1249,7 @@ If $(\mathbf{v}_1, \ldots, \mathbf{v}_n)$ forms a basis for $V$, then the list o
 
 Given any basis of a finite-dimensional inner product space, we can always apply the Gram-Schmidt procedure to convert this basis to an orthonormal one.
 
-\begin{corollary} \label{cor:2}
+\begin{corollary} \label{cor:5}
     Any finite-dimensional inner product space has an orthonormal basis.
 \end{corollary}
 
@@ -1267,7 +1267,7 @@ Given any basis of a finite-dimensional inner product space, we can always apply
 
 Recall Theorem~\ref{thm:10}. We know that we can extend a list of linearly independent vectors to a basis. Now, if we have a list of orthonormal vectors at hand, can we extend it to an \textit{orthonormal} basis? Fortunately, we can do so by performing the Gram-Schmidt process.
 
-\begin{corollary} \label{cor:1}
+\begin{corollary} \label{cor:4}
     Every orthonormal list of vectors $(\mathbf{e}_1, \ldots, \mathbf{e}_m)$ in a finite-dimensional inner product space can be extended to an orthonormal basis.
 \end{corollary}
 
@@ -1532,7 +1532,7 @@ with respect to some basis.
 By applying Theorem~\ref{thm:11}, 
 we can specify that basis to be orthonormal.
 
-\begin{corollary} \label{cor:3}
+\begin{corollary} \label{cor:6}
     Let $V$ be a complex finite-dimensional inner product space, 
 	and $T \in \mathcal{L}(V)$ an operator. 
 	Then $[T]$ is upper triangular with respect to 
@@ -1607,7 +1607,7 @@ several important results.
 \begin{proof}
 	Suppose $U$ is not $\{\mathbf{0}\}$ or $V$.
 	Otherwise the conclusion is trivial.
-	By Corollary~\ref{cor:2},
+	By Corollary~\ref{cor:5},
 	there is an orthonormal basis $(\mathbf{e}_1, \ldots, \mathbf{e}_m)$
 	for $U$.
 	For any $\mathbf{v} \in V$, we can write 
@@ -1667,7 +1667,7 @@ to a basis for $V$,
 \begin{align*}
 		\mathcal{B} = (\mathbf{e}_1, \ldots, \mathbf{e}_m, \mathbf{f}_1, \ldots, \mathbf{f}_n)
 \end{align*}
-through the Gram-Schmidt process (Corollary~\ref{cor:1}).
+through the Gram-Schmidt process (Corollary~\ref{cor:4}).
 It is natural to guess that $\mathcal{B}_2=(\mathbf{f}_1, \ldots, \mathbf{f}_m)$
 forms a basis for the orthogonal complement $U^\perp$.
 The proof is left as an exercise (Exercise~\ref{ex:2}).
@@ -2299,6 +2299,20 @@ of the function $T \mapsto T^\ast$.
 
 %------------------------------
 
+\begin{proposition} \label{pro:11}
+	Let $T$ be a linear operator on a 
+	finite-dimensional inner product space, $V$.
+	Then $\lambda \in \FF$ is an eigenvalue of $T$
+	if and only if $\bar{\lambda}$ 
+	is an eigenvalue of $T^\ast$.
+\end{proposition}
+
+\begin{proof}
+	% TODO
+\end{proof}
+
+%------------------------------
+
 The following statements describe
 the relations between the image and kernel of a linear map
 and that of its adjoint.
@@ -2347,7 +2361,26 @@ However, this is not true in general.
 See the following example.
 
 \begin{example} \label{eg:5}
+	% TODO
 \end{example}
+
+\begin{theorem} \label{thm:16}
+	Suppose $T \in \mathcal{L}(V, W)$.
+	If $\mathcal{B}_1 = (\mathbf{e}_1, \ldots, \mathbf{e}_n)$
+	is an orthonormal basis of $V$
+	and $\mathcal{B}_2 = (\mathbf{f}_1, \ldots, \mathbf{f}_m)$
+	is an orthonormal basis of $W$,
+	then the matrix representation of the adjoint $T^\ast$
+	is the conjugate/Hermitian transpose of that of $T$, that is,
+	\begin{align*}
+		[T^\ast]_{\mathcal{B}_2 \mathcal{B}_1} = 
+		[T]^{H}_{\mathcal{B}_2 \mathcal{B}_1}
+	\end{align*}
+\end{theorem}
+
+\begin{proof}
+	% TODO
+\end{proof}
 
 %==============================
 
@@ -2559,6 +2592,496 @@ then $T$ must be the zero map, as stated in the next proposition.
 
 %------------------------------
 
+\begin{definition} \label{def:5}
+	Let $V$ be a finite-dimensional inner product space.
+	Operator $T \in \mathcal{L}(V)$ is said to be \textbf{normal}\index{normal operator} if 
+	it commutes with its adjoint.
+	Formally,
+	\begin{align*}
+		T T^\ast = T^\ast T
+	\end{align*}
+\end{definition}
+
+Clearly, a self-adjoint operator is of course normal.
+However, the converse is not true.
+See the following exercise (Exercise~\ref{ex:4}) for an example
+of a normal operator not being self-adjoint.
+
+\begin{exercise} \label{ex:4}
+	We have seen that the operator $T$ defined 
+	in Example~\ref{eg:6} is not self-adjoint.
+	Show that it is however a normal operator.
+\end{exercise}
+
+\begin{solution}
+	Through a few steps of computation, we find that the adjoint $T^\ast$
+	is given by
+	\begin{align*}
+		T^\ast \mathbf{e}_1 = -\mathbf{e}_2
+		\quad \text{and} \quad 
+		T^\ast \mathbf{e}_2 = \mathbf{e}_1
+	\end{align*}
+	It then follows that
+	\begin{align*}
+		\begin{cases}
+			T T^\ast \mathbf{e}_1 = -T \mathbf{e}_2 = \mathbf{e}_1 \\
+			T T^\ast \mathbf{e}_2 = T \mathbf{e}_1 = \mathbf{e}_2
+		\end{cases}
+		\quad \text{and} \quad
+		\begin{cases}
+			T^\ast T \mathbf{e}_1 = T^\ast \mathbf{e}_2 = \mathbf{e}_1 \\
+			T^\ast T \mathbf{e}_2 = -T^\ast \mathbf{e}_1 = \mathbf{e}_2
+		\end{cases}
+	\end{align*}
+	Therefore, in this case, $T T^\ast = T^\ast T$ 
+	(and in fact equating the identity), 
+	and hence $T$ is a normal operator.
+\end{solution}
+
+%------------------------------
+
+The following proposition provides a simple characterization
+of all normal operators.
+
+\begin{proposition} \label{pro:10}
+	Let $V$ be a finite-dimensional inner product space.
+	Operator $T \in \mathcal{L}(V)$ is normal
+	if and only if 
+	\begin{align*}
+		\norm{T \mathbf{v}} = \norm{T^\ast \mathbf{v}}
+		\quad \forall \mathbf{v} \in V
+	\end{align*}
+\end{proposition}
+
+\begin{proof}
+	For any $\mathbf{v} \in V$, we have 
+	\begin{align*}
+		\norm{T \mathbf{v}}^2 - \norm{T^\ast \mathbf{v}}^2
+		&= \langle T \mathbf{v}, T \mathbf{v} \rangle
+		- \langle T^\ast \mathbf{v}, T^\ast \mathbf{v} \rangle \\
+		&= \langle \mathbf{v}, T^\ast T \mathbf{v} \rangle
+		- \langle \mathbf{v}, T T^\ast \mathbf{v} \rangle \\
+		&= \langle \mathbf{v}, (T^\ast T - T T^\ast) \mathbf{v} \rangle
+	\end{align*}
+	Therefore, 
+	\begin{align*}
+		\norm{T \mathbf{v}} = \norm{T^\ast \mathbf{v}}
+		\quad \forall \mathbf{v} \in V
+		&\iff \langle \mathbf{v}, (T^\ast T - T T^\ast) \mathbf{v} \rangle = 0
+		\quad \forall \mathbf{v} \in V \\
+		&\iff T^\ast T - T T^\ast = 0
+	\end{align*}
+	where the last step follows from Proposition~\ref{pro:9} 
+	and the fact that $T^\ast T - T T^\ast$ is self-adjoint.
+	This completes the proof.
+\end{proof}
+
+%------------------------------
+
+We have seen in Proposition~\ref{pro:11} that
+the set of all eigenvalues of $T$ 
+are exactly the set of the conjugates of the eigenvalue of $T^\ast$. 
+But the eigenvectors may be different.
+However, if we impose that $T$ is normal, 
+then, as we will see in the following corollary,
+the eigenvectors of $T$ and $T^\ast$ are the same.
+
+\begin{corollary} \label{cor:9}
+	Suppose $T$ is a normal operator on a 
+	finite-dimensional inner product space, $V$
+	If $\mathbf{v}$ is an eigenvector of $T$ with eigenvalue $\lambda$,
+	then $\mathbf{v}$ is also an eigenvalue of $T^\ast$ 
+	with eigenvalue $\bar{\lambda}$.
+\end{corollary}
+
+\begin{proof}
+	Consider the linear map $T - \lambda I$.
+	Through straightforward computation,
+	one may verify by definition 
+	that $T - \lambda I$ is also a normal operator
+	since $T$ is normal.
+	Because $\mathbf{v}$ is an eigenvector of $T$ with eigenvalue $\lambda$,
+	we have 
+	\begin{align*}
+		(T - \lambda I)\mathbf{v} = \mathbf{0}
+	\end{align*}
+	It then follows from Proposition~\ref{pro:10}
+	that 
+	\begin{align*}
+		\norm{(T - \lambda I)^\ast \mathbf{v}}
+		= \norm{(T - \lambda I)\mathbf{v}}
+		= 0
+	\end{align*}
+	Therefore, $(T - \lambda I)^\ast \mathbf{v} = (T^\ast - \bar{\lambda} I) \mathbf{v}$ is a zero vector.
+	This completes the proof.
+\end{proof}
+
+%------------------------------
+
+\begin{corollary} \label{cor:10}
+	Let $V$ be a finite-dimensional inner product space.
+	If $T \in \mathcal{L}(V)$ is a normal operator, 
+	then eigenvectors of $T$ corresponding to distinct
+	eigenvalues are orthogonal.
+	Formally, suppose $\mathbf{v}_1$ and $\mathbf{v}_2$
+	are eigenvectors of $T$ corresponding to 
+	eigenvalues $\lambda_1$ and $\lambda_2$, respectively,
+	and $\lambda_1 \neq \lambda_2$.
+	Then $\langle \mathbf{v}_1, \mathbf{v}_2 \rangle = 0$.
+\end{corollary}
+
+\begin{proof}
+	Consider the inner product $\langle \mathbf{v}_1, T \mathbf{v}_2 \rangle$.
+	We have 
+	\begin{align}
+		\langle \mathbf{v}_1, T \mathbf{v}_2 \rangle
+		= \langle \mathbf{v}_1, \lambda_2 \mathbf{v}_2 \rangle
+		= \lambda_2 \langle \mathbf{v}_1,  \mathbf{v}_2 \rangle
+		\label{eq:51}
+	\end{align}
+	On the other hand, we also have 
+	\begin{align}
+		\langle \mathbf{v}_1, T \mathbf{v}_2 \rangle
+		= \langle T^\ast \mathbf{v}_1, \mathbf{v}_2 \rangle
+		= \langle \bar{\lambda}_1 \mathbf{v}_1, \mathbf{v}_2 \rangle
+		= \lambda_1 \langle \mathbf{v}_1, \mathbf{v}_2 \rangle
+		\label{eq:52}
+	\end{align}
+	where the second last equality follows from Corollary~\ref{cor:9}.
+	Taking the difference on the sides of \eqref{eq:51} and \eqref{eq:52}
+	yields
+	\begin{align*}
+		(\lambda_1 - \lambda_2) \langle \mathbf{v}_1, \mathbf{v}_2 \rangle
+		= 0
+	\end{align*}
+	Since $\lambda_1 \neq \lambda_2$, it then follows 
+	that $\langle \mathbf{v}_1, \mathbf{v}_2 \rangle = 0$. 
+\end{proof}
+
+%------------------------------
+
+\section{The Spectral Theorem}
+
+%------------------------------
+
+The most elegant operators on $V$ 
+are those that possess an orthonormal basis of $V$, 
+with respect to which the operator has a diagonal matrix. 
+These operators 
+are precisely the ones that have an orthonormal basis of $V$ 
+consisting of eigenvectors of $T$. 
+Our objective in this section is to establish the spectral theorem, 
+which characterizes these operators as normal operators when $\FF = \C$, 
+and as self-adjoint operators when $\FF = \R$. 
+The spectral theorem is, without a doubt, 
+the most valuable tool in the study of operators 
+on inner product spaces. 
+
+Given that the conclusion of the spectral theorem is dependent on $\FF$, 
+we will divide the spectral theorem into two parts, 
+known as the complex spectral theorem and the real spectral theorem.
+
+%------------------------------
+
+\begin{theorem} \label{thm:15}
+	Let $V$ be a finite-dimensional complex inner product space,
+	and $T \in \mathcal{L}(V)$ a linear operator.
+	Then there exists an orthonormal basis of $V$ consisting
+	of eigenvectors of $T$
+	if and only if $T$
+	is a normal operator.
+\end{theorem}
+
+\begin{proof}
+	We first show the necessity.
+	Suppose there exists an orthonormal 
+	basis $\mathcal{B} = (\mathbf{e}_1, \ldots, \mathbf{e}_n)$ 
+	of $V$ consisting of eigenvectors of $T$, with respect to 
+	eigenvalues $\lambda_1, \ldots, \lambda_n$.
+	Then the matrix representation of $T$ w.r.t. $\mathcal{B}$ is 
+	\begin{align*}
+		[T]_{\mathcal{B}} =
+		\begin{bmatrix}
+			\lambda_1 & & 0 \\
+					  & \ddots & \\
+			0 & & \lambda_n
+		\end{bmatrix}
+	\end{align*}
+	Since $\mathcal{B}$ is orthonormal, by Theorem~\ref{thm:16},
+	we have 
+	\begin{align*}
+		[T^\ast]_{\mathcal{B}} =
+		[T]^{H}_{\mathcal{B}}
+		\begin{bmatrix}
+			\bar{\lambda}_1 & & 0 \\
+					  & \ddots & \\
+			0 & & \bar{\lambda}_n
+		\end{bmatrix}
+	\end{align*}
+	It is then clear that 
+	\begin{align*}
+		\norm{T \mathbf{v}} = \norm{T^\ast \mathbf{v}}
+		\quad \forall \mathbf{v} \in V
+	\end{align*}
+	Therefore, $T$ is a normal operator by Proposition~\ref{pro:10}.
+
+	The proof of sufficiency is relatively more involved.
+	In the following, we suppose that $T$ is a normal operator.
+	We shall prove by induction on $\dim V$.
+
+	\noindent \textbf{Base case:} Suppose $\dim V = 1$.
+	Then any nonzero vector can be treated as a basis of $V$,
+	and is meanwhile an eigenvector of $T$.
+
+	\noindent \textbf{Inductive step:} Suppose the sufficiency of 
+	this theorem holds for any vector space with dimension $k$.
+	We need to show that it also holds for $V$ with dimension $k+1$.
+	By Corollary~\ref{cor:6},
+	we know there exits an orthonormal 
+	basis $\mathcal{B} = (\mathbf{e}_1, \ldots, \mathbf{e}_{k+1})$
+	such that $[T]_{\mathcal{B}}$ is upper triangular.
+	Let subspace $U$ be the span of the first $k$ basis vectors, 
+	i.e., $U = \Span (\mathbf{e}_1, \ldots, \mathbf{e}_k)$.
+	Note that $U$ is invariant under $T$, 
+	and hence $\restr{T}{U}$ is an operator on $U$.
+	Moreover, $\restr{T}{U}$ is clearly a normal operator.
+	Therefore, by the induction hypothesis,
+	there exists an orthonormal 
+	basis $\mathcal{B}^\prime = (\mathbf{f}_1, \ldots, \mathbf{f}_k)$ 
+	of $U$ such that $[\restr{T}{U}]_{\mathcal{B}^\prime}$ is diagonal.
+	Write 
+	\begin{align*}
+		[\restr{T}{U}]_{\mathcal{B}^\prime} =
+		\begin{bmatrix}
+			\mu_1 & & 0 \\
+				  & \ddots & \\
+			0 & & \mu_k
+		\end{bmatrix}
+	\end{align*}
+	By applying the Gram-Schmidt process (Corollary~\ref{cor:4}), 
+	we may extend $\mathcal{B}^\prime$ to an orthonormal 
+	basis, $\mathcal{B}^{\prime\prime}$ with 
+	one vector $\mathbf{f}_{k+1}$ added, 
+	of the whole vector space $V$.
+	Then the matrix representations of $T$ and $T^\ast$ 
+	w.r.t. $\mathcal{B}^{\prime\prime}$ are
+	\begin{align*}
+		[T]_{\mathcal{B}^{\prime\prime}} =
+		\begin{bmatrix}
+			\mu_1 & & 0 & a_1\\
+				  & \ddots & & \vdots \\
+			0 & & \mu_k & a_k \\
+			0  & \cdots & 0 & \mu_{k+1}
+		\end{bmatrix}
+		\quad \text{and} \quad 
+		[T^\ast]_{\mathcal{B}^{\prime\prime}} =
+		\begin{bmatrix}
+			\bar{\mu}_1 & & 0 & 0\\
+				  & \ddots & & \vdots \\
+			0 & & \bar{\mu}_k & 0 \\
+			\bar{a}_1  & \cdots & \bar{a}_k & \bar{\mu}_{k+1}
+		\end{bmatrix}
+	\end{align*}
+	since $\mathcal{B}^{\prime\prime}$ is orthonormal.
+	Because $T$ is a normal operator, we must have 
+	\begin{align*}
+		\norm{T \mathbf{f}_{k+1}} = \norm{T^\ast \mathbf{f}_{k+1}}
+	\end{align*}
+	But 
+	\begin{align*}
+		\norm{T \mathbf{f}_{k+1}}^2 &= \abs{a_1}^2 + \cdots + \abs{a_k}^2
+		+ \abs{\mu_{k+1}}^2 \\
+		\norm{T^\ast \mathbf{f}_{k+1}}^2 &= \abs{\bar{\mu}_k}^2 
+		= \abs{\mu_{k+1}}^2
+	\end{align*}
+	It then follows that 
+	\begin{align*}
+		a_1 = \cdots = a_k = 0
+	\end{align*}
+	Hence, $[T]_{\mathcal{B}^{\prime\prime}}$ is actually a diagonal matrix.
+	This completes the proof.
+\end{proof}
+
+%------------------------------
+
+To prove the real spectral theorem,
+we need the following two lemmas.
+
+\begin{lemma} \label{lem:2}
+	Let $V$ be a finite-dimensional real inner product space.
+	If $T \in \mathcal{L}(V)$ is a self-adjoint linear operator,
+	and $\alpha, \beta \in \R$ are two real numbers satisfying 
+	\begin{align}
+		\alpha^2 - 4 \beta  < 0
+		\label{eq:53}
+	\end{align}
+	then the operator
+	\begin{align}
+		T^2 + \alpha T + \beta I
+		\label{eq:55}
+	\end{align}
+	is invertible.
+\end{lemma}
+
+The idea of the proof of this lemma 
+arises from an analogous problem of showing the real number 
+\begin{align*}
+	x^2 + \alpha x + \beta
+\end{align*}
+is invertible, 
+where $\alpha$ and $\beta$ satisfy \eqref{eq:53}.
+In fact, we are going to show that this real number is greater than zero,
+which is a stronger condition.
+Indeed, we have 
+\begin{align}
+	x^2 + \alpha x + \beta 
+	= \brk{x + \frac{\alpha}{2}}^2 + \brk{\beta - \frac{\alpha^2}{4}}
+	 > 0
+	 \label{eq:54}
+\end{align}
+
+\begin{proof}
+	To show operator \eqref{eq:55} is invertible,
+	it suffices to that it is injective.
+	Equivalently, we need to show the kernel of 
+	the operator \eqref{eq:55} is $\{\mathbf{0}\}$.
+	Setting
+	\begin{align}
+		(T^2 + \alpha T + \beta I) \mathbf{v} = \mathbf{0}
+		\label{eq:56}
+	\end{align}
+	we want to show $\mathbf{v} = \mathbf{0}$.
+	Clearly, by \eqref{eq:56}, we have 
+	\begin{align}
+		\langle (T^2 + \alpha T + \beta I) \mathbf{v}, \mathbf{v} \rangle = 0
+		\label{eq:57}
+	\end{align}
+
+	Similar to \eqref{eq:54}, we have 
+	\begin{align*}
+		T^2 + \alpha T + \beta I 
+		= \brk{T + \frac{\alpha}{2} I}^2 + \brk{\beta - \frac{\alpha^2}{4}} I
+	\end{align*}
+	Plugging into \eqref{eq:57}, we find 
+	\begin{align*}
+		&\langle \brk{T + \frac{\alpha}{2} I}^2 \mathbf{v}, \mathbf{v} \rangle 
+		+ \brk{\beta - \frac{\alpha^2}{4}} \langle \mathbf{v}, \mathbf{v} \rangle 
+		= 0 \\
+		\implies & \langle \brk{T + \frac{\alpha}{2} I} \mathbf{v}, \brk{T + \frac{\alpha}{2} I}^\ast \mathbf{v} \rangle 
+		+ \brk{\beta - \frac{\alpha^2}{4}} \langle \mathbf{v}, \mathbf{v} \rangle 
+		= 0 \\ 
+		\implies & \langle \brk{T + \frac{\alpha}{2} I} \mathbf{v}, 
+		\brk{T^\ast + \overline{\brk{\frac{\alpha}{2}}} I^\ast} \mathbf{v} \rangle 
+		+ \brk{\beta - \frac{\alpha^2}{4}} \langle \mathbf{v}, \mathbf{v} \rangle 
+		= 0 \\
+	\implies & \langle \brk{T + \frac{\alpha}{2} I} \mathbf{v}, \brk{T + \frac{\alpha}{2} I} \mathbf{v} \rangle 
+		+ \brk{\beta - \frac{\alpha^2}{4}} \langle \mathbf{v}, \mathbf{v} \rangle 
+		= 0
+	\end{align*}
+	where the last implication follows from the condition 
+	that $T$ is self-adjoint.
+	Note that $\beta - \alpha^2 / 4 > 0$.
+	Therefore, we must have $\mathbf{v} = \mathbf{0}$.
+	This shows $T^2 + \alpha T + \beta I$ is indeed invertible.
+\end{proof}
+
+%------------------------------
+
+Recall Theorem~\ref{thm:2}, which says
+any operator on a finite-dimension complex vector space
+has an eigenvalue.
+We have noted that this conclusion is not true in general
+for a real vector space.
+However, if the operator $T$ is self-adjoint 
+(of course, we must first define the inner product),
+then as we will see in the 
+following lemma, $T$ is guaranteed to have an eigenvalue.
+
+\begin{lemma} \label{lem:3}
+	Let $V$ be a finite-dimensional inner product space.
+	If $T \in \mathcal{L}(V)$ is a self-adjoint operator,
+	then $T$ has an eigenvalue.
+\end{lemma}
+
+\begin{note}
+	Note that we did not assume $V$ is over a real field
+	since this lemma clearly holds for complex vector space 
+	by Theorem~\ref{thm:2}.
+	Hence, this lemma only offers new information
+	for the real vector space.
+\end{note}
+
+\begin{proof}
+	It suffices to prove this lemma when $V$ is nontrivial 
+	and $\FF = \R$.
+	Suppose $\dim V = n$.
+	Let $\mathbf{v}$ be a nonzero vector.
+	Then the list of vectors
+	\begin{align*}
+		(\mathbf{v}, T \mathbf{v}, \ldots, T^n \mathbf{v})
+	\end{align*}
+	is linearly dependent since it consists of $n+1$ vectors.
+	There exist real numbers $a_0, a_1, \ldots, a_n$ that 
+	are not all zeros such that 
+	\begin{align}
+		a_0 \mathbf{v} + a_1 T \mathbf{v} + \cdots 
+		+ a_n T^n \mathbf{v} 
+		= \mathbf{0}
+		\label{eq:58}
+	\end{align}
+	Let $m$ be the largest integer such that $a_m \neq 0$. 
+	Equation \eqref{eq:58} is reduced to 
+	\begin{align}
+		a_0 \mathbf{v} + a_1 T \mathbf{v} + \cdots 
+		+ a_m T^m \mathbf{v} 
+		= \mathbf{0}
+		\label{eq:59}
+	\end{align}
+
+	Define a polynomial 
+	\begin{align}
+		p(x) = a_0 + a_1 x + \cdots + a_m x^m
+		\label{eq:60}
+	\end{align}
+	By Theorem~\ref{thm:5}, $p(x)$ can be factorized as 
+	\begin{align}
+		p(x) = a_m (x - \lambda_1) \cdots (x - \lambda_k)
+		(x^2 + \alpha_1 x + \beta_1) \cdots (x^2 + \alpha_l x + \beta_l)
+		\label{eq:61}
+	\end{align}
+	where $\alpha_j, \beta_j \in \R$ and satisfy $\alpha_j^2 < 4 \beta_j$.
+	Then applying the polynomial $p$ to the operator $T$,
+	by \eqref{eq:59} and \eqref{eq:60}, we find
+	\begin{align*}
+		p(T) \mathbf{v} = \mathbf{0}
+	\end{align*}
+	It then follows from \eqref{eq:61} that 
+	\begin{align}
+		a_m (T - \lambda_1 I) \cdots (T - \lambda_k I)
+		\underbrace{(T^2 + \alpha_1 T + \beta_1 I) 
+		\cdots (T^2 + \alpha_l T + \beta_l I) \mathbf{v}}_{\mathbf{w}}
+		= \mathbf{0}
+		\label{eq:62}
+	\end{align}
+	By Lemma~\ref{lem:2}, we know each 
+	operator $T^2 + \alpha_j T + \beta_j I$ is invertible,
+	and hence $\mathbf{w} \neq \mathbf{0}$ since $\mathbf{v}$ is nonzero.
+	Dropping the nonzero scalar $a_m$, \eqref{eq:62} reduces to 
+	\begin{align}
+		(T - \lambda_1 I) \cdots (T - \lambda_k I) \mathbf{w} = \mathbf{w}
+		\label{eq:63}
+	\end{align}
+	Assume $T$ does not have an eigenvalue, then each 
+	operator $T - \lambda_j I$ is injective, 
+	which further implies the left-hand side of \eqref{eq:63} is nonzero
+	since $\mathbf{w}$ is not and the product 
+	of injective operators remains injective.
+	This leads to a contradiction.
+	Therefore, $T$ must have an eigenvalue.
+\end{proof}
+
+
+%------------------------------
 
 % references
 \printbibliography[heading=bibintoc, title=References]
