@@ -696,6 +696,92 @@ Note that <span class="math notranslate nohighlight">\(\beta - \alpha^2 / 4 &gt;
 Therefore, we must have <span class="math notranslate nohighlight">\(\mathbf{v} = \mathbf{0}\)</span>.
 This shows <span class="math notranslate nohighlight">\(T^2 + \alpha T + \beta I\)</span> is indeed invertible.</p>
 </div>
+<p>Recall <a class="reference internal" href="../Eigenvalues%20and%20Eigenvectors/Upper%20Triangular%20Matrices.html#thm:2">Theorem 5.1</a>, which says
+any operator on a finite-dimension complex vector space
+has an eigenvalue.
+We have noted that this conclusion is not true in general
+for a real vector space.
+However, if the operator <span class="math notranslate nohighlight">\(T\)</span> is self-adjoint
+(of course, we must first define the inner product),
+then as we will see in the
+following lemma, <span class="math notranslate nohighlight">\(T\)</span> is guaranteed to have an eigenvalue.</p>
+<div class="proof lemma admonition" id="lem:3">
+<p class="admonition-title"><span class="caption-number">Lemma 7.2 </span></p>
+<section class="lemma-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(V\)</span> be a finite-dimensional inner product space.
+If <span class="math notranslate nohighlight">\(T \in \mathcal{L}(V)\)</span> is a self-adjoint operator,
+then <span class="math notranslate nohighlight">\(T\)</span> has an eigenvalue.</p>
+</section>
+</div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that we did not assume <span class="math notranslate nohighlight">\(V\)</span> is over a real field
+since this lemma clearly holds for complex vector space
+by <a class="reference internal" href="../Eigenvalues%20and%20Eigenvectors/Upper%20Triangular%20Matrices.html#thm:2">Theorem 5.1</a>.
+Hence, this lemma only offers new information
+for the real vector space.</p>
+</div>
+<div class="proof admonition" id="proof">
+<p>Proof. It suffices to prove this lemma when <span class="math notranslate nohighlight">\(V\)</span> is nontrivial
+and <span class="math notranslate nohighlight">\(\FF = \R\)</span>.
+Suppose <span class="math notranslate nohighlight">\(\dim V = n\)</span>.
+Let <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> be a nonzero vector.
+Then the list of vectors</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}(\mathbf{v}, T \mathbf{v}, \ldots, T^n \mathbf{v})
+\end{align*}\]</div>
+<p>is linearly dependent since it consists of <span class="math notranslate nohighlight">\(n+1\)</span> vectors.
+There exist real numbers <span class="math notranslate nohighlight">\(a_0, a_1, \ldots, a_n\)</span> that
+are not all zeros such that</p>
+<div class="math notranslate nohighlight" id="equation-eq-58">
+<span class="eqno">(7.14)<a class="headerlink" href="#equation-eq-58" title="Permalink to this equation">#</a></span>\[\begin{align}
+a_0 \mathbf{v} + a_1 T \mathbf{v} + \cdots
++ a_n T^n \mathbf{v}
+= \mathbf{0}\end{align}\]</div>
+<p>Let <span class="math notranslate nohighlight">\(m\)</span> be the largest integer such that <span class="math notranslate nohighlight">\(a_m \neq 0\)</span>.
+Equation <a class="reference internal" href="#equation-eq-58">(7.14)</a> is reduced to</p>
+<div class="math notranslate nohighlight" id="equation-eq-59">
+<span class="eqno">(7.15)<a class="headerlink" href="#equation-eq-59" title="Permalink to this equation">#</a></span>\[\begin{align}
+a_0 \mathbf{v} + a_1 T \mathbf{v} + \cdots
++ a_m T^m \mathbf{v}
+= \mathbf{0}\end{align}\]</div>
+<p>Define a polynomial</p>
+<div class="math notranslate nohighlight" id="equation-eq-60">
+<span class="eqno">(7.16)<a class="headerlink" href="#equation-eq-60" title="Permalink to this equation">#</a></span>\[\begin{align}
+p(x) = a_0 + a_1 x + \cdots + a_m x^m
+\end{align}\]</div>
+<p>By <a class="reference internal" href="../Polynomials/Polynomial%20with%20Real%20Coefficients.html#thm:5">Theorem 3.1</a>, <span class="math notranslate nohighlight">\(p(x)\)</span> can be factorized as</p>
+<div class="math notranslate nohighlight" id="equation-eq-61">
+<span class="eqno">(7.17)<a class="headerlink" href="#equation-eq-61" title="Permalink to this equation">#</a></span>\[\begin{align}
+p(x) = a_m (x - \lambda_1) \cdots(x - \lambda_k)
+(x^2 + \alpha_1 x + \beta_1) \cdots(x^2 + \alpha_l x + \beta_l)
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha_j, \beta_j \in \R\)</span> and satisfy <span class="math notranslate nohighlight">\(\alpha_j^2 &lt; 4 \beta_j\)</span>.
+Then applying the polynomial <span class="math notranslate nohighlight">\(p\)</span> to the operator <span class="math notranslate nohighlight">\(T\)</span>,
+by <a class="reference internal" href="#equation-eq-59">(7.15)</a> and <a class="reference internal" href="#equation-eq-60">(7.16)</a>, we find</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+p(T) \mathbf{v} = \mathbf{0}\end{align*}\]</div>
+<p>It then follows from <a class="reference internal" href="#equation-eq-61">(7.17)</a> that</p>
+<div class="math notranslate nohighlight" id="equation-eq-62">
+<span class="eqno">(7.18)<a class="headerlink" href="#equation-eq-62" title="Permalink to this equation">#</a></span>\[\begin{align}
+a_m (T - \lambda_1 I) \cdots(T - \lambda_k I)
+\underbrace{(T^2 + \alpha_1 T + \beta_1 I)
+\cdots (T^2 + \alpha_l T + \beta_l I) \mathbf{v}}_{\mathbf{w}}
+= \mathbf{0}\end{align}\]</div>
+<p>By <a class="reference internal" href="#lem:2">Lemma 7.1</a>, we know each
+operator <span class="math notranslate nohighlight">\(T^2 + \alpha_j T + \beta_j I\)</span> is invertible,
+and hence <span class="math notranslate nohighlight">\(\mathbf{w} \neq \mathbf{0}\)</span> since <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> is nonzero.
+Dropping the nonzero scalar <span class="math notranslate nohighlight">\(a_m\)</span>, <a class="reference internal" href="#equation-eq-62">(7.18)</a> reduces to</p>
+<div class="math notranslate nohighlight" id="equation-eq-63">
+<span class="eqno">(7.19)<a class="headerlink" href="#equation-eq-63" title="Permalink to this equation">#</a></span>\[\begin{align}(T - \lambda_1 I) \cdots(T - \lambda_k I) \mathbf{w} = \mathbf{w}\end{align}\]</div>
+<p>Assume <span class="math notranslate nohighlight">\(T\)</span> does not have an eigenvalue, then each
+operator <span class="math notranslate nohighlight">\(T - \lambda_j I\)</span> is injective,
+which further implies the left-hand side of <a class="reference internal" href="#equation-eq-63">(7.19)</a> is nonzero
+since <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> is not and the product
+of injective operators remains injective.
+This leads to a contradiction.
+Therefore, <span class="math notranslate nohighlight">\(T\)</span> must have an eigenvalue.</p>
+</div>
 </section>
 
     <script type="text/x-thebe-config">

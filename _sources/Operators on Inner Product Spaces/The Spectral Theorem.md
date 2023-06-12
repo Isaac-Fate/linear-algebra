@@ -265,3 +265,128 @@ Therefore, we must have $\mathbf{v} = \mathbf{0}$.
 This shows $T^2 + \alpha T + \beta I$ is indeed invertible.
 
 ````
+
+Recall {prf:ref}`thm:2`, which says
+any operator on a finite-dimension complex vector space
+has an eigenvalue.
+We have noted that this conclusion is not true in general
+for a real vector space.
+However, if the operator $T$ is self-adjoint
+(of course, we must first define the inner product),
+then as we will see in the
+following lemma, $T$ is guaranteed to have an eigenvalue.
+
+
+````{prf:lemma}
+:label: lem:3
+
+Let $V$ be a finite-dimensional inner product space.
+If $T \in \mathcal{L}(V)$ is a self-adjoint operator,
+then $T$ has an eigenvalue.
+
+````
+
+:::{note}
+
+Note that we did not assume $V$ is over a real field
+since this lemma clearly holds for complex vector space
+by {prf:ref}`thm:2`.
+Hence, this lemma only offers new information
+for the real vector space.
+
+:::
+
+````{prf:proof}
+
+It suffices to prove this lemma when $V$ is nontrivial
+and $\FF = \R$.
+Suppose $\dim V = n$.
+Let $\mathbf{v}$ be a nonzero vector.
+Then the list of vectors
+
+```{math}
+\begin{align*}(\mathbf{v}, T \mathbf{v}, \ldots, T^n \mathbf{v})
+\end{align*}
+```
+
+is linearly dependent since it consists of $n+1$ vectors.
+There exist real numbers $a_0, a_1, \ldots, a_n$ that
+are not all zeros such that
+
+```{math}
+:label: eq:58
+\begin{align}
+a_0 \mathbf{v} + a_1 T \mathbf{v} + \cdots
++ a_n T^n \mathbf{v}
+= \mathbf{0}\end{align}
+```
+
+Let $m$ be the largest integer such that $a_m \neq 0$.
+Equation {eq}`eq:58` is reduced to
+
+```{math}
+:label: eq:59
+\begin{align}
+a_0 \mathbf{v} + a_1 T \mathbf{v} + \cdots
++ a_m T^m \mathbf{v}
+= \mathbf{0}\end{align}
+```
+
+Define a polynomial
+
+```{math}
+:label: eq:60
+\begin{align}
+p(x) = a_0 + a_1 x + \cdots + a_m x^m
+\end{align}
+```
+
+By {prf:ref}`thm:5`, $p(x)$ can be factorized as
+
+```{math}
+:label: eq:61
+\begin{align}
+p(x) = a_m (x - \lambda_1) \cdots(x - \lambda_k)
+(x^2 + \alpha_1 x + \beta_1) \cdots(x^2 + \alpha_l x + \beta_l)
+\end{align}
+```
+
+where $\alpha_j, \beta_j \in \R$ and satisfy $\alpha_j^2 < 4 \beta_j$.
+Then applying the polynomial $p$ to the operator $T$,
+by {eq}`eq:59` and {eq}`eq:60`, we find
+
+```{math}
+\begin{align*}
+p(T) \mathbf{v} = \mathbf{0}\end{align*}
+```
+
+It then follows from {eq}`eq:61` that
+
+```{math}
+:label: eq:62
+\begin{align}
+a_m (T - \lambda_1 I) \cdots(T - \lambda_k I)
+\underbrace{(T^2 + \alpha_1 T + \beta_1 I)
+\cdots (T^2 + \alpha_l T + \beta_l I) \mathbf{v}}_{\mathbf{w}}
+= \mathbf{0}\end{align}
+```
+
+By {prf:ref}`lem:2`, we know each
+operator $T^2 + \alpha_j T + \beta_j I$ is invertible,
+and hence $\mathbf{w} \neq \mathbf{0}$ since $\mathbf{v}$ is nonzero.
+Dropping the nonzero scalar $a_m$, {eq}`eq:62` reduces to
+
+```{math}
+:label: eq:63
+\begin{align}(T - \lambda_1 I) \cdots(T - \lambda_k I) \mathbf{w} = \mathbf{w}\end{align}
+```
+
+Assume $T$ does not have an eigenvalue, then each
+operator $T - \lambda_j I$ is injective,
+which further implies the left-hand side of {eq}`eq:63` is nonzero
+since $\mathbf{w}$ is not and the product
+of injective operators remains injective.
+This leads to a contradiction.
+Therefore, $T$ must have an eigenvalue.
+
+````
