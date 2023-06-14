@@ -390,3 +390,141 @@ This leads to a contradiction.
 Therefore, $T$ must have an eigenvalue.
 
 ````
+
+````{prf:theorem} Real Spectral Theorem
+:label: thm:17
+
+Let $V$ be a finite-dimensional real inner product space,
+and $T \in \mathcal{L}(V)$.
+Then there exists an orthonormal basis $\mathcal{B}$ for $V$
+consisting of eigenvectors of $T$
+if and only if $T$ is self-adjoint.
+
+````
+
+````{prf:proof}
+
+We first show the necessity.
+By the given condition $[T]_{\mathcal{B}}$
+is a real diagonal matrix.
+Since $\mathcal{B}$ is orthonormal,
+the matrix representation of $T^\ast$ is the Hermitian transpose,
+and hence
+
+```{math}
+\begin{align*}[T^\ast]_{\mathcal{B}} = [T]_{\mathcal{B}}^H
+= [T]_{\mathcal{B}}^\top
+= [T]_{\mathcal{B}}\end{align*}
+```
+
+Therefore, $T$ is self-adjoint.
+
+Next, we shall prove the sufficiency by mathematical induction.
+The induction hypothesis is that this theorem holds for every
+such vector space $V$ with dimension less than or equal to $n$
+where $n \in \N^\ast$.
+
+**Base case:** If $\dim V = 1$,
+then the conclusion is trivial since any unit vector
+is an eigenvector of $T$.
+
+**Inductive step:** Suppose the hypothesis holds
+for $n = k$, then we need to show that it also holds
+when $n = k+1$.
+Note that it suffices to show that the theorem holds
+for $\dim V = k+1$.
+By {prf:ref}`lem:3`, $T$ has at least one eigenvalue $\lambda$.
+Let
+
+```{math}
+\begin{align*}
+U = \im(T - \lambda I)
+\end{align*}
+```
+
+Note that this subspace $U$ is invariant under $T$ since
+for any $\mathbf{u} \in U$, we have
+
+```{math}
+\begin{align*}
+T \mathbf{u} = T (T - \lambda I) \mathbf{v}
+= (T - \lambda I) T \mathbf{v}\in U
+\end{align*}
+```
+
+Hence, $\restr{T}{U}$ is a linear operator on $U$.
+Moreover, we claim that $\restr{T}{U}$ is self-adjoint.
+To see this, we only need to show $U$
+is also invariant under $T^\ast$.
+By {prf:ref}`thm:12`, we can write
+
+```{math}
+\begin{align*}
+V = U \oplus U^\perp\end{align*}
+```
+
+Then, for any $\mathbf{u} \in U$, we have
+
+```{math}
+\begin{align*}\langle T^\ast\mathbf{u}, \mathbf{w}\rangle
+= \langle T \mathbf{u}, \mathbf{w}\rangle
+= 0
+\quad\forall\mathbf{w}\in U^\perp\end{align*}
+```
+
+Therefore, $T^\ast \mathbf{u} \in U$,
+and hence $U$ is $T^\ast$-invariant,
+which implies
+
+```{math}
+\begin{align*}(\restr{T}{U})^\ast = \restr{T^\ast}{U}
+= \restr{T}{U}\end{align*}
+```
+
+Next, by applying the induction hypothesis on space $U$
+and operator $\restr{T}{U}$,
+we conclude that there exists a basis $\mathcal{B}^\prime$
+for $U$ such that
+
+```{math}
+\begin{align*}[\restr{T}{U}]_{\mathcal{B}^\prime} =
+\begin{bmatrix}
+\lambda_1 & & \\
+& \ddots & \\
+& & \lambda_m
+\end{bmatrix}\end{align*}
+```
+
+where $m = \dim U$.
+Then, we may use {prf:ref}`cor:4` to
+extend $\mathcal{B}^\prime$ to an orthonormal
+basis $\mathcal{B}^{\prime\prime}$ for $V$.
+The matrix representation of $T$
+w.r.t. $\mathcal{B}^{\prime\prime}$ is
+
+```{math}
+\begin{align*}[T]_{\mathcal{B}^{\prime\prime}} =
+\begin{bmatrix}
+\lambda_1 & & 0 & & & \\
+& \ddots & & & \ast & \\
+& & \lambda_m & & & \\
+& & & \mu_1 & & \\
+& & &       & \ddots & \\
+0  & & & & & \mu_k
+\end{bmatrix}\end{align*}
+```
+
+Because $\mathcal{B}^{\prime\prime}$ is orthonormal,
+
+```{math}
+\begin{align*}[T^\ast]_{\mathcal{B}{\prime\prime}}
+= [T]^H_{\mathcal{B}{\prime\prime}}
+= [T]^\top_{\mathcal{B}{\prime\prime}}\end{align*}
+```
+
+But $[T]_{\mathcal{B}{\prime\prime}} = [T^\ast]_{\mathcal{B}{\prime\prime}}$
+since $T$ is self-adjoint.
+Therefore, $[T]_{\mathcal{B}{\prime\prime}}$ must be diagonal.
+This completes the proof.
+
+````

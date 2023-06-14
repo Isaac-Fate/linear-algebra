@@ -782,6 +782,109 @@ of injective operators remains injective.
 This leads to a contradiction.
 Therefore, <span class="math notranslate nohighlight">\(T\)</span> must have an eigenvalue.</p>
 </div>
+<div class="proof theorem admonition" id="thm:17">
+<p class="admonition-title"><span class="caption-number">Theorem 7.2 </span> (Real Spectral Theorem)</p>
+<section class="theorem-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(V\)</span> be a finite-dimensional real inner product space,
+and <span class="math notranslate nohighlight">\(T \in \mathcal{L}(V)\)</span>.
+Then there exists an orthonormal basis <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> for <span class="math notranslate nohighlight">\(V\)</span>
+consisting of eigenvectors of <span class="math notranslate nohighlight">\(T\)</span>
+if and only if <span class="math notranslate nohighlight">\(T\)</span> is self-adjoint.</p>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. We first show the necessity.
+By the given condition <span class="math notranslate nohighlight">\([T]_{\mathcal{B}}\)</span>
+is a real diagonal matrix.
+Since <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> is orthonormal,
+the matrix representation of <span class="math notranslate nohighlight">\(T^\ast\)</span> is the Hermitian transpose,
+and hence</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}[T^\ast]_{\mathcal{B}} = [T]_{\mathcal{B}}^H
+= [T]_{\mathcal{B}}^\top
+= [T]_{\mathcal{B}}\end{align*}\]</div>
+<p>Therefore, <span class="math notranslate nohighlight">\(T\)</span> is self-adjoint.</p>
+<p>Next, we shall prove the sufficiency by mathematical induction.
+The induction hypothesis is that this theorem holds for every
+such vector space <span class="math notranslate nohighlight">\(V\)</span> with dimension less than or equal to <span class="math notranslate nohighlight">\(n\)</span>
+where <span class="math notranslate nohighlight">\(n \in \N^\ast\)</span>.</p>
+<p><strong>Base case:</strong> If <span class="math notranslate nohighlight">\(\dim V = 1\)</span>,
+then the conclusion is trivial since any unit vector
+is an eigenvector of <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<p><strong>Inductive step:</strong> Suppose the hypothesis holds
+for <span class="math notranslate nohighlight">\(n = k\)</span>, then we need to show that it also holds
+when <span class="math notranslate nohighlight">\(n = k+1\)</span>.
+Note that it suffices to show that the theorem holds
+for <span class="math notranslate nohighlight">\(\dim V = k+1\)</span>.
+By <a class="reference internal" href="#lem:3">Lemma 7.2</a>, <span class="math notranslate nohighlight">\(T\)</span> has at least one eigenvalue <span class="math notranslate nohighlight">\(\lambda\)</span>.
+Let</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+U = \im(T - \lambda I)
+\end{align*}\]</div>
+<p>Note that this subspace <span class="math notranslate nohighlight">\(U\)</span> is invariant under <span class="math notranslate nohighlight">\(T\)</span> since
+for any <span class="math notranslate nohighlight">\(\mathbf{u} \in U\)</span>, we have</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+T \mathbf{u} = T (T - \lambda I) \mathbf{v}
+= (T - \lambda I) T \mathbf{v}\in U
+\end{align*}\]</div>
+<p>Hence, <span class="math notranslate nohighlight">\(\restr{T}{U}\)</span> is a linear operator on <span class="math notranslate nohighlight">\(U\)</span>.
+Moreover, we claim that <span class="math notranslate nohighlight">\(\restr{T}{U}\)</span> is self-adjoint.
+To see this, we only need to show <span class="math notranslate nohighlight">\(U\)</span>
+is also invariant under <span class="math notranslate nohighlight">\(T^\ast\)</span>.
+By <a class="reference internal" href="../Inner%20Product%20Spaces/Orthogonal%20Projections.html#thm:12">Theorem 6.8</a>, we can write</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+V = U \oplus U^\perp\end{align*}\]</div>
+<p>Then, for any <span class="math notranslate nohighlight">\(\mathbf{u} \in U\)</span>, we have</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\langle T^\ast\mathbf{u}, \mathbf{w}\rangle
+= \langle T \mathbf{u}, \mathbf{w}\rangle
+= 0
+\quad\forall\mathbf{w}\in U^\perp\end{align*}\]</div>
+<p>Therefore, <span class="math notranslate nohighlight">\(T^\ast \mathbf{u} \in U\)</span>,
+and hence <span class="math notranslate nohighlight">\(U\)</span> is <span class="math notranslate nohighlight">\(T^\ast\)</span>-invariant,
+which implies</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}(\restr{T}{U})^\ast = \restr{T^\ast}{U}
+= \restr{T}{U}\end{align*}\]</div>
+<p>Next, by applying the induction hypothesis on space <span class="math notranslate nohighlight">\(U\)</span>
+and operator <span class="math notranslate nohighlight">\(\restr{T}{U}\)</span>,
+we conclude that there exists a basis <span class="math notranslate nohighlight">\(\mathcal{B}^\prime\)</span>
+for <span class="math notranslate nohighlight">\(U\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}[\restr{T}{U}]_{\mathcal{B}^\prime} =
+\begin{bmatrix}
+\lambda_1 &amp; &amp; \\
+&amp; \ddots &amp; \\
+&amp; &amp; \lambda_m
+\end{bmatrix}\end{align*}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(m = \dim U\)</span>.
+Then, we may use <a class="reference internal" href="../Inner%20Product%20Spaces/Gram-Schmidt%20Process.html#cor:4">Corollary 6.3</a> to
+extend <span class="math notranslate nohighlight">\(\mathcal{B}^\prime\)</span> to an orthonormal
+basis <span class="math notranslate nohighlight">\(\mathcal{B}^{\prime\prime}\)</span> for <span class="math notranslate nohighlight">\(V\)</span>.
+The matrix representation of <span class="math notranslate nohighlight">\(T\)</span>
+w.r.t. <span class="math notranslate nohighlight">\(\mathcal{B}^{\prime\prime}\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}[T]_{\mathcal{B}^{\prime\prime}} =
+\begin{bmatrix}
+\lambda_1 &amp; &amp; 0 &amp; &amp; &amp; \\
+&amp; \ddots &amp; &amp; &amp; \ast &amp; \\
+&amp; &amp; \lambda_m &amp; &amp; &amp; \\
+&amp; &amp; &amp; \mu_1 &amp; &amp; \\
+&amp; &amp; &amp;       &amp; \ddots &amp; \\
+0  &amp; &amp; &amp; &amp; &amp; \mu_k
+\end{bmatrix}\end{align*}\end{split}\]</div>
+<p>Because <span class="math notranslate nohighlight">\(\mathcal{B}^{\prime\prime}\)</span> is orthonormal,</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}[T^\ast]_{\mathcal{B}{\prime\prime}}
+= [T]^H_{\mathcal{B}{\prime\prime}}
+= [T]^\top_{\mathcal{B}{\prime\prime}}\end{align*}\]</div>
+<p>But <span class="math notranslate nohighlight">\([T]_{\mathcal{B}{\prime\prime}} = [T^\ast]_{\mathcal{B}{\prime\prime}}\)</span>
+since <span class="math notranslate nohighlight">\(T\)</span> is self-adjoint.
+Therefore, <span class="math notranslate nohighlight">\([T]_{\mathcal{B}{\prime\prime}}\)</span> must be diagonal.
+This completes the proof.</p>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
