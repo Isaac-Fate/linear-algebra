@@ -505,12 +505,12 @@ w.r.t. $\mathcal{B}^{\prime\prime}$ is
 ```{math}
 \begin{align*}[T]_{\mathcal{B}^{\prime\prime}} =
 \begin{bmatrix}
-\lambda_1 & & 0 & & & \\
-& \ddots & & & \ast & \\
-& & \lambda_m & & & \\
-& & & \mu_1 & & \\
-& & &       & \ddots & \\
-0  & & & & & \mu_k
+\lambda_1 & &  & \ast & \cdots & \ast \\
+& \ddots & & \vdots & \ddots & \vdots \\
+& & \lambda_m & \ast & \cdots & \ast \\
+& & & \mu_1 & \cdots & \ast \\
+& & &       & \ddots & \vdots \\
+& & & & & \mu_k
 \end{bmatrix}\end{align*}
 ```
 
@@ -526,5 +526,54 @@ But $[T]_{\mathcal{B}{\prime\prime}} = [T^\ast]_{\mathcal{B}{\prime\prime}}$
 since $T$ is self-adjoint.
 Therefore, $[T]_{\mathcal{B}{\prime\prime}}$ must be diagonal.
 This completes the proof.
+
+````
+
+Let operator $T$ be self-adjoint,
+or more generally, normal when the underlying field $\FF$ is complex.
+In such cases, the corollary presented below offers
+a highly desirable decomposition of the vector space $V$
+into subspaces that are invariant under $T$.
+Specifically, when restricted on each $\ker (T - \lambda_j I)$,
+the operator $T$ acts as a scalar multiplication by
+the eigenvalue $\lambda_j$.
+
+
+````{prf:corollary}
+:label: cor:11
+
+Let $V$ a finite-dimensional inner product space.
+Suppose $T \in \mathcal{L}(V)$ is a self-adjoint operator,
+or more generally, a normal operator when $\FF = \C$,
+and suppose all distinct eigenvalues of $T$
+consist of $\lambda_1, \ldots, \lambda_m$.
+Then $V$ can be decomposed as
+
+```{math}
+\begin{align*}
+V = \ker(T - \lambda_1 I) \oplus\cdots\oplus\ker(T - \lambda_m I)
+\end{align*}
+```
+
+Moreover, any two vectors taking from different subspaces are orthogonal
+to each other.
+That is,
+
+```{math}
+\begin{align*}\mathbf{u}\in\ker(T - \lambda_i I),
+\mathbf{v}\in\ker(T - \lambda_j I),
+i \neq j
+\implies\langle\mathbf{u}, \mathbf{v}\rangle = 0
+\end{align*}
+```
+
+````
+
+````{prf:proof}
+
+The decomposition of $V$ can be proved
+by applying {prf:ref}`thm:15`, {prf:ref}`thm:17`
+and {prf:ref}`pro:12`.
+And orthogonality can be proved by {prf:ref}`cor:10`.
 
 ````

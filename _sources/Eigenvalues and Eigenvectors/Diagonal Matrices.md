@@ -210,3 +210,42 @@ Recall $U$ is invariant under $T$. Hence, $(T - \lambda I) \mathbf{u} \in U$. Mo
 This shows that $T - \lambda I$ maps $U + \Span(\mathbf{w})$ into $U$. Since $U + \Span(\mathbf{w})$ clearly has larger dimension than that of $U$(actually, it is $1$ dimension larger), $T - \lambda I$ is not injective. Therefore, $\lambda$ is indeed an eigenvalue of $T$. This completes the proof.
 
 ````
+
+````{prf:proposition}
+:label: pro:12
+
+Let $V$ be a finite-dimensional vector space
+and $T \in \mathcal{L}(V)$.
+Suppose $\lambda_1, \ldots, \lambda_m$ are all distinct eigenvalues
+of $T$.
+Then the following are equivalent:
+- ➀ $[T]_{\mathcal{B}}$ is diagonal w.r.t. some basis $\mathcal{B}$
+of $V$.
+- ➁ $V$ has a basis consisting of eigenvectors of $T$.
+- ➂ There exist $1$-dimensional vector
+subspace $U_1, \ldots, U_n$,
+each invariant under $T$,
+such that
+
+```{math}
+\begin{align*}
+V = U_1 \oplus\cdots\oplus U_n
+\end{align*}
+```
+- ➃ $V$ can be decomposed as
+
+```{math}
+\begin{align*}
+V = \ker(T - \lambda_1 I) \oplus\cdots\oplus\ker(T - \lambda_m I)
+\end{align*}
+```
+- ➄ We have the equation
+
+```{math}
+\begin{align*}\dim V = \dim\ker(T - \lambda_1 I) + \cdots
++ \dim\ker(T - \lambda_m I)
+\end{align*}
+```
+
+
+````

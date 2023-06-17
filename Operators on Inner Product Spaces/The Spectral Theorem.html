@@ -868,12 +868,12 @@ w.r.t. <span class="math notranslate nohighlight">\(\mathcal{B}^{\prime\prime}\)
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align*}[T]_{\mathcal{B}^{\prime\prime}} =
 \begin{bmatrix}
-\lambda_1 &amp; &amp; 0 &amp; &amp; &amp; \\
-&amp; \ddots &amp; &amp; &amp; \ast &amp; \\
-&amp; &amp; \lambda_m &amp; &amp; &amp; \\
-&amp; &amp; &amp; \mu_1 &amp; &amp; \\
-&amp; &amp; &amp;       &amp; \ddots &amp; \\
-0  &amp; &amp; &amp; &amp; &amp; \mu_k
+\lambda_1 &amp; &amp;  &amp; \ast &amp; \cdots &amp; \ast \\
+&amp; \ddots &amp; &amp; \vdots &amp; \ddots &amp; \vdots \\
+&amp; &amp; \lambda_m &amp; \ast &amp; \cdots &amp; \ast \\
+&amp; &amp; &amp; \mu_1 &amp; \cdots &amp; \ast \\
+&amp; &amp; &amp;       &amp; \ddots &amp; \vdots \\
+&amp; &amp; &amp; &amp; &amp; \mu_k
 \end{bmatrix}\end{align*}\end{split}\]</div>
 <p>Because <span class="math notranslate nohighlight">\(\mathcal{B}^{\prime\prime}\)</span> is orthonormal,</p>
 <div class="math notranslate nohighlight">
@@ -884,6 +884,43 @@ w.r.t. <span class="math notranslate nohighlight">\(\mathcal{B}^{\prime\prime}\)
 since <span class="math notranslate nohighlight">\(T\)</span> is self-adjoint.
 Therefore, <span class="math notranslate nohighlight">\([T]_{\mathcal{B}{\prime\prime}}\)</span> must be diagonal.
 This completes the proof.</p>
+</div>
+<p>Let operator <span class="math notranslate nohighlight">\(T\)</span> be self-adjoint,
+or more generally, normal when the underlying field <span class="math notranslate nohighlight">\(\FF\)</span> is complex.
+In such cases, the corollary presented below offers
+a highly desirable decomposition of the vector space <span class="math notranslate nohighlight">\(V\)</span>
+into subspaces that are invariant under <span class="math notranslate nohighlight">\(T\)</span>.
+Specifically, when restricted on each <span class="math notranslate nohighlight">\(\ker (T - \lambda_j I)\)</span>,
+the operator <span class="math notranslate nohighlight">\(T\)</span> acts as a scalar multiplication by
+the eigenvalue <span class="math notranslate nohighlight">\(\lambda_j\)</span>.</p>
+<div class="proof corollary admonition" id="cor:11">
+<p class="admonition-title"><span class="caption-number">Corollary 7.4 </span></p>
+<section class="corollary-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(V\)</span> a finite-dimensional inner product space.
+Suppose <span class="math notranslate nohighlight">\(T \in \mathcal{L}(V)\)</span> is a self-adjoint operator,
+or more generally, a normal operator when <span class="math notranslate nohighlight">\(\FF = \C\)</span>,
+and suppose all distinct eigenvalues of <span class="math notranslate nohighlight">\(T\)</span>
+consist of <span class="math notranslate nohighlight">\(\lambda_1, \ldots, \lambda_m\)</span>.
+Then <span class="math notranslate nohighlight">\(V\)</span> can be decomposed as</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+V = \ker(T - \lambda_1 I) \oplus\cdots\oplus\ker(T - \lambda_m I)
+\end{align*}\]</div>
+<p>Moreover, any two vectors taking from different subspaces are orthogonal
+to each other.
+That is,</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\mathbf{u}\in\ker(T - \lambda_i I),
+\mathbf{v}\in\ker(T - \lambda_j I),
+i \neq j
+\implies\langle\mathbf{u}, \mathbf{v}\rangle = 0
+\end{align*}\]</div>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. The decomposition of <span class="math notranslate nohighlight">\(V\)</span> can be proved
+by applying <a class="reference internal" href="#thm:15">Theorem 7.1</a>, <a class="reference internal" href="#thm:17">Theorem 7.2</a>
+and <a class="reference internal" href="../Eigenvalues%20and%20Eigenvectors/Diagonal%20Matrices.html#pro:12">Proposition 5.3</a>.
+And orthogonality can be proved by <a class="reference internal" href="Self-Adjoint%20and%20Normal%20Operators.html#cor:10">Corollary 7.3</a>.</p>
 </div>
 </section>
 
