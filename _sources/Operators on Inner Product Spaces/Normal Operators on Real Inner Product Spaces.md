@@ -70,14 +70,14 @@ And the explicit expressions of the matrices on the both sides are
 = \begin{bmatrix}
 a^2 + c^2 & ab + cd \\
 ab + cd & b^2 + d^2
-\end{bmatrix}\\[T^\ast T]_{\mathcal{B}}&= [T^\ast]_{\mathcal{B}}[T]_{\mathcal{B}}
+\end{bmatrix}\\\quad[T^\ast T]_{\mathcal{B}}&= [T^\ast]_{\mathcal{B}}[T]_{\mathcal{B}}
 = \begin{bmatrix}
 a^2 + b^2 & ac + bd \\
 ac + bd & c^2 + d^2
 \end{bmatrix}\end{align*}
 ```
 
-It then follows that
+Equating the corresponding entries yields
 
 ```{math}
 \begin{align*}\begin{cases}
