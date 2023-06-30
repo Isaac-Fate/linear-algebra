@@ -824,6 +824,115 @@ yields</p>
 <p>Since <span class="math notranslate nohighlight">\(\lambda_1 \neq \lambda_2\)</span>, it then follows
 that <span class="math notranslate nohighlight">\(\langle \mathbf{v}_1, \mathbf{v}_2 \rangle = 0\)</span>.</p>
 </div>
+<p>The following proposition lists
+several useful properties about
+a normal operator <span class="math notranslate nohighlight">\(T\)</span>
+if we can find a <span class="math notranslate nohighlight">\(T\)</span>-invariant subspace <span class="math notranslate nohighlight">\(U\)</span>.</p>
+<div class="proof proposition admonition" id="pro:13">
+<p class="admonition-title"><span class="caption-number">Proposition 7.4 </span></p>
+<section class="proposition-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(V\)</span> be a finite-dimensional inner product space,
+and <span class="math notranslate nohighlight">\(T \in \mathcal{L}(V)\)</span> a normal operator.
+If subspace <span class="math notranslate nohighlight">\(U\)</span> is invariant under <span class="math notranslate nohighlight">\(T\)</span>,
+then we have the following:</p>
+<ul class="simple">
+<li><p>➀ <span class="math notranslate nohighlight">\(U^\perp\)</span> is invariant under <span class="math notranslate nohighlight">\(T\)</span>.</p></li>
+<li><p>➁ <span class="math notranslate nohighlight">\(U\)</span> is invariant under <span class="math notranslate nohighlight">\(T^\ast\)</span>.</p></li>
+<li><p>➂ <span class="math notranslate nohighlight">\((\restr{T}{U})^\ast = \restr{T^\ast}{U}\)</span>.</p></li>
+<li><p>➃ <span class="math notranslate nohighlight">\((\restr{T}{U^\perp})^\ast = \restr{T^\ast}{U^\perp}\)</span>.</p></li>
+<li><p>➄ <span class="math notranslate nohighlight">\(\restr{T}{U}\)</span> is a normal operator on <span class="math notranslate nohighlight">\(U\)</span>.</p></li>
+<li><p>➅ <span class="math notranslate nohighlight">\(\restr{T}{U^\perp}\)</span> is a normal operator on <span class="math notranslate nohighlight">\(U^\perp\)</span>.</p></li>
+</ul>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. We prove each statement in the following.
+Once the first statement is proved,
+all the others will follow immediately.</p>
+<p><strong>Proof of 1:</strong>
+Let <span class="math notranslate nohighlight">\((\mathbf{e}_1, \ldots, \mathbf{e}_m)\)</span> be an orthonormal
+basis of <span class="math notranslate nohighlight">\(U\)</span>.
+We then apply <a class="reference internal" href="../Inner%20Product%20Spaces/Gram-Schmidt%20Process.html#cor:4">Corollary 6.3</a>
+to extend this to an orthonormal basis for <span class="math notranslate nohighlight">\(V\)</span>
+by adding vectors <span class="math notranslate nohighlight">\((\mathbf{f}_1, \ldots, \mathbf{f}_n)\)</span>.
+It is clear that <span class="math notranslate nohighlight">\((\mathbf{f}_1, \ldots, \mathbf{f}_n)\)</span>
+forms an orthonormal basis for <span class="math notranslate nohighlight">\(U^\perp\)</span>(<a class="reference internal" href="../Inner%20Product%20Spaces/Orthogonal%20Projections.html#ex-2"><span class="std std-ref">Exercise 6.4</span></a>).
+Let</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\mathcal{B}
+= (\mathbf{e}_1, \ldots, \mathbf{e}_m,
+\mathbf{f}_1, \ldots, \mathbf{f}_n)
+\end{align*}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(U\)</span> is invariant under <span class="math notranslate nohighlight">\(T\)</span>,
+the matrix representation <span class="math notranslate nohighlight">\([T]_{\mathcal{B}}\)</span> has the form:</p>
+<div class="math notranslate nohighlight" id="equation-eq-68">
+<span class="eqno">(7.9)<a class="headerlink" href="#equation-eq-68" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{align}[T]_{\mathcal{B}} =
+\begin{bmatrix}
+A &amp; B \\
+0 &amp; C
+\end{bmatrix}\end{align}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\)</span>-by-<span class="math notranslate nohighlight">\(m\)</span> matrix
+corresponding to the basis of <span class="math notranslate nohighlight">\(U\)</span>.
+(And <span class="math notranslate nohighlight">\(C\)</span> is <span class="math notranslate nohighlight">\(n\)</span>-by-<span class="math notranslate nohighlight">\(n\)</span> of course.)
+Because <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> is orthonormal, <span class="math notranslate nohighlight">\([T^\ast]_{\mathcal{B}}\)</span>
+has the form</p>
+<div class="math notranslate nohighlight" id="equation-eq-67">
+<span class="eqno">(7.10)<a class="headerlink" href="#equation-eq-67" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{align}[T^\ast]_{\mathcal{B}} = [T]^H_{\mathcal{B}} =
+\begin{bmatrix}
+A^H &amp; 0 \\
+B^H &amp; C^H
+\end{bmatrix}\end{align}\end{split}\]</div>
+<p>By referring to <a class="reference internal" href="#equation-eq-68">(7.9)</a>, we note that</p>
+<div class="math notranslate nohighlight" id="equation-eq-65">
+<span class="eqno">(7.11)<a class="headerlink" href="#equation-eq-65" title="Permalink to this equation">#</a></span>\[\begin{align}\sum_{j=1}^m \norm{T \mathbf{e}_j}^2
+= \sum_{i,j}\abs{a_{i,j}}^2
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(a_{i,j}\)</span> is the <span class="math notranslate nohighlight">\((i,j)\)</span>-th entry of <span class="math notranslate nohighlight">\(A\)</span>.
+In words, the right-hand side of <a class="reference internal" href="#equation-eq-65">(7.11)</a>
+is the sum of squares of modulus of all entries of <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>On the other hand,
+referring to <a class="reference internal" href="#equation-eq-67">(7.10)</a>,
+we have</p>
+<div class="math notranslate nohighlight" id="equation-eq-66">
+<span class="eqno">(7.12)<a class="headerlink" href="#equation-eq-66" title="Permalink to this equation">#</a></span>\[\begin{align}\sum_{j=1}^m \norm{T^\ast \mathbf{e}_j}^2
+= \sum_{i,j}\abs{a_{i,j}}^2
++ \sum_{i,j}\abs{b_{i,j}}^2
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(a_{i,j}\)</span> and <span class="math notranslate nohighlight">\(b_{i,j}\)</span>
+are entries of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, respectively.</p>
+<p>Because <span class="math notranslate nohighlight">\(T\)</span> is a normal operator, by <a class="reference internal" href="#pro:10">Proposition 7.3</a>,
+the left-hand sides of <a class="reference internal" href="#equation-eq-65">(7.11)</a> and <a class="reference internal" href="#equation-eq-66">(7.12)</a>
+are equal to each other.
+Then by equating the right-hand sides of <a class="reference internal" href="#equation-eq-65">(7.11)</a>
+and <a class="reference internal" href="#equation-eq-66">(7.12)</a>, we obtain</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+b_{i,j} = 0
+\quad\forall i = 1, \ldots, m \;\forall j = 1, \ldots, n
+\end{align*}\]</div>
+<p>That is, <span class="math notranslate nohighlight">\(B\)</span> is a zero matrix.
+Therefore,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}[T]_{\mathcal{B}} =
+\begin{bmatrix}
+A &amp; 0 \\
+0 &amp; C
+\end{bmatrix}\end{align*}\end{split}\]</div>
+<p>and hence <span class="math notranslate nohighlight">\(U^\perp\)</span> is indeed invariant under <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<p><strong>Proof of 2:</strong>
+Note that <span class="math notranslate nohighlight">\(V = U \oplus U^\perp\)</span>.
+Let <span class="math notranslate nohighlight">\(\mathbf{u} \in U\)</span>,
+we need to show that <span class="math notranslate nohighlight">\(T^\ast \mathbf{u} \in U\)</span>.
+For any <span class="math notranslate nohighlight">\(\mathbf{w} \in U^\perp\)</span>, we have</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\langle T^\ast\mathbf{u}, \mathbf{w}\rangle
+= \langle\mathbf{u}, T \mathbf{w}\rangle
+= 0
+\end{align*}\]</div>
+<p>where the last equality holds
+because <span class="math notranslate nohighlight">\(T \mathbf{w} \in U^\perp\)</span> for we have already
+shown <span class="math notranslate nohighlight">\(U^\perp\)</span> is invariant under <span class="math notranslate nohighlight">\(T\)</span>.
+Therefore, <span class="math notranslate nohighlight">\(T^\ast \mathbf{u} \in (U^\perp)^\perp = U\)</span>.</p>
+</div>
 </section>
 
     <script type="text/x-thebe-config">

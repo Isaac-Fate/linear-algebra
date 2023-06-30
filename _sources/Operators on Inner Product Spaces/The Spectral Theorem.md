@@ -88,8 +88,8 @@ such that $[T]_{\mathcal{B}}$ is upper triangular.
 Let subspace $U$ be the span of the first $k$ basis vectors,
 i.e., $U = \Span (\mathbf{e}_1, \ldots, \mathbf{e}_k)$.
 Note that $U$ is invariant under $T$,
-and hence $\restr{T}{U}$ is an operator on $U$.
-Moreover, $\restr{T}{U}$ is clearly a normal operator.
+and hence $\restr{T}{U}$ is a normal operator on $U$
+by {prf:ref}`pro:13`.
 Therefore, by the induction hypothesis,
 there exists an orthonormal
 basis $\mathcal{B}^\prime = (\mathbf{f}_1, \ldots, \mathbf{f}_k)$

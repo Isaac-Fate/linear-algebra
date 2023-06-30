@@ -159,125 +159,132 @@ Therefore, $T$ is indeed a normal operator.
 
 ````
 
-````{prf:proposition}
-:label: pro:13
+````{prf:theorem}
+:label: thm:18
 
-Let $V$ be a finite-dimensional inner product space,
-and $T \in \mathcal{L}(V)$ a normal operator.
-If subspace $U$ is invariant under $T$,
-then we have the following:
-- ➀ $U^\perp$ is invariant under $T$.
-- ➁ $U$ is invariant under $T^\ast$.
-- ➂ $(\restr{T}{U})^\ast = \restr{T^\ast}{U}$.
-- ➃ $(\restr{T}{U^\perp})^\ast = \restr{T^\ast}{U^\perp}$.
-- ➄ $\restr{T}{U}$ is a normal operator on $U$.
-- ➅ $\restr{T}{U^\perp}$ is a normal operator on $U^\perp$.
+Let $V$ be a finite-dimensional real inner product space,
+and $T \in \mathcal{L}(V)$.
+Then $T$ is a normal operator if and only if
+there exists an orthonormal basis $\mathcal{B}$
+with respect to which
+the matrix representation of $T$, $[T]_{\mathcal{B}}$,
+is a block diagonal matrix
+
+```{math}
+\begin{align*}[T]_{\mathcal{B}} =
+\begin{bmatrix}
+A_1 & & \\
+& \ddots & \\
+& & A_m
+\end{bmatrix}\end{align*}
+```
+
+where each block $A_j$ is
+- ➀ either a $1$-by-$1$ matrix, or
+- ➁ a $2$-by-$2$ matrix of the form
+
+```{math}
+:label: eq:69
+\begin{align}\begin{bmatrix}
+a & -b \\ b & a
+\end{bmatrix}\end{align}
+```
+
+where $b > 0$.
 
 
 ````
 
 ````{prf:proof}
 
-We prove each statement in the following.
-Once the first statement is proved,
-all the others will follow immediately.
+By applying the properties of block matrix multiplication,
+the sufficiency of this theorem is clear.
+In what follows, we shall prove the necessity,
+and we shall prove by induction.
+Let the induction hypothesis be that
+the necessity of this theorem holds for any vector space $V$
+with dimension less than or equal to $n$.
 
-**Proof of 1:**
-Let $(\mathbf{e}_1, \ldots, \mathbf{e}_m)$ be an orthonormal
-basis of $U$.
-We then apply {prf:ref}`cor:4`
-to extend this to an orthonormal basis for $V$
-by adding vectors $(\mathbf{f}_1, \ldots, \mathbf{f}_n)$.
-It is clear that $(\mathbf{f}_1, \ldots, \mathbf{f}_n)$
-forms an orthonormal basis for $U^\perp$.
-Let
+**Base case:** We shall
+consider two base cases when $n$
+equals $1$ or $2$.
 
-```{math}
-\begin{align*}\mathcal{B}
-= (\mathbf{e}_1, \ldots, \mathbf{e}_m,
-\mathbf{f}_1, \ldots, \mathbf{f}_n)
-\end{align*}
-```
+Suppose $n = 1$, then $V$ has dimension $1$.
+The conclusion is trivial.
 
-Since $U$ is invariant under $T$,
-the matrix representation $[T]_{\mathcal{B}}$ has the form:
+Suppose $n = 2$.
+Note that we only need to consider the case where $\dim V = 2$.
 
-```{math}
-:label: eq:68
-\begin{align}[T]_{\mathcal{B}} =
-\begin{bmatrix}
-A & B \\
-0 & C
-\end{bmatrix}\end{align}
-```
+If $T$ is self-adjoint,
+then by the real spectral theorem ({prf:ref}`thm:17`),
+there exists an orthogonal basis with respect to which $T$
+is diagonal.
 
-where $A$ is an $m$-by-$m$ matrix
-corresponding to the basis of $U$.
-(And $C$ is $n$-by-$n$ of course.)
-Because $\mathcal{B}$ is orthonormal, $[T^\ast]_{\mathcal{B}}$
-has the form
+On the other hand, if $T$ is not self-adjoint,
+then by {prf:ref}`lem:4`,
+there exists an orthogonal basis with respect to which
+the matrix representation of $T$
+has the form {eq}`eq:69`.
 
-```{math}
-:label: eq:67
-\begin{align}[T^\ast]_{\mathcal{B}} = [T]^H_{\mathcal{B}} =
-\begin{bmatrix}
-A^H & 0 \\
-B^H & C^H
-\end{bmatrix}\end{align}
-```
+**Inductive step:** Assume the hypothesis
+holds for $n = k$, that is,
+the necessity of this theorem holds whenever $\dim V \leq k$($k \geq 2$).
+Note that we only need to show the necessity of this theorem
+also holds when $\dim V = k + 1$.
 
-By referring to {eq}`eq:68`, we note that
-
-```{math}
-:label: eq:65
-\begin{align}\sum_{j=1}^m \norm{T \mathbf{e}_j}^2
-= \sum_{i,j}\abs{a_{i,j}}^2
-\end{align}
-```
-
-where $a_{i,j}$ is the $(i,j)$-th entry of $A$.
-In words, the right-hand side of {eq}`eq:65`
-is the sum of squares of modulus of all entries of $A$.
-
-On the other hand,
-referring to {eq}`eq:67`,
-we have
-
-```{math}
-:label: eq:66
-\begin{align}\sum_{j=1}^m \norm{T^\ast \mathbf{e}_j}^2
-= \sum_{i,j}\abs{a_{i,j}}^2
-+ \sum_{i,j}\abs{b_{i,j}}^2
-\end{align}
-```
-
-where $a_{i,j}$ and $b_{i,j}$
-are entries of $A$ and $B$, respectively.
-
-Because $T$ is a normal operator, by {prf:ref}`pro:10`,
-the left-hand sides of {eq}`eq:65` and {eq}`eq:66`
-are equal to each other.
-Then by equating the right-hand sides of {eq}`eq:65`
-and {eq}`eq:66`, we obtain
+To apply the induction hypothesis, we need to reduce the dimension.
+By {prf:ref}`thm:6`, there exists a subspace $U$
+such that it is invariant under $T$ with dimension $1$ or $2$.
+Write
 
 ```{math}
 \begin{align*}
-b_{i,j} = 0
-\quad\forall i = 1, \ldots, m \;\forall j = 1, \ldots, n
-\end{align*}
+V = U \oplus U^\perp\end{align*}
 ```
 
-That is, $B$ is a zero matrix.
-Therefore,
+We know from {prf:ref}`pro:13` that $\restr{T}{U}$
+is a normal operator on $U$
+and $\restr{T}{U^\perp}$ is a normal operator on $U^\perp$.
+Since the dimensions of both spaces $U$ and $U^\perp$ are
+less than or equal to $k$,
+we may apply the induction hypothesis on both spaces.
+It follows that there exist two orthonormal bases $\mathcal{B}_1$
+and $\mathcal{B}_2$ for $U$ and $U^\perp$, respectively,
+such that
+
+```{math}
+\begin{align*}[\restr{T}{U}]_{\mathcal{B}_1} =
+\begin{bmatrix}
+A^{(1)}_1 & & \\
+& \ddots & \\
+& & A^{(1)}_k
+\end{bmatrix}\quad\text{and}\quad[\restr{T}{U^\perp}]_{\mathcal{B}_2} =
+\begin{bmatrix}
+A^{(2)}_1 & & \\
+& \ddots & \\
+& & A^{(2)}_l
+\end{bmatrix}\end{align*}
+```
+
+where each block $A_j^{(i)}$ is as described in the statement
+of this theorem.
+Let $\mathcal{B}$ be the concatenation of $\mathcal{B}_1$
+and $\mathcal{B}_2$.
+It is clear that $\mathcal{B}$ is an orthonormal basis for
+the whole space $V$, and $[T]_{\mathcal{B}}$ is of the form
 
 ```{math}
 \begin{align*}[T]_{\mathcal{B}} =
 \begin{bmatrix}
-A & 0 \\
-0 & C
+A^{(1)}_1 & & & & & \\
+& \ddots & & & & \\
+& & A^{(1)}_k & & & \\
+& & & A^{(2)}_1 & & \\
+& & & & \ddots & \\
+& & & & & A^{(2)}_l
 \end{bmatrix}\end{align*}
 ```
 
-and hence $U^\perp$ is indeed invariant under $T$.
+This completes the proof.
 
 ````

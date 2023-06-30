@@ -576,8 +576,8 @@ such that <span class="math notranslate nohighlight">\([T]_{\mathcal{B}}\)</span
 Let subspace <span class="math notranslate nohighlight">\(U\)</span> be the span of the first <span class="math notranslate nohighlight">\(k\)</span> basis vectors,
 i.e., <span class="math notranslate nohighlight">\(U = \Span (\mathbf{e}_1, \ldots, \mathbf{e}_k)\)</span>.
 Note that <span class="math notranslate nohighlight">\(U\)</span> is invariant under <span class="math notranslate nohighlight">\(T\)</span>,
-and hence <span class="math notranslate nohighlight">\(\restr{T}{U}\)</span> is an operator on <span class="math notranslate nohighlight">\(U\)</span>.
-Moreover, <span class="math notranslate nohighlight">\(\restr{T}{U}\)</span> is clearly a normal operator.
+and hence <span class="math notranslate nohighlight">\(\restr{T}{U}\)</span> is a normal operator on <span class="math notranslate nohighlight">\(U\)</span>
+by <a class="reference internal" href="Self-Adjoint%20and%20Normal%20Operators.html#pro:13">Proposition 7.4</a>.
 Therefore, by the induction hypothesis,
 there exists an orthonormal
 basis <span class="math notranslate nohighlight">\(\mathcal{B}^\prime = (\mathbf{f}_1, \ldots, \mathbf{f}_k)\)</span>
@@ -638,11 +638,11 @@ we need the following two lemmas.</p>
 If <span class="math notranslate nohighlight">\(T \in \mathcal{L}(V)\)</span> is a self-adjoint linear operator,
 and <span class="math notranslate nohighlight">\(\alpha, \beta \in \R\)</span> are two real numbers satisfying</p>
 <div class="math notranslate nohighlight" id="equation-eq-53">
-<span class="eqno">(7.9)<a class="headerlink" href="#equation-eq-53" title="Permalink to this equation">#</a></span>\[\begin{align}\alpha^2 - 4 \beta  &lt; 0
+<span class="eqno">(7.13)<a class="headerlink" href="#equation-eq-53" title="Permalink to this equation">#</a></span>\[\begin{align}\alpha^2 - 4 \beta  &lt; 0
 \end{align}\]</div>
 <p>then the operator</p>
 <div class="math notranslate nohighlight" id="equation-eq-55">
-<span class="eqno">(7.10)<a class="headerlink" href="#equation-eq-55" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(7.14)<a class="headerlink" href="#equation-eq-55" title="Permalink to this equation">#</a></span>\[\begin{align}
 T^2 + \alpha T + \beta I
 \end{align}\]</div>
 <p>is invertible.</p>
@@ -653,36 +653,36 @@ arises from an analogous problem of showing the real number</p>
 \[\begin{align*}
 x^2 + \alpha x + \beta\end{align*}\]</div>
 <p>is invertible,
-where <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> satisfy <a class="reference internal" href="#equation-eq-53">(7.9)</a>.
+where <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> satisfy <a class="reference internal" href="#equation-eq-53">(7.13)</a>.
 In fact, we are going to show that this real number is greater than zero,
 which is a stronger condition.
 Indeed, we have</p>
 <div class="math notranslate nohighlight" id="equation-eq-54">
-<span class="eqno">(7.11)<a class="headerlink" href="#equation-eq-54" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(7.15)<a class="headerlink" href="#equation-eq-54" title="Permalink to this equation">#</a></span>\[\begin{align}
 x^2 + \alpha x + \beta
 = \brk{x + \frac{\alpha}{2}}^2 + \brk{\beta - \frac{\alpha^2}{4}}
 &gt; 0
 \end{align}\]</div>
 <div class="proof admonition" id="proof">
-<p>Proof. To show operator <a class="reference internal" href="#equation-eq-55">(7.10)</a> is invertible,
+<p>Proof. To show operator <a class="reference internal" href="#equation-eq-55">(7.14)</a> is invertible,
 it suffices to that it is injective.
 Equivalently, we need to show the kernel of
-the operator <a class="reference internal" href="#equation-eq-55">(7.10)</a> is <span class="math notranslate nohighlight">\(\{\mathbf{0}\}\)</span>.
+the operator <a class="reference internal" href="#equation-eq-55">(7.14)</a> is <span class="math notranslate nohighlight">\(\{\mathbf{0}\}\)</span>.
 Setting</p>
 <div class="math notranslate nohighlight" id="equation-eq-56">
-<span class="eqno">(7.12)<a class="headerlink" href="#equation-eq-56" title="Permalink to this equation">#</a></span>\[\begin{align}(T^2 + \alpha T + \beta I) \mathbf{v} = \mathbf{0}\end{align}\]</div>
+<span class="eqno">(7.16)<a class="headerlink" href="#equation-eq-56" title="Permalink to this equation">#</a></span>\[\begin{align}(T^2 + \alpha T + \beta I) \mathbf{v} = \mathbf{0}\end{align}\]</div>
 <p>we want to show <span class="math notranslate nohighlight">\(\mathbf{v} = \mathbf{0}\)</span>.
-Clearly, by <a class="reference internal" href="#equation-eq-56">(7.12)</a>, we have</p>
+Clearly, by <a class="reference internal" href="#equation-eq-56">(7.16)</a>, we have</p>
 <div class="math notranslate nohighlight" id="equation-eq-57">
-<span class="eqno">(7.13)<a class="headerlink" href="#equation-eq-57" title="Permalink to this equation">#</a></span>\[\begin{align}\langle(T^2 + \alpha T + \beta I) \mathbf{v}, \mathbf{v}\rangle = 0
+<span class="eqno">(7.17)<a class="headerlink" href="#equation-eq-57" title="Permalink to this equation">#</a></span>\[\begin{align}\langle(T^2 + \alpha T + \beta I) \mathbf{v}, \mathbf{v}\rangle = 0
 \end{align}\]</div>
-<p>Similar to <a class="reference internal" href="#equation-eq-54">(7.11)</a>, we have</p>
+<p>Similar to <a class="reference internal" href="#equation-eq-54">(7.15)</a>, we have</p>
 <div class="math notranslate nohighlight">
 \[\begin{align*}
 T^2 + \alpha T + \beta I
 = \brk{T + \frac{\alpha}{2} I}^2 + \brk{\beta - \frac{\alpha^2}{4}} I
 \end{align*}\]</div>
-<p>Plugging into <a class="reference internal" href="#equation-eq-57">(7.13)</a>, we find</p>
+<p>Plugging into <a class="reference internal" href="#equation-eq-57">(7.17)</a>, we find</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align*}&amp;\langle\brk{T + \frac{\alpha}{2} I}^2 \mathbf{v}, \mathbf{v}\rangle
 + \brk{\beta - \frac{\alpha^2}{4}}\langle\mathbf{v}, \mathbf{v}\rangle
@@ -738,37 +738,37 @@ Then the list of vectors</p>
 There exist real numbers <span class="math notranslate nohighlight">\(a_0, a_1, \ldots, a_n\)</span> that
 are not all zeros such that</p>
 <div class="math notranslate nohighlight" id="equation-eq-58">
-<span class="eqno">(7.14)<a class="headerlink" href="#equation-eq-58" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(7.18)<a class="headerlink" href="#equation-eq-58" title="Permalink to this equation">#</a></span>\[\begin{align}
 a_0 \mathbf{v} + a_1 T \mathbf{v} + \cdots
 + a_n T^n \mathbf{v}
 = \mathbf{0}\end{align}\]</div>
 <p>Let <span class="math notranslate nohighlight">\(m\)</span> be the largest integer such that <span class="math notranslate nohighlight">\(a_m \neq 0\)</span>.
-Equation <a class="reference internal" href="#equation-eq-58">(7.14)</a> is reduced to</p>
+Equation <a class="reference internal" href="#equation-eq-58">(7.18)</a> is reduced to</p>
 <div class="math notranslate nohighlight" id="equation-eq-59">
-<span class="eqno">(7.15)<a class="headerlink" href="#equation-eq-59" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(7.19)<a class="headerlink" href="#equation-eq-59" title="Permalink to this equation">#</a></span>\[\begin{align}
 a_0 \mathbf{v} + a_1 T \mathbf{v} + \cdots
 + a_m T^m \mathbf{v}
 = \mathbf{0}\end{align}\]</div>
 <p>Define a polynomial</p>
 <div class="math notranslate nohighlight" id="equation-eq-60">
-<span class="eqno">(7.16)<a class="headerlink" href="#equation-eq-60" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(7.20)<a class="headerlink" href="#equation-eq-60" title="Permalink to this equation">#</a></span>\[\begin{align}
 p(x) = a_0 + a_1 x + \cdots + a_m x^m
 \end{align}\]</div>
 <p>By <a class="reference internal" href="../Polynomials/Polynomial%20with%20Real%20Coefficients.html#thm:5">Theorem 3.1</a>, <span class="math notranslate nohighlight">\(p(x)\)</span> can be factorized as</p>
 <div class="math notranslate nohighlight" id="equation-eq-61">
-<span class="eqno">(7.17)<a class="headerlink" href="#equation-eq-61" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(7.21)<a class="headerlink" href="#equation-eq-61" title="Permalink to this equation">#</a></span>\[\begin{align}
 p(x) = a_m (x - \lambda_1) \cdots(x - \lambda_k)
 (x^2 + \alpha_1 x + \beta_1) \cdots(x^2 + \alpha_l x + \beta_l)
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\alpha_j, \beta_j \in \R\)</span> and satisfy <span class="math notranslate nohighlight">\(\alpha_j^2 &lt; 4 \beta_j\)</span>.
 Then applying the polynomial <span class="math notranslate nohighlight">\(p\)</span> to the operator <span class="math notranslate nohighlight">\(T\)</span>,
-by <a class="reference internal" href="#equation-eq-59">(7.15)</a> and <a class="reference internal" href="#equation-eq-60">(7.16)</a>, we find</p>
+by <a class="reference internal" href="#equation-eq-59">(7.19)</a> and <a class="reference internal" href="#equation-eq-60">(7.20)</a>, we find</p>
 <div class="math notranslate nohighlight">
 \[\begin{align*}
 p(T) \mathbf{v} = \mathbf{0}\end{align*}\]</div>
-<p>It then follows from <a class="reference internal" href="#equation-eq-61">(7.17)</a> that</p>
+<p>It then follows from <a class="reference internal" href="#equation-eq-61">(7.21)</a> that</p>
 <div class="math notranslate nohighlight" id="equation-eq-62">
-<span class="eqno">(7.18)<a class="headerlink" href="#equation-eq-62" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(7.22)<a class="headerlink" href="#equation-eq-62" title="Permalink to this equation">#</a></span>\[\begin{align}
 a_m (T - \lambda_1 I) \cdots(T - \lambda_k I)
 \underbrace{(T^2 + \alpha_1 T + \beta_1 I)
 \cdots (T^2 + \alpha_l T + \beta_l I) \mathbf{v}}_{\mathbf{w}}
@@ -776,12 +776,12 @@ a_m (T - \lambda_1 I) \cdots(T - \lambda_k I)
 <p>By <a class="reference internal" href="#lem:2">Lemma 7.1</a>, we know each
 operator <span class="math notranslate nohighlight">\(T^2 + \alpha_j T + \beta_j I\)</span> is invertible,
 and hence <span class="math notranslate nohighlight">\(\mathbf{w} \neq \mathbf{0}\)</span> since <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> is nonzero.
-Dropping the nonzero scalar <span class="math notranslate nohighlight">\(a_m\)</span>, <a class="reference internal" href="#equation-eq-62">(7.18)</a> reduces to</p>
+Dropping the nonzero scalar <span class="math notranslate nohighlight">\(a_m\)</span>, <a class="reference internal" href="#equation-eq-62">(7.22)</a> reduces to</p>
 <div class="math notranslate nohighlight" id="equation-eq-63">
-<span class="eqno">(7.19)<a class="headerlink" href="#equation-eq-63" title="Permalink to this equation">#</a></span>\[\begin{align}(T - \lambda_1 I) \cdots(T - \lambda_k I) \mathbf{w} = \mathbf{w}\end{align}\]</div>
+<span class="eqno">(7.23)<a class="headerlink" href="#equation-eq-63" title="Permalink to this equation">#</a></span>\[\begin{align}(T - \lambda_1 I) \cdots(T - \lambda_k I) \mathbf{w} = \mathbf{w}\end{align}\]</div>
 <p>Assume <span class="math notranslate nohighlight">\(T\)</span> does not have an eigenvalue, then each
 operator <span class="math notranslate nohighlight">\(T - \lambda_j I\)</span> is injective,
-which further implies the left-hand side of <a class="reference internal" href="#equation-eq-63">(7.19)</a> is nonzero
+which further implies the left-hand side of <a class="reference internal" href="#equation-eq-63">(7.23)</a> is nonzero
 since <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> is not and the product
 of injective operators remains injective.
 This leads to a contradiction.
