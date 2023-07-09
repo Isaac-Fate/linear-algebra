@@ -120,8 +120,7 @@ Then operator $T$ is self-adjoint if and only if
 
 ```{math}
 :label: eq:47
-\begin{align}\langle T \mathbf{v}, \mathbf{v}\rangle = 0
-\quad\forall\mathbf{v}\in V
+\begin{align}\langle T \mathbf{v}, \mathbf{v}\rangle\in\R\quad\forall\mathbf{v}\in V
 \end{align}
 ```
 
@@ -145,7 +144,8 @@ For any vector $\mathbf{v} \in V$, we have
 
 ```{math}
 :label: eq:48
-\begin{align}\langle T \mathbf{v}, \mathbf{v}\rangle
+\begin{align}
+0 = \langle T \mathbf{v}, \mathbf{v}\rangle
 - \overline{\langle T \mathbf{v}, \mathbf{v} \rangle}&= \langle T \mathbf{v}, \mathbf{v}\rangle
 - \langle\mathbf{v}, T \mathbf{v}\rangle\nonumber\\&= \langle T^\ast\mathbf{v}, \mathbf{v}\rangle\nonumber\\&= \langle(T - T^\ast) \mathbf{v}, \mathbf{v}\rangle\end{align}
 ```
@@ -153,7 +153,8 @@ For any vector $\mathbf{v} \in V$, we have
 If {eq}`eq:47` holds, then {eq}`eq:48` yields that
 
 ```{math}
-\begin{align*}\langle(T - T^\ast) \mathbf{v}, \mathbf{v}\rangle\quad\forall\mathbf{v}\in V
+\begin{align*}\langle(T - T^\ast) \mathbf{v}, \mathbf{v}\rangle = 0
+\quad\forall\mathbf{v}\in V
 \end{align*}
 ```
 
@@ -253,7 +254,8 @@ and hence {eq}`eq:50` follows.
 ```
 
 Let $V$ be a finite-dimensional inner product space.
-Operator $T \in \mathcal{L}(V)$ is said to be **normal** if
+Operator $T \in \mathcal{L}(V)$ is said to
+be **normal** if
 it commutes with its adjoint.
 Formally,
 

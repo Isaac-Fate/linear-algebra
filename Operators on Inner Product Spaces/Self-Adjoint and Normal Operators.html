@@ -307,6 +307,11 @@ const thebe_selector_output = ".output, .cell_output"
      7.3. Normal Operators on Real Inner Product Spaces
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Positive%20Operators.html">
+     7.4. Positive Operators
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -593,8 +598,7 @@ is</p>
 <p>Let <span class="math notranslate nohighlight">\(V\)</span> be a finite-dimensional complex inner product space.
 Then operator <span class="math notranslate nohighlight">\(T\)</span> is self-adjoint if and only if</p>
 <div class="math notranslate nohighlight" id="equation-eq-47">
-<span class="eqno">(7.3)<a class="headerlink" href="#equation-eq-47" title="Permalink to this equation">#</a></span>\[\begin{align}\langle T \mathbf{v}, \mathbf{v}\rangle = 0
-\quad\forall\mathbf{v}\in V
+<span class="eqno">(7.3)<a class="headerlink" href="#equation-eq-47" title="Permalink to this equation">#</a></span>\[\begin{align}\langle T \mathbf{v}, \mathbf{v}\rangle\in\R\quad\forall\mathbf{v}\in V
 \end{align}\]</div>
 </section>
 </div><div class="admonition note">
@@ -610,12 +614,14 @@ and <span class="math notranslate nohighlight">\([T]_\mathcal{B} \neq[T]^\top_\m
 <div class="proof admonition" id="proof">
 <p>Proof. For any vector <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span>, we have</p>
 <div class="math notranslate nohighlight" id="equation-eq-48">
-<span class="eqno">(7.4)<a class="headerlink" href="#equation-eq-48" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{align}\langle T \mathbf{v}, \mathbf{v}\rangle
+<span class="eqno">(7.4)<a class="headerlink" href="#equation-eq-48" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{align}
+0 = \langle T \mathbf{v}, \mathbf{v}\rangle
 - \overline{\langle T \mathbf{v}, \mathbf{v} \rangle}&amp;= \langle T \mathbf{v}, \mathbf{v}\rangle
 - \langle\mathbf{v}, T \mathbf{v}\rangle\nonumber\\&amp;= \langle T^\ast\mathbf{v}, \mathbf{v}\rangle\nonumber\\&amp;= \langle(T - T^\ast) \mathbf{v}, \mathbf{v}\rangle\end{align}\end{split}\]</div>
 <p>If <a class="reference internal" href="#equation-eq-47">(7.3)</a> holds, then <a class="reference internal" href="#equation-eq-48">(7.4)</a> yields that</p>
 <div class="math notranslate nohighlight">
-\[\begin{align*}\langle(T - T^\ast) \mathbf{v}, \mathbf{v}\rangle\quad\forall\mathbf{v}\in V
+\[\begin{align*}\langle(T - T^\ast) \mathbf{v}, \mathbf{v}\rangle = 0
+\quad\forall\mathbf{v}\in V
 \end{align*}\]</div>
 <p>It then follows from <a class="reference internal" href="#pro:8">Proposition 7.1</a>
 that <span class="math notranslate nohighlight">\(T - T^\ast\)</span> is the zero map,
@@ -683,7 +689,8 @@ and hence <a class="reference internal" href="#equation-eq-50">(7.5)</a> follows
 <p class="admonition-title"><span class="caption-number">Definition 7.1 </span></p>
 <section class="definition-content" id="proof-content">
 <p id="index-0">Let <span class="math notranslate nohighlight">\(V\)</span> be a finite-dimensional inner product space.
-Operator <span class="math notranslate nohighlight">\(T \in \mathcal{L}(V)\)</span> is said to be <strong>normal</strong> if
+Operator <span class="math notranslate nohighlight">\(T \in \mathcal{L}(V)\)</span> is said to
+be <strong>normal</strong> if
 it commutes with its adjoint.
 Formally,</p>
 <div class="math notranslate nohighlight">
