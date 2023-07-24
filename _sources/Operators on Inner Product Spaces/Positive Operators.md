@@ -135,5 +135,34 @@ is simply
 
 it is clear that $S^2 = T$.
 
+**Proof of 3 $\implies$ 4:**
+Suppose $S$ is a positive square root of $T$.
+As we have noted from the definition of positive operators, $S$ must
+be self-adjoint.
+Therefore, $S$ is also a self-adjoint square root of $T$, as desired.
+
+**Proof of 4 $\implies$ 5:**
+Let $S$ be a self-adjoint square root of $T$.
+We have
+
+```{math}
+\begin{align*}
+T = S^2 = S^\ast S
+\end{align*}
+```
+
+since $S = S^\ast$.
+
+**Proof of 5 $\implies$ 1:**
+For any vector $\mathbf{v} \in V$, we have
+
+```{math}
+\begin{align*}\langle T \mathbf{v}, \mathbf{v}\rangle
+= \langle S^\ast S \mathbf{v}, \mathbf{v}\rangle
+= \langle S \mathbf{v}, S \mathbf{v}\rangle\geq 0
+\end{align*}
+```
+
+Hence, $T$ is a positive operator.
 
 ````
