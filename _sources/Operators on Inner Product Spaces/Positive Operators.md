@@ -38,6 +38,50 @@ of an operator $T$
 if $S^2 = T$.
 
 
+The following is a simple observation about the eigenvalues
+of a square root.
+
+
+````{prf:proposition}
+:label: pro:15
+
+Let $V$ be an inner product space.
+If $T$ is a positive operator and $S$ is
+its positive square root,
+then every eigenvalue $\mu$ of $S$
+satisfies
+
+```{math}
+\begin{align*}\mu^2 = \lambda\end{align*}
+```
+
+where $\lambda$ is some eigenvalue of $T$.
+
+````
+
+````{prf:proof}
+
+Suppose $\mu$ is an eigenvalue of $S$,
+and $\mathbf{v}$ is the corresponding eigenvector.
+We have
+
+```{math}
+\begin{align*}
+S \mathbf{v} = \mu\mathbf{v}\end{align*}
+```
+
+Applying $S$ to both sides yields
+
+```{math}
+\begin{align*}
+T \mathbf{v} = S^2 \mathbf{v} = \mu S \mathbf{v}
+= \mu^2 \mathbf{v}\end{align*}
+```
+
+Therefore, $\mu^2$ is an eigenvalue of $T$.
+
+````
+
 The following theorem lists some equivalent conditions of being
 a positive operator.
 
@@ -164,5 +208,92 @@ For any vector $\mathbf{v} \in V$, we have
 ```
 
 Hence, $T$ is a positive operator.
+
+````
+
+````{prf:proposition}
+:label: pro:14
+
+Every positive operator $T$
+on a finite-dimensional inner product space $V$
+has a unique positive square root.
+
+````
+
+````{prf:proof}
+
+Because $T$ is positive, and hence self-adjoint, $V$
+can be decomposed as
+
+```{math}
+:label: eq:71
+\begin{align}
+V = \ker(T - \lambda_1 I) \oplus\cdots\oplus\ker(T - \lambda_m I)
+\end{align}
+```
+
+where $\lambda_1, \ldots, \lambda_m$ are
+all distinct eigenvalues of $T$
+by {prf:ref}`cor:11`.
+
+We know from {prf:ref}`thm:19`, $T$ has a positive square root $S$.
+And then by {prf:ref}`pro:15`,
+we know $\sqrt{\lambda_1}, \ldots, \sqrt{\lambda_m}$(note that each $\lambda_j$ is non-negative)
+are all distinct eigenvalues of $S$.
+Then, applying the same arguments as before, $V$ can also
+be decomposed as
+
+```{math}
+:label: eq:72
+\begin{align}
+V = \ker(S - \sqrt{\lambda_1} I)
+\oplus\cdots\oplus\ker(S - \sqrt{\lambda_m} I)
+\end{align}
+```
+
+Next, we want to show that $\ker (S - \sqrt{\lambda_j} I) \subseteq \ker(T - \lambda_j I)$ for each $j$.
+Indeed, for every $\mathbf{v} \in \ker(S - \sqrt{\lambda_j} I)$,
+we have
+
+```{math}
+\begin{align*}
+S \mathbf{v} = \sqrt{\lambda_j}\mathbf{v}\end{align*}
+```
+
+Applying $S$ to both sides yields
+
+```{math}
+\begin{align*}
+T \mathbf{v} = S^2 \mathbf{v}
+= \sqrt{\lambda_j} S \mathbf{v}
+= \lambda_j \mathbf{v}\end{align*}
+```
+
+which implies $\mathbf{v} \in \ker(T - \lambda_j I)$.
+Therefore, indeed $\ker (S - \sqrt{\lambda_j} I) \subseteq \ker(T - \lambda_j I)$.
+Consequently,
+
+```{math}
+\begin{align*}\dim\ker(S - \sqrt{\lambda_j} I)
+\leq\dim\ker(T - \lambda_j I)
+\end{align*}
+```
+
+Then by comparing {eq}`eq:71` and $\eqref{eq:72}$,
+we must have
+
+```{math}
+:label: eq:73
+\begin{align}\ker(S - \sqrt{\lambda_j} I) = \ker(T - \lambda_j I)
+\end{align}
+```
+
+Otherwise, the dimension would not match.
+Note that the interpretation
+of {eq}`eq:73` is that on each
+subspace $\ker(T - \lambda_j I)$, operator $S$
+is just a multiplication by $\sqrt{\lambda_j}$.
+Therefore, $S$ is uniquely determined by $T$,
+and hence the positive square root $S$ is unique.
 
 ````

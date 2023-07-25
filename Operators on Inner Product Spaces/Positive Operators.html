@@ -430,6 +430,34 @@ since this must be the case.</p>
 <p id="index-1">An operator <span class="math notranslate nohighlight">\(S\)</span> is said to be a <strong>square root</strong>
 of an operator <span class="math notranslate nohighlight">\(T\)</span>
 if <span class="math notranslate nohighlight">\(S^2 = T\)</span>.</p>
+<p>The following is a simple observation about the eigenvalues
+of a square root.</p>
+<div class="proof proposition admonition" id="pro:15">
+<p class="admonition-title"><span class="caption-number">Proposition 7.5 </span></p>
+<section class="proposition-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(V\)</span> be an inner product space.
+If <span class="math notranslate nohighlight">\(T\)</span> is a positive operator and <span class="math notranslate nohighlight">\(S\)</span> is
+its positive square root,
+then every eigenvalue <span class="math notranslate nohighlight">\(\mu\)</span> of <span class="math notranslate nohighlight">\(S\)</span>
+satisfies</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\mu^2 = \lambda\end{align*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda\)</span> is some eigenvalue of <span class="math notranslate nohighlight">\(T\)</span>.</p>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Suppose <span class="math notranslate nohighlight">\(\mu\)</span> is an eigenvalue of <span class="math notranslate nohighlight">\(S\)</span>,
+and <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> is the corresponding eigenvector.
+We have</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+S \mathbf{v} = \mu\mathbf{v}\end{align*}\]</div>
+<p>Applying <span class="math notranslate nohighlight">\(S\)</span> to both sides yields</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+T \mathbf{v} = S^2 \mathbf{v} = \mu S \mathbf{v}
+= \mu^2 \mathbf{v}\end{align*}\]</div>
+<p>Therefore, <span class="math notranslate nohighlight">\(\mu^2\)</span> is an eigenvalue of <span class="math notranslate nohighlight">\(T\)</span>.</p>
+</div>
 <p>The following theorem lists some equivalent conditions of being
 a positive operator.</p>
 <div class="proof theorem admonition" id="thm:19">
@@ -526,6 +554,66 @@ For any vector <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</
 = \langle S \mathbf{v}, S \mathbf{v}\rangle\geq 0
 \end{align*}\]</div>
 <p>Hence, <span class="math notranslate nohighlight">\(T\)</span> is a positive operator.</p>
+</div>
+<div class="proof proposition admonition" id="pro:14">
+<p class="admonition-title"><span class="caption-number">Proposition 7.6 </span></p>
+<section class="proposition-content" id="proof-content">
+<p>Every positive operator <span class="math notranslate nohighlight">\(T\)</span>
+on a finite-dimensional inner product space <span class="math notranslate nohighlight">\(V\)</span>
+has a unique positive square root.</p>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Because <span class="math notranslate nohighlight">\(T\)</span> is positive, and hence self-adjoint, <span class="math notranslate nohighlight">\(V\)</span>
+can be decomposed as</p>
+<div class="math notranslate nohighlight" id="equation-eq-71">
+<span class="eqno">(7.27)<a class="headerlink" href="#equation-eq-71" title="Permalink to this equation">#</a></span>\[\begin{align}
+V = \ker(T - \lambda_1 I) \oplus\cdots\oplus\ker(T - \lambda_m I)
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda_1, \ldots, \lambda_m\)</span> are
+all distinct eigenvalues of <span class="math notranslate nohighlight">\(T\)</span>
+by <a class="reference internal" href="The%20Spectral%20Theorem.html#cor:11">Corollary 7.4</a>.</p>
+<p>We know from <a class="reference internal" href="#thm:19">Theorem 7.4</a>, <span class="math notranslate nohighlight">\(T\)</span> has a positive square root <span class="math notranslate nohighlight">\(S\)</span>.
+And then by <a class="reference internal" href="#pro:15">Proposition 7.5</a>,
+we know <span class="math notranslate nohighlight">\(\sqrt{\lambda_1}, \ldots, \sqrt{\lambda_m}\)</span>(note that each <span class="math notranslate nohighlight">\(\lambda_j\)</span> is non-negative)
+are all distinct eigenvalues of <span class="math notranslate nohighlight">\(S\)</span>.
+Then, applying the same arguments as before, <span class="math notranslate nohighlight">\(V\)</span> can also
+be decomposed as</p>
+<div class="math notranslate nohighlight" id="equation-eq-72">
+<span class="eqno">(7.28)<a class="headerlink" href="#equation-eq-72" title="Permalink to this equation">#</a></span>\[\begin{align}
+V = \ker(S - \sqrt{\lambda_1} I)
+\oplus\cdots\oplus\ker(S - \sqrt{\lambda_m} I)
+\end{align}\]</div>
+<p>Next, we want to show that <span class="math notranslate nohighlight">\(\ker (S - \sqrt{\lambda_j} I) \subseteq \ker(T - \lambda_j I)\)</span> for each <span class="math notranslate nohighlight">\(j\)</span>.
+Indeed, for every <span class="math notranslate nohighlight">\(\mathbf{v} \in \ker(S - \sqrt{\lambda_j} I)\)</span>,
+we have</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+S \mathbf{v} = \sqrt{\lambda_j}\mathbf{v}\end{align*}\]</div>
+<p>Applying <span class="math notranslate nohighlight">\(S\)</span> to both sides yields</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+T \mathbf{v} = S^2 \mathbf{v}
+= \sqrt{\lambda_j} S \mathbf{v}
+= \lambda_j \mathbf{v}\end{align*}\]</div>
+<p>which implies <span class="math notranslate nohighlight">\(\mathbf{v} \in \ker(T - \lambda_j I)\)</span>.
+Therefore, indeed <span class="math notranslate nohighlight">\(\ker (S - \sqrt{\lambda_j} I) \subseteq \ker(T - \lambda_j I)\)</span>.
+Consequently,</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*}\dim\ker(S - \sqrt{\lambda_j} I)
+\leq\dim\ker(T - \lambda_j I)
+\end{align*}\]</div>
+<p>Then by comparing <a class="reference internal" href="#equation-eq-71">(7.27)</a> and <span class="math notranslate nohighlight">\(\eqref{eq:72}\)</span>,
+we must have</p>
+<div class="math notranslate nohighlight" id="equation-eq-73">
+<span class="eqno">(7.29)<a class="headerlink" href="#equation-eq-73" title="Permalink to this equation">#</a></span>\[\begin{align}\ker(S - \sqrt{\lambda_j} I) = \ker(T - \lambda_j I)
+\end{align}\]</div>
+<p>Otherwise, the dimension would not match.
+Note that the interpretation
+of <a class="reference internal" href="#equation-eq-73">(7.29)</a> is that on each
+subspace <span class="math notranslate nohighlight">\(\ker(T - \lambda_j I)\)</span>, operator <span class="math notranslate nohighlight">\(S\)</span>
+is just a multiplication by <span class="math notranslate nohighlight">\(\sqrt{\lambda_j}\)</span>.
+Therefore, <span class="math notranslate nohighlight">\(S\)</span> is uniquely determined by <span class="math notranslate nohighlight">\(T\)</span>,
+and hence the positive square root <span class="math notranslate nohighlight">\(S\)</span> is unique.</p>
 </div>
 </section>
 
