@@ -279,7 +279,7 @@ Consequently,
 \end{align*}
 ```
 
-Then by comparing {eq}`eq:71` and $\eqref{eq:72}$,
+Then by comparing {eq}`eq:71` and {eq}`eq:72`,
 we must have
 
 ```{math}
