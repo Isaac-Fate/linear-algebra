@@ -121,8 +121,7 @@ Indeed, we have
 \end{align*}
 ```
 
-Since $\mathbf{v} \neq \mathbf{0}$, $\lambda$ must be a real number
-and it is non-negative.
+Since $\mathbf{v} \neq \mathbf{0}$, $\lambda$ must be a real number, and it is non-negative.
 
 **Proof of 2 $\implies$ 3:**
 By the spectral theorems ({prf:ref}`thm:15` and {prf:ref}`thm:17`),
