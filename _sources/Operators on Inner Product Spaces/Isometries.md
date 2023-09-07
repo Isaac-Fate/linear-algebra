@@ -26,12 +26,12 @@ Let $V$ be a finite-dimensional inner product space,
 and $Q \in \mathcal{L}(V)$,
 then the following are equivalent:
 - ➀ $Q$ is an isometry.
-- ➁ $\left\langleQ \mathbf{u}, Q \mathbf{v} \right \rangle = \left\langle\mathbf{u}, \mathbf{v} \right \rangle$ for all $\mathbf{u}, \mathbf{v} \in V$.
+- ➁ $ \langle Q \mathbf{u}, Q \mathbf{v} \rangle = \langle \mathbf{u}, \mathbf{v} \rangle $ for all $\mathbf{u}, \mathbf{v} \in V$.
 - ➂ $Q^\ast Q = I$.
 - ➃ $(Q \mathbf{e}_1, \ldots, Q \mathbf{e}_m)$ is orthonormal whenever $(\mathbf{e}_1, \ldots, \mathbf{e}_m)$ is an orthonormal list of vectors in $V$.
 - ➄ There exists an orthonormal basis $(\mathbf{e}_1, \ldots, \mathbf{e}_n)$ of $V$ such that $(Q \mathbf{e}_1, \ldots, Q \mathbf{e}_n)$ is orthonormal.
 - ➅ $Q^\ast$ is an isometry.
-- ➆ $\left\langleQ^\ast \mathbf{u}, Q^\ast \mathbf{v} \right \rangle = \left\langle\mathbf{u}, \mathbf{v} \right \rangle$ for all $\mathbf{u}, \mathbf{v} \in V$.
+- ➆ $ \langle Q^\ast \mathbf{u}, Q^\ast \mathbf{v} \rangle = \langle \mathbf{u}, \mathbf{v} \rangle $ for all $\mathbf{u}, \mathbf{v} \in V$.
 - ➇ $QQ^\ast = I$.
 - ➈ $(Q^\ast \mathbf{e}_1, \ldots, Q^\ast \mathbf{e}_n)$ is orthonormal whenever $(\mathbf{e}_1, \ldots, \mathbf{e}_m)$ is an orthonormal list of vectors in $V$.
 - ➉ There exists an orthonormal basis $(\mathbf{e}_1, \ldots, \mathbf{e}_n)$ of $V$ such that $(Q^\ast \mathbf{e}_1, \ldots, Q^\ast \mathbf{e}_n)$ is orthonormal.
@@ -67,7 +67,7 @@ equations
 
 ```{math}
 :label: eq:74
-\begin{multline}\left\langleQ \mathbf{u}, Q \mathbf{v}\right\rangle
+\begin{multline}\langle Q \mathbf{u}, Q \mathbf{v}\rangle
 = \frac{1}{4}[\left\langleQ(\mathbf{u} + \mathbf{v}),
 Q(\mathbf{u} + \mathbf{v}) \right\rangle
 - \left\langleQ(\mathbf{u} - \mathbf{v}),
@@ -82,7 +82,7 @@ and
 
 ```{math}
 :label: eq:75
-\begin{multline}\left\langle\mathbf{u}, \mathbf{v}\right\rangle
+\begin{multline}\langle\mathbf{u}, \mathbf{v}\rangle
 = \frac{1}{4}[\left\langle(\mathbf{u} + \mathbf{v}),
 (\mathbf{u} + \mathbf{v}) \right\rangle
 - \left\langle(\mathbf{u} - \mathbf{v}),
@@ -94,15 +94,15 @@ and
 ```
 
 hold. Since $Q$ is an isometry,
-we have $\left\langleQ \mathbf{v}, Q \mathbf{v} \right \rangle = \left\langle\mathbf{v}, \mathbf{v} \right \rangle$ for all $\mathbf{v}$ by definition.
+we have $ \langle Q \mathbf{v}, Q \mathbf{v} \rangle = \langle \mathbf{v}, \mathbf{v} \rangle $ for all $\mathbf{v}$ by definition.
 Then, comparing {eq}`eq:74` and {eq}`eq:75`,
 statement 2 is proved.
 
 **2 $\implies$ 3:** In particular, we have
 
 ```{math}
-\begin{align*}\left\langleQ \mathbf{v}, Q \mathbf{v}\right\rangle
-= \left\langle\mathbf{v}, \mathbf{v}\right\rangle\quad\forall\mathbf{v}\in V
+\begin{align*}\langle Q \mathbf{v}, Q \mathbf{v}\rangle
+= \langle\mathbf{v}, \mathbf{v}\rangle\quad\forall\mathbf{v}\in V
 \end{align*}
 ```
 
@@ -110,15 +110,15 @@ Moving $Q$ to the second slot by taking the adjoint,
 we obtain
 
 ```{math}
-\begin{align*}\left\langle\mathbf{v}, Q^\ast Q \mathbf{v}\right\rangle
-= \left\langle\mathbf{v}, \mathbf{v}\right\rangle\quad\forall\mathbf{v}\in V
+\begin{align*}\langle\mathbf{v}, Q^\ast Q \mathbf{v}\rangle
+= \langle\mathbf{v}, \mathbf{v}\rangle\quad\forall\mathbf{v}\in V
 \end{align*}
 ```
 
 It then follows that
 
 ```{math}
-\begin{align*}\left\langle\mathbf{v}, (Q^\ast Q - I) \mathbf{v}\right\rangle
+\begin{align*}\langle\mathbf{v}, (Q^\ast Q - I) \mathbf{v}\rangle
 = 0 \quad\forall\mathbf{v}\in V
 \end{align*}
 ```

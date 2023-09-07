@@ -428,12 +428,12 @@ and <span class="math notranslate nohighlight">\(Q \in \mathcal{L}(V)\)</span>,
 then the following are equivalent:</p>
 <ul class="simple">
 <li><p>➀ <span class="math notranslate nohighlight">\(Q\)</span> is an isometry.</p></li>
-<li><p>➁ <span class="math notranslate nohighlight">\(\left\langleQ \mathbf{u}, Q \mathbf{v} \right \rangle = \left\langle\mathbf{u}, \mathbf{v} \right \rangle\)</span> for all <span class="math notranslate nohighlight">\(\mathbf{u}, \mathbf{v} \in V\)</span>.</p></li>
+<li><p>➁ <span class="math notranslate nohighlight">\( \langle Q \mathbf{u}, Q \mathbf{v} \rangle = \langle \mathbf{u}, \mathbf{v} \rangle \)</span> for all <span class="math notranslate nohighlight">\(\mathbf{u}, \mathbf{v} \in V\)</span>.</p></li>
 <li><p>➂ <span class="math notranslate nohighlight">\(Q^\ast Q = I\)</span>.</p></li>
 <li><p>➃ <span class="math notranslate nohighlight">\((Q \mathbf{e}_1, \ldots, Q \mathbf{e}_m)\)</span> is orthonormal whenever <span class="math notranslate nohighlight">\((\mathbf{e}_1, \ldots, \mathbf{e}_m)\)</span> is an orthonormal list of vectors in <span class="math notranslate nohighlight">\(V\)</span>.</p></li>
 <li><p>➄ There exists an orthonormal basis <span class="math notranslate nohighlight">\((\mathbf{e}_1, \ldots, \mathbf{e}_n)\)</span> of <span class="math notranslate nohighlight">\(V\)</span> such that <span class="math notranslate nohighlight">\((Q \mathbf{e}_1, \ldots, Q \mathbf{e}_n)\)</span> is orthonormal.</p></li>
 <li><p>➅ <span class="math notranslate nohighlight">\(Q^\ast\)</span> is an isometry.</p></li>
-<li><p>➆ <span class="math notranslate nohighlight">\(\left\langleQ^\ast \mathbf{u}, Q^\ast \mathbf{v} \right \rangle = \left\langle\mathbf{u}, \mathbf{v} \right \rangle\)</span> for all <span class="math notranslate nohighlight">\(\mathbf{u}, \mathbf{v} \in V\)</span>.</p></li>
+<li><p>➆ <span class="math notranslate nohighlight">\( \langle Q^\ast \mathbf{u}, Q^\ast \mathbf{v} \rangle = \langle \mathbf{u}, \mathbf{v} \rangle \)</span> for all <span class="math notranslate nohighlight">\(\mathbf{u}, \mathbf{v} \in V\)</span>.</p></li>
 <li><p>➇ <span class="math notranslate nohighlight">\(QQ^\ast = I\)</span>.</p></li>
 <li><p>➈ <span class="math notranslate nohighlight">\((Q^\ast \mathbf{e}_1, \ldots, Q^\ast \mathbf{e}_n)\)</span> is orthonormal whenever <span class="math notranslate nohighlight">\((\mathbf{e}_1, \ldots, \mathbf{e}_m)\)</span> is an orthonormal list of vectors in <span class="math notranslate nohighlight">\(V\)</span>.</p></li>
 <li><p>➉ There exists an orthonormal basis <span class="math notranslate nohighlight">\((\mathbf{e}_1, \ldots, \mathbf{e}_n)\)</span> of <span class="math notranslate nohighlight">\(V\)</span> such that <span class="math notranslate nohighlight">\((Q^\ast \mathbf{e}_1, \ldots, Q^\ast \mathbf{e}_n)\)</span> is orthonormal.</p></li>
@@ -459,7 +459,7 @@ In what follows, we prove</p>
 <p><strong>1 <span class="math notranslate nohighlight">\(\implies\)</span> 2:</strong> Inspired by the proof of <a class="reference internal" href="Self-Adjoint%20and%20Normal%20Operators.html#pro:8">Proposition 7.1</a>, one may verify that
 equations</p>
 <div class="math notranslate nohighlight" id="equation-eq-74">
-<span class="eqno">(7.30)<a class="headerlink" href="#equation-eq-74" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{multline}\left\langleQ \mathbf{u}, Q \mathbf{v}\right\rangle
+<span class="eqno">(7.30)<a class="headerlink" href="#equation-eq-74" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{multline}\langle Q \mathbf{u}, Q \mathbf{v}\rangle
 = \frac{1}{4}[\left\langleQ(\mathbf{u} + \mathbf{v}),
 Q(\mathbf{u} + \mathbf{v}) \right\rangle
 - \left\langleQ(\mathbf{u} - \mathbf{v}),
@@ -470,7 +470,7 @@ Q(\mathbf{u} + i\mathbf{v}) \right\rangle
 Q(\mathbf{u} - i\mathbf{v}) \right\rangle]\end{multline}\end{split}\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight" id="equation-eq-75">
-<span class="eqno">(7.31)<a class="headerlink" href="#equation-eq-75" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{multline}\left\langle\mathbf{u}, \mathbf{v}\right\rangle
+<span class="eqno">(7.31)<a class="headerlink" href="#equation-eq-75" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{multline}\langle\mathbf{u}, \mathbf{v}\rangle
 = \frac{1}{4}[\left\langle(\mathbf{u} + \mathbf{v}),
 (\mathbf{u} + \mathbf{v}) \right\rangle
 - \left\langle(\mathbf{u} - \mathbf{v}),
@@ -480,23 +480,23 @@ Q(\mathbf{u} - i\mathbf{v}) \right\rangle]\end{multline}\end{split}\]</div>
 - \left\langle(\mathbf{u} - i\mathbf{v}),
 (\mathbf{u} - i\mathbf{v}) \right\rangle]\end{multline}\end{split}\]</div>
 <p>hold. Since <span class="math notranslate nohighlight">\(Q\)</span> is an isometry,
-we have <span class="math notranslate nohighlight">\(\left\langleQ \mathbf{v}, Q \mathbf{v} \right \rangle = \left\langle\mathbf{v}, \mathbf{v} \right \rangle\)</span> for all <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> by definition.
+we have <span class="math notranslate nohighlight">\( \langle Q \mathbf{v}, Q \mathbf{v} \rangle = \langle \mathbf{v}, \mathbf{v} \rangle \)</span> for all <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> by definition.
 Then, comparing <a class="reference internal" href="#equation-eq-74">(7.30)</a> and <a class="reference internal" href="#equation-eq-75">(7.31)</a>,
 statement 2 is proved.</p>
 <p><strong>2 <span class="math notranslate nohighlight">\(\implies\)</span> 3:</strong> In particular, we have</p>
 <div class="math notranslate nohighlight">
-\[\begin{align*}\left\langleQ \mathbf{v}, Q \mathbf{v}\right\rangle
-= \left\langle\mathbf{v}, \mathbf{v}\right\rangle\quad\forall\mathbf{v}\in V
+\[\begin{align*}\langle Q \mathbf{v}, Q \mathbf{v}\rangle
+= \langle\mathbf{v}, \mathbf{v}\rangle\quad\forall\mathbf{v}\in V
 \end{align*}\]</div>
 <p>Moving <span class="math notranslate nohighlight">\(Q\)</span> to the second slot by taking the adjoint,
 we obtain</p>
 <div class="math notranslate nohighlight">
-\[\begin{align*}\left\langle\mathbf{v}, Q^\ast Q \mathbf{v}\right\rangle
-= \left\langle\mathbf{v}, \mathbf{v}\right\rangle\quad\forall\mathbf{v}\in V
+\[\begin{align*}\langle\mathbf{v}, Q^\ast Q \mathbf{v}\rangle
+= \langle\mathbf{v}, \mathbf{v}\rangle\quad\forall\mathbf{v}\in V
 \end{align*}\]</div>
 <p>It then follows that</p>
 <div class="math notranslate nohighlight">
-\[\begin{align*}\left\langle\mathbf{v}, (Q^\ast Q - I) \mathbf{v}\right\rangle
+\[\begin{align*}\langle\mathbf{v}, (Q^\ast Q - I) \mathbf{v}\rangle
 = 0 \quad\forall\mathbf{v}\in V
 \end{align*}\]</div>
 <p>Therefore, <span class="math notranslate nohighlight">\(Q^\ast Q - I = 0\)</span> by <a class="reference internal" href="Self-Adjoint%20and%20Normal%20Operators.html#pro:9">Proposition 7.2</a>
