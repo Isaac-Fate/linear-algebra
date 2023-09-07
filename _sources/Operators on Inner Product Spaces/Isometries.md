@@ -68,14 +68,14 @@ equations
 ```{math}
 :label: eq:74
 \begin{multline}\langle Q \mathbf{u}, Q \mathbf{v}\rangle
-= \frac{1}{4}[\left\langleQ(\mathbf{u} + \mathbf{v}),
-Q(\mathbf{u} + \mathbf{v}) \right\rangle
-- \left\langleQ(\mathbf{u} - \mathbf{v}),
-Q(\mathbf{u} - \mathbf{v}) \right\rangle]\\
-- \frac{i}{4}[\left\langleQ(\mathbf{u} + i\mathbf{v}),
-Q(\mathbf{u} + i\mathbf{v}) \right\rangle
-- \left\langleQ(\mathbf{u} - i\mathbf{v}),
-Q(\mathbf{u} - i\mathbf{v}) \right\rangle]\end{multline}
+= \frac{1}{4}[\langle Q(\mathbf{u} + \mathbf{v}),
+Q(\mathbf{u} + \mathbf{v}) \rangle
+- \langle Q(\mathbf{u} - \mathbf{v}),
+Q(\mathbf{u} - \mathbf{v}) \rangle]\\
+- \frac{i}{4}[\langle Q(\mathbf{u} + i\mathbf{v}),
+Q(\mathbf{u} + i\mathbf{v}) \rangle
+- \langle Q(\mathbf{u} - i\mathbf{v}),
+Q(\mathbf{u} - i\mathbf{v}) \rangle]\end{multline}
 ```
 
 and
