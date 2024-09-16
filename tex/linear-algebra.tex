@@ -48,9 +48,10 @@ This book mainly follows the structure of \cite{axlerLinearAlgebraDone1997}.
 \section{Vector Spaces}
 
 Through this book, we use the symbol $\F$ (F for field) to denote $\R$ or $\C$.
-Like many mathematical definitions,
-the abstraction of \textbf{vector spaces}\index{vector space}
-comes from the nice properties possessed by the concrete mathematical object $\F^n$.
+Many mathematical definitions arises from simple concrete objects
+with certain properties.
+The abstraction of \textbf{vector spaces}\index{vector space}
+comes from the nice properties possessed by $\F^n$.
 
 \begin{definition} \label{def:1}
 	Let $V$ be a set.
@@ -89,8 +90,6 @@ As noted, we need to prove that such element $\mathbf{0}$ is unique.
 	Then $\mathbf{0} = \mathbf{0}^\prime$.
 \end{proposition}
 
-
-
 \begin{proof}
 	Regarding $\mathbf{0}$ as \textit{an} additive identity, by property 3,
 	we have
@@ -110,7 +109,77 @@ As noted, we need to prove that such element $\mathbf{0}$ is unique.
 \end{proof}
 
 Now, we can safely say $\mathbf{0}$ is \textit{the} additive identity.
-Moreover, the element $\mathbf{w}$ in property 4 is also unique
+We also say $\mathbf{0}$ is the zero vector.
+
+The next proposition is known as
+the \textbf{cancellation property}\index{cancellation property}.
+
+\begin{proposition}[Cancellation Property]
+	Let $V$ be an Abelian group.
+	Suppose $\mathbf{u}, \mathbf{v}, \mathbf{w} \in V$, we have
+	\begin{align*}
+		\mathbf{u} + \mathbf{w} = \mathbf{v} + \mathbf{w}
+		\implies \mathbf{u} = \mathbf{v}
+	\end{align*}
+\end{proposition}
+
+\begin{proof}
+	By property 4 in Definition~\ref{def:1}, there exists $\mathbf{w}^\prime$
+	such that $\mathbf{w} + \mathbf{w}^\prime = \mathbf{0}$.
+	It then follows that
+	\begin{alignat*}{2}
+		 & \quad    &  & \mathbf{u} + \mathbf{w} = \mathbf{v} + \mathbf{w} \\
+		 & \implies &  & \mathbf{u} + (\mathbf{w}+ \mathbf{w}^\prime)
+		= \mathbf{v} + (\mathbf{w} + \mathbf{w}^\prime)                    \\
+		 & \implies &  & \mathbf{u} + \mathbf{0}
+		= \mathbf{v} + \mathbf{0}                                          \\
+		 & \implies &  & \mathbf{u} = \mathbf{v}
+	\end{alignat*}
+\end{proof}
+
+The number zero $0$ times any vector is the zero vector $\mathbf{0}$.
+
+\begin{proposition} \label{prop:1}
+	Let $V$ be a vector space. Then for any $\mathbf{v} \in V$,
+	we have $0 \cdot \mathbf{v} = \mathbf{0}$.
+\end{proposition}
+
+
+The proof is simple.
+But we do not skip any intermediate steps to demonstrate
+how each property is applied.
+
+\begin{proof}
+	Let $\mathbf{v} \in V$ be arbitrary. We have
+	\begin{align*}
+		\mathbf{v} + 0 \cdot \mathbf{v}
+		= 1 \cdot \mathbf{v} + 0 \cdot \mathbf{v}
+		= (1 + 0) \cdot \mathbf{v}
+		= 1 \cdot \mathbf{v}
+		= \mathbf{v}
+		= \mathbf{v} + \mathbf{0}
+	\end{align*}
+	Then applying the cancellation property yields $0 \cdot \mathbf{v} = \mathbf{0}$.
+\end{proof}
+
+
+Any scalar in $\F$ times the zero vector $\mathbf{0}$
+is the zero vector itself.
+
+\begin{proposition}
+	Let $V$ be a vector space. For any $a \in \F$,
+	we have $a \mathbf{0} = \mathbf{0}$.
+\end{proposition}
+
+\begin{proof}
+	We have
+	\begin{align*}
+		a\mathbf{0} + \mathbf{0} = a \mathbf{0} = a (\mathbf{0} + \mathbf{0}) = a \mathbf{0} + a \mathbf{0}
+	\end{align*}
+	Then by the cancellation property, we conclude that $a\mathbf{0} = \mathbf{0}$.
+\end{proof}
+
+The element $\mathbf{w}$ in property 4 is also unique
 as we shall prove in the following proposition.
 
 \begin{proposition}
@@ -133,6 +202,7 @@ as we shall prove in the following proposition.
 		 & \implies &  & \mathbf{0} + \mathbf{w} = \mathbf{w}^\prime                       \\
 		 & \implies &  & \mathbf{w} = \mathbf{w}^\prime
 	\end{alignat*}
+	where the last equality follows from Proposition~\ref{prop:1}.
 \end{proof}
 
 Therefore, for each $\mathbf{v}$, the choice of its
@@ -140,6 +210,30 @@ additive inverse $\mathbf{w}$ is unique.
 We may then say that such $\mathbf{w}$ is \textit{the} additive inverse of $\mathbf{v}$.
 And to make the notation more intuitive, we shall denote
 the additive inverse of $\mathbf{v}$ by $-\mathbf{v}$.
+
+The additive inverse $-\mathbf{v}$ of $\mathbf{v}$ can be computed by
+the scalar multiplication $-1 \cdot \mathbf{v}$.
+
+\begin{proposition}
+	Let $V$ be a vector space and $\mathbf{v} \in V$.
+	We have $-\mathbf{v} = -1 \cdot \mathbf{v}$.
+\end{proposition}
+
+\begin{proof}
+	We have
+	\begin{align*}
+		\mathbf{v} + (-1 \cdot \mathbf{v}) = 1 \cdot \mathbf{v} + (-1) \cdot \mathbf{v}
+		= (1 + (-1)) \mathbf{v}
+		= 0 \cdot \mathbf{v}
+		= \mathbf{0}
+	\end{align*}
+	This shows $-1 \cdot \mathbf{v}$ is indeed the additive inverse of $\mathbf{v}$.
+\end{proof}
+
+The subtraction operator $-: V \times V \to V$ is defined
+as $\mathbf{u} - \mathbf{v} := \mathbf{u} + (-\mathbf{v})$.
+
+
 
 %==============================
 
