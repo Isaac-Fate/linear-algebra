@@ -234,5 +234,3 @@ This shows $-1 \cdot \mathbf{v}$ is indeed the additive inverse of $\mathbf{v}$.
 
 The subtraction operator $-: V \times V \to V$ is defined
 as $\mathbf{u} - \mathbf{v} := \mathbf{u} + (-\mathbf{v})$.
-
-

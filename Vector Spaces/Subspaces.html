@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1.1. Vector Spaces &#8212; Linear Algebra</title>
+    <title>1.2. Subspaces &#8212; Linear Algebra</title>
   
   
   
@@ -61,12 +61,12 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"C": "\\mathbb{C}", "CALA": "\\mathcal{A}", "CALB": "\\mathcal{B}", "CALC": "\\mathcal{C}", "CALD": "\\mathcal{D}", "CALE": "\\mathcal{E}", "CALF": "\\mathcal{F}", "CALG": "\\mathcal{G}", "CALH": "\\mathcal{H}", "CALI": "\\mathcal{I}", "CALJ": "\\mathcal{J}", "CALK": "\\mathcal{K}", "CALL": "\\mathcal{L}", "CALM": "\\mathcal{M}", "CALN": "\\mathcal{N}", "CALO": "\\mathcal{O}", "CALP": "\\mathcal{P}", "CALQ": "\\mathcal{Q}", "CALR": "\\mathcal{R}", "CALS": "\\mathcal{S}", "CALT": "\\mathcal{T}", "CALU": "\\mathcal{U}", "CALV": "\\mathcal{V}", "CALW": "\\mathcal{W}", "CALX": "\\mathcal{X}", "CALY": "\\mathcal{Y}", "CALZ": "\\mathcal{Z}", "F": "\\mathbb{F}", "N": "\\mathbb{N}", "Ns": "\\mathbb{N^\\ast}", "Q": "\\mathbb{Q}", "R": "\\mathbb{R}", "RE": ["\\mathrm{Re}"], "SCRI": "\\mathsrc{I}", "SRCA": "\\mathsrc{A}", "SRCB": "\\mathsrc{B}", "SRCC": "\\mathsrc{C}", "SRCD": "\\mathsrc{D}", "SRCE": "\\mathsrc{E}", "SRCF": "\\mathsrc{F}", "SRCG": "\\mathsrc{G}", "SRCH": "\\mathsrc{H}", "SRCJ": "\\mathsrc{J}", "SRCK": "\\mathsrc{K}", "SRCL": "\\mathsrc{L}", "SRCM": "\\mathsrc{M}", "SRCN": "\\mathsrc{N}", "SRCO": "\\mathsrc{O}", "SRCP": "\\mathsrc{P}", "SRCQ": "\\mathsrc{Q}", "SRCR": "\\mathsrc{R}", "SRCS": "\\mathsrc{S}", "SRCT": "\\mathsrc{T}", "SRCU": "\\mathsrc{U}", "SRCV": "\\mathsrc{V}", "SRCW": "\\mathsrc{W}", "SRCX": "\\mathsrc{X}", "SRCY": "\\mathsrc{Y}", "SRCZ": "\\mathsrc{Z}", "Span": ["\\mathop{\\mathrm{span}}"], "Z": "\\mathbb{Z}", "abs": ["\\left\\lvert #1 \\right\\rvert", 1], "argmax": ["\\mathop{\\mathrm{arg \\, max}}"], "argmin": ["\\mathop{\\mathrm{arg \\, min}}"], "bmat": ["\\left[\\begin{array}"], "brk": ["\\left( #1 \\right)", 1], "col": ["\\mathop{\\mathrm{col}}"], "d": ["\\mathrm{d}"], "dif": "\\, \\mathrm{d}", "emat": ["\\end{array}\\right]"], "floor": ["\\lfloor#1\\rfloor", 1], "im": ["\\mathop{\\mathrm{im}}"], "ind": ["\\mathbb{1}"], "ker": ["\\mathop{\\mathrm{ker}}"], "lowint": ["\\underline{\\int}"], "norm": ["\\left\\lVert #1 \\right\\rVert", 1], "odv": ["\\frac{\\mathrm{d} #1s}{\\mathrm{d} #2}", 2], "odvs": ["\\frac{\\mathrm{d}}{\\mathrm{d} #2} #1", 2], "proj": ["\\mathop{\\mathrm{proj}}"], "restr": ["{#1}|_{#2}", 2], "row": ["\\mathop{\\mathrm{row}}"], "set": ["\\left\\{ #1 \\; \\middle| \\; #2 \\right\\}", 2], "upint": ["\\overline{\\int}"], "v": ["\\mathbf{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Vector Spaces/Vector Spaces';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Vector Spaces/Subspaces';</script>
     <link rel="icon" href="../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.2. Subspaces" href="Subspaces.html" />
-    <link rel="prev" title="1. Vector Spaces" href="index.html" />
+    <link rel="next" title="1.3. Sums and Direct Sums" href="Sums%20and%20Direct%20Sums.html" />
+    <link rel="prev" title="1.1. Vector Spaces" href="Vector%20Spaces.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -189,8 +189,8 @@
 </ul>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">1. Vector Spaces</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.1. Vector Spaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Subspaces.html">1.2. Subspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Vector%20Spaces.html">1.1. Vector Spaces</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.2. Subspaces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Sums%20and%20Direct%20Sums.html">1.3. Sums and Direct Sums</a></li>
 </ul>
 </details></li>
@@ -253,7 +253,7 @@
       
       
       
-      <li><a href="../_sources/Vector Spaces/Vector Spaces.md" target="_blank"
+      <li><a href="../_sources/Vector Spaces/Subspaces.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -335,7 +335,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Vector Spaces</h1>
+    <h1>Subspaces</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -349,164 +349,51 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="vector-spaces">
-<h1><span class="section-number">1.1. </span>Vector Spaces<a class="headerlink" href="#vector-spaces" title="Link to this heading">#</a></h1>
-<p id="index-0">Through this book, we use the symbol <span class="math notranslate nohighlight">\(\F\)</span>(F for field) to denote <span class="math notranslate nohighlight">\(\R\)</span> or <span class="math notranslate nohighlight">\(\C\)</span>.
-Many mathematical definitions arises from simple concrete objects
-with certain properties.
-The abstraction of  <strong>vector spaces</strong>
-comes from the nice properties possessed by <span class="math notranslate nohighlight">\(\F^n\)</span>.</p>
-<div class="proof definition admonition" id="def:1">
-<p class="admonition-title"><span class="caption-number">Definition 1.1 </span></p>
-<section class="definition-content" id="proof-content">
-<p>Let <span class="math notranslate nohighlight">\(V\)</span> be a set.
-We say <span class="math notranslate nohighlight">\(V\)</span> is a vector space over field <span class="math notranslate nohighlight">\(F\)</span>(or we simply say <span class="math notranslate nohighlight">\(V\)</span> is a vector space if <span class="math notranslate nohighlight">\(\F\)</span> is clear from the context)
-if
-the following properties hold:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="subspaces">
+<h1><span class="section-number">1.2. </span>Subspaces<a class="headerlink" href="#subspaces" title="Link to this heading">#</a></h1>
+<p id="index-0">Let <span class="math notranslate nohighlight">\(U\)</span> be a subset of the vector space <span class="math notranslate nohighlight">\(V\)</span>.
+We say that <span class="math notranslate nohighlight">\(U\)</span> is a  <strong>vector subspace</strong>  of <span class="math notranslate nohighlight">\(V\)</span>(or simply subspace of <span class="math notranslate nohighlight">\(V\)</span>)
+if <span class="math notranslate nohighlight">\(U\)</span> is also a vector space with the same addition and scalar multiplication
+defined on <span class="math notranslate nohighlight">\(V\)</span>.</p>
+<p>To check whether a given subset <span class="math notranslate nohighlight">\(U \subseteq V\)</span>,
+we may simply check that if <span class="math notranslate nohighlight">\(U\)</span> contains the zero vector
+and if it is closed under
+the addition and scalar multiplication.</p>
+<div class="proof proposition admonition" id="proposition-0">
+<p class="admonition-title"><span class="caption-number">Proposition 1.7 </span></p>
+<section class="proposition-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(U\)</span> be a subset of <span class="math notranslate nohighlight">\(V\)</span>.
+Then <span class="math notranslate nohighlight">\(U\)</span> is a vector subspace of <span class="math notranslate nohighlight">\(V\)</span> if and only if</p>
 <ol class="arabic simple">
-<li><p><strong>Commutativity</strong> <span class="math notranslate nohighlight">\(\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}\)</span>
-for all <span class="math notranslate nohighlight">\(\mathbf{u}, \mathbf{v} \in V \)</span>.</p></li>
-<li><p><strong>Associativity</strong> <span class="math notranslate nohighlight">\((\mathbf{u}+\mathbf{v})+\mathbf{w} = \mathbf{u}+(\mathbf{v}+\mathbf{w})\)</span> for all <span class="math notranslate nohighlight">\(\mathbf{u}, \mathbf{v}, \mathbf{w} \in V\)</span>.</p></li>
-<li><p><strong>Additive Identity</strong>  There exists an element <span class="math notranslate nohighlight">\(\mathbf{0} \in V\)</span>
-such that <span class="math notranslate nohighlight">\(\mathbf{v} + \mathbf{0} = \mathbf{v}\)</span> for all <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span>.
-(We only assume the existence of element <span class="math notranslate nohighlight">\(\mathbf{0}\)</span>,
-nothing is said about its uniqueness.
-Although it is indeed unique, we still need to prove this.)</p></li>
-<li><p><strong>Additive Inverse</strong>  For every <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span>,
-there exists an element <span class="math notranslate nohighlight">\(\mathbf{w} \in V\)</span> such that <span class="math notranslate nohighlight">\(\mathbf{v} + \mathbf{w} = \mathbf{0}\)</span> where <span class="math notranslate nohighlight">\(\mathbf{0}\)</span> is the same as the one given above.</p></li>
-<li><p><strong>Multiplicative Identity</strong> <span class="math notranslate nohighlight">\(1 \mathbf{v} = \mathbf{v}\)</span> for all <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span> where <span class="math notranslate nohighlight">\(1\)</span> is simply the real number <span class="math notranslate nohighlight">\(1\)</span>.</p></li>
-<li><p><strong>Distributive Property of Scalar Multiplication over Vector Addition</strong> <span class="math notranslate nohighlight">\(a(\mathbf{u} + \mathbf{v}) = a\mathbf{u} + a\mathbf{v}\)</span>
-for all <span class="math notranslate nohighlight">\(a \in \F\)</span> and all <span class="math notranslate nohighlight">\(\mathbf{u}, \mathbf{v} \in V\)</span>.</p></li>
-<li><p><strong>Distributive Property of Scaler Multiplication over Scalar Addition</strong> <span class="math notranslate nohighlight">\((a+b) \mathbf{v} = a\mathbf{v} + b\mathbf{v}\)</span> for all <span class="math notranslate nohighlight">\(a, b \in F\)</span> and all <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{0} \in U\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{u} + \mathbf{v} \in U\)</span> for all <span class="math notranslate nohighlight">\(\mathbf{u}, \mathbf{v} \in U\)</span>, and</p></li>
+<li><p><span class="math notranslate nohighlight">\(a \mathbf{u} \in U\)</span> for all <span class="math notranslate nohighlight">\(a \in \F\)</span> and <span class="math notranslate nohighlight">\(\mathbf{u} \in U\)</span>.</p></li>
 </ol>
 </section>
-</div><div class="admonition note" id="index-1">
-<p class="admonition-title">Note</p>
-<p>In fact, if a set satisfies property 1 - 4, we say that it is
-an  <strong>Abelian group</strong></p>
-</div>
-<p>As noted, we need to prove that such element <span class="math notranslate nohighlight">\(\mathbf{0}\)</span> is unique.</p>
-<div class="proof proposition admonition" id="proposition-1">
-<p class="admonition-title"><span class="caption-number">Proposition 1.1 </span></p>
-<section class="proposition-content" id="proof-content">
-<p>Let <span class="math notranslate nohighlight">\(V\)</span> be an Abelian group. Suppose both elements <span class="math notranslate nohighlight">\(\mathbf{0}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{0}^\prime\)</span>
-satisfy properties 3 in <a class="reference internal" href="#def:1">Definition 1.1</a>.
-Then <span class="math notranslate nohighlight">\(\mathbf{0} = \mathbf{0}^\prime\)</span>.</p>
+</div><p>By simple observations,
+one may notice that the additive identity in the subspace <span class="math notranslate nohighlight">\(U\)</span>
+is exactly the one in the superspace <span class="math notranslate nohighlight">\(V\)</span>
+and <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> is the additive inverse of <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> in <span class="math notranslate nohighlight">\(U\)</span> if and only if
+it is also the additive inverse of <span class="math notranslate nohighlight">\(u\)</span> in <span class="math notranslate nohighlight">\(V\)</span>.</p>
+<div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Example 1.1 </span></p>
+<section class="example-content" id="proof-content">
+<p><span class="math notranslate nohighlight">\(\{\mathbf{0}\}\)</span> and <span class="math notranslate nohighlight">\(V\)</span> are subspaces of <span class="math notranslate nohighlight">\(V\)</span>,
+which are the simplest examples of vector spaces.</p>
 </section>
-</div><div class="proof admonition" id="proof">
-<p>Proof. Regarding <span class="math notranslate nohighlight">\(\mathbf{0}\)</span> as  <em>an</em>  additive identity, by property 3,
-we have</p>
-<div class="math notranslate nohighlight" id="equation-eq-1">
-<span class="eqno">(1.1)<a class="headerlink" href="#equation-eq-1" title="Link to this equation">#</a></span>\[\mathbf{0}^\prime + \mathbf{0} = \mathbf{0}^\prime\]</div>
-<p>On the other hand, regarding <span class="math notranslate nohighlight">\(\mathbf{0}^\prime\)</span> as  <em>an</em>  additive identity,
-we also have</p>
-<div class="math notranslate nohighlight" id="equation-eq-2">
-<span class="eqno">(1.2)<a class="headerlink" href="#equation-eq-2" title="Link to this equation">#</a></span>\[\mathbf{0} + \mathbf{0}^\prime = \mathbf{0}\]</div>
-<p>Because the vector addition is commutative (property 1),
-the left-hand sides of <a class="reference internal" href="#equation-eq-1">(1.1)</a> and <a class="reference internal" href="#equation-eq-2">(1.2)</a> are equal
-and hence <span class="math notranslate nohighlight">\(\mathbf{0} = \mathbf{0}^\prime\)</span>.</p>
-</div>
-<p>Now, we can safely say <span class="math notranslate nohighlight">\(\mathbf{0}\)</span> is  <em>the</em>  additive identity.
-We also say <span class="math notranslate nohighlight">\(\mathbf{0}\)</span> is the zero vector.</p>
-<p id="index-2">The next proposition is known as
-the  <strong>cancellation property</strong> .</p>
-<div class="proof proposition admonition" id="proposition-2">
-<p class="admonition-title"><span class="caption-number">Proposition 1.2 </span> (Cancellation Property)</p>
-<section class="proposition-content" id="proof-content">
-<p>Let <span class="math notranslate nohighlight">\(V\)</span> be an Abelian group.
-Suppose <span class="math notranslate nohighlight">\(\mathbf{u}, \mathbf{v}, \mathbf{w} \in V\)</span>, we have</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{u} + \mathbf{w} = \mathbf{v} + \mathbf{w}\implies\mathbf{u} = \mathbf{v}\]</div>
+</div><div class="proof example admonition" id="example-2">
+<p class="admonition-title"><span class="caption-number">Example 1.2 </span></p>
+<section class="example-content" id="proof-content">
+<p><span class="math notranslate nohighlight">\(\{(x, 0, 0) \mid x \in \F\}\)</span> and <span class="math notranslate nohighlight">\(\{(x, y, 0) \mid x, y \in \F\}\)</span>
+are subspaces of <span class="math notranslate nohighlight">\(\F^3\)</span>.
+Specially, when <span class="math notranslate nohighlight">\(\F = \R\)</span>, this means that
+the 1D <span class="math notranslate nohighlight">\(x\)</span>-axis line and the
+2D <span class="math notranslate nohighlight">\(x\)</span>-<span class="math notranslate nohighlight">\(y\)</span> plane are subspaces of
+the 3D space.</p>
+<p>In fact, all 1D lines and 2D planes that pass through the origin
+are subspaces of the 3D space.</p>
 </section>
-</div><div class="proof admonition" id="proof">
-<p>Proof. By property 4 in <a class="reference internal" href="#def:1">Definition 1.1</a>, there exists <span class="math notranslate nohighlight">\(\mathbf{w}^\prime\)</span>
-such that <span class="math notranslate nohighlight">\(\mathbf{w} + \mathbf{w}^\prime = \mathbf{0}\)</span>.
-It then follows that</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}&amp; \quad&amp; &amp; \mathbf{u} + \mathbf{w} = \mathbf{v} + \mathbf{w}\\&amp; \implies&amp; &amp; \mathbf{u} + (\mathbf{w}+ \mathbf{w}^\prime)
-= \mathbf{v} + (\mathbf{w} + \mathbf{w}^\prime) \\&amp; \implies&amp; &amp; \mathbf{u} + \mathbf{0}
-= \mathbf{v} + \mathbf{0}\\&amp; \implies&amp; &amp; \mathbf{u} = \mathbf{v}\end{split}\]</div>
-</div>
-<p>The number zero <span class="math notranslate nohighlight">\(0\)</span> times any vector is the zero vector <span class="math notranslate nohighlight">\(\mathbf{0}\)</span>.</p>
-<div class="proof proposition admonition" id="prop:1">
-<p class="admonition-title"><span class="caption-number">Proposition 1.3 </span></p>
-<section class="proposition-content" id="proof-content">
-<p>Let <span class="math notranslate nohighlight">\(V\)</span> be a vector space. Then for any <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span>,
-we have <span class="math notranslate nohighlight">\(0 \cdot \mathbf{v} = \mathbf{0}\)</span>.</p>
-</section>
-</div><p>The proof is simple.
-But we do not skip any intermediate steps to demonstrate
-how each property is applied.</p>
-<div class="proof admonition" id="proof">
-<p>Proof. Let <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span> be arbitrary. We have</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{v} + 0 \cdot\mathbf{v}
-= 1 \cdot\mathbf{v} + 0 \cdot\mathbf{v}
-= (1 + 0) \cdot\mathbf{v}
-= 1 \cdot\mathbf{v}
-= \mathbf{v}
-= \mathbf{v} + \mathbf{0}\]</div>
-<p>Then applying the cancellation property yields <span class="math notranslate nohighlight">\(0 \cdot \mathbf{v} = \mathbf{0}\)</span>.</p>
-</div>
-<p>Any scalar in <span class="math notranslate nohighlight">\(\F\)</span> times the zero vector <span class="math notranslate nohighlight">\(\mathbf{0}\)</span>
-is the zero vector itself.</p>
-<div class="proof proposition admonition" id="proposition-4">
-<p class="admonition-title"><span class="caption-number">Proposition 1.4 </span></p>
-<section class="proposition-content" id="proof-content">
-<p>Let <span class="math notranslate nohighlight">\(V\)</span> be a vector space. For any <span class="math notranslate nohighlight">\(a \in \F\)</span>,
-we have <span class="math notranslate nohighlight">\(a \mathbf{0} = \mathbf{0}\)</span>.</p>
-</section>
-</div><div class="proof admonition" id="proof">
-<p>Proof. We have</p>
-<div class="math notranslate nohighlight">
-\[a\mathbf{0} + \mathbf{0} = a \mathbf{0} = a (\mathbf{0} + \mathbf{0}) = a \mathbf{0} + a \mathbf{0}\]</div>
-<p>Then by the cancellation property, we conclude that <span class="math notranslate nohighlight">\(a\mathbf{0} = \mathbf{0}\)</span>.</p>
-</div>
-<p>The element <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> in property 4 is also unique
-as we shall prove in the following proposition.</p>
-<div class="proof proposition admonition" id="proposition-5">
-<p class="admonition-title"><span class="caption-number">Proposition 1.5 </span></p>
-<section class="proposition-content" id="proof-content">
-<p>Let <span class="math notranslate nohighlight">\(V\)</span> be an Abelian group.
-Pick an element <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span>.
-Suppose both elements <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{w}^\prime\)</span>
-satisfy properties 4 in <a class="reference internal" href="#def:1">Definition 1.1</a>.
-Then <span class="math notranslate nohighlight">\(\mathbf{w} = \mathbf{w}^\prime\)</span>.</p>
-</section>
-</div><div class="proof admonition" id="proof">
-<p>Proof. We have</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{w}^\prime + \mathbf{0} = \mathbf{w}^\prime\]</div>
-<p>Replacing <span class="math notranslate nohighlight">\(\mathbf{0}\)</span> with <span class="math notranslate nohighlight">\(\mathbf{v} + \mathbf{w}\)</span> yields</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}&amp; &amp; &amp; \mathbf{w}^\prime + (\mathbf{v} + \mathbf{w}) = \mathbf{w}\\&amp; \implies&amp; &amp; (\mathbf{w}^\prime + \mathbf{v}) + \mathbf{w} = \mathbf{w}^\prime\\&amp; \implies&amp; &amp; \mathbf{0} + \mathbf{w} = \mathbf{w}^\prime\\&amp; \implies&amp; &amp; \mathbf{w} = \mathbf{w}^\prime\end{split}\]</div>
-<p>where the last equality follows from <a class="reference internal" href="#prop:1">Proposition 1.3</a>.</p>
-</div>
-<p>Therefore, for each <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>, the choice of its
-additive inverse <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> is unique.
-We may then say that such <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> is  <em>the</em>  additive inverse of <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>.
-And to make the notation more intuitive, we shall denote
-the additive inverse of <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> by <span class="math notranslate nohighlight">\(-\mathbf{v}\)</span>.</p>
-<p>The additive inverse <span class="math notranslate nohighlight">\(-\mathbf{v}\)</span> of <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> can be computed by
-the scalar multiplication <span class="math notranslate nohighlight">\(-1 \cdot \mathbf{v}\)</span>.</p>
-<div class="proof proposition admonition" id="proposition-6">
-<p class="admonition-title"><span class="caption-number">Proposition 1.6 </span></p>
-<section class="proposition-content" id="proof-content">
-<p>Let <span class="math notranslate nohighlight">\(V\)</span> be a vector space and <span class="math notranslate nohighlight">\(\mathbf{v} \in V\)</span>.
-We have <span class="math notranslate nohighlight">\(-\mathbf{v} = -1 \cdot \mathbf{v}\)</span>.</p>
-</section>
-</div><div class="proof admonition" id="proof">
-<p>Proof. We have</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{v} + (-1 \cdot\mathbf{v}) = 1 \cdot\mathbf{v} + (-1) \cdot\mathbf{v}
-= (1 + (-1)) \mathbf{v}
-= 0 \cdot\mathbf{v}
-= \mathbf{0}\]</div>
-<p>This shows <span class="math notranslate nohighlight">\(-1 \cdot \mathbf{v}\)</span> is indeed the additive inverse of <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>.</p>
-</div>
-<p>The subtraction operator <span class="math notranslate nohighlight">\(-: V \times V \to V\)</span> is defined
-as <span class="math notranslate nohighlight">\(\mathbf{u} - \mathbf{v} := \mathbf{u} + (-\mathbf{v})\)</span>.</p>
-</section>
+</div></section>
 
     <script type="text/x-thebe-config">
     {
@@ -539,20 +426,20 @@ as <span class="math notranslate nohighlight">\(\mathbf{u} - \mathbf{v} := \math
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="index.html"
+       href="Vector%20Spaces.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Vector Spaces</p>
+        <p class="prev-next-title"><span class="section-number">1.1. </span>Vector Spaces</p>
       </div>
     </a>
     <a class="right-next"
-       href="Subspaces.html"
+       href="Sums%20and%20Direct%20Sums.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.2. </span>Subspaces</p>
+        <p class="prev-next-title"><span class="section-number">1.3. </span>Sums and Direct Sums</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
